@@ -22,6 +22,30 @@
       "revId": "e4d43d17bf8999043333ef4d8b44800e9daff833",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b4fb42d_f1153b7d",
+        "filename": "README.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-10-01T14:21:44Z",
+      "side": 1,
+      "message": "Yes, technically, there is still a version 4, for the whole \"RobinHood project\".\nBy that I mean the \"robinhood\" package will bear the version 4.x.y once released.\n\nThe library itself will be version 0.0.0, because there were no library before, and so there is no conflict but that\u0027s a different version number.\n\nGood point though.",
+      "parentUuid": "fbca6ce8_d09320ed",
+      "range": {
+        "startLine": 11,
+        "startChar": 60,
+        "endLine": 11,
+        "endChar": 77
+      },
+      "revId": "e4d43d17bf8999043333ef4d8b44800e9daff833",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
