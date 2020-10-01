@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fbca6ce8_d09320ed",
+        "filename": "README.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2020-10-01T14:12:04Z",
+      "side": 1,
+      "message": "Since there is no version 4 anymore (as this is the version 0 of the librobinhood), is it still accurate?",
+      "range": {
+        "startLine": 11,
+        "startChar": 60,
+        "endLine": 11,
+        "endChar": 77
+      },
+      "revId": "e4d43d17bf8999043333ef4d8b44800e9daff833",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
