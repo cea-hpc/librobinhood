@@ -167,6 +167,47 @@ START_TEST(rit_basic)
 }
 END_TEST
 
+
+/*----------------------------------------------------------------------------*
+ |                              rbh_iter_chain()                              |
+ *----------------------------------------------------------------------------*/
+
+/*
+ *       /      This test builds the chain iterator represented in the
+ *       |      alongside scheme. The iter_next function on the root should
+ *    -------   consume iterators following the given order, from 0 to 4.
+ *    2     4
+ *    |     |
+ *  -----   |
+ *  |   |   |
+ *  0   1   3
+ */
+START_TEST(rih_basic)
+{
+    size_t TEST_CHAIN_SIZE = 5;
+    struct rbh_tree_iterator *tests[TEST_CHAIN_SIZE];
+    struct rbh_tree_iterator *root;
+
+    for (size_t i = 0; i < TEST_CHAIN_SIZE; ++i)
+        tests[i] = rbh_iter_chain(NULL, NULL);
+
+    tests[3] = rbh_iter_chain(NULL, NULL);
+    tests[1] = rbh_iter_chain(NULL, NULL);
+    tests[0] = rbh_iter_chain(tests[1], NULL);
+
+    tests[4] = rbh_iter_chain(NULL, tests[3]);
+    tests[2] = rbh_iter_chain(tests[4], tests[0]);
+
+    root = rbh_iter_chain(NULL, tests[2]);
+
+    for (size_t i = 0; i < TEST_CHAIN_SIZE; ++i)
+        ck_assert_ptr_eq(rbh_tree_iter_next(root), tests[i]);
+    ck_assert_ptr_eq(rbh_tree_iter_next(root), root);
+
+    rbh_tree_iter_destroy(root);
+}
+END_TEST
+
 static Suite *
 unit_suite(void)
 {
@@ -187,6 +228,11 @@ unit_suite(void)
 
     tests = tcase_create("rbh_iter_tee()");
     tcase_add_test(tests, rit_basic);
+
+    suite_add_tcase(suite, tests);
+
+    tests = tcase_create("rbh_chain_iter()");
+    tcase_add_test(tests, rih_basic);
 
     suite_add_tcase(suite, tests);
 

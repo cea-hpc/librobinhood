@@ -409,3 +409,157 @@ rbh_mut_iter_tee(struct rbh_mut_iterator *iterator,
     return rbh_iter_tee((struct rbh_iterator *)iterator,
                         (struct rbh_iterator **)iterators);
 }
+
+/*----------------------------------------------------------------------------*
+ |                              rbh_iter_chain()                              |
+ *----------------------------------------------------------------------------*/
+
+struct chain_iterator {
+    struct rbh_tree_iterator iterator;
+
+    struct rbh_tree_iterator *children;
+    struct rbh_tree_iterator *siblings;
+
+    struct rbh_tree_iterator *current_child;
+    bool consumed;
+};
+
+static const void *
+chain_iter_next(void *iterator)
+{
+    struct chain_iterator *chain = iterator;
+    int old_errno = errno;
+
+    errno = 0;
+
+    while (chain->consumed == false) {
+        const struct rbh_tree_iterator *iter;
+
+        if (chain->current_child == NULL) {
+            chain->consumed = true;
+            errno = old_errno;
+            return chain;
+        }
+
+        iter = rbh_tree_iter_next(chain->current_child);
+        if (iter != NULL) {
+            errno = old_errno;
+            return iter;
+        }
+
+        if (errno != ENODATA)
+            return NULL;
+
+        errno = 0;
+        chain->current_child = rbh_tree_iter_browse_sibling(
+                chain->current_child);
+    }
+
+    errno = ENODATA;
+    return NULL;
+}
+
+static void
+chain_iter_destroy(void *iterator)
+{
+    struct chain_iterator *chain = iterator;
+    struct rbh_tree_iterator *subiter = chain->children;
+
+    while (subiter != NULL) {
+        chain->children = rbh_tree_iter_browse_sibling(subiter);
+        rbh_tree_iter_destroy(subiter);
+        subiter = chain->children;
+    }
+
+    free(chain);
+}
+
+static void *
+chain_iter_browse_sibling(const void *iterator)
+{
+    const struct chain_iterator *chain = iterator;
+
+    return chain->siblings;
+}
+
+static void
+chain_iter_add_sibling(void *iterator, void *new_sibling)
+{
+    struct chain_iterator *chain = iterator;
+
+    if (chain->siblings == NULL) {
+        chain->siblings = new_sibling;
+        return;
+    }
+
+    rbh_tree_iter_add_sibling(chain->siblings, new_sibling);
+}
+
+static void
+chain_iter_add_child(void *iterator, void *new_child)
+{
+    struct chain_iterator *chain = iterator;
+
+    if (chain->children == NULL) {
+        chain->children = new_child;
+        chain->current_child = new_child;
+        return;
+    }
+
+    rbh_tree_iter_add_sibling(chain->children, new_child);
+}
+
+
+static const struct rbh_iterator_operations CHAIN_ITER_OPS = {
+    .next = chain_iter_next,
+    .destroy = chain_iter_destroy,
+};
+
+static const struct rbh_tree_iterator_operations CHAIN_TREE_ITER_OPS = {
+    .browse_sibling = chain_iter_browse_sibling,
+    .add_sibling = chain_iter_add_sibling,
+    .add_child = chain_iter_add_child,
+};
+
+static const struct rbh_tree_iterator CHAIN_TREE_ITER = {
+    .ops = &CHAIN_ITER_OPS,
+    .t_ops = &CHAIN_TREE_ITER_OPS,
+};
+
+struct rbh_tree_iterator *
+rbh_iter_chain(struct rbh_tree_iterator *siblings,
+               struct rbh_tree_iterator *children)
+{
+    struct chain_iterator *chain;
+    int old_errno = errno;
+
+    errno = 0;
+
+    chain = malloc(sizeof(*chain));
+    if (chain == NULL) {
+        errno = ENOMEM;
+        return NULL;
+    }
+
+    chain->iterator = CHAIN_TREE_ITER;
+    chain->siblings = siblings;
+    chain->children = children;
+    chain->current_child = children;
+    chain->consumed = false;
+
+    errno = old_errno;
+    return &chain->iterator;
+}
+
+/*----------------------------------------------------------------------------*
+ |                            rbh_mut_iter_chain()                            |
+ *----------------------------------------------------------------------------*/
+
+struct rbh_mut_tree_iterator *
+rbh_mut_iter_chain(struct rbh_mut_tree_iterator *siblings,
+                   struct rbh_mut_tree_iterator *children)
+{
+    return (struct rbh_mut_tree_iterator *)rbh_iter_chain(
+        (struct rbh_tree_iterator *)siblings,
+        (struct rbh_tree_iterator *)children);
+}
