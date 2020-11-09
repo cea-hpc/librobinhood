@@ -135,4 +135,40 @@ int
 rbh_mut_iter_tee(struct rbh_mut_iterator *iterator,
                  struct rbh_mut_iterator *iterators[2]);
 
+/**
+ * Produce a chained-list iterator.
+ *
+ * @param num_iter      number of iterators to add
+ * @param ...           iterators to add to the new one
+ *
+ * @return              a pointer to a newly allocated struct rbh_iterator
+ *                      on success, NULL otherwise and errno is set
+ *                      appropriately
+ *
+ * @error ENOMEM        there was not enough memory available
+ *
+ * \p siblings and \p children should not be used anymore after a successful
+ * call to this function.
+ */
+struct rbh_iterator *
+rbh_iter_chain(size_t num_iter, ...);
+
+/**
+ * Produce a mutable chained-list iterator.
+ *
+ * @param num_iter      number of iterators to add
+ * @param ...           iterators to add to the new one
+ *
+ * @return              a pointer to a newly allocated struct rbh_iterator
+ *                      on success, NULL otherwise and errno is set
+ *                      appropriately
+ *
+ * @error ENOMEM        there was not enough memory available
+ *
+ * \p siblings and \p children should not be used anymore after a successful
+ * call to this function.
+ */
+struct rbh_mut_iterator *
+rbh_mut_iter_chain(size_t num_iter, ...);
+
 #endif

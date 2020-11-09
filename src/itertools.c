@@ -11,6 +11,7 @@
 
 #include <assert.h>
 #include <errno.h>
+#include <stdarg.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
@@ -408,4 +409,127 @@ rbh_mut_iter_tee(struct rbh_mut_iterator *iterator,
 {
     return rbh_iter_tee((struct rbh_iterator *)iterator,
                         (struct rbh_iterator **)iterators);
+}
+
+/*----------------------------------------------------------------------------*
+ |                              rbh_iter_chain()                              |
+ *----------------------------------------------------------------------------*/
+
+struct chain_iterator {
+    struct rbh_iterator iterator;
+
+    struct rbh_iterator **children;
+
+    size_t num_children;
+    size_t current_child;
+};
+
+static const void *
+chain_iter_next(void *iterator)
+{
+    struct chain_iterator *chain = iterator;
+    int old_errno = errno;
+
+    errno = 0;
+
+    while (chain->current_child < chain->num_children) {
+        const struct rbh_iterator *iter;
+
+        iter = rbh_iter_next(chain->children[chain->current_child]);
+        if (iter != NULL) {
+            errno = old_errno;
+            return iter;
+        }
+
+        if (errno != ENODATA)
+            return NULL;
+
+        errno = 0;
+        ++chain->current_child;
+    }
+
+    errno = ENODATA;
+    return NULL;
+}
+
+static void
+chain_iter_destroy(void *iterator)
+{
+    struct chain_iterator *chain = iterator;
+
+    for (size_t i = 0; i < chain->num_children; ++i)
+        rbh_iter_destroy(chain->children[i]);
+    free(chain->children);
+    free(chain);
+}
+
+static const struct rbh_iterator_operations CHAIN_ITER_OPS = {
+    .next = chain_iter_next,
+    .destroy = chain_iter_destroy,
+};
+
+static const struct rbh_iterator CHAIN_ITER = {
+    .ops = &CHAIN_ITER_OPS,
+};
+
+struct rbh_iterator *
+_rbh_iter_chain(size_t num_iter, va_list iter_list)
+{
+    struct chain_iterator *chain;
+    int old_errno = errno;
+
+    errno = 0;
+
+    chain = malloc(sizeof(*chain));
+    if (chain == NULL) {
+        errno = ENOMEM;
+        return NULL;
+    }
+
+    chain->children = malloc(num_iter * sizeof(*chain->children));
+    if (chain->children == NULL) {
+        errno = ENOMEM;
+        free(chain);
+        return NULL;
+    }
+
+    for (size_t i = 0; i < num_iter; ++i)
+        chain->children[i] = va_arg(iter_list, struct rbh_iterator *);
+
+    chain->iterator = CHAIN_ITER;
+    chain->current_child = 0;
+    chain->num_children = num_iter;
+
+    errno = old_errno;
+    return &chain->iterator;
+}
+
+struct rbh_iterator *
+rbh_iter_chain(size_t num_iter, ...)
+{
+    struct rbh_iterator *iter;
+    va_list iter_list;
+
+    va_start(iter_list, num_iter);
+    iter = _rbh_iter_chain(num_iter, iter_list);
+    va_end(iter_list);
+
+    return iter;
+}
+
+/*----------------------------------------------------------------------------*
+ |                            rbh_mut_iter_chain()                            |
+ *----------------------------------------------------------------------------*/
+
+struct rbh_mut_iterator *
+rbh_mut_iter_chain(size_t num_iter, ...)
+{
+    struct rbh_mut_iterator *iter;
+    va_list iter_list;
+
+    va_start(iter_list, num_iter);
+    iter = (struct rbh_mut_iterator *)rbh_iter_chain(num_iter, iter_list);
+    va_end(iter_list);
+
+    return iter;
 }

@@ -167,6 +167,80 @@ START_TEST(rit_basic)
 }
 END_TEST
 
+
+/*----------------------------------------------------------------------------*
+ |                              rbh_iter_chain()                              |
+ *----------------------------------------------------------------------------*/
+
+/*
+ *      chain       This test builds a chain iterator consisting in 4 array
+ *        |         iterators. The iter_next function on chain should consume
+ *  -------------   iterators following the order they are added in,
+ *  |   |   |   |   from 0 to 4.
+ *  0   1   2   3
+ */
+START_TEST(rih_basic)
+{
+    size_t TEST_CHAIN_SIZE = 4;
+    struct rbh_iterator *tests[TEST_CHAIN_SIZE];
+    struct rbh_iterator *chain;
+
+    const char STRING[] = "abcdefghijklmno";
+
+    for (size_t i = 0; i < TEST_CHAIN_SIZE; ++i)
+        tests[i] = rbh_iter_array(&STRING[4 * i], sizeof(*STRING), 4);
+
+    chain = rbh_iter_chain(4, tests[0], tests[1], tests[2], tests[3]);
+
+    for (size_t i = 0; i < sizeof(STRING); ++i)
+        ck_assert_mem_eq(rbh_iter_next(chain), &STRING[i], sizeof(*STRING));
+
+    errno = 0;
+    ck_assert_ptr_null(rbh_iter_next(chain));
+    ck_assert_int_eq(errno, ENODATA);
+
+    rbh_iter_destroy(chain);
+}
+END_TEST
+
+/*
+ *      chain       This test builds a chain iterator consisting in 4 array
+ *        |         iterators distributed among 2 sub chain iterators.
+ *      -----       The iter_next function on chain should consume
+ *      |   |       iterators following the given order, from 0 to 4.
+ *     sc1 sc2
+ *      |   |
+ *  -----   -----
+ *  |   |   |   |
+ *  0   1   2   3
+ */
+START_TEST(rih_double_layer)
+{
+    size_t TEST_CHAIN_SIZE = 4;
+    struct rbh_iterator *tests[TEST_CHAIN_SIZE];
+    struct rbh_iterator *subchains[2];
+    struct rbh_iterator *chain;
+
+    const char STRING[] = "abcdefghijklmno";
+
+    for (size_t i = 0; i < TEST_CHAIN_SIZE; ++i)
+        tests[i] = rbh_iter_array(&STRING[4 * i], sizeof(*STRING), 4);
+
+    subchains[0] = rbh_iter_chain(2, tests[0], tests[1]);
+    subchains[1] = rbh_iter_chain(2, tests[2], tests[3]);
+    chain = rbh_iter_chain(2, subchains[0], subchains[1]);
+
+    for (size_t i = 0; i < sizeof(STRING); ++i)
+        ck_assert_mem_eq(rbh_iter_next(chain), &STRING[i], sizeof(*STRING));
+
+    errno = 0;
+    ck_assert_ptr_null(rbh_iter_next(chain));
+    ck_assert_int_eq(errno, ENODATA);
+
+    rbh_iter_destroy(chain);
+}
+END_TEST
+
 static Suite *
 unit_suite(void)
 {
@@ -187,6 +261,12 @@ unit_suite(void)
 
     tests = tcase_create("rbh_iter_tee()");
     tcase_add_test(tests, rit_basic);
+
+    suite_add_tcase(suite, tests);
+
+    tests = tcase_create("rbh_chain_iter()");
+    tcase_add_test(tests, rih_basic);
+    tcase_add_test(tests, rih_double_layer);
 
     suite_add_tcase(suite, tests);
 
