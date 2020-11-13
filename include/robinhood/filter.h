@@ -426,4 +426,14 @@ rbh_filter_not_new(const struct rbh_filter *filter);
 int
 rbh_filter_validate(const struct rbh_filter *filter);
 
+/**
+ * Clone a filter
+ *
+ * @param filter    the filter to clone
+ *
+ * @return          cloned \p filter, NULL on error
+ */
+struct rbh_filter *
+rbh_filter_clone(const struct rbh_filter *filter);
+
 #endif

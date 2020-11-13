@@ -24,6 +24,7 @@
 #include <mongoc.h>
 
 #include "robinhood/backends/mongo.h"
+#include "robinhood/itertools.h"
 #ifndef HAVE_STATX
 # include "robinhood/statx.h"
 #endif
@@ -431,12 +432,18 @@ mongo_backend_filter(void *backend, const struct rbh_filter *filter,
     mongoc_cursor_t *cursor;
     bson_t *pipeline;
 
+    printf("ENTRY m_backend_filter\n");
+
     if (rbh_filter_validate(filter))
         return NULL;
 
     pipeline = bson_pipeline_from_filter(filter);
     if (pipeline == NULL)
         return NULL;
+
+char *tmp = bson_as_json(pipeline, NULL);
+printf("%s\n", tmp);
+free(tmp);
 
     cursor = mongoc_collection_aggregate(mongo->entries, MONGOC_QUERY_NONE,
                                          pipeline, NULL, NULL);
@@ -454,6 +461,7 @@ mongo_backend_filter(void *backend, const struct rbh_filter *filter,
         errno = save_errno;
     }
 
+    printf("EXIT m_backend_filter\n");
     return &mongo_iter->iterator;
 }
 
@@ -473,7 +481,368 @@ mongo_backend_destroy(void *backend)
     free(mongo);
 }
 
+    /*--------------------------------------------------------------------*
+     |                              branch                                |
+     *--------------------------------------------------------------------*/
+
+struct mongo_branch_backend {
+    struct mongo_backend mongo;
+    struct rbh_id id;
+};
+
+struct mongo_branch_iterator {
+    struct rbh_mut_iterator     iterator;
+    struct rbh_backend         *backend;
+    struct rbh_mut_iterator    *directories;
+    struct rbh_mut_iterator    *fsentries;
+    struct rbh_filter          *filter;
+    struct rbh_filter_options  *options;
+    struct rbh_fsentry         *directory;
+};
+
+static struct rbh_mut_iterator *
+__list_child_fsentries(struct rbh_backend *backend,
+                       const struct rbh_id *id, const struct rbh_filter *filter,
+                       const struct rbh_filter_options *options)
+{
+    const struct rbh_filter parent_id_filter = {
+        .op = RBH_FOP_EQUAL,
+        .compare = {
+            .field = {
+                .fsentry = RBH_FP_PARENT_ID,
+            },
+            .value = {
+                .type = RBH_VT_BINARY,
+                .binary = {
+                    .size = id->size,
+                    .data = id->data,
+                },
+            },
+        },
+    };
+
+    const struct rbh_filter *filters[2] = {
+        &parent_id_filter,
+        filter,
+    };
+
+    const struct rbh_filter and_filter = {
+        .op = RBH_FOP_AND,
+        .logical = {
+            .count = 2,
+            .filters = filters,
+        },
+    };
+
+    printf("ENTRY __list_child_fsentries\n");
+
+    return mongo_backend_filter(backend, &and_filter, options);
+}
+
+static const struct rbh_filter ISDIR_FILTER = {
+    .op = RBH_FOP_EQUAL,
+    .compare = {
+        .field = {
+            .fsentry = RBH_FP_STATX,
+            .statx = STATX_TYPE,
+        },
+        .value = {
+            .type = RBH_VT_INT32,
+            .int32 = S_IFDIR,
+        },
+    },
+};
+
+static struct rbh_mut_iterator *
+mongo_next_fsentries(struct mongo_branch_iterator *iterator)
+{
+    struct rbh_mut_iterator *_directories;
+    struct rbh_mut_iterator *directories;
+    struct rbh_mut_iterator *fsentries;
+
+    printf("ENTRY mongo_next_fsentries\n");
+
+    if (iterator->directory != NULL)
+        goto recurse_directories;
+
+    iterator->directory = rbh_mut_iter_next(iterator->directories);
+    if (iterator->directory == NULL)
+        return NULL;
+
+recurse_directories:
+    _directories = __list_child_fsentries(iterator->backend, &iterator->directory->id,
+                                        &ISDIR_FILTER, iterator->options);
+    if (_directories == NULL)
+        return NULL;
+
+    directories = _directories;
+    fsentries = __list_child_fsentries(iterator->backend, &iterator->directory->id,
+                                     iterator->filter, iterator->options);
+
+    if (fsentries == NULL) {
+        rbh_mut_iter_destroy(_directories);
+        return NULL;
+    }
+
+    printf("NEW CHAIN\n");
+    iterator->directories = rbh_mut_iter_chain(2, directories, iterator->directories);
+    free(iterator->directory);
+    iterator->directory = NULL;
+
+    return fsentries;
+}
+
+static void *
+mongo_branch_iter_next(void *iterator)
+{
+    struct mongo_branch_iterator *iter = (struct mongo_branch_iterator *)iterator;
+    struct rbh_fsentry *fsentry;
+    int old_errno = errno;
+
+    printf("ENTRY mongo_branch_iter_next\n");
+
+    if (iter->fsentries == NULL) {
+posix_traversal:
+        printf("Next fsentries\n");
+        iter->fsentries = mongo_next_fsentries(iter);
+        if (iter->fsentries == NULL) {
+            printf("err1\n");
+            return NULL;
+        }
+    }
+
+    errno = 0;
+    fsentry = rbh_mut_iter_next(iter->fsentries);
+    if (fsentry != NULL) {
+        printf("EXIT mongo_branch_iter_next\n");
+        errno = old_errno;
+        return fsentry;
+    }
+
+    if (errno != 0) {
+        printf("err3: %d: %s\n", errno, strerror(errno));
+        return NULL;
+    }
+
+    rbh_mut_iter_destroy(iter->fsentries);
+    iter->fsentries = NULL;
+
+    goto posix_traversal;
+}
+
+static void
+mongo_branch_iter_destroy(void *iterator)
+{
+    struct mongo_branch_iterator *iter = (struct mongo_branch_iterator *)iterator;
+
+    printf("ENTRY mongo_branch_iter_destroy\n");
+
+    free(iter->directory);
+    free(iter->filter);
+
+    if (iter->directories != NULL)
+        rbh_mut_iter_destroy(iter->directories);
+
+    if (iter->fsentries != NULL)
+        rbh_mut_iter_destroy(iter->fsentries);
+
+    free(iter);
+}
+
+static const struct rbh_mut_iterator_operations MONGO_BRANCH_ITER_OPS = {
+    .next    = mongo_branch_iter_next,
+    .destroy = mongo_branch_iter_destroy,
+};
+
+static const struct rbh_mut_iterator MONGO_BRANCH_ITERATOR = {
+    .ops = &MONGO_BRANCH_ITER_OPS,
+};
+
+// helper sur une entree -> rbh_backend_filter
+static struct rbh_mut_iterator *
+_retrieve_branch_root(struct rbh_backend *backend, const struct rbh_id *id,
+               const struct rbh_filter *filter,
+               const struct rbh_filter_options *options)
+{
+    const struct rbh_filter id_filter = {
+        .op = RBH_FOP_EQUAL,
+        .compare = {
+            .field = {
+                .fsentry = RBH_FP_ID,
+            },
+            .value = {
+                .type = RBH_VT_BINARY,
+                .binary = {
+                    .size = id->size,
+                    .data = id->data,
+                },
+            },
+        },
+    };
+
+    const struct rbh_filter *filters[2] = {&id_filter, filter};
+    const struct rbh_filter and_filter = {
+        .op = RBH_FOP_AND,
+        .logical = {
+            .count = 2,
+            .filters = filters,
+        },
+    };
+
+    printf("ENTRY _retrieve_branch_root\n");
+
+    return mongo_backend_filter(backend, &and_filter, options);
+}
+
+#include "robinhood/uri.h"
+
+static struct rbh_mut_iterator *
+mongo_branch_backend_filter(void *backend, const struct rbh_filter *filter,
+                            const struct rbh_filter_options *options)
+{
+    struct mongo_branch_backend *mongo = backend;
+    struct mongo_branch_iterator *iter;
+    int old_errno = errno;
+
+    printf("ENTRY m_branch_backend_filter\n");
+
+    if (mongo->id.data == NULL)
+        return mongo_backend_filter(backend, filter, options);
+
+    iter = malloc(sizeof(*iter));
+    if (iter == NULL) {
+        errno = ENOMEM;
+        goto out_error;
+    }
+
+    iter->iterator = MONGO_BRANCH_ITERATOR;
+    iter->backend = backend;
+    iter->directories = NULL;
+    iter->directory = NULL;
+    iter->fsentries = _retrieve_branch_root(backend, &mongo->id, filter, options);
+    printf("Branch root retrieved\n");
+    if (iter->fsentries == NULL)
+        goto out_free_directory;
+
+    char tampon[1024];
+    for (size_t i = 0; i < mongo->id.size; ++i)
+            printf("%%%.2x", (unsigned char) mongo->id.data[i]);
+    printf("\n");
+    ssize_t sz = rbh_percent_decode(tampon, mongo->id.data, mongo->id.size);
+    tampon[sz] = '\0';
+    printf("[%lu] '%s'\n", sz, tampon);
+
+    errno = 0;
+    iter->filter = filter ? rbh_filter_clone(filter) : NULL;
+    if (iter->filter == NULL && errno != 0)
+        goto out_close_fsentries;
+
+    errno = old_errno;
+//    iter->options = options;
+    iter->options = NULL;
+
+    printf("EXIT m_branch_backend_filter\n");
+    return &iter->iterator;
+
+out_close_fsentries:
+    rbh_mut_iter_destroy(iter->fsentries);
+
+out_free_directory:
+    free(iter->directory);
+    free(iter);
+
+out_error:
+    return NULL;
+}
+
+static struct rbh_backend *
+mongo_backend_branch(void *backend, const struct rbh_id *id);
+
+static const struct rbh_backend_operations MONGO_BRANCH_BACKEND_OPS = {
+    .root = mongo_root,
+    .branch = mongo_backend_branch,
+    .filter = mongo_branch_backend_filter,
+    .destroy = mongo_backend_destroy,
+};
+
+static const struct rbh_backend MONGO_BRANCH_BACKEND = {
+    .name = RBH_MONGO_BACKEND_NAME,
+    .ops = &MONGO_BRANCH_BACKEND_OPS,
+};
+
+static struct rbh_backend *
+mongo_backend_branch(void *backend, const struct rbh_id *id)
+{
+    struct mongo_backend *mongo = backend;
+    struct mongo_branch_backend *branch;
+    int save_errno = errno;
+    size_t data_size;
+    char *data;
+
+    char tampon[1024];
+
+    printf("ENTRY m_backend_branch\n");
+    for (size_t i = 0; i < id->size; ++i)
+            printf("%%%.2x", (unsigned char) id->data[i]);
+    printf("\n");
+    ssize_t sz = rbh_percent_decode(tampon, id->data, id->size);
+    tampon[sz] = '\0';
+    printf("[%lu] '%s'\n", sz, tampon);
+
+    data_size = id->size;
+    branch = malloc(sizeof(*branch) + data_size);
+    if (branch == NULL)
+        return NULL;
+
+    data = (char *)branch + sizeof(*branch);
+
+    branch->mongo.uri = mongoc_uri_copy(mongo->uri);
+    if (branch->mongo.uri == NULL) {
+        save_errno = EINVAL;
+        goto free_malloc;
+    }
+
+    branch->mongo.client = mongoc_client_new_from_uri(branch->mongo.uri);
+    if (branch->mongo.client == NULL) {
+        save_errno = ENOMEM;
+        goto free_uri;
+    }
+
+    branch->mongo.db = mongoc_client_get_database(branch->mongo.client,
+                                                  id->data);
+    if (branch->mongo.db == NULL) {
+        save_errno = ENOMEM;
+        goto free_client;
+    }
+
+    branch->mongo.entries = mongoc_database_get_collection(branch->mongo.db,
+                                                           "entries");
+    if (branch->mongo.entries == NULL) {
+        save_errno = ENOMEM;
+        goto free_db;
+    }
+
+    rbh_id_copy(&branch->id, id, &data, &data_size);
+    branch->mongo.backend = MONGO_BRANCH_BACKEND;
+
+    return &branch->mongo.backend;
+
+free_db:
+    mongoc_database_destroy(branch->mongo.db);
+free_client:
+    mongoc_client_destroy(branch->mongo.client);
+free_uri:
+    mongoc_uri_destroy(branch->mongo.uri);
+free_malloc:
+    free(branch);
+
+    errno = save_errno;
+
+    return NULL;
+}
+
 static const struct rbh_backend_operations MONGO_BACKEND_OPS = {
+    .branch = mongo_backend_branch,
     .root = mongo_root,
     .update = mongo_backend_update,
     .filter = mongo_backend_filter,

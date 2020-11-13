@@ -50,6 +50,7 @@ backend_new(const char *type, const char *fsname)
     return backend;
 }
 
+#include <stdio.h>
 static struct rbh_backend *
 backend_from_uri(const struct rbh_uri *uri)
 {
@@ -68,6 +69,7 @@ backend_from_uri(const struct rbh_uri *uri)
         branch = rbh_backend_branch(backend, uri->id);
         break;
     case RBH_UT_PATH:
+        printf("Higher up: '%s'\n", uri->path);
         fsentry = rbh_backend_fsentry_from_path(backend, uri->path, &ID_ONLY);
         if (fsentry == NULL)
             error(EXIT_FAILURE, errno, "rbh_backend_fsentry_from_path");
@@ -75,7 +77,11 @@ backend_from_uri(const struct rbh_uri *uri)
         if (!(fsentry->mask & RBH_FP_ID))
             error(EXIT_FAILURE, ENODATA, "rbh_backend_fsentry_from_path");
 
+        printf("Higher up: '%s':'%s':'%s'\n", fsentry->name, fsentry->id.data, fsentry->parent_id.data);
+
         branch = rbh_backend_branch(backend, &fsentry->id);
+        printf("Ending?\n");
+
         save_errno = errno;
         free(fsentry);
         errno = save_errno;
