@@ -588,6 +588,24 @@
     },
     {
       "key": {
+        "uuid": "a7017801_035a8cab",
+        "filename": "tests/unit/check_itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:42:45Z",
+      "side": 1,
+      "message": "For the record, I was faced with a similar problem with rbh_filter_and_new() and rbh_filter_or_new(). I ended up choosing an array-based prototype:\n\n struct rbh_filter *\n rbh_filter_and_new(const struct rbh_filter *filters[], size_t count);\n\nIt has its own drawbacks (you need an array), but I felt it was a better interface overall.",
+      "parentUuid": "7e48f8ce_5c7acb48",
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7ec45c51_846596ab",
         "filename": "tests/unit/check_itertools.c",
         "patchSetId": 2
