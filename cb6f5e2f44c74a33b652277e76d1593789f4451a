@@ -1,0 +1,630 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c6540bd_989145e9",
+        "filename": "include/robinhood/itertools.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(style) count",
+      "range": {
+        "startLine": 141,
+        "startChar": 10,
+        "endLine": 141,
+        "endChar": 18
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63047497_9ff50086",
+        "filename": "include/robinhood/itertools.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(suggest) chain",
+      "range": {
+        "startLine": 142,
+        "startChar": 37,
+        "endLine": 142,
+        "endChar": 55
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d5dd4e9_279e5ae1",
+        "filename": "include/robinhood/itertools.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(suggest) iterators passed to this function",
+      "range": {
+        "startLine": 150,
+        "startChar": 3,
+        "endLine": 150,
+        "endChar": 30
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02cac2f8_cbd59760",
+        "filename": "include/robinhood/itertools.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(style) count",
+      "range": {
+        "startLine": 154,
+        "startChar": 22,
+        "endLine": 154,
+        "endChar": 30
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a84d120a_742d47c1",
+        "filename": "include/robinhood/itertools.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(style) count",
+      "range": {
+        "startLine": 159,
+        "startChar": 10,
+        "endLine": 159,
+        "endChar": 18
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66661489_4a56bc10",
+        "filename": "include/robinhood/itertools.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(suggest) chain",
+      "range": {
+        "startLine": 160,
+        "startChar": 37,
+        "endLine": 160,
+        "endChar": 55
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7115b1a_5ef91686",
+        "filename": "include/robinhood/itertools.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(suggest) iterators passed to this function",
+      "range": {
+        "startLine": 168,
+        "startChar": 3,
+        "endLine": 168,
+        "endChar": 30
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f51db12e_7097d08a",
+        "filename": "include/robinhood/itertools.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(style) count",
+      "range": {
+        "startLine": 172,
+        "startChar": 26,
+        "endLine": 172,
+        "endChar": 34
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae362754_d40b2273",
+        "filename": "src/itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(style) subiters",
+      "range": {
+        "startLine": 421,
+        "startChar": 26,
+        "endLine": 421,
+        "endChar": 34
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "038a01cb_49540cc9",
+        "filename": "src/itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(style) count",
+      "range": {
+        "startLine": 423,
+        "startChar": 11,
+        "endLine": 423,
+        "endChar": 23
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "504dfee9_80b3940d",
+        "filename": "src/itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(style) index",
+      "range": {
+        "startLine": 424,
+        "startChar": 11,
+        "endLine": 424,
+        "endChar": 24
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5850e80a_44b32f88",
+        "filename": "src/itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(style) save_errno (it is the name I almost always use in the rest of the codebase)",
+      "range": {
+        "startLine": 431,
+        "startChar": 8,
+        "endLine": 431,
+        "endChar": 11
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71597664_58ed48cf",
+        "filename": "src/itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(minor) void *element;",
+      "range": {
+        "startLine": 436,
+        "startChar": 14,
+        "endLine": 436,
+        "endChar": 39
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d45f4f7a_10e4ceb1",
+        "filename": "src/itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(minor) static",
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "198f727e_c9683009",
+        "filename": "src/itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(style) count",
+      "range": {
+        "startLine": 476,
+        "startChar": 23,
+        "endLine": 476,
+        "endChar": 31
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef8bff00_cb227aba",
+        "filename": "src/itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(minor) setting errno to 0 is not useful here.",
+      "range": {
+        "startLine": 481,
+        "startChar": 4,
+        "endLine": 481,
+        "endChar": 14
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f067a0ef_f5a4254d",
+        "filename": "src/itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(minor) the rest of the codebase assumes malloc() sets errno on failure.",
+      "range": {
+        "startLine": 485,
+        "startChar": 8,
+        "endLine": 485,
+        "endChar": 23
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1c27067_b04fae0f",
+        "filename": "src/itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(minor) almost the same (errno is already set to a meaningful value), but you have to save it before calling free() and restore it afterwards.",
+      "range": {
+        "startLine": 491,
+        "startChar": 8,
+        "endLine": 491,
+        "endChar": 23
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "514fb8bc_e618033f",
+        "filename": "src/itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(style) count",
+      "range": {
+        "startLine": 508,
+        "startChar": 22,
+        "endLine": 508,
+        "endChar": 30
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcf608a7_e2bc83f2",
+        "filename": "tests/unit/check_itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(typo) of",
+      "range": {
+        "startLine": 176,
+        "startChar": 65,
+        "endLine": 176,
+        "endChar": 67
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46545ed7_b92da740",
+        "filename": "tests/unit/check_itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(suggest) traverse",
+      "range": {
+        "startLine": 177,
+        "startChar": 70,
+        "endLine": 177,
+        "endChar": 77
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f5f3dd6_9b57942b",
+        "filename": "tests/unit/check_itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(typo) a chain",
+      "range": {
+        "startLine": 177,
+        "startChar": 57,
+        "endLine": 177,
+        "endChar": 62
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e9ec937_be3eb4a0",
+        "filename": "tests/unit/check_itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(nit) rbh_iter_next()",
+      "range": {
+        "startLine": 177,
+        "startChar": 35,
+        "endLine": 177,
+        "endChar": 44
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d30b46b9_de1c932f",
+        "filename": "tests/unit/check_itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(suggest) in the order they are passed to rbh_iter_chain()\n\n(major) I would rather have this information in the docstring of rbh_iter_chain() (and rbh_mut_iter_chain()).",
+      "range": {
+        "startLine": 178,
+        "startChar": 30,
+        "endLine": 178,
+        "endChar": 67
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7487c7d_8c6483dc",
+        "filename": "tests/unit/check_itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(style) define this variable first please\n(style) also there should be no blank lines separating variable declarations",
+      "range": {
+        "startLine": 188,
+        "startChar": 4,
+        "endLine": 188,
+        "endChar": 44
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e48f8ce_5c7acb48",
+        "filename": "tests/unit/check_itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "START_TEST(rih_basic)\n{\n    const char STRING[] \u003d \"abcdefghijklmno\";\n    const size_t CHUNK_SIZE \u003d 4;\n    struct rbh_iterator *tmp[(sizeof(STRING) / CHUNK_SIZE];\n    struct rbh_iterator *letters;\n\n    static_assert(sizeof(STRING) % CHUNK_SIZE \u003d\u003d 0, \"\");\n\n    for (size_t i \u003d 0; i \u003c sizeof(STRING); i +\u003d CHUNK_SIZE) {\n        test[i] \u003d rbh_iter_array(STRING[i], sizeof(*STRING), CHUNK_SIZE);\n        ck_assert_ptr_nonnull(test[i]);\n    }\n\n    /* Note that this shows a weakness in the interface: one can only ever chain a fixed\n     * number of iterators, known at compile time.\n     */\n    letters \u003d rbh_iter_chain(ARRAY_SIZE(tmp), tmp[0], tmp[1], tmp[2], tmp[3]);\n    ck_assert_ptr_nonnull(letters);\n\n    for (size_t i \u003d 0; i \u003c sizeof(STRING); i++)\n        ck_assert_mem_eq(rbh_iter_next(letters), \u0026STRING[i], sizeof(*STRING));\n\n    errno \u003d 0;\n    ck_assert_ptr_null(rbh_iter_next(letters));\n    ck_assert_int_eq(errno, ENODATA);\n\n    rbh_iter_destroy(letters);\n}\nEND_TEST",
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ec45c51_846596ab",
+        "filename": "tests/unit/check_itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "I am not sure I see the point of this test.\n\nChain iterators are oblivious to the behavior of their \"children\", so it should not matter whether there is only one or multiple \"layers\" of nested iterators, should it?\n\nInstead, I advise you to have a look at the test coverage and edge cases (count \u003d\u003d 0, one of the iterator is NULL, ...).",
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1a80867_35360a44",
+        "filename": "tests/unit/check_itertools.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-16T11:36:56Z",
+      "side": 1,
+      "message": "(suggest) nested",
+      "range": {
+        "startLine": 217,
+        "startChar": 15,
+        "endLine": 217,
+        "endChar": 27
+      },
+      "revId": "cb6f5e2f44c74a33b652277e76d1593789f4451a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
