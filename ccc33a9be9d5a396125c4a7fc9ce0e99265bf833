@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48ad84dc_af0d0d32",
+        "filename": "README.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-21T13:54:36Z",
+      "side": 1,
+      "message": "(defect) my bad, I just realized RBH_FP_NAME should still appear somewhere ^^\n\nstruct rbh_filter_options options \u003d {\n    .projection \u003d {\n        .fsentry_mask \u003d RBH_FP_NAME,\n    }\n};",
+      "range": {
+        "startLine": 86,
+        "startChar": 44,
+        "endLine": 86,
+        "endChar": 47
+      },
+      "revId": "ccc33a9be9d5a396125c4a7fc9ce0e99265bf833",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
