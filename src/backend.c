@@ -182,6 +182,9 @@ backend_fsentry_from_path(struct rbh_backend *backend, char *path,
         path = slash;
     }
 
+    if (*path == '\0')
+        return parent;
+
     fsentry = fsentry_from_parent_and_name(backend, &parent->id, path,
                                            projection);
     save_errno = errno;
