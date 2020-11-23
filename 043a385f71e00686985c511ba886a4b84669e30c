@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "440f404a_4221b469",
+        "filename": "src/backends/mongo/mongo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2020-11-23T08:50:56Z",
+      "side": 1,
+      "message": "style: is there a reason for closing the prototype on a new line?",
+      "range": {
+        "startLine": 219,
+        "startChar": 8,
+        "endLine": 219,
+        "endChar": 10
+      },
+      "revId": "043a385f71e00686985c511ba886a4b84669e30c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5489f81b_614b538c",
+        "filename": "src/backends/mongo/options.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2020-11-23T08:50:56Z",
+      "side": 1,
+      "message": "To match the first filter, you rather say {field-1: false, field-2: false}.",
+      "range": {
+        "startLine": 93,
+        "startChar": 11,
+        "endLine": 93,
+        "endChar": 41
+      },
+      "revId": "043a385f71e00686985c511ba886a4b84669e30c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67a3b318_261f14ba",
+        "filename": "src/backends/mongo/options.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2020-11-23T08:50:56Z",
+      "side": 1,
+      "message": "question: why the key is different when filtering out or in?",
+      "range": {
+        "startLine": 114,
+        "startChar": 43,
+        "endLine": 114,
+        "endChar": 56
+      },
+      "revId": "043a385f71e00686985c511ba886a4b84669e30c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
