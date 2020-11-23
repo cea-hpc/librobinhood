@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6869d2b8_522505c8",
+        "filename": "src/backends/mongo/mongo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-23T09:14:49Z",
+      "side": 1,
+      "message": "This is because the opening parenthesis is immediately followed by a newline.\n\nref: https://github.com/cea-hpc/robinhood/blob/v4/doc/coding-style.rst#how-to-break-lines (last example)",
+      "parentUuid": "440f404a_4221b469",
+      "range": {
+        "startLine": 219,
+        "startChar": 8,
+        "endLine": 219,
+        "endChar": 10
+      },
+      "revId": "043a385f71e00686985c511ba886a4b84669e30c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5489f81b_614b538c",
         "filename": "src/backends/mongo/options.c",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6656d9c3_34cc30de",
+        "filename": "src/backends/mongo/options.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-23T09:14:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5489f81b_614b538c",
+      "range": {
+        "startLine": 93,
+        "startChar": 11,
+        "endLine": 93,
+        "endChar": 41
+      },
+      "revId": "043a385f71e00686985c511ba886a4b84669e30c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67a3b318_261f14ba",
         "filename": "src/backends/mongo/options.c",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "043a385f71e00686985c511ba886a4b84669e30c",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc6e711b_ea8776a4",
+        "filename": "src/backends/mongo/options.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-23T09:14:49Z",
+      "side": 1,
+      "message": "My mistake\n(Done)",
+      "parentUuid": "67a3b318_261f14ba",
+      "range": {
+        "startLine": 114,
+        "startChar": 43,
+        "endLine": 114,
+        "endChar": 56
+      },
+      "revId": "043a385f71e00686985c511ba886a4b84669e30c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
