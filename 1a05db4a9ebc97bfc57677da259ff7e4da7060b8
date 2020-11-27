@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb77c65b_fbae194d",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2020-11-27T14:11:38Z",
+      "side": 1,
+      "message": "question: does this mean that the filter will select any entry which have a namespace? Why adding this to the filter?",
+      "range": {
+        "startLine": 525,
+        "startChar": 5,
+        "endLine": 526,
+        "endChar": 51
+      },
+      "revId": "1a05db4a9ebc97bfc57677da259ff7e4da7060b8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
