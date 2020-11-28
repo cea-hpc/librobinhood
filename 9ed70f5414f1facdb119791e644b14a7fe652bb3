@@ -25,6 +25,32 @@
       "revId": "9ed70f5414f1facdb119791e644b14a7fe652bb3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
+    },
+    {
+      "robotId": "gcc (GCC) 10.2.0",
+      "robotRunId": "7e64fe9b-70fb-4f74-aee8-403f9fe964ef",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "896e604c_73c4c160",
+        "filename": "src/utils/uri.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-28T02:37:26Z",
+      "side": 1,
+      "message": "expected expression before ‘;’ token",
+      "range": {
+        "startLine": 30,
+        "startChar": 13,
+        "endLine": 30,
+        "endChar": 13
+      },
+      "revId": "9ed70f5414f1facdb119791e644b14a7fe652bb3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
