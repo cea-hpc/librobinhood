@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "205cde98_b0a84bd7",
+        "filename": "include/robinhood/fsentry.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2020-12-02T15:23:41Z",
+      "side": 1,
+      "message": "typo: Unique",
+      "range": {
+        "startLine": 36,
+        "startChar": 7,
+        "endLine": 36,
+        "endChar": 14
+      },
+      "revId": "45ed444eecd7e6f282cb8049dc98b54c34e1016a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
