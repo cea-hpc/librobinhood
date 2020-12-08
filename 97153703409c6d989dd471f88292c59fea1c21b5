@@ -34,6 +34,24 @@
       "revId": "97153703409c6d989dd471f88292c59fea1c21b5",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e860272a_039aa666",
+        "filename": "src/backend.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2020-12-08T14:44:00Z",
+      "side": 1,
+      "message": "Ok, it\u0027s not really obvious to me how paths starting with / should be handled to be honest (root of the backend or root of the current branch) but I guess it might find niche users... We\u0027ll see if it\u0027s confusing down the road.",
+      "parentUuid": "672445d3_ff74bf4f",
+      "revId": "97153703409c6d989dd471f88292c59fea1c21b5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
