@@ -16,6 +16,24 @@
       "revId": "19af0ffd11b1659afece271ecff0b79d8afb4ece",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c76dec5f_f3a1fca3",
+        "filename": "src/utils/uri.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-12-08T14:35:32Z",
+      "side": 1,
+      "message": "Ack... as long as this would be a filesystem bug, I\u0027d rather keep the code to a minimum.",
+      "parentUuid": "bbeab57b_05fbb4c4",
+      "revId": "19af0ffd11b1659afece271ecff0b79d8afb4ece",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
