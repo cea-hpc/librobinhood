@@ -16,6 +16,24 @@
       "revId": "97153703409c6d989dd471f88292c59fea1c21b5",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "672445d3_ff74bf4f",
+        "filename": "src/backend.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-12-08T13:06:10Z",
+      "side": 1,
+      "message": "This is comparable to absolute vs. relative paths.\n\nThe difference is clearer when you start from a backend which is already a branch of another backend (not something that can happen fron a URI by the way).\nAsking to branch on \"/a/b/c\" is not the same as asking to branch on \"./a/b/c\" then.\n\nThis is where the ROOT_PARENT_ID comes from.\n\nWhether it is a good or bad idea is up for debate though.\nI think it could have its uses, but not sure if this breaks things along the way.",
+      "parentUuid": "72a2e202_a6b2db15",
+      "revId": "97153703409c6d989dd471f88292c59fea1c21b5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
