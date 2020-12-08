@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbeab57b_05fbb4c4",
+        "filename": "src/utils/uri.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2020-12-08T10:31:14Z",
+      "side": 1,
+      "message": "(nitpick: there was a bug in lustre where an ioctl returned an incorrect \"wanted size\", so this kind of algorithm would just loop forever.. I personally prefer a single goto, but this should work in theory)",
+      "revId": "19af0ffd11b1659afece271ecff0b79d8afb4ece",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
