@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88716466_33656f37",
+        "filename": "src/id.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2020-12-11T17:39:41Z",
+      "side": 1,
+      "message": "(nitpick) Will this one have users? It feels a bit clumsy to have to set handle_bytes first then it resets it;\nif it\u0027s meant to reuse the same handle multiple times then you lose the initial handle size after the first init so it might be best passed as extra argument instead (both for usability and to keep the struct semi-opaque)\nIf it has no use yet (or very soon) I think it\u0027s best left out for now until a user comes up.",
+      "revId": "d091cf3f15a2bb311e16ee3dea601fcfd98f70b9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
