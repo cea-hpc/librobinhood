@@ -158,7 +158,7 @@ rbh_id_from_file_handle(const struct file_handle *handle)
 static const size_t LUSTRE_FH_SIZE = 2 * sizeof(struct lu_fid);
 static const int FILEID_LUSTRE = 0x97;
 
-const size_t LUSTRE_ID_SIZE = LUSTRE_FH_SIZE + sizeof(int);
+const size_t LUSTRE_ID_SIZE = LUSTRE_FH_SIZE + sizeof(FILEID_LUSTRE);
 
 struct rbh_id *
 rbh_id_from_lu_fid(const struct lu_fid *fid)
@@ -173,7 +173,7 @@ rbh_id_from_lu_fid(const struct lu_fid *fid)
 
     /* id->data */
     id->data = data;
-    data = mempcpy(data, &FILEID_LUSTRE, sizeof(int));
+    data = mempcpy(data, &FILEID_LUSTRE, sizeof(FILEID_LUSTRE));
     data = mempcpy(data, fid, sizeof(*fid));
     memset(data, 0, sizeof(*fid));
 
@@ -181,4 +181,48 @@ rbh_id_from_lu_fid(const struct lu_fid *fid)
     id->size = LUSTRE_ID_SIZE;
 
     return id;
+}
+
+static void
+file_handle_init_from_id(struct file_handle *handle, const struct rbh_id *id)
+{
+    handle->handle_bytes = id->size - sizeof(handle->handle_type);
+    memcpy(&handle->handle_type, id->data, sizeof(handle->handle_type));
+    memcpy(&handle->f_handle, id->data + sizeof(handle->handle_type),
+           handle->handle_bytes);
+}
+
+int
+rbh_file_handle_init_from_id(struct file_handle *handle,
+                             const struct rbh_id *id)
+{
+    if (id->size < sizeof(handle->handle_type)) {
+        errno = EINVAL;
+        return -1;
+    }
+
+    if (handle->handle_bytes < id->size - sizeof(handle->handle_type)) {
+        errno = EOVERFLOW;
+        return -1;
+    }
+
+    file_handle_init_from_id(handle, id);
+    return 0;
+}
+
+struct file_handle *
+rbh_file_handle_from_id(const struct rbh_id *id)
+{
+    struct file_handle *handle;
+
+    if (id->size < sizeof(handle->handle_type)) {
+        errno = EINVAL;
+        return NULL;
+    }
+
+    handle = malloc(sizeof(*handle) + id->size - sizeof(handle->handle_bytes));
+    if (handle)
+        file_handle_init_from_id(handle, id);
+
+    return handle;
 }
