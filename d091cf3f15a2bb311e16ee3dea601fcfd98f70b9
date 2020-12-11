@@ -16,6 +16,24 @@
       "revId": "d091cf3f15a2bb311e16ee3dea601fcfd98f70b9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9be47700_3814a0c3",
+        "filename": "src/id.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-12-11T17:45:32Z",
+      "side": 1,
+      "message": "Good point, that reminds me I was supposed to use it in the posix backend.\nThere, it is less of an issue, as the size is stored in a thread-local variable (if memory serves).",
+      "parentUuid": "88716466_33656f37",
+      "revId": "d091cf3f15a2bb311e16ee3dea601fcfd98f70b9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
