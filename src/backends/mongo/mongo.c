@@ -465,6 +465,7 @@ mongo_backend_filter(void *backend, const struct rbh_filter *filter,
 
         mongoc_cursor_destroy(cursor);
         errno = save_errno;
+        return NULL;
     }
 
     return &mongo_iter->iterator;
