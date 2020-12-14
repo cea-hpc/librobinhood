@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "863c411c_eb834cc7",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2020-12-14T10:55:39Z",
+      "side": 1,
+      "message": "(personal opinon) I\u0027m not really fond of this use of goto; how about calling the function again (`return branch_iter_next(iter);` should get optimized properly) or a while loop?",
+      "revId": "e8b14fa63d51c4aec633dff754f964d32d03de74",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98febbfd_1ac719bb",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2020-12-14T10:55:39Z",
+      "side": 1,
+      "message": "(for later) it feels like many of these helpers are very generic and could use being shared somewhere as you pointed out, not just for filter branch but to have this kind of helpers around.",
+      "revId": "e8b14fa63d51c4aec633dff754f964d32d03de74",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
