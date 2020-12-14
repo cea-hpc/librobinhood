@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "6d5056cc_daf3b0dd",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-12-14T14:18:58Z",
+      "side": 1,
+      "message": "My assembly is rusty, but I think -O2 knows how to do it.\n\ncode:\n\n int\n test(int i, int j)\n {\n     if (i \u003e\u003d j)\n         return i;\n     i++;\n     j--;\n     return test(i, j);\n }\n\nassembly:\n\n test:                            |        test:\n .LFB20:                          |        .LFB20:\n \t.cfi_startproc            |        \t.cfi_startproc\n \tmovl\t%edi, %eax        |        \tcmpl\t%esi, %edi\n\tcmpl\t%esi, %edi        |        \tmovl\t%edi, %eax\n\tjge\t.L6               |        \tjge\t.L2\n\tsubq\t$8, %rsp          |        \t.p2align 4,,10\n\t.cfi_def_cfa_offset 16    |        \t.p2align 3\n\tsubl\t$1, %esi          |        .L3:\n\taddl\t$1, %edi          |        \taddl\t$1, %eax\n\tcall\ttest              |        \tsubl\t$1, %esi\n\taddq\t$8, %rsp          |        \tcmpl\t%esi, %eax\n\t.cfi_def_cfa_offset 8     |        \tjl\t.L3\n .L6:                             |        .L2:\n\trep ret                   |        \trep ret\n\t.cfi_endproc              |        \t.cfi_endproc",
+      "parentUuid": "61e19657_d7b28e20",
+      "revId": "e8b14fa63d51c4aec633dff754f964d32d03de74",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "98febbfd_1ac719bb",
         "filename": "src/backends/mongo/mongo.c",
         "patchSetId": 5
