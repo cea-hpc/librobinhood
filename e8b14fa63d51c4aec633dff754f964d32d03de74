@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "61e19657_d7b28e20",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-12-14T13:33:37Z",
+      "side": 1,
+      "message": "\u003e `return branch_iter_next(iter);` should get optimized properly\n\nI was not aware that such an optimization existed, if it does it\u0027s really good news though!\nI\u0027ll run a few tests to see if gcc and clang manage it correctly on very simple code samples.\n\nA while loop would also be acceptable.",
+      "parentUuid": "863c411c_eb834cc7",
+      "revId": "e8b14fa63d51c4aec633dff754f964d32d03de74",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "98febbfd_1ac719bb",
         "filename": "src/backends/mongo/mongo.c",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2020-12-14T10:55:39Z",
       "side": 1,
       "message": "(for later) it feels like many of these helpers are very generic and could use being shared somewhere as you pointed out, not just for filter branch but to have this kind of helpers around.",
+      "revId": "e8b14fa63d51c4aec633dff754f964d32d03de74",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fac10bb8_990932d0",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-12-14T13:33:37Z",
+      "side": 1,
+      "message": "This one is very particular, I am not sure I really see the point.\nThe one about listing children might be a better candidate (to implement something like rbh-ls).\n\nBut the issue remains that I need to explicitly call mongo_backend_filter() here, not rbh_backend_filter(), to avoid an infinite recursion: \n\n filter_one() --\u003e rbh_backend_filter() --\u003e generic_branch_backend_filter() --\n ^                                                                          |\n |                                                                          |\n ----------------------------------------------------------------------------",
+      "parentUuid": "98febbfd_1ac719bb",
       "revId": "e8b14fa63d51c4aec633dff754f964d32d03de74",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
