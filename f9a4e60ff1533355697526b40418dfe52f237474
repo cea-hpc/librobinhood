@@ -22,6 +22,30 @@
       "revId": "f9a4e60ff1533355697526b40418dfe52f237474",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f8023d2_e1062f17",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-12-16T20:29:01Z",
+      "side": 1,
+      "message": "Done (the code needed to be rebased)",
+      "parentUuid": "3e173f4b_92065b88",
+      "range": {
+        "startLine": 570,
+        "startChar": 16,
+        "endLine": 570,
+        "endChar": 22
+      },
+      "revId": "f9a4e60ff1533355697526b40418dfe52f237474",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
