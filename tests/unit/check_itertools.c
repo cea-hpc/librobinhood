@@ -43,7 +43,7 @@ END_TEST
  |                            rbh_iter_chunkify()                             |
  *----------------------------------------------------------------------------*/
 
-START_TEST(ric_basic)
+START_TEST(rich_basic)
 {
     const char STRING[] = "abcdefghijklmno";
     const size_t CHUNK_SIZE = 4;
@@ -104,7 +104,7 @@ static const struct rbh_iterator NULL_ITER = {
     .ops = &NULL_ITER_OPS,
 };
 
-START_TEST(ric_with_null_elements)
+START_TEST(rich_with_null_elements)
 {
     struct rbh_iterator nulls = NULL_ITER;
     struct rbh_mut_iterator *chunks;
@@ -167,6 +167,64 @@ START_TEST(rit_basic)
 }
 END_TEST
 
+/*----------------------------------------------------------------------------*
+ |                            rbh_iter_constify()                             |
+ *----------------------------------------------------------------------------*/
+
+struct ascii_iterator {
+    struct rbh_mut_iterator iterator;
+    unsigned char c;
+};
+
+static void *
+ascii_iter_next(void *iterator)
+{
+    struct ascii_iterator *ascii = iterator;
+    char *c;
+
+    c = malloc(sizeof(*c));
+    if (c == NULL)
+        return NULL;
+
+    *c = ascii->c++;
+    return c;
+}
+
+static void
+ascii_iter_destroy(void *iterator)
+{
+    return;
+}
+
+static const struct rbh_mut_iterator_operations ASCII_ITER_OPS = {
+    .next = ascii_iter_next,
+    .destroy = ascii_iter_destroy,
+};
+
+static const struct rbh_mut_iterator ASCII_ITERATOR = {
+    .ops = &ASCII_ITER_OPS,
+};
+
+/* We have to rely on libasan to test that memory is properly deallocated */
+START_TEST(rico_basic)
+{
+    const char STRING[] = "abcdefghijklmno";
+    struct ascii_iterator _ascii;
+    struct rbh_iterator *ascii;
+
+    _ascii.iterator = ASCII_ITERATOR;
+    _ascii.c = 'a';
+
+    ascii = rbh_iter_constify(&_ascii.iterator);
+    ck_assert_ptr_nonnull(ascii);
+
+    for (size_t i = 0; i < sizeof(STRING) - 1; i++)
+        ck_assert_mem_eq(rbh_iter_next(ascii), &STRING[i], sizeof(*STRING));
+
+    rbh_iter_destroy(ascii);
+}
+END_TEST
+
 static Suite *
 unit_suite(void)
 {
@@ -180,13 +238,18 @@ unit_suite(void)
     suite_add_tcase(suite, tests);
 
     tests = tcase_create("rbh_iter_chunkify()");
-    tcase_add_test(tests, ric_basic);
-    tcase_add_test(tests, ric_with_null_elements);
+    tcase_add_test(tests, rich_basic);
+    tcase_add_test(tests, rich_with_null_elements);
 
     suite_add_tcase(suite, tests);
 
     tests = tcase_create("rbh_iter_tee()");
     tcase_add_test(tests, rit_basic);
+
+    suite_add_tcase(suite, tests);
+
+    tests = tcase_create("rbh_iter_constify()");
+    tcase_add_test(tests, rico_basic);
 
     suite_add_tcase(suite, tests);
 
