@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eda6addc_2bfcf129",
+        "filename": "src/ringr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-04-05T17:39:34Z",
+      "side": 1,
+      "message": "One thing that is definitely not obvious but quite important is that this field should only ever be considered if `ringr-\u003ehead \u003d\u003d ring-\u003ehead`. Otherwise, its content is not expected to be up-to-date.\n\nExplained another way: `starved` may be true if `ringr-\u003ehead !\u003d ring-\u003ehead`, even though, in this case, it is obvious that the reader is not actually starving (ie. there is still data to be ack-ed).",
+      "range": {
+        "startLine": 22,
+        "startChar": 9,
+        "endLine": 22,
+        "endChar": 16
+      },
+      "revId": "3824611880b1c0900c5cc7e456988a40d2d5a3f7",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66218b0b_48136452",
+        "filename": "src/ringr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-04-05T17:39:34Z",
+      "side": 1,
+      "message": "We use a circular list for now, but a max-heap would be better.\n\nWikipedia says that there are even variants that provide an O(1) \"increase-key\" (aka. \"update-a-key\").\n\nref: https://en.wikipedia.org/wiki/Heap_(data_structure)#Comparison_of_theoretic_bounds_for_variants",
+      "range": {
+        "startLine": 23,
+        "startChar": 22,
+        "endLine": 23,
+        "endChar": 26
+      },
+      "revId": "3824611880b1c0900c5cc7e456988a40d2d5a3f7",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "501c4cd7_aa4acbd7",
+        "filename": "src/ringr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-04-05T17:39:34Z",
+      "side": 1,
+      "message": "Note that is is slightly better than the `synced` approach we take in the other patch.\n\nWith N readers, that makes it:\n- data is pushed into the ring: N updates, only if the ring is completely filled\n- reader acks data: 1 update, only if it read all the data.\n\nCompared to",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 28
+      },
+      "revId": "3824611880b1c0900c5cc7e456988a40d2d5a3f7",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
