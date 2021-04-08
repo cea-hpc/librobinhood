@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "044d6d54_c6671a3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-04-08T23:20:59Z",
+      "side": 1,
+      "message": "Sorry for the noise, it just really bothered me that one of them used `NULL` while the other used `null`.",
+      "revId": "e87cce65949da5d34298762bbaf3dcb7a2c2132e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
