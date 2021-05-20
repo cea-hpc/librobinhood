@@ -152,6 +152,18 @@ mongo_iter_next(void *iterator)
     bson_error_t error;
     const bson_t *doc;
 
+    /* This is necessary to avoid using mongoc_cursor_next on a cursor marked
+     * as DONE, resultin in a MONGOC_ERROR_CURSOR_INVALID_CURSOR
+     * obtained with mongoc_cursor_error, but which corresponds to calls
+     * to mongoc_cursor_next on completed or failed. Since mongoc doesn't
+     * allow us to differentiate the two, we check beforehand that
+     * we are not trying to call mongoc_cursor_next on a completed cursor.
+     */
+    if (!mongoc_cursor_more(mongo_iter->cursor)) {
+        errno = ENODATA;
+        return NULL;
+    }
+
     if (mongoc_cursor_next(mongo_iter->cursor, &doc))
         return fsentry_from_bson(doc);
 
