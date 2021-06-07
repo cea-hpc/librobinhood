@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cf02af75_828d4049",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-07T12:42:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8709f74_17ed033f",
+      "range": {
+        "startLine": 19,
+        "startChar": 46,
+        "endLine": 19,
+        "endChar": 51
+      },
+      "revId": "646e82ff807d2e21de20af6aa499576771b355fb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bfa00ee7_30967429",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -64,6 +88,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6e9cdef_fc14c7a6",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-07T12:42:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12aa9b86_29257e66",
+      "range": {
+        "startLine": 156,
+        "startChar": 16,
+        "endLine": 156,
+        "endChar": 24
+      },
+      "revId": "646e82ff807d2e21de20af6aa499576771b355fb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80793cf8_8d257e9f",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-06-07T09:04:30Z",
       "side": 1,
       "message": "suggest: completed or failed state",
+      "range": {
+        "startLine": 158,
+        "startChar": 32,
+        "endLine": 158,
+        "endChar": 51
+      },
+      "revId": "646e82ff807d2e21de20af6aa499576771b355fb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f78b6ada_e2fc3c5a",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-07T12:42:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80793cf8_8d257e9f",
       "range": {
         "startLine": 158,
         "startChar": 32,
