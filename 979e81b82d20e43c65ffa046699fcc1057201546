@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a98ff586_a9e38846",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-08T07:15:39Z",
+      "side": 1,
+      "message": "question: can\u0027t rbh_mut_iter_destroy be used to free iter directly here ? Or is it not fully initialized yet due to the failed initialization of iter-\u003efilter ?",
+      "range": {
+        "startLine": 1056,
+        "startChar": 8,
+        "endLine": 1058,
+        "endChar": 19
+      },
+      "revId": "979e81b82d20e43c65ffa046699fcc1057201546",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
