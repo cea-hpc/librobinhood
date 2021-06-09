@@ -98,6 +98,23 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b920ca55_840fca1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-09T16:29:30Z",
+      "side": 1,
+      "message": "The ci failed because of some unrelated stuff:\n\n [41/63] Compiling C object tests/unit/check_filter.p/check_filter.c.o\n FAILED: tests/unit/check_filter.p/check_filter.c.o\n cc -Itests/unit/check_filter.p -Itests/unit -I../tests/unit -I. -I.. -Iinclude -I../include -fdiagnostics-color\u003dalways -D_FILE_OFFSET_BITS\u003d64 -Wall -Winvalid-pch -Werror -std\u003dc11 -O3 -D_GNU_SOURCE -DHAVE_CONFIG_H -pthread -MD -MQ tests/unit/check_filter.p/check_filter.c.o -MF tests/unit/check_filter.p/check_filter.c.o.d -o tests/unit/check_filter.p/check_filter.c.o -c ../tests/unit/check_filter.c\n In file included from ../tests/unit/check-compat.h:11,\n                  from ../tests/unit/check_filter.c:23:\n ../tests/unit/check_filter.c: In function ‘rfnn_basic_fn’:\n ../tests/unit/check_filter.c:152:9: error: ‘strcmp’ reading 1 or more bytes from a region of size 0 [-Werror\u003dstringop-overread]\n   152 |         ck_assert_pstr_eq((X)-\u003exattr, (Y)-\u003exattr); \\\n       |         ^~~~~~~~~~~~~~~~~\n ../tests/unit/check_filter.c:158:5: note: in expansion of macro ‘ck_assert_filter_field_eq’\n   158 |     ck_assert_filter_field_eq(\u0026(X)-\u003ecompare.field, \u0026(Y)-\u003ecompare.field); \\\n       |     ^~~~~~~~~~~~~~~~~~~~~~~~~\n ../tests/unit/check_filter.c:169:9: note: in expansion of macro ‘ck_assert_comparison_filter_eq’\n   169 |         ck_assert_comparison_filter_eq(X, Y); \\\n       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n ../tests/unit/check_filter.c:626:5: note: in expansion of macro ‘ck_assert_filter_eq’\n   626 |     ck_assert_filter_eq(filter, \u0026NEGATED);\n       |     ^~~~~~~~~~~~~~~~~~~\n ../tests/unit/check_filter.c: In function ‘rfon_basic_fn’:\n ../tests/unit/check_filter.c:152:9: error: ‘strcmp’ reading 1 or more bytes from a region of size 0 [-Werror\u003dstringop-overread]\n   152 |         ck_assert_pstr_eq((X)-\u003exattr, (Y)-\u003exattr); \\\n       |         ^~~~~~~~~~~~~~~~~\n ../tests/unit/check_filter.c:158:5: note: in expansion of macro ‘ck_assert_filter_field_eq’\n   158 |     ck_assert_filter_field_eq(\u0026(X)-\u003ecompare.field, \u0026(Y)-\u003ecompare.field); \\\n       |     ^~~~~~~~~~~~~~~~~~~~~~~~~\n ../tests/unit/check_filter.c:169:9: note: in expansion of macro ‘ck_assert_comparison_filter_eq’\n   169 |         ck_assert_comparison_filter_eq(X, Y); \\\n       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n ../tests/unit/check_filter.c:602:5: note: in expansion of macro ‘ck_assert_filter_eq’\n   602 |     ck_assert_filter_eq(filter, \u0026FILTER);\n       |     ^~~~~~~~~~~~~~~~~~~\n ../tests/unit/check_filter.c: In function ‘rfan_basic_fn’:\n ../tests/unit/check_filter.c:152:9: error: ‘strcmp’ reading 1 or more bytes from a region of size 0 [-Werror\u003dstringop-overread]\n   152 |         ck_assert_pstr_eq((X)-\u003exattr, (Y)-\u003exattr); \\\n       |         ^~~~~~~~~~~~~~~~~\n ../tests/unit/check_filter.c:158:5: note: in expansion of macro ‘ck_assert_filter_field_eq’\n   158 |     ck_assert_filter_field_eq(\u0026(X)-\u003ecompare.field, \u0026(Y)-\u003ecompare.field); \\\n       |     ^~~~~~~~~~~~~~~~~~~~~~~~~\n ../tests/unit/check_filter.c:169:9: note: in expansion of macro ‘ck_assert_comparison_filter_eq’\n   169 |         ck_assert_comparison_filter_eq(X, Y); \\\n       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n ../tests/unit/check_filter.c:564:5: note: in expansion of macro ‘ck_assert_filter_eq’\n   564 |     ck_assert_filter_eq(filter, \u0026FILTER);\n       |     ^~~~~~~~~~~~~~~~~~~\n cc1: all warnings being treated as errors\n\nI\u0027ll have a look once I\u0027m done with rbh-fsevents (I was hoping to get an MVP out today, but it\u0027s not looking too good, might need an additional day or two).",
+      "revId": "b822bb6fa2046b2e150106278565205309b1bf5a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1d92e86_e787faad",
