@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7aa24138_08c555ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-09T15:11:14Z",
+      "side": 1,
+      "message": "(style) Overall your commit style is pretty verbose and yet it took me a while to understand.\n\nIf you have time, I would appreciate it if you could try and rephrase it in a more direct/assertive/to-the-point style.",
+      "revId": "b822bb6fa2046b2e150106278565205309b1bf5a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c5cc183_44fdd7bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-09T15:11:14Z",
+      "side": 1,
+      "message": "(style) Please refer to https://github.com/cea-hpc/robinhood/blob/v4/contributing.rst#commit-messages for writing commit messages. [*]\n\n\u0027bugfix\u0027 shoud appear in the \u0027Change-type\u0027 trailer, if you really want to include it (see [*]). Here, I would prefer \u0027mongo\u0027.\n\n[*] You can skip the \u0027Breaking-change\u0027 and \u0027Change-type\u0027 trailers until the first stable release (they really only make sense after that).",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "b822bb6fa2046b2e150106278565205309b1bf5a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d216de7b_1c7dc2c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-09T15:11:14Z",
+      "side": 1,
+      "message": "(style) Are you not sure this patch fixes the bug? Is it because the bug is hard to reproduce?\n\nIf you are reasonably sure this fixes an actual issue, please don\u0027t modalize your sentences, prefer clear assertions.\nIf you are unsure whether the patch is a fix, please consider adding an explanation as to why the patch should be merged (it\u0027s hard to reproduce the bug,",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 19
+      },
+      "revId": "b822bb6fa2046b2e150106278565205309b1bf5a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4fc4a5b_30e4556d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-09T15:11:14Z",
+      "side": 1,
+      "message": "(question) Is the issue that mongoc_cursor_next() should not be called after the first time it fails?",
+      "revId": "b822bb6fa2046b2e150106278565205309b1bf5a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "798df274_5963bd76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-09T15:11:14Z",
+      "side": 1,
+      "message": "-1 just to make sure we have time to discuss the root cause",
+      "revId": "b822bb6fa2046b2e150106278565205309b1bf5a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1d92e86_e787faad",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-09T15:11:14Z",
+      "side": 1,
+      "message": "(style) I am not pro- or anti- comments in general, but this feels like an over-explanation to me.\n\nThe name \"mongoc_cursor_more()\" makes the intent pretty clear. The commit message is detailed enough. I would skip the comment entirely here.",
+      "range": {
+        "startLine": 155,
+        "startChar": 4,
+        "endLine": 161,
+        "endChar": 7
+      },
+      "revId": "b822bb6fa2046b2e150106278565205309b1bf5a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
