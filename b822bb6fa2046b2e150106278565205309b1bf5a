@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f4c6870c_fd1fb34f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-11T07:22:53Z",
+      "side": 1,
+      "message": "Hopefully done. I am not sure if the new version matches what you asked for, tell me if there are still issues.",
+      "parentUuid": "7aa24138_08c555ec",
+      "revId": "b822bb6fa2046b2e150106278565205309b1bf5a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5c5cc183_44fdd7bc",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -31,6 +49,30 @@
       "writtenOn": "2021-06-09T15:11:14Z",
       "side": 1,
       "message": "(style) Please refer to https://github.com/cea-hpc/robinhood/blob/v4/contributing.rst#commit-messages for writing commit messages. [*]\n\n\u0027bugfix\u0027 shoud appear in the \u0027Change-type\u0027 trailer, if you really want to include it (see [*]). Here, I would prefer \u0027mongo\u0027.\n\n[*] You can skip the \u0027Breaking-change\u0027 and \u0027Change-type\u0027 trailers until the first stable release (they really only make sense after that).",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "b822bb6fa2046b2e150106278565205309b1bf5a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b45577c4_71a62915",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-11T07:22:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c5cc183_44fdd7bc",
       "range": {
         "startLine": 7,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29adea3f_404c686a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-11T07:22:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d216de7b_1c7dc2c4",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 19
+      },
+      "revId": "b822bb6fa2046b2e150106278565205309b1bf5a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4fc4a5b_30e4556d",
@@ -77,6 +143,24 @@
       "writtenOn": "2021-06-09T15:11:14Z",
       "side": 1,
       "message": "(question) Is the issue that mongoc_cursor_next() should not be called after the first time it fails?",
+      "revId": "b822bb6fa2046b2e150106278565205309b1bf5a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "face3dd0_cdca9d5c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-11T07:22:53Z",
+      "side": 1,
+      "message": "Yes it is, but since the problem was triggered when using a chunkified iterator, we cannot know if the issue is because we finished processing the chunk or if the read is done. Thus the next call to mongoc_cursor_next() would start",
+      "parentUuid": "b4fc4a5b_30e4556d",
       "revId": "b822bb6fa2046b2e150106278565205309b1bf5a",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -145,6 +229,30 @@
       "writtenOn": "2021-06-09T15:11:14Z",
       "side": 1,
       "message": "(style) I am not pro- or anti- comments in general, but this feels like an over-explanation to me.\n\nThe name \"mongoc_cursor_more()\" makes the intent pretty clear. The commit message is detailed enough. I would skip the comment entirely here.",
+      "range": {
+        "startLine": 155,
+        "startChar": 4,
+        "endLine": 161,
+        "endChar": 7
+      },
+      "revId": "b822bb6fa2046b2e150106278565205309b1bf5a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e244c63c_a5734f05",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-11T07:22:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1d92e86_e787faad",
       "range": {
         "startLine": 155,
         "startChar": 4,
