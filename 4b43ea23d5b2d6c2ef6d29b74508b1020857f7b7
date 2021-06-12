@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dad6482_49f1e75f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-12T15:39:15Z",
+      "side": 1,
+      "message": "Seems like the issue with the CI is related to gcc bug. [0]\nIn the meantime, I will disable the release build to reduce the noise.\n\n[0] https://gcc.gnu.org/bugzilla/show_bug.cgi?id\u003d101042",
+      "revId": "4b43ea23d5b2d6c2ef6d29b74508b1020857f7b7",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
