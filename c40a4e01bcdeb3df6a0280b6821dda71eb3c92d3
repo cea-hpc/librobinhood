@@ -41,6 +41,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "738b121c_06b2b7e3",
+        "filename": "include/ring.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-14T15:31:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41f9b66b_a85298f0",
+      "range": {
+        "startLine": 14,
+        "startChar": 3,
+        "endLine": 14,
+        "endChar": 58
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6dbf309b_aa6a97ec",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-06-14T12:39:02Z",
       "side": 1,
       "message": "typo: at",
+      "range": {
+        "startLine": 96,
+        "startChar": 43,
+        "endLine": 96,
+        "endChar": 45
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "418603fe_144ab17b",
+        "filename": "include/robinhood/ringr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-14T15:31:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6dbf309b_aa6a97ec",
       "range": {
         "startLine": 96,
         "startChar": 43,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9f0894a7_b4abb1ae",
+        "filename": "src/ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-14T15:31:12Z",
+      "side": 1,
+      "message": "Starved means here the there is no more data to read. It is easy to see the reader is not starved when its head is different than the ring one, but when both heads are identical, it means either all was read or none is left to read. This boolean is set to true when the heads are the same during the \u0027ack\u0027 process.\n\nThis boolean is then used to compute the number of readable bytes.",
+      "parentUuid": "4cbb945a_2e83ec0c",
+      "range": {
+        "startLine": 23,
+        "startChar": 9,
+        "endLine": 23,
+        "endChar": 16
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6218bc7e_7ce467c7",
         "filename": "src/ringr.c",
         "patchSetId": 1
@@ -100,6 +172,30 @@
       "writtenOn": "2021-06-14T12:39:02Z",
       "side": 1,
       "message": "comment: I find the name of this structure confusing. To me it suggests that this is a ring with multiple readers. Then I would expect to have a list of readers, not a list of ringr.\n\nI would prefer something like rbh_reader which, I think, better encapsulate the idea behind this new structure. I think I remember from a past conversation that this name is not available. Is this right?",
+      "range": {
+        "startLine": 24,
+        "startChar": 11,
+        "endLine": 24,
+        "endChar": 20
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0059a5e2_b950cc58",
+        "filename": "src/ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-14T15:31:12Z",
+      "side": 1,
+      "message": "\u0027ringr\u0027 is indeed named after \u0027ring_reader\u0027. So they contain a list of readers.\n\nThe issue is not that rbh_reader is not available (because it is), but this is a specific reader for rings only. So we needed a name that contain this information. It was first \u0027ring_reader\u0027, later shorten to \u0027ringr\u0027.",
+      "parentUuid": "6218bc7e_7ce467c7",
       "range": {
         "startLine": 24,
         "startChar": 11,
@@ -135,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0a0172c_069a592d",
+        "filename": "src/ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-14T15:31:12Z",
+      "side": 1,
+      "message": "I see your point.\n\nFirst, rbh_ringr_dup duplicates a reader, and its state, and not a ring. So here we create a new reader of the same ring, pointing to the same place in ring data.\n\nrbh_ringr_new_reader or add_reader could have been correct if we had access to the ring structure. But this is not the case in this implementation. We can have an rbh_ring, without readers using push() \u0026 pop() mechanisms, or we can have multiple readers of the same ring, without directly managing the ring.",
+      "parentUuid": "628f2fe7_13f83401",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 13
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54442940_0915937e",
         "filename": "src/ringr.c",
         "patchSetId": 1
@@ -158,6 +278,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e399103_accdedd4",
+        "filename": "src/ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-14T15:31:12Z",
+      "side": 1,
+      "message": "Yes, that\u0027s right.",
+      "parentUuid": "54442940_0915937e",
+      "range": {
+        "startLine": 102,
+        "startChar": 20,
+        "endLine": 102,
+        "endChar": 22
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "74a95368_e6d5d4e3",
         "filename": "tests/unit/check_ringr.c",
         "patchSetId": 1
@@ -169,6 +313,30 @@
       "writtenOn": "2021-06-14T12:39:02Z",
       "side": 1,
       "message": "question: aren\u0027t these the same test?",
+      "range": {
+        "startLine": 67,
+        "startChar": 1,
+        "endLine": 81,
+        "endChar": 8
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89db509b_70a6269a",
+        "filename": "tests/unit/check_ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-14T15:31:12Z",
+      "side": 1,
+      "message": "Done\n\nYou are right, the second test must check a size equals to 1 instead of 0.",
+      "parentUuid": "74a95368_e6d5d4e3",
       "range": {
         "startLine": 67,
         "startChar": 1,
@@ -204,6 +372,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "186ada0e_e4bf1de4",
+        "filename": "tests/unit/check_ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-14T15:31:12Z",
+      "side": 1,
+      "message": "The random_read function makes system calls which are slower than just setting buffer with arbitrary values.",
+      "parentUuid": "ddafaad5_badd6051",
+      "range": {
+        "startLine": 178,
+        "startChar": 8,
+        "endLine": 178,
+        "endChar": 22
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "688f486d_857b3b76",
         "filename": "tests/unit/check_ringr.c",
         "patchSetId": 1
@@ -227,6 +419,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a0599b3_30541b86",
+        "filename": "tests/unit/check_ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-14T15:31:12Z",
+      "side": 1,
+      "message": "Correct for the test goal.\n\nAn rbh_ringr_empty() function will not check if a buffer is empty, but if the reader still has bytes to read instead.",
+      "parentUuid": "688f486d_857b3b76",
+      "range": {
+        "startLine": 246,
+        "startChar": 4,
+        "endLine": 246,
+        "endChar": 73
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5205afc9_eb4da3bb",
         "filename": "tests/unit/check_ringr.c",
         "patchSetId": 1
@@ -238,6 +454,30 @@
       "writtenOn": "2021-06-14T12:39:02Z",
       "side": 1,
       "message": "question: why is there no assertions here?",
+      "range": {
+        "startLine": 279,
+        "startChar": 2,
+        "endLine": 289,
+        "endChar": 44
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1a20ff1_accf7405",
+        "filename": "tests/unit/check_ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-14T15:31:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5205afc9_eb4da3bb",
       "range": {
         "startLine": 279,
         "startChar": 2,
