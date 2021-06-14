@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f8962b9_edbacd25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-14T08:33:41Z",
+      "side": 1,
+      "message": "So, sorry for this second round. This patch was not modified since the last review.",
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
