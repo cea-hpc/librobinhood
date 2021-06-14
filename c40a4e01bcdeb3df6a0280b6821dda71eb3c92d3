@@ -16,6 +16,236 @@
       "message": "So, sorry for this second round. This patch was not modified since the last review.",
       "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41f9b66b_a85298f0",
+        "filename": "include/ring.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-14T12:39:02Z",
+      "side": 1,
+      "message": "suggest: this header defines the rbh_ring structure, I think that\u0027s its main purpose. It doesn\u0027t just make this struture\u0027s internals visible outside of ring.c.\n\nI would write: Internal header which defines the rbh_ring structure and makes it available to related structures.",
+      "range": {
+        "startLine": 14,
+        "startChar": 3,
+        "endLine": 14,
+        "endChar": 58
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dbf309b_aa6a97ec",
+        "filename": "include/robinhood/ringr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-14T12:39:02Z",
+      "side": 1,
+      "message": "typo: at",
+      "range": {
+        "startLine": 96,
+        "startChar": 43,
+        "endLine": 96,
+        "endChar": 45
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cbb945a_2e83ec0c",
+        "filename": "src/ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-14T12:39:02Z",
+      "side": 1,
+      "message": "comment: I think starved is not very explicit. I\u0027m not sure I fully understand it\u0027s purpose.",
+      "range": {
+        "startLine": 23,
+        "startChar": 9,
+        "endLine": 23,
+        "endChar": 16
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6218bc7e_7ce467c7",
+        "filename": "src/ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-14T12:39:02Z",
+      "side": 1,
+      "message": "comment: I find the name of this structure confusing. To me it suggests that this is a ring with multiple readers. Then I would expect to have a list of readers, not a list of ringr.\n\nI would prefer something like rbh_reader which, I think, better encapsulate the idea behind this new structure. I think I remember from a past conversation that this name is not available. Is this right?",
+      "range": {
+        "startLine": 24,
+        "startChar": 11,
+        "endLine": 24,
+        "endChar": 20
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "628f2fe7_13f83401",
+        "filename": "src/ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-14T12:39:02Z",
+      "side": 1,
+      "message": "comment: I find the name of this function misleading. To me, it suggests that the returned rbh_ringr *duplicate is a copy of the state of the argument while in fact it returns a new ringr with the same ring, a new reader and the previous reader. I would think that duplicating a ringr would duplicate the ring and the readers but not adding a new reader.\n\nMaybe something like rbh_ringr_new_reader would be more explicit? Or add_reader?",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 13
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54442940_0915937e",
+        "filename": "src/ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-14T12:39:02Z",
+      "side": 1,
+      "message": "question: I don\u0027t know the code well enough. Does the head member in rbh_ring correspond to the position of the last byte written on the ring\u0027s buffer? Which would then make this comparison licit.",
+      "range": {
+        "startLine": 102,
+        "startChar": 20,
+        "endLine": 102,
+        "endChar": 22
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74a95368_e6d5d4e3",
+        "filename": "tests/unit/check_ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-14T12:39:02Z",
+      "side": 1,
+      "message": "question: aren\u0027t these the same test?",
+      "range": {
+        "startLine": 67,
+        "startChar": 1,
+        "endLine": 81,
+        "endChar": 8
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddafaad5_badd6051",
+        "filename": "tests/unit/check_ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-14T12:39:02Z",
+      "side": 1,
+      "message": "question: since we have a function which reads randoms data, why not using it here?",
+      "range": {
+        "startLine": 178,
+        "startChar": 8,
+        "endLine": 178,
+        "endChar": 22
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "688f486d_857b3b76",
+        "filename": "tests/unit/check_ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-14T12:39:02Z",
+      "side": 1,
+      "message": "question: is the idea of this test to push page_size-15 bytes in a buffer of size page_size already containing 16 bytes (so the push is 1 byte too big)? And then see the push fail because of the size?\n\nWhy not having a rbh_ringr_empty() to test whether a buffer is empty or not? It may be a useful tool in practice and more explicit here.",
+      "range": {
+        "startLine": 246,
+        "startChar": 4,
+        "endLine": 246,
+        "endChar": 73
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5205afc9_eb4da3bb",
+        "filename": "tests/unit/check_ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-14T12:39:02Z",
+      "side": 1,
+      "message": "question: why is there no assertions here?",
+      "range": {
+        "startLine": 279,
+        "startChar": 2,
+        "endLine": 289,
+        "endChar": 44
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
