@@ -18,6 +18,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "089ad882_785e1392",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-15T23:06:41Z",
+      "side": 1,
+      "message": "Thanks, and indeed, it\u0027s missing a call site for now. The point is to use it to deduplicate fsevents in rbh-fsevents at some point. However, considering it\u0027s not strictly required for an MVP, it\u0027s still a long way until you can see the data structure in action.\n\nI don\u0027t intend to merge this very patch until it\u0027s actively being used.",
+      "parentUuid": "6f6bcb94_72c435ad",
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5c4073a_f94f7c36",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-06-15T09:36:25Z",
       "side": 1,
       "message": "nit: trailing whitespaces",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 7
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d5097d6_deee914c",
+        "filename": "include/robinhood/hashmap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-15T23:06:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5c4073a_f94f7c36",
       "range": {
         "startLine": 34,
         "startChar": 2,
@@ -64,6 +106,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6dbc760_f52b9fb6",
+        "filename": "include/robinhood/hashmap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-15T23:06:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fafa8b64_cbee8f8a",
+      "range": {
+        "startLine": 93,
+        "startChar": 34,
+        "endLine": 93,
+        "endChar": 39
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95375162_b43d8698",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-06-15T11:44:29Z",
       "side": 1,
       "message": "typo: value",
+      "range": {
+        "startLine": 114,
+        "startChar": 15,
+        "endLine": 114,
+        "endChar": 19
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "804110e6_96d8a2ff",
+        "filename": "include/robinhood/hashmap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-15T23:06:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95375162_b43d8698",
       "range": {
         "startLine": 114,
         "startChar": 15,
@@ -110,6 +200,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5f4c8b3_803d87b7",
+        "filename": "include/robinhood/hashmap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-15T23:06:41Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "parentUuid": "648a9638_3200a450",
+      "range": {
+        "startLine": 140,
+        "startChar": 20,
+        "endLine": 140,
+        "endChar": 30
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "894051c9_082263d1",
@@ -123,6 +237,30 @@
       "writtenOn": "2021-06-15T11:44:29Z",
       "side": 1,
       "message": "typo: a value or its value",
+      "range": {
+        "startLine": 153,
+        "startChar": 22,
+        "endLine": 153,
+        "endChar": 27
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f3a29ac_1c6ab8fe",
+        "filename": "include/robinhood/hashmap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-15T23:06:41Z",
+      "side": 1,
+      "message": "Done (\u0027a value\u0027)",
+      "parentUuid": "894051c9_082263d1",
       "range": {
         "startLine": 153,
         "startChar": 22,
@@ -156,6 +294,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "efc13206_7a390e52",
+        "filename": "src/hashmap.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-15T23:06:41Z",
+      "side": 1,
+      "message": "glibc\u0027s malloc does:\n\n\u003e SUSv2 requires malloc(), calloc(), and realloc() to set errno to ENOMEM upon failure.  Glibc assumes that this is  done  (and the  glibc versions of these routines do this); if you use a private malloc implementation that does not set errno, then certain library routines may fail without having a reason in errno.\n\nThat\u0027s good enough for us.",
+      "parentUuid": "6a4b9646_68534d97",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 20
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ab27f93_4b08a5cf",
@@ -169,6 +331,30 @@
       "writtenOn": "2021-06-15T11:44:29Z",
       "side": 1,
       "message": "minor: I think free does not touch errno",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecc7788b_61901126",
+        "filename": "src/hashmap.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-15T23:06:41Z",
+      "side": 1,
+      "message": "The standard on errno says that unless a function explicitely documents not touching errno, one is not allowed to assume.",
+      "parentUuid": "3ab27f93_4b08a5cf",
       "range": {
         "startLine": 48,
         "startChar": 8,
@@ -202,6 +388,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "207bef60_5ff7686e",
+        "filename": "src/hashmap.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-15T23:06:41Z",
+      "side": 1,
+      "message": "No, it\u0027s a bit tricky, we are dealing with \"between\" as in \"in an array that wraps around\". Like:\n\n -------------\n | A | B | C |\n -------------\n\n A is between C and B\n B is between A and C\n C is between B and A\n\nso is_between(2, 10, 5) should return true:\n\n ----------------------------------------------\n |   |   | 2 |   |   | 5 |   |   |   |   | 10 |\n ----------------------------------------------\n\nI will add a comment to try and make it clearer.",
+      "parentUuid": "acd8313d_fd9a9ab7",
+      "range": {
+        "startLine": 124,
+        "startChar": 25,
+        "endLine": 124,
+        "endChar": 54
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dee55b44_897b38de",
@@ -225,6 +435,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3a7424c_5770e9d3",
+        "filename": "src/hashmap.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-15T23:06:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dee55b44_897b38de",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 11
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5bd02c7_707d517a",
@@ -238,6 +472,30 @@
       "writtenOn": "2021-06-15T09:36:25Z",
       "side": 1,
       "message": "minor: to remove I think, test remnant?",
+      "range": {
+        "startLine": 327,
+        "startChar": 8,
+        "endLine": 327,
+        "endChar": 40
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19b634de_d98df29b",
+        "filename": "tests/unit/check_hashmap.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-15T23:06:41Z",
+      "side": 1,
+      "message": "Indeed, done",
+      "parentUuid": "f5bd02c7_707d517a",
       "range": {
         "startLine": 327,
         "startChar": 8,
