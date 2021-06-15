@@ -43,6 +43,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fafa8b64_cbee8f8a",
+        "filename": "include/robinhood/hashmap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-15T11:44:29Z",
+      "side": 1,
+      "message": "typo: given",
+      "range": {
+        "startLine": 93,
+        "startChar": 34,
+        "endLine": 93,
+        "endChar": 39
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95375162_b43d8698",
+        "filename": "include/robinhood/hashmap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-15T11:44:29Z",
+      "side": 1,
+      "message": "typo: value",
+      "range": {
+        "startLine": 114,
+        "startChar": 15,
+        "endLine": 114,
+        "endChar": 19
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "648a9638_3200a450",
         "filename": "include/robinhood/hashmap.h",
         "patchSetId": 5
@@ -59,6 +105,98 @@
         "startChar": 20,
         "endLine": 140,
         "endChar": 30
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "894051c9_082263d1",
+        "filename": "include/robinhood/hashmap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-15T11:44:29Z",
+      "side": 1,
+      "message": "typo: a value or its value",
+      "range": {
+        "startLine": 153,
+        "startChar": 22,
+        "endLine": 153,
+        "endChar": 27
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a4b9646_68534d97",
+        "filename": "src/hashmap.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-15T11:44:29Z",
+      "side": 1,
+      "message": "question: does malloc set errno?",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 20
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ab27f93_4b08a5cf",
+        "filename": "src/hashmap.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-15T11:44:29Z",
+      "side": 1,
+      "message": "minor: I think free does not touch errno",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acd8313d_fd9a9ab7",
+        "filename": "src/hashmap.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-15T11:44:29Z",
+      "side": 1,
+      "message": "major: I don\u0027t think this is right (unless I don\u0027t understand the goal of the function)\n\nis_between(2, 10, 5) should return false right?\n\nBut (low)10 \u003e (index)2 and (index)2 \u003c\u003d (high)5 which makes is_between return true. Isn\u0027t it a matter of just exchanging low and high in the true branch of the ternary operator?",
+      "range": {
+        "startLine": 124,
+        "startChar": 25,
+        "endLine": 124,
+        "endChar": 54
       },
       "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
