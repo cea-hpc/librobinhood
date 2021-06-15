@@ -22,6 +22,30 @@
       },
       "revId": "09280edbaffca303c0861b2984fa87395d12f812",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3754bfb_075d05ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-15T23:10:49Z",
+      "side": 1,
+      "message": "No, it is really \"which\".\n\nI know _why_ I got the warning, that\u0027s because a header was missing. 😊\nWhat I don\u0027t know is _which_ linter gave the warning, because the vim plugin I use runs many linters at once, and I\u0027m too lazy to figure out which one is to thank.",
+      "parentUuid": "605a9c27_203e6afa",
+      "range": {
+        "startLine": 9,
+        "startChar": 26,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "09280edbaffca303c0861b2984fa87395d12f812",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
