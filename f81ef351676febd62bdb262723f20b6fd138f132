@@ -39,6 +39,30 @@
       },
       "revId": "f81ef351676febd62bdb262723f20b6fd138f132",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "470f84c1_aeb58996",
+        "filename": "src/queue.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-15T23:13:45Z",
+      "side": 1,
+      "message": "It is if you lose track of where the pointer originally was. In this case, that\u0027s `queue-\u003erings`.\n\nI could use `queue-\u003erings` as the first argument to reallocarray(), but then I find that `tmp` is shorter, and in some places that\u0027s the difference between the statement fitting on a single line, or two. I took the habit of always using this form.",
+      "parentUuid": "94c5fb79_92992fa9",
+      "range": {
+        "startLine": 110,
+        "startChar": 12,
+        "endLine": 110,
+        "endChar": 61
+      },
+      "revId": "f81ef351676febd62bdb262723f20b6fd138f132",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
