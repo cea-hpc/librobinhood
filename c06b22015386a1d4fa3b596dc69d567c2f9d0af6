@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f6bcb94_72c435ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-15T09:36:25Z",
+      "side": 1,
+      "message": "Great data structure!\n\nI\u0027m looking forward to seeing where and why it will be used.",
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5c4073a_f94f7c36",
+        "filename": "include/robinhood/hashmap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-15T09:36:25Z",
+      "side": 1,
+      "message": "nit: trailing whitespaces",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 7
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "648a9638_3200a450",
+        "filename": "include/robinhood/hashmap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-15T09:36:25Z",
+      "side": 1,
+      "message": "minor: the number of slots in the hashmap",
+      "range": {
+        "startLine": 140,
+        "startChar": 20,
+        "endLine": 140,
+        "endChar": 30
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dee55b44_897b38de",
+        "filename": "src/hashmap.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-15T09:36:25Z",
+      "side": 1,
+      "message": "comment: it takes a little time to fully understand this one, maybe add a comment before the is_between call? To precise that we check if the next item must be moved to the released spot.",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 11
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5bd02c7_707d517a",
+        "filename": "tests/unit/check_hashmap.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-15T09:36:25Z",
+      "side": 1,
+      "message": "minor: to remove I think, test remnant?",
+      "range": {
+        "startLine": 327,
+        "startChar": 8,
+        "endLine": 327,
+        "endChar": 40
+      },
+      "revId": "c06b22015386a1d4fa3b596dc69d567c2f9d0af6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
