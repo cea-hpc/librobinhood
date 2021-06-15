@@ -635,6 +635,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10f2caf2_bc5bcd2d",
+        "filename": "tests/unit/check_ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-15T13:42:35Z",
+      "side": 1,
+      "message": "Yes, but you already have this behavior using `rbh_ringr_peek()`. If the size argument is zero, it means your reader is starving.",
+      "parentUuid": "c58d410e_e16aeb9c",
+      "range": {
+        "startLine": 246,
+        "startChar": 4,
+        "endLine": 246,
+        "endChar": 73
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5205afc9_eb4da3bb",
         "filename": "tests/unit/check_ringr.c",
         "patchSetId": 1
