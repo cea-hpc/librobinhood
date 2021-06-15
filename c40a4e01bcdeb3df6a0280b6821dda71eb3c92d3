@@ -254,6 +254,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28f5f262_2fe15fc9",
+        "filename": "src/ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-15T09:51:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "19e85306_9f889958",
+      "range": {
+        "startLine": 24,
+        "startChar": 11,
+        "endLine": 24,
+        "endChar": 20
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "628f2fe7_13f83401",
@@ -325,6 +349,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66b74dae_66389f08",
+        "filename": "src/ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-15T09:51:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8da16d2e_38cb6486",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 13
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54442940_0915937e",
@@ -362,6 +410,30 @@
       "side": 1,
       "message": "Yes, that\u0027s right.",
       "parentUuid": "54442940_0915937e",
+      "range": {
+        "startLine": 102,
+        "startChar": 20,
+        "endLine": 102,
+        "endChar": 22
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "891c9dac_43690385",
+        "filename": "src/ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-15T09:51:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7e399103_accdedd4",
       "range": {
         "startLine": 102,
         "startChar": 20,
@@ -466,6 +538,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ed35482_0a91e830",
+        "filename": "tests/unit/check_ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-15T09:51:43Z",
+      "side": 1,
+      "message": "I meant that having random data in the buffer would make the test more robust. And since we have a function that does that it would be easy to do. But I\u0027m fine with this approach.",
+      "parentUuid": "186ada0e_e4bf1de4",
+      "range": {
+        "startLine": 178,
+        "startChar": 8,
+        "endLine": 178,
+        "endChar": 22
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "688f486d_857b3b76",
@@ -503,6 +599,30 @@
       "side": 1,
       "message": "Correct for the test goal.\n\nAn rbh_ringr_empty() function will not check if a buffer is empty, but if the reader still has bytes to read instead.",
       "parentUuid": "688f486d_857b3b76",
+      "range": {
+        "startLine": 246,
+        "startChar": 4,
+        "endLine": 246,
+        "endChar": 73
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c58d410e_e16aeb9c",
+        "filename": "tests/unit/check_ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-15T09:51:43Z",
+      "side": 1,
+      "message": "Then if I understand the implementation correctly, rbh_ringr_starved() ?\nIt\u0027s just a suggestion, it may be a handy utility function.",
+      "parentUuid": "0a0599b3_30541b86",
       "range": {
         "startLine": 246,
         "startChar": 4,
