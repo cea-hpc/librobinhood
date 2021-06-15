@@ -16,6 +16,29 @@
       "message": "Ok for having _DEFAULT_SOURCE. Even if our glibc version is far from 2.29 :), the macro seems to be harmless on older versions.",
       "revId": "f81ef351676febd62bdb262723f20b6fd138f132",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94c5fb79_92992fa9",
+        "filename": "src/queue.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-15T09:27:53Z",
+      "side": 1,
+      "message": "question: isn\u0027t this a bad practice to realloc a pointer directly? It would lead to a memory leak in case of failure.",
+      "range": {
+        "startLine": 110,
+        "startChar": 12,
+        "endLine": 110,
+        "endChar": 61
+      },
+      "revId": "f81ef351676febd62bdb262723f20b6fd138f132",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
