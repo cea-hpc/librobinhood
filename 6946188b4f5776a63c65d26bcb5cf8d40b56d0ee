@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d86ccb7f_019f8ee0",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-16T12:07:13Z",
+      "side": 1,
+      "message": "suggest: I think it\u0027s \"be better placed\" here.",
+      "range": {
+        "startLine": 141,
+        "startChar": 25,
+        "endLine": 141,
+        "endChar": 41
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c69d8fd6_91767f4b",
         "filename": "src/hashmap.c",
         "patchSetId": 6
