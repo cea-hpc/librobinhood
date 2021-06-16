@@ -41,6 +41,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54c56deb_b1bca5a9",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-16T21:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdb48c64_8f6ab10d",
+      "range": {
+        "startLine": 138,
+        "startChar": 3,
+        "endLine": 138,
+        "endChar": 7
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d86ccb7f_019f8ee0",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-06-16T12:07:13Z",
       "side": 1,
       "message": "suggest: I think it\u0027s \"be better placed\" here.",
+      "range": {
+        "startLine": 141,
+        "startChar": 25,
+        "endLine": 141,
+        "endChar": 41
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4bd0298_ff0723de",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-16T21:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d86ccb7f_019f8ee0",
       "range": {
         "startLine": 141,
         "startChar": 25,
@@ -87,6 +135,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80af59eb_792a6a21",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-16T21:54:51Z",
+      "side": 1,
+      "message": "It\u0027s actually an \"if and only if\".\n\nref: https://en.wikipedia.org/wiki/If_and_only_if",
+      "parentUuid": "c69d8fd6_91767f4b",
+      "range": {
+        "startLine": 144,
+        "startChar": 8,
+        "endLine": 144,
+        "endChar": 9
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07005f47_a0d85222",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-06-16T07:39:07Z",
       "side": 1,
       "message": "typo: trailing whitespaces",
+      "range": {
+        "startLine": 171,
+        "startChar": 38,
+        "endLine": 171,
+        "endChar": 40
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd1ec090_fb3ff304",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-16T21:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07005f47_a0d85222",
       "range": {
         "startLine": 171,
         "startChar": 38,
@@ -133,6 +229,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f22bc83a_77d1304a",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-16T21:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab198c70_5da73f54",
+      "range": {
+        "startLine": 180,
+        "startChar": 38,
+        "endLine": 180,
+        "endChar": 40
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a5de7d2_821b9ba2",
@@ -146,6 +266,30 @@
       "writtenOn": "2021-06-16T07:39:07Z",
       "side": 1,
       "message": "typo: trailing whitespaces",
+      "range": {
+        "startLine": 193,
+        "startChar": 38,
+        "endLine": 193,
+        "endChar": 40
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60edfab7_a3a4fc76",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-16T21:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a5de7d2_821b9ba2",
       "range": {
         "startLine": 193,
         "startChar": 38,
@@ -179,6 +323,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2929ef16_de4a7638",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-16T21:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa5bf041_d7eccfa5",
+      "range": {
+        "startLine": 200,
+        "startChar": 38,
+        "endLine": 200,
+        "endChar": 40
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5d000d5_4059047f",
@@ -192,6 +360,30 @@
       "writtenOn": "2021-06-16T07:39:07Z",
       "side": 1,
       "message": "typo: trailing whitespaces",
+      "range": {
+        "startLine": 207,
+        "startChar": 38,
+        "endLine": 207,
+        "endChar": 40
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44d92e79_d2bfcb65",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-16T21:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5d000d5_4059047f",
       "range": {
         "startLine": 207,
         "startChar": 38,
