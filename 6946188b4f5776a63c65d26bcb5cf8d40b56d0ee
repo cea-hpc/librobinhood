@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69a4ea92_ff5b06c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-16T07:39:07Z",
+      "side": 1,
+      "message": "Thanks for the explanation!",
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdb48c64_8f6ab10d",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-16T07:39:07Z",
+      "side": 1,
+      "message": "typo: double have",
+      "range": {
+        "startLine": 138,
+        "startChar": 3,
+        "endLine": 138,
+        "endChar": 7
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c69d8fd6_91767f4b",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-16T07:39:07Z",
+      "side": 1,
+      "message": "typo: If",
+      "range": {
+        "startLine": 144,
+        "startChar": 8,
+        "endLine": 144,
+        "endChar": 9
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07005f47_a0d85222",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-16T07:39:07Z",
+      "side": 1,
+      "message": "typo: trailing whitespaces",
+      "range": {
+        "startLine": 171,
+        "startChar": 38,
+        "endLine": 171,
+        "endChar": 40
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab198c70_5da73f54",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-16T07:39:07Z",
+      "side": 1,
+      "message": "typo: trailing whitespaces",
+      "range": {
+        "startLine": 180,
+        "startChar": 38,
+        "endLine": 180,
+        "endChar": 40
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a5de7d2_821b9ba2",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-16T07:39:07Z",
+      "side": 1,
+      "message": "typo: trailing whitespaces",
+      "range": {
+        "startLine": 193,
+        "startChar": 38,
+        "endLine": 193,
+        "endChar": 40
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa5bf041_d7eccfa5",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-16T07:39:07Z",
+      "side": 1,
+      "message": "typo: trailing whitespaces",
+      "range": {
+        "startLine": 200,
+        "startChar": 38,
+        "endLine": 200,
+        "endChar": 40
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5d000d5_4059047f",
+        "filename": "src/hashmap.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-16T07:39:07Z",
+      "side": 1,
+      "message": "typo: trailing whitespaces",
+      "range": {
+        "startLine": 207,
+        "startChar": 38,
+        "endLine": 207,
+        "endChar": 40
+      },
+      "revId": "6946188b4f5776a63c65d26bcb5cf8d40b56d0ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
