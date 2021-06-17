@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d4e74c6_55a9e7f9",
+        "filename": "src/hashmap.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-17T07:23:16Z",
+      "side": 1,
+      "message": "typo: double slot\n\nMy bad, I saw this yesterday, and thought I made a comment about this, but I see this was not the case.",
+      "range": {
+        "startLine": 132,
+        "startChar": 3,
+        "endLine": 132,
+        "endChar": 7
+      },
+      "revId": "4a95c4ec88c379277fa91f57b997b6a2544cca30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
