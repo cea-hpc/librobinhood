@@ -183,6 +183,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e14cdbd8_8ee42e00",
+        "filename": "src/ringr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-06-17T07:28:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "48faf354_059e8044",
+      "range": {
+        "startLine": 23,
+        "startChar": 9,
+        "endLine": 23,
+        "endChar": 16
+      },
+      "revId": "c40a4e01bcdeb3df6a0280b6821dda71eb3c92d3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6218bc7e_7ce467c7",
