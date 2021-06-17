@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1306d078_8f19741e",
+        "filename": "include/robinhood/hashmap.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-17T20:50:14Z",
+      "side": 1,
+      "message": "I picked it for consistency with other data structures in the project:\n\n $ grep -o \"\\S*_pop\" include/robinhood/*.h | sort -u\n include/robinhood/hashmap.h:rbh_hashmap_pop\n include/robinhood/queue.h:rbh_queue_pop\n include/robinhood/ring.h:rbh_ring_pop\n include/robinhood/sstack.h:rbh_sstack_pop\n include/robinhood/stack.h:rbh_stack_pop\n\nAlso, python\u0027s `dict` has a .pop() method, so I think we\u0027re OK.",
+      "parentUuid": "91dc2076_47b58783",
+      "range": {
+        "startLine": 114,
+        "startChar": 41,
+        "endLine": 114,
+        "endChar": 56
+      },
+      "revId": "4a95c4ec88c379277fa91f57b997b6a2544cca30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e58db55_67bffa4f",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-17T10:43:32Z",
       "side": 1,
       "message": "question: are the two functions not null-checked ? I find it strange that count is, but not the functions",
+      "range": {
+        "startLine": 145,
+        "startChar": 3,
+        "endLine": 145,
+        "endChar": 45
+      },
+      "revId": "4a95c4ec88c379277fa91f57b997b6a2544cca30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30b4ddd0_3eb1f2ec",
+        "filename": "include/robinhood/hashmap.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-17T20:50:14Z",
+      "side": 1,
+      "message": "That a fair point. Done.",
+      "parentUuid": "1e58db55_67bffa4f",
       "range": {
         "startLine": 145,
         "startChar": 3,
@@ -70,6 +118,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af2d05c5_3cc5664a",
+        "filename": "src/hashmap.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-17T20:50:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d4e74c6_55a9e7f9",
+      "range": {
+        "startLine": 132,
+        "startChar": 3,
+        "endLine": 132,
+        "endChar": 7
+      },
+      "revId": "4a95c4ec88c379277fa91f57b997b6a2544cca30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09514767_0853312c",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-06-17T10:43:32Z",
       "side": 1,
       "message": "question: if I understand correctly, then all the keys/values should be free by the user ?",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 19
+      },
+      "revId": "4a95c4ec88c379277fa91f57b997b6a2544cca30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62be65fc_101e7ff8",
+        "filename": "src/hashmap.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-17T20:50:14Z",
+      "side": 1,
+      "message": "Yes, that is, if they need to be freed at all.",
+      "parentUuid": "09514767_0853312c",
       "range": {
         "startLine": 266,
         "startChar": 0,
