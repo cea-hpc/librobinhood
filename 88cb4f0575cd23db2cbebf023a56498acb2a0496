@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6382f90_d652ce2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-17T20:52:03Z",
+      "side": 1,
+      "message": "Just as with rbh_hashmap, I\u0027ll wait for a patch that uses the structure to be ready to land before I merge this. LGTM though",
+      "revId": "88cb4f0575cd23db2cbebf023a56498acb2a0496",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
