@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "91dc2076_47b58783",
+        "filename": "include/robinhood/hashmap.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-17T10:43:32Z",
+      "side": 1,
+      "message": "question: Shouldn\u0027t this be called \"remove\" ? I think \"pop\" is more associated to stacks or queues rather than hashmaps",
+      "range": {
+        "startLine": 114,
+        "startChar": 41,
+        "endLine": 114,
+        "endChar": 56
+      },
+      "revId": "4a95c4ec88c379277fa91f57b997b6a2544cca30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e58db55_67bffa4f",
+        "filename": "include/robinhood/hashmap.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-17T10:43:32Z",
+      "side": 1,
+      "message": "question: are the two functions not null-checked ? I find it strange that count is, but not the functions",
+      "range": {
+        "startLine": 145,
+        "startChar": 3,
+        "endLine": 145,
+        "endChar": 45
+      },
+      "revId": "4a95c4ec88c379277fa91f57b997b6a2544cca30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3d4e74c6_55a9e7f9",
         "filename": "src/hashmap.c",
         "patchSetId": 7
@@ -19,6 +65,29 @@
         "startChar": 3,
         "endLine": 132,
         "endChar": 7
+      },
+      "revId": "4a95c4ec88c379277fa91f57b997b6a2544cca30",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09514767_0853312c",
+        "filename": "src/hashmap.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-17T10:43:32Z",
+      "side": 1,
+      "message": "question: if I understand correctly, then all the keys/values should be free by the user ?",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 19
       },
       "revId": "4a95c4ec88c379277fa91f57b997b6a2544cca30",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
