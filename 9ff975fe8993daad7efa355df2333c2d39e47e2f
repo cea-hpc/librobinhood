@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f612f1f5_fca9843d",
+        "filename": "include/robinhood/hashmap.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-18T06:51:49Z",
+      "side": 1,
+      "message": "typo: \\p hash",
+      "range": {
+        "startLine": 145,
+        "startChar": 60,
+        "endLine": 145,
+        "endChar": 65
+      },
+      "revId": "9ff975fe8993daad7efa355df2333c2d39e47e2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
