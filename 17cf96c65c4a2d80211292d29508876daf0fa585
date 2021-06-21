@@ -56,6 +56,30 @@
       },
       "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d2de8e9_e13c093b",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-21T07:54:21Z",
+      "side": 1,
+      "message": "Well, this may be a bit disturbing, but this value (`RRT_ANY`) is only used when pushing data in the ring.\n\nTo push data in a ring, we need to push in a ringr. As my ringrs are in an array (as you said, 0 for directories and 1 for fsentries), I did not want to write `ringrs[0]` or `ringrs[RRT_DIRECTORIES]` because they may lead to \"Oh, this is pushed to directories ringr\". This is why I decided on adding a fake index, with `RRT_ANY`.\n\nThe name may be wrong, `RRT_BOTH` can be a better candidate.",
+      "parentUuid": "bec5630d_9d466d70",
+      "range": {
+        "startLine": 823,
+        "startChar": 4,
+        "endLine": 823,
+        "endChar": 28
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
