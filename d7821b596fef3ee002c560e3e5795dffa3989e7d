@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c75697a9_367e9c9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-21T07:18:08Z",
+      "side": 1,
+      "message": "Humph, I thought the rebase would only clear the verified label, but it seems it also removed the review ones. Sorry for that.",
+      "revId": "d7821b596fef3ee002c560e3e5795dffa3989e7d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
