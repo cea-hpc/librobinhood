@@ -18,6 +18,23 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89545f37_4f4c9992",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-21T12:43:39Z",
+      "side": 1,
+      "message": "Sorry for the double post, I needed a break",
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19cbd647_ea010246",
@@ -108,6 +125,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a27f10db_7c3b97a4",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-21T12:43:39Z",
+      "side": 1,
+      "message": "suggest: since the function doesn\u0027t check for anything time-related, I think calling it \"ringr_largest_reader\" would be more accurate",
+      "range": {
+        "startLine": 843,
+        "startChar": 0,
+        "endLine": 843,
+        "endChar": 19
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7ce9df08_8c3f0ad9",
         "filename": "src/backends/mongo/mongo.c",
         "patchSetId": 1
@@ -131,6 +171,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7538756f_a5417c55",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-21T12:43:39Z",
+      "side": 1,
+      "message": "suggest: remove the reader_type parameter, and call the function with values/ids[reader_type] given as simple instances of the struct rbh_ringr, rather than pointers.",
+      "range": {
+        "startLine": 905,
+        "startChar": 23,
+        "endLine": 907,
+        "endChar": 58
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e64a4bee_28144d20",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-21T12:43:39Z",
+      "side": 1,
+      "message": "suggest: move this comment above line 932, and add a comment here to explain why you only get the total size for ids and not values. Is it because Ids have a variable length between 1 and 16 bytes ?",
+      "range": {
+        "startLine": 928,
+        "startChar": 4,
+        "endLine": 928,
+        "endChar": 40
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e6289e8_f52e601d",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-21T12:43:39Z",
+      "side": 1,
+      "message": "suggest: I think renaming this variable to sub_directories would be clearer, if I correctly understand what it corresponds to.",
+      "range": {
+        "startLine": 946,
+        "startChar": 29,
+        "endLine": 946,
+        "endChar": 41
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f347b8c3_85f171e1",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-21T12:43:39Z",
+      "side": 1,
+      "message": "nit: I feel like a switch for one specific statement is a bit overkill",
+      "range": {
+        "startLine": 991,
+        "startChar": 8,
+        "endLine": 991,
+        "endChar": 24
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c722ddb_f4afbfb7",
         "filename": "src/backends/mongo/mongo.c",
         "patchSetId": 1
@@ -147,6 +279,52 @@
         "startChar": 4,
         "endLine": 1045,
         "endChar": 5
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "228353b8_8e1da968",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-21T12:43:39Z",
+      "side": 1,
+      "message": "nit: add a blank line",
+      "range": {
+        "startLine": 1065,
+        "startChar": 4,
+        "endLine": 1066,
+        "endChar": 4
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35518019_5370ae31",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-21T12:43:39Z",
+      "side": 1,
+      "message": "question: shouldn\u0027t we still attempt to destroy iter-\u003edirectories ? Or could the program crash while trying ?",
+      "range": {
+        "startLine": 1073,
+        "startChar": 12,
+        "endLine": 1074,
+        "endChar": 28
       },
       "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
