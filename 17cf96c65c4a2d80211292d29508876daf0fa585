@@ -35,6 +35,23 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9108f416_e815c7b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-22T19:54:50Z",
+      "side": 1,
+      "message": "It\u0027s kind of hard to remember what the old patch looked like. Do you happen to have it in your reflog somewhere, by any chance?",
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19cbd647_ea010246",
