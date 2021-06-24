@@ -52,6 +52,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51e31536_4bc91d90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-24T14:16:01Z",
+      "side": 1,
+      "message": "What do you mean by the old patch? The one from 2 years ago? I can still try to retrieve it from our servers.",
+      "parentUuid": "9108f416_e815c7b2",
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19cbd647_ea010246",
@@ -163,6 +181,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "767344c6_4d4b9ab3",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-24T14:16:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a27f10db_7c3b97a4",
+      "range": {
+        "startLine": 843,
+        "startChar": 0,
+        "endLine": 843,
+        "endChar": 19
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ce9df08_8c3f0ad9",
@@ -176,6 +218,30 @@
       "writtenOn": "2021-06-21T11:45:14Z",
       "side": 1,
       "message": "question: why two underscores ?",
+      "range": {
+        "startLine": 854,
+        "startChar": 0,
+        "endLine": 854,
+        "endChar": 2
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4dcb1f1_393afc68",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-24T14:16:01Z",
+      "side": 1,
+      "message": "There is no real reason, there was two underscores in the first version of this patch, so I kept them.",
+      "parentUuid": "7ce9df08_8c3f0ad9",
       "range": {
         "startLine": 854,
         "startChar": 0,
@@ -209,6 +275,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dce70f4b_9240a69f",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-24T14:16:01Z",
+      "side": 1,
+      "message": "Done, thanks for the proposal.",
+      "parentUuid": "7538756f_a5417c55",
+      "range": {
+        "startLine": 905,
+        "startChar": 23,
+        "endLine": 907,
+        "endChar": 58
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e64a4bee_28144d20",
@@ -222,6 +312,30 @@
       "writtenOn": "2021-06-21T12:43:39Z",
       "side": 1,
       "message": "suggest: move this comment above line 932, and add a comment here to explain why you only get the total size for ids and not values. Is it because Ids have a variable length between 1 and 16 bytes ?",
+      "range": {
+        "startLine": 928,
+        "startChar": 4,
+        "endLine": 928,
+        "endChar": 40
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e986c6f_bab0adba",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-24T14:16:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64a4bee_28144d20",
       "range": {
         "startLine": 928,
         "startChar": 4,
@@ -257,6 +371,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2101c47_195d662b",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-24T14:16:01Z",
+      "side": 1,
+      "message": "Maybe, but in this case, directories can also be named sub_directories. Here _directories stands for newly found directories to add to the chained data structure. As it is a temporary iterator that will be merged with another one, I do not feel the need to change its name.\n\nI will wait for your answer to this before editing.",
+      "parentUuid": "5e6289e8_f52e601d",
+      "range": {
+        "startLine": 946,
+        "startChar": 29,
+        "endLine": 946,
+        "endChar": 41
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f347b8c3_85f171e1",
         "filename": "src/backends/mongo/mongo.c",
         "patchSetId": 1
@@ -268,6 +406,30 @@
       "writtenOn": "2021-06-21T12:43:39Z",
       "side": 1,
       "message": "nit: I feel like a switch for one specific statement is a bit overkill",
+      "range": {
+        "startLine": 991,
+        "startChar": 8,
+        "endLine": 991,
+        "endChar": 24
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd9901e6_1feb984d",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-24T14:16:01Z",
+      "side": 1,
+      "message": "Overkill in which way? The case reading is at least as good as an if-else statement, and in the few sources I read, it is not slower.",
+      "parentUuid": "f347b8c3_85f171e1",
       "range": {
         "startLine": 991,
         "startChar": 8,
@@ -303,6 +465,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f76dc2ec_cdbff32d",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-24T14:16:01Z",
+      "side": 1,
+      "message": "I did a mutualization between ENOBUFS cases. Tell me if you think this is sufficient.",
+      "parentUuid": "8c722ddb_f4afbfb7",
+      "range": {
+        "startLine": 1024,
+        "startChar": 4,
+        "endLine": 1045,
+        "endChar": 5
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "228353b8_8e1da968",
         "filename": "src/backends/mongo/mongo.c",
         "patchSetId": 1
@@ -314,6 +500,30 @@
       "writtenOn": "2021-06-21T12:43:39Z",
       "side": 1,
       "message": "nit: add a blank line",
+      "range": {
+        "startLine": 1065,
+        "startChar": 4,
+        "endLine": 1066,
+        "endChar": 4
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20924283_9aae7f67",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-24T14:16:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "228353b8_8e1da968",
       "range": {
         "startLine": 1065,
         "startChar": 4,
@@ -349,6 +559,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd14bfe6_ae227232",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-24T14:16:01Z",
+      "side": 1,
+      "message": "No need to destroy it now as it will be done by the mongo iterator destroy call.",
+      "parentUuid": "35518019_5370ae31",
+      "range": {
+        "startLine": 1073,
+        "startChar": 12,
+        "endLine": 1074,
+        "endChar": 28
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2b66ff5_52b0ff80",
         "filename": "src/backends/mongo/mongo.c",
         "patchSetId": 1
@@ -360,6 +594,30 @@
       "writtenOn": "2021-06-21T11:45:14Z",
       "side": 1,
       "message": "suggest: to put in the above if",
+      "range": {
+        "startLine": 1079,
+        "startChar": 16,
+        "endLine": 1079,
+        "endChar": 41
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cf00124_abcfdc33",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-24T14:16:01Z",
+      "side": 1,
+      "message": "I merged both conditions.",
+      "parentUuid": "a2b66ff5_52b0ff80",
       "range": {
         "startLine": 1079,
         "startChar": 16,
@@ -383,6 +641,30 @@
       "writtenOn": "2021-06-21T11:45:14Z",
       "side": 1,
       "message": "question: why not use gotos for this part ?",
+      "range": {
+        "startLine": 1277,
+        "startChar": 4,
+        "endLine": 1316,
+        "endChar": 5
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e5c82fa_a5367767",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-24T14:16:01Z",
+      "side": 1,
+      "message": "By consistency with the first part of the destructor. Done for the second part.",
+      "parentUuid": "507823c5_43b3be45",
       "range": {
         "startLine": 1277,
         "startChar": 4,
