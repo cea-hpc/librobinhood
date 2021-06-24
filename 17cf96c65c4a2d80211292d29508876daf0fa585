@@ -252,6 +252,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dc17958_1ebcd712",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-24T15:02:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e4dcb1f1_393afc68",
+      "range": {
+        "startLine": 854,
+        "startChar": 0,
+        "endLine": 854,
+        "endChar": 2
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7538756f_a5417c55",
@@ -393,6 +417,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f239a1f1_065b2484",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-24T15:02:29Z",
+      "side": 1,
+      "message": "Your explanation convinced me, no need to change :)",
+      "parentUuid": "a2101c47_195d662b",
+      "range": {
+        "startLine": 946,
+        "startChar": 29,
+        "endLine": 946,
+        "endChar": 41
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f347b8c3_85f171e1",
@@ -440,6 +488,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92c64320_799cbdee",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-24T15:02:29Z",
+      "side": 1,
+      "message": "Yes there is no difference, it\u0027s just that I find it overkill because it\u0027s only one statement, where I would expect a switch to check for more than one, but it\u0027s not problem, keeping it that way is mighty fine with me",
+      "parentUuid": "cd9901e6_1feb984d",
+      "range": {
+        "startLine": 991,
+        "startChar": 8,
+        "endLine": 991,
+        "endChar": 24
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c722ddb_f4afbfb7",
@@ -477,6 +549,30 @@
       "side": 1,
       "message": "I did a mutualization between ENOBUFS cases. Tell me if you think this is sufficient.",
       "parentUuid": "8c722ddb_f4afbfb7",
+      "range": {
+        "startLine": 1024,
+        "startChar": 4,
+        "endLine": 1045,
+        "endChar": 5
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91f919f8_1155710f",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-24T15:02:29Z",
+      "side": 1,
+      "message": "Yes that is was I was referring to, the insides of the ENOBUFS statement",
+      "parentUuid": "f76dc2ec_cdbff32d",
       "range": {
         "startLine": 1024,
         "startChar": 4,
@@ -571,6 +667,30 @@
       "side": 1,
       "message": "No need to destroy it now as it will be done by the mongo iterator destroy call.",
       "parentUuid": "35518019_5370ae31",
+      "range": {
+        "startLine": 1073,
+        "startChar": 12,
+        "endLine": 1074,
+        "endChar": 28
+      },
+      "revId": "17cf96c65c4a2d80211292d29508876daf0fa585",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f62a832d_bf3ca535",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-24T15:02:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bd14bfe6_ae227232",
       "range": {
         "startLine": 1073,
         "startChar": 12,
