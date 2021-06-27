@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "742110b7_df9acdfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-27T14:43:03Z",
+      "side": 1,
+      "message": "Pushed a new version as I thought it would be easier than asking for changes.\n\nI changed a few names, shuffled some code around and fixed at least one bug in the error path of the last function.\n\nI also removed both append_{id,value}() and purge_ringr(). They would have been my main complaint if I had done a review:\n- the double pointer `retval`;\n- the `id_addition` argument for purge_ringr();\n- the fact that \"append_id\" does not take an id as a parameter;\n- same for \"append_value\";\n- too many side-effects overall;\n- and the execution flow was not clear to me.\n\nI _think_ I may have removed an optimization in branch_iter_fsentries() where you used to destroy the directories chain iterator and start fresh again, but I also think it was error-prone and should be added in a separate patch if you want to keep it.\n\nCheers!",
+      "revId": "bbb3bfc6f2f385c847b65d7da21d50d03a36b762",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
