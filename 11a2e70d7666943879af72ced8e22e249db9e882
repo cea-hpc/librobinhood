@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73613a3b_ffe212cc",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-28T23:12:13Z",
+      "side": 1,
+      "message": "(defect) assert(... \u003d\u003d 0);",
+      "revId": "11a2e70d7666943879af72ced8e22e249db9e882",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}

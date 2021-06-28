@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b9ef5cd_e7dd13f9",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-28T23:12:13Z",
+      "side": 1,
+      "message": "Ah, I think I understand what\u0027s happening:\n\nAt the initialization stage, we set `iter-\u003edirectory` to the root of the branch. That way, when we first enter this function, we go straight to the `record_id` label, and we bypass iterating over `iter-\u003edirectories`.\n\nThat worked well before this patch because we never went further than one directory at a time, so as soon as we saw `iter-\u003edirectory` was not empty, we would use it to fill/create `iter-\u003edirectories`.\n\nBut now that we batch as many directories as we can into one query, we actually loop over this bit of code, and while we skipped over `rbh_mut_iter_next(iter-\u003edirectories)` once, as soon as we loop over we go through it. `iter-\u003edirectories` still being unset, we get the SIGSEV.\n\nI feel a good fix would be to initialize `iter-\u003edirectories` to an empty iterator rather than NULL, that way, when we loop over, we still get the normal flow of execution: `iter-\u003edirectories` is exhausted, let\u0027s hydrate it (with that first directory that we just put in the ring).\n\nI don\u0027t know if I making much sense, but I implemented the fix. It seems to be working.",
+      "parentUuid": "6f0c55c3_ad26df29",
+      "range": {
+        "startLine": 998,
+        "startChar": 8,
+        "endLine": 998,
+        "endChar": 63
+      },
+      "revId": "0fbc010eeea9fcb1bec6224c0618e1f4385f7762",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d52a81f_f55a3d67",

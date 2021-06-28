@@ -34,6 +34,24 @@
       "parentUuid": "742110b7_df9acdfb",
       "revId": "bbb3bfc6f2f385c847b65d7da21d50d03a36b762",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68799805_7f4eda73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-28T23:12:13Z",
+      "side": 1,
+      "message": "I was thinking of how you pass in `iter` into `append_id`, and then update its `value` field, and then call purge_ringr(), which itself updates `iter-\u003eringr`.\n\nMaybe side-effect isn\u0027t exactly the right word. But there was a bit of action going on in these function that was not explicit from their name.",
+      "parentUuid": "a95d4b1f_2963e5e4",
+      "revId": "bbb3bfc6f2f385c847b65d7da21d50d03a36b762",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
