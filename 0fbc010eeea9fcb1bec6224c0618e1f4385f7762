@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f0c55c3_ad26df29",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-06-28T15:13:21Z",
+      "side": 1,
+      "message": "defect: I tried to ran your version with rbh-find, and got a segfault at this point.\n\nI know I got into this when I ported this patch, and that\u0027s why I made the small additions you saw as an optimization.",
+      "range": {
+        "startLine": 998,
+        "startChar": 8,
+        "endLine": 998,
+        "endChar": 63
+      },
+      "revId": "0fbc010eeea9fcb1bec6224c0618e1f4385f7762",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d52a81f_f55a3d67",
         "filename": "src/backends/mongo/mongo.c",
         "patchSetId": 4
