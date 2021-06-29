@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6b9370a_ad38c61e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T21:56:09Z",
+      "side": 1,
+      "message": "So for el8 we have statx and older defines but not these, this is going to need a bit more work to protect these with ifndefs in a file inconditionally included, or another meson check...",
+      "revId": "50dc865d840f21f1d02235194119a1da6e3b8590",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
