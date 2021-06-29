@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51591056_a3a77b8d",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-29T09:58:53Z",
+      "side": 1,
+      "message": "minor: I still think this part and the one below should be mutualized, they almost identical",
+      "range": {
+        "startLine": 1018,
+        "startChar": 12,
+        "endLine": 1035,
+        "endChar": 13
+      },
+      "revId": "a2f2e3e9b2debebf6485d6911d169f071c947fe4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
