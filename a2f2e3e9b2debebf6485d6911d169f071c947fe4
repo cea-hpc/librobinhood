@@ -22,6 +22,30 @@
       },
       "revId": "a2f2e3e9b2debebf6485d6911d169f071c947fe4",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6788772c_aa9b7be9",
+        "filename": "src/backends/mongo/mongo.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T21:40:32Z",
+      "side": 1,
+      "message": "It\u0027s hard to mutualize gotos, I don\u0027t see any way to do that properly here without an overhead in readability. I\u0027m inclined it\u0027s one of those occasions where duplicating code is worth more than it costs.\n\nIf you can come up with a good alternative though, I\u0027ll take it.",
+      "parentUuid": "51591056_a3a77b8d",
+      "range": {
+        "startLine": 1018,
+        "startChar": 12,
+        "endLine": 1035,
+        "endChar": 13
+      },
+      "revId": "a2f2e3e9b2debebf6485d6911d169f071c947fe4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
