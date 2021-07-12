@@ -86,6 +86,30 @@
       },
       "revId": "4f47188589269b4cb229010c1ce89bcc97def54d",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8981d586_b4875945",
+        "filename": "tests/unit/check_itertools.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-12T18:13:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72b5dbaa_a5bc96a3",
+      "range": {
+        "startLine": 275,
+        "startChar": 27,
+        "endLine": 275,
+        "endChar": 41
+      },
+      "revId": "4f47188589269b4cb229010c1ce89bcc97def54d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
