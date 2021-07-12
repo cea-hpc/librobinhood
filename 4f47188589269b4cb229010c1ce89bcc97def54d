@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40f6548e_3426efd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-07-12T07:44:01Z",
+      "side": 1,
+      "message": "A new iterator, I really like this piece of code :).",
+      "revId": "4f47188589269b4cb229010c1ce89bcc97def54d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72b5dbaa_a5bc96a3",
+        "filename": "tests/unit/check_itertools.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-07-12T07:44:01Z",
+      "side": 1,
+      "message": "nit: \u0027n\u0027 is missing (not really a problem here)",
+      "range": {
+        "startLine": 275,
+        "startChar": 27,
+        "endLine": 275,
+        "endChar": 41
+      },
+      "revId": "4f47188589269b4cb229010c1ce89bcc97def54d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
