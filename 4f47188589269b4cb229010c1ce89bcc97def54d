@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "40762f9a_28fd99e4",
+        "filename": "include/robinhood/itertools.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-07-12T08:14:46Z",
+      "side": 1,
+      "message": "minor: rbh_mut_iterator",
+      "range": {
+        "startLine": 200,
+        "startChar": 62,
+        "endLine": 200,
+        "endChar": 74
+      },
+      "revId": "4f47188589269b4cb229010c1ce89bcc97def54d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72b5dbaa_a5bc96a3",
         "filename": "tests/unit/check_itertools.c",
         "patchSetId": 3
