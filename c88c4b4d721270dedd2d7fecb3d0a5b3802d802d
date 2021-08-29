@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "432825b8_9f9520a5",
+        "filename": "src/backends/mongo/bson.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-29T22:41:23Z",
+      "side": 1,
+      "message": "I wondered about it as well... Same way, is there ever going to be a case in which RBH_STATX_XTIME is available but not RBH_STATX_XTIME_NSEC? Would it make sense to return both even if only the main one is requested?\n\nI have no idea, and I think it\u0027s less confusing to have everything be explicit. Makes the API more consistent.",
+      "parentUuid": "5304af2b_2f100dee",
+      "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe553a22_5d128a3f",
         "filename": "src/backends/mongo/fields.c",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2021-08-29T21:57:49Z",
       "side": 1,
       "message": "(nitpick) leading space",
+      "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e798845_c58072f0",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-29T22:41:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe553a22_5d128a3f",
       "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -48,6 +84,24 @@
       "writtenOn": "2021-08-29T21:57:49Z",
       "side": 1,
       "message": "(nitpick) leading space",
+      "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f86dde32_71efa7d8",
+        "filename": "src/backends/mongo/fsentry.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-29T22:41:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ccba31b_c1d5a316",
       "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -71,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b53361ea_781f1800",
+        "filename": "src/backends/mongo/fsentry.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-29T22:41:23Z",
+      "side": 1,
+      "message": "I want to say no. Considering we have those new flags that explicitly tell the user \"this is set\"/\"this is not\", I think it\u0027s OK to return only the nanoseconds.\n\nWho knows, maybe someone will find a use for that.",
+      "parentUuid": "b5609e93_797c43bb",
+      "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae23acf3_1b299068",
         "filename": "src/backends/mongo/options.c",
         "patchSetId": 2
@@ -82,6 +154,24 @@
       "writtenOn": "2021-08-29T21:57:49Z",
       "side": 1,
       "message": "(nitpick) leading space",
+      "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3565a4f5_bfa36e9a",
+        "filename": "src/backends/mongo/options.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-29T22:41:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae23acf3_1b299068",
       "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -99,6 +189,24 @@
       "writtenOn": "2021-08-29T21:57:49Z",
       "side": 1,
       "message": "(likewise a bit late, but..) does it make sense to split major/minor? I can\u0027t think of a scenario where we\u0027d only have either.",
+      "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4734443_b55e83bb",
+        "filename": "src/backends/mongo/options.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-29T22:41:23Z",
+      "side": 1,
+      "message": "I don\u0027t know, but I need the fields to query each separately (or just query them at all), and I think using the flags only for queries would be confusing.\n\nWe (or users) can always define an `RBH_STATX_RDEV` flag that is `RBH_STATX_RDEV_MAJOR | RBH_STATX_RDEV_MINOR`.",
+      "parentUuid": "6253b217_431b3c3b",
       "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
