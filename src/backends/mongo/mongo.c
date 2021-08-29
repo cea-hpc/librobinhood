@@ -26,9 +26,7 @@
 #include "robinhood/backends/mongo.h"
 #include "robinhood/itertools.h"
 #include "robinhood/ringr.h"
-#ifndef HAVE_STATX
-# include "robinhood/statx-compat.h"
-#endif
+#include "robinhood/statx.h"
 
 #include "mongo.h"
 
@@ -925,7 +923,7 @@ static const struct rbh_filter ISDIR_FILTER = {
     .compare = {
         .field = {
             .fsentry = RBH_FP_STATX,
-            .statx = STATX_TYPE,
+            .statx = RBH_STATX_TYPE,
         },
         .value = {
             .type = RBH_VT_INT32,
