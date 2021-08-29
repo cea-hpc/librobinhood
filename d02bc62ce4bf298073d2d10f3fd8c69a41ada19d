@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acab93bf_41e68dc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-08-29T22:00:24Z",
+      "side": 1,
+      "message": "hmm, hopefully we won\u0027t ever need partial statx-compat (e.g. statx is set but not the new attributes)...",
+      "revId": "d02bc62ce4bf298073d2d10f3fd8c69a41ada19d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
