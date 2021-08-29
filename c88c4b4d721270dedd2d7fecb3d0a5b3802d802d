@@ -143,6 +143,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce07f6d1_bd397043",
+        "filename": "src/backends/mongo/fsentry.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-08-29T23:19:13Z",
+      "side": 1,
+      "message": "Good luck to them finding a use for that, but I\u0027m more worried users could easily only request nsecs when they meant to request sec+nsecs.\nAt the very least this deserves a convenience flag with both like you suggested for rdev to make it easy to use.",
+      "parentUuid": "b53361ea_781f1800",
+      "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae23acf3_1b299068",
         "filename": "src/backends/mongo/options.c",
         "patchSetId": 2
@@ -207,6 +225,24 @@
       "side": 1,
       "message": "I don\u0027t know, but I need the fields to query each separately (or just query them at all), and I think using the flags only for queries would be confusing.\n\nWe (or users) can always define an `RBH_STATX_RDEV` flag that is `RBH_STATX_RDEV_MAJOR | RBH_STATX_RDEV_MINOR`.",
       "parentUuid": "6253b217_431b3c3b",
+      "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc17230b_a93b053e",
+        "filename": "src/backends/mongo/options.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-08-29T23:19:13Z",
+      "side": 1,
+      "message": "hm, I was thinking of the old stat struct where both are stored in the same long int in memory, but for statx it is split in two u32... So I guess it makes sense to keep these separate in db as well, I\u0027m not sure how big the overhead is tbh, it\u0027s more of an \"it was stored as a single field before, why two now?\" kind of remark.\n\nNo strong feeling either way.",
+      "parentUuid": "e4734443_b55e83bb",
       "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
