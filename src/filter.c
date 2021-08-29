@@ -5,6 +5,7 @@
  * SPDX-License-Identifer: LGPL-3.0-or-later
  */
 
+#include "robinhood/statx.h"
 #ifdef HAVE_CONFIG_H
 # include "config.h"
 #endif
@@ -473,6 +474,16 @@ filter_field_validate(const struct rbh_filter_field *field)
         case STATX_SIZE:
         case STATX_BLOCKS:
         case STATX_BTIME:
+        case RBH_STATX_BLKSIZE:
+        case RBH_STATX_ATTRIBUTES:
+        case RBH_STATX_ATIME_NSEC:
+        case RBH_STATX_BTIME_NSEC:
+        case RBH_STATX_CTIME_NSEC:
+        case RBH_STATX_MTIME_NSEC:
+        case RBH_STATX_RDEV_MAJOR:
+        case RBH_STATX_RDEV_MINOR:
+        case RBH_STATX_DEV_MAJOR:
+        case RBH_STATX_DEV_MINOR:
             return 0;
         }
         break;
