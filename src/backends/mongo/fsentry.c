@@ -13,6 +13,7 @@
 #include <sys/stat.h>
 
 #include "robinhood/fsentry.h"
+# include "robinhood/statx.h"
 #ifndef HAVE_STATX
 # include "robinhood/statx-compat.h"
 #endif
@@ -339,15 +340,10 @@ statx_timestamp_tokenizer(const char *key)
 }
 
 static bool
-bson_iter_statx_timestamp(bson_iter_t *iter, struct statx_timestamp *timestamp)
+bson_iter_statx_timestamp(bson_iter_t *iter, uint32_t *mask,
+                          uint32_t tv_sec_flag, uint32_t tv_nsec_flag,
+                          struct statx_timestamp *timestamp)
 {
-    struct { /* mandatory fields */
-        bool sec:1;
-        bool nsec:1;
-    } seen;
-
-    memset(&seen, 0, sizeof(seen));
-
     while (bson_iter_next(iter)) {
         switch (statx_timestamp_tokenizer(bson_iter_key(iter))) {
         case STT_UNKNOWN:
@@ -356,19 +352,18 @@ bson_iter_statx_timestamp(bson_iter_t *iter, struct statx_timestamp *timestamp)
             if (!BSON_ITER_HOLDS_INT64(iter))
                 goto out_einval;
             timestamp->tv_sec = bson_iter_int64(iter);
-            seen.sec = true;
+            *mask |= tv_sec_flag;
             break;
         case STT_NSEC:
             if (!BSON_ITER_HOLDS_INT32(iter))
                 goto out_einval;
             timestamp->tv_nsec = bson_iter_int32(iter);
-            seen.nsec = true;
+            *mask |= tv_nsec_flag;
             break;
         }
     }
 
-    errno = EINVAL;
-    return seen.sec && seen.nsec;
+    return true;
 
 out_einval:
     errno = EINVAL;
@@ -401,15 +396,9 @@ statx_device_tokenizer(const char *key)
 }
 
 static bool
-bson_iter_statx_device(bson_iter_t *iter, uint32_t *major, uint32_t *minor)
+bson_iter_statx_device(bson_iter_t *iter, uint32_t *mask, uint32_t major_flag,
+                       uint32_t *major, uint32_t minor_flag, uint32_t *minor)
 {
-    struct { /* mandatory fields */
-        bool major:1;
-        bool minor:1;
-    } seen;
-
-    memset(&seen, 0, sizeof(seen));
-
     while (bson_iter_next(iter)) {
         switch (statx_device_tokenizer(bson_iter_key(iter))) {
         case SDT_UNKNOWN:
@@ -418,19 +407,18 @@ bson_iter_statx_device(bson_iter_t *iter, uint32_t *major, uint32_t *minor)
             if (!BSON_ITER_HOLDS_INT32(iter))
                 goto out_einval;
             *major = bson_iter_int32(iter);
-            seen.major = true;
+            *mask |= major_flag;
             break;
         case SDT_MINOR:
             if (!BSON_ITER_HOLDS_INT32(iter))
                 goto out_einval;
             *minor = bson_iter_int32(iter);
-            seen.minor = true;
+            *mask |= minor_flag;
             break;
         }
     }
 
-    errno = EINVAL;
-    return seen.major && seen.minor;
+    return true;
 
 out_einval:
     errno = EINVAL;
@@ -550,13 +538,7 @@ statx_tokenizer(const char *key)
 static bool
 bson_iter_statx(bson_iter_t *iter, struct statx *statxbuf)
 {
-    struct { /* mandatory fields */
-        bool blksize:1;
-        bool rdev:1;
-        bool dev:1;
-    } seen = {};
-
-    memset(statxbuf, 0, sizeof(*statxbuf));
+    statxbuf->stx_mask = 0;
 
     while (bson_iter_next(iter)) {
         bson_iter_t subiter;
@@ -568,7 +550,7 @@ bson_iter_statx(bson_iter_t *iter, struct statx *statxbuf)
             if (!BSON_ITER_HOLDS_INT32(iter))
                 goto out_einval;
             statxbuf->stx_blksize = bson_iter_int32(iter);
-            seen.blksize = true;
+            statxbuf->stx_mask |= RBH_STATX_BLKSIZE;
             break;
         case ST_NLINK:
             if (!BSON_ITER_HOLDS_INT32(iter))
@@ -635,62 +617,70 @@ bson_iter_statx(bson_iter_t *iter, struct statx *statxbuf)
                         (uint64_t *)&statxbuf->stx_attributes
                         ))
                 return false;
+            statxbuf->stx_mask |= RBH_STATX_ATTRIBUTES;
             break;
         case ST_ATIME:
             if (!BSON_ITER_HOLDS_DOCUMENT(iter))
                 goto out_einval;
             bson_iter_recurse(iter, &subiter);
-            if (!bson_iter_statx_timestamp(&subiter, &statxbuf->stx_atime))
+            if (!bson_iter_statx_timestamp(&subiter, &statxbuf->stx_mask,
+                                           STATX_ATIME, RBH_STATX_ATIME_NSEC,
+                                           &statxbuf->stx_atime))
                 return false;
-            statxbuf->stx_mask |= STATX_ATIME;
             break;
         case ST_BTIME:
             if (!BSON_ITER_HOLDS_DOCUMENT(iter))
                 goto out_einval;
             bson_iter_recurse(iter, &subiter);
-            if (!bson_iter_statx_timestamp(&subiter, &statxbuf->stx_btime))
+            if (!bson_iter_statx_timestamp(&subiter, &statxbuf->stx_mask,
+                                           STATX_BTIME, RBH_STATX_BTIME_NSEC,
+                                           &statxbuf->stx_btime))
                 return false;
-            statxbuf->stx_mask |= STATX_BTIME;
             break;
         case ST_CTIME:
             if (!BSON_ITER_HOLDS_DOCUMENT(iter))
                 goto out_einval;
             bson_iter_recurse(iter, &subiter);
-            if (!bson_iter_statx_timestamp(&subiter, &statxbuf->stx_ctime))
+            if (!bson_iter_statx_timestamp(&subiter, &statxbuf->stx_mask,
+                                           STATX_CTIME, RBH_STATX_CTIME_NSEC,
+                                           &statxbuf->stx_ctime))
                 return false;
-            statxbuf->stx_mask |= STATX_CTIME;
             break;
         case ST_MTIME:
             if (!BSON_ITER_HOLDS_DOCUMENT(iter))
                 goto out_einval;
             bson_iter_recurse(iter, &subiter);
-            if (!bson_iter_statx_timestamp(&subiter, &statxbuf->stx_mtime))
+            if (!bson_iter_statx_timestamp(&subiter, &statxbuf->stx_mask,
+                                           STATX_MTIME, RBH_STATX_MTIME_NSEC,
+                                           &statxbuf->stx_mtime))
                 return false;
-            statxbuf->stx_mask |= STATX_MTIME;
             break;
         case ST_RDEV:
             if (!BSON_ITER_HOLDS_DOCUMENT(iter))
                 goto out_einval;
             bson_iter_recurse(iter, &subiter);
-            if (!bson_iter_statx_device(&subiter, &statxbuf->stx_rdev_major,
+            if (!bson_iter_statx_device(&subiter, &statxbuf->stx_mask,
+                                        RBH_STATX_RDEV_MAJOR,
+                                        &statxbuf->stx_rdev_major,
+                                        RBH_STATX_RDEV_MINOR,
                                         &statxbuf->stx_rdev_minor))
                 return false;
-            seen.rdev = true;
             break;
         case ST_DEV:
             if (!BSON_ITER_HOLDS_DOCUMENT(iter))
                 goto out_einval;
             bson_iter_recurse(iter, &subiter);
-            if (!bson_iter_statx_device(&subiter, &statxbuf->stx_dev_major,
+            if (!bson_iter_statx_device(&subiter, &statxbuf->stx_mask,
+                                        RBH_STATX_DEV_MAJOR,
+                                        &statxbuf->stx_dev_major,
+                                        RBH_STATX_DEV_MINOR,
                                         &statxbuf->stx_dev_minor))
                 return false;
-            seen.dev = true;
             break;
         }
     }
 
-    errno = EINVAL;
-    return seen.blksize && seen.rdev && seen.dev;
+    return true;
 
 out_einval:
     errno = EINVAL;
