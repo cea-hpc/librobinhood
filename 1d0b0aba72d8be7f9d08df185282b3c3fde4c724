@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "139d473b_dba478f6",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-08-29T21:50:10Z",
+      "side": 1,
+      "message": "(style) leading space",
+      "revId": "1d0b0aba72d8be7f9d08df185282b3c3fde4c724",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64cfc912_29992c4a",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-08-29T21:50:10Z",
+      "side": 1,
+      "message": "hm hadn\u0027t realized but isn\u0027t RBH_STATX_ATTRIBUTES redundant with stx_attributes_mask? Do we need both? I guess it\u0027s simpler for fsentry",
+      "revId": "1d0b0aba72d8be7f9d08df185282b3c3fde4c724",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
