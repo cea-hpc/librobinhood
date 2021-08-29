@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14c46dd9_80718d46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-29T20:36:53Z",
+      "side": 1,
+      "message": "This patch series eventually implements the flags that were discussed in https://review.gerrithub.io/c/cea-hpc/rbh-fsevents/+/522655. I will update the ADR when I get the chance.\n\nOne important note: I realized that currently one cannot query fsentries based on stx_attributes (it wasn\u0027t the case before either, but with the new flags, it should). This stems from the way we store these attributes in mongodb. I have a pretty good idea how to fix it, just need the time to code it properly. I am giving up for tonight.",
+      "revId": "59dbd04cef6a711a350d0123c9c9ac7e504f5450",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
