@@ -17,9 +17,7 @@
 #include <sys/stat.h>
 
 #include "robinhood/fsentry.h"
-#ifndef HAVE_STATX
-# include "robinhood/statx-compat.h"
-#endif
+#include "robinhood/statx.h"
 
 #include "utils.h"
 #include "value.h"
@@ -37,7 +35,7 @@ rbh_fsentry_new(const struct rbh_id *id, const struct rbh_id *parent_id,
     char *data;
 
     if (symlink) {
-        if (statxbuf && (statxbuf->stx_mask & STATX_TYPE)
+        if (statxbuf && (statxbuf->stx_mask & RBH_STATX_TYPE)
                 && !S_ISLNK(statxbuf->stx_mode)) {
             errno = EINVAL;
             return NULL;
