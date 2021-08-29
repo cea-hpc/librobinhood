@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05b61fd2_b3789c5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-29T20:37:38Z",
+      "side": 1,
+      "message": "My bad, the other patch I added you all to was not the first of the series. This one is.",
+      "revId": "3934d37a9fd7a81fc2a4f5f5bd15e1bcd2dcdd2c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
