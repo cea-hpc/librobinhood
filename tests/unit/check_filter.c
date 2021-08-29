@@ -14,11 +14,12 @@
 #include <stdlib.h>
 
 #include <sys/stat.h>
+
+#include "robinhood/filter.h"
+#include "robinhood/statx.h"
 #ifndef HAVE_STATX
 # include "robinhood/statx-compat.h"
 #endif
-
-#include "robinhood/filter.h"
 
 #include "check-compat.h"
 #include "check_macros.h"
@@ -122,6 +123,26 @@ statx_field2str(unsigned int field)
         return "STATX_BLOCKS";
     case STATX_BTIME:
         return "STATX_BTIME";
+    case RBH_STATX_BLKSIZE:
+        return "RBH_STATX_BLKSIZE";
+    case RBH_STATX_ATTRIBUTES:
+        return "RBH_STATX_ATTRIBUTES";
+    case RBH_STATX_ATIME_NSEC:
+        return "RBH_STATX_ATIME_NSEC";
+    case RBH_STATX_BTIME_NSEC:
+        return "RBH_STATX_BTIME_NSEC";
+    case RBH_STATX_CTIME_NSEC:
+        return "RBH_STATX_CTIME_NSEC";
+    case RBH_STATX_MTIME_NSEC:
+        return "RBH_STATX_MTIME_NSEC";
+    case RBH_STATX_RDEV_MAJOR:
+        return "RBH_STATX_RDEV_MAJOR";
+    case RBH_STATX_RDEV_MINOR:
+        return "RBH_STATX_RDEV_MINOR";
+    case RBH_STATX_DEV_MAJOR:
+        return "RBH_STATX_DEV_MAJOR";
+    case RBH_STATX_DEV_MINOR:
+        return "RBH_STATX_DEV_MINOR";
     }
     return "unknown";
 }
@@ -478,6 +499,136 @@ static const struct rbh_filter COMPARISONS[] = {
             .value = {
                 .type = RBH_VT_INT64,
                 .int64 = 0,
+            },
+        },
+    },
+    {
+        .op = RBH_FOP_EQUAL,
+        .compare = {
+            .field = {
+                .fsentry = RBH_FP_STATX,
+                .statx = RBH_STATX_BLKSIZE,
+            },
+            .value = {
+                .type = RBH_VT_INT32,
+                .int32 = 0,
+            },
+        },
+    },
+    {
+        .op = RBH_FOP_BITS_ALL_SET,
+        .compare = {
+            .field = {
+                .fsentry = RBH_FP_STATX,
+                .statx = RBH_STATX_ATTRIBUTES,
+            },
+            .value = {
+                .type = RBH_VT_INT64,
+                .int64 = STATX_ATTR_APPEND | STATX_ATTR_COMPRESSED,
+            },
+        },
+    },
+    {
+        .op = RBH_FOP_EQUAL,
+        .compare = {
+            .field = {
+                .fsentry = RBH_FP_STATX,
+                .statx = RBH_STATX_ATIME_NSEC,
+            },
+            .value = {
+                .type = RBH_VT_INT32,
+                .int32 = 0,
+            },
+        },
+    },
+    {
+        .op = RBH_FOP_EQUAL,
+        .compare = {
+            .field = {
+                .fsentry = RBH_FP_STATX,
+                .statx = RBH_STATX_BTIME_NSEC,
+            },
+            .value = {
+                .type = RBH_VT_INT32,
+                .int32 = 0,
+            },
+        },
+    },
+    {
+        .op = RBH_FOP_GREATER_OR_EQUAL,
+        .compare = {
+            .field = {
+                .fsentry = RBH_FP_STATX,
+                .statx = RBH_STATX_CTIME_NSEC,
+            },
+            .value = {
+                .type = RBH_VT_INT32,
+                .int32 = 0,
+            },
+        },
+    },
+    {
+        .op = RBH_FOP_GREATER_OR_EQUAL,
+        .compare = {
+            .field = {
+                .fsentry = RBH_FP_STATX,
+                .statx = RBH_STATX_MTIME_NSEC,
+            },
+            .value = {
+                .type = RBH_VT_INT32,
+                .int32 = 0,
+            },
+        },
+    },
+    {
+        .op = RBH_FOP_GREATER_OR_EQUAL,
+        .compare = {
+            .field = {
+                .fsentry = RBH_FP_STATX,
+                .statx = RBH_STATX_RDEV_MAJOR,
+            },
+            .value = {
+                .type = RBH_VT_INT32,
+                .int32 = 0,
+            },
+        },
+    },
+    {
+        .op = RBH_FOP_GREATER_OR_EQUAL,
+        .compare = {
+            .field = {
+                .fsentry = RBH_FP_STATX,
+                .statx = RBH_STATX_RDEV_MINOR,
+            },
+            .value = {
+                .type = RBH_VT_INT32,
+                .int32 = 0,
+            },
+        },
+    },
+    {
+        .op = RBH_FOP_GREATER_OR_EQUAL,
+        .compare = {
+            .field = {
+                .fsentry = RBH_FP_STATX,
+                .statx = RBH_STATX_DEV_MAJOR,
+            },
+            .value = {
+                .type = RBH_VT_INT32,
+                .int32 = 0,
+            },
+        },
+    },
+    {
+        .op = RBH_FOP_GREATER_OR_EQUAL,
+        .compare = {
+            .field = {
+                .fsentry = RBH_FP_STATX,
+                .statx = RBH_STATX_DEV_MINOR,
+            },
+            .value = {
+                .type = RBH_VT_INT32,
+                .int32 = 0,
             },
         },
     },
