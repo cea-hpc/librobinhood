@@ -21,6 +21,7 @@
 #include <sys/stat.h>
 
 #include "robinhood/backends/posix.h"
+# include "robinhood/statx.h"
 #ifndef HAVE_STATX
 # include "robinhood/statx-compat.h"
 #endif
@@ -97,7 +98,8 @@ statx_timestamp_from_timespec(struct statx_timestamp *timestamp,
 static void
 statx_from_stat(struct statx *statxbuf, struct stat *stat)
 {
-    statxbuf->stx_mask = STATX_BASIC_STATS;
+    statxbuf->stx_mask =
+        STATX_BASIC_STATS | RBH_STATX_ALL & ~RBH_STATX_ATTRIBUTES;
     statxbuf->stx_blksize = stat->st_blksize;
     statxbuf->stx_nlink = stat->st_nlink;
     statxbuf->stx_uid = stat->st_uid;
@@ -106,7 +108,6 @@ statx_from_stat(struct statx *statxbuf, struct stat *stat)
     statxbuf->stx_ino = stat->st_ino;
     statxbuf->stx_size = stat->st_size;
     statxbuf->stx_blocks = stat->st_blocks;
-    statxbuf->stx_attributes_mask = 0;
 
     if (statx_timestamp_from_timespec(&statxbuf->stx_atime, &stat->st_atim))
         statxbuf->stx_mask &= ~STATX_ATIME;
@@ -132,7 +133,11 @@ _statx(int dirfd, const char *pathname, int flags, unsigned int mask,
        struct statx *statxbuf)
 {
 #ifdef HAVE_STATX
-    return statx(dirfd, pathname, flags, mask, statxbuf);
+    int rc;
+
+    rc = statx(dirfd, pathname, flags, mask, statxbuf);
+    statxbuf->stx_mask |= RBH_STATX_ALL;
+    return rc;
 #else
     struct stat stat;
 
