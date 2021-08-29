@@ -11,6 +11,7 @@
 
 #include <sys/stat.h>
 
+#include "robinhood/statx.h"
 #ifndef HAVE_STATX
 # include "robinhood/statx-compat.h"
 #endif
@@ -42,11 +43,11 @@ const char *field2str(const struct rbh_filter_field *field, char **buffer,
         case STATX_GID:
             return MFF_STATX "." MFF_STATX_GID;
         case STATX_ATIME:
-            return MFF_STATX "." MFF_STATX_ATIME;
+            return MFF_STATX "." MFF_STATX_ATIME "." MFF_STATX_TIMESTAMP_SEC;
         case STATX_MTIME:
-            return MFF_STATX "." MFF_STATX_MTIME;
+            return MFF_STATX "." MFF_STATX_MTIME "." MFF_STATX_TIMESTAMP_SEC;
         case STATX_CTIME:
-            return MFF_STATX "." MFF_STATX_CTIME;
+            return MFF_STATX "." MFF_STATX_CTIME "." MFF_STATX_TIMESTAMP_SEC;
         case STATX_INO:
             return MFF_STATX "." MFF_STATX_INO;
         case STATX_SIZE:
@@ -54,7 +55,27 @@ const char *field2str(const struct rbh_filter_field *field, char **buffer,
         case STATX_BLOCKS:
             return MFF_STATX "." MFF_STATX_BLOCKS;
         case STATX_BTIME:
-            return MFF_STATX "." MFF_STATX_BTIME;
+            return MFF_STATX "." MFF_STATX_BTIME "." MFF_STATX_TIMESTAMP_SEC;
+        case RBH_STATX_BLKSIZE:
+            return MFF_STATX "." MFF_STATX_BLKSIZE;
+        case RBH_STATX_ATTRIBUTES:
+            return MFF_STATX "." MFF_STATX_ATTRIBUTES;
+        case RBH_STATX_ATIME_NSEC:
+            return MFF_STATX "." MFF_STATX_ATIME "." MFF_STATX_TIMESTAMP_NSEC;
+        case RBH_STATX_BTIME_NSEC:
+            return MFF_STATX "." MFF_STATX_BTIME "." MFF_STATX_TIMESTAMP_NSEC;
+        case RBH_STATX_CTIME_NSEC:
+            return MFF_STATX "." MFF_STATX_CTIME "." MFF_STATX_TIMESTAMP_NSEC;
+        case RBH_STATX_MTIME_NSEC:
+            return MFF_STATX "." MFF_STATX_MTIME "." MFF_STATX_TIMESTAMP_NSEC;
+        case RBH_STATX_RDEV_MAJOR:
+            return MFF_STATX "." MFF_STATX_RDEV "." MFF_STATX_DEVICE_MAJOR;
+        case RBH_STATX_RDEV_MINOR:
+            return MFF_STATX "." MFF_STATX_RDEV "." MFF_STATX_DEVICE_MINOR;
+        case RBH_STATX_DEV_MAJOR:
+            return MFF_STATX "." MFF_STATX_DEV "." MFF_STATX_DEVICE_MAJOR;
+        case RBH_STATX_DEV_MINOR:
+            return MFF_STATX "." MFF_STATX_DEV "." MFF_STATX_DEVICE_MINOR;
         }
         break;
     case RBH_FP_NAMESPACE_XATTRS:
