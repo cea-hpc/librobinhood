@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dadafc80_760b2c89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-08-30T23:30:25Z",
+      "side": 1,
+      "message": "(code review lost on trivial rebase :/)",
+      "revId": "0fbf0c02e903d2e762443c31464a332478d3266e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
