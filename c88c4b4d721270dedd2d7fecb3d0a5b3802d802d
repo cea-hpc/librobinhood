@@ -159,6 +159,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a453babe_d3ac3727",
+        "filename": "src/backends/mongo/fsentry.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-30T20:29:24Z",
+      "side": 1,
+      "message": "Bah, it can wait for a later release. Right now, I\u0027m aiming to get something correct and usable. We can deal with ergonomics later.",
+      "parentUuid": "ce07f6d1_bd397043",
+      "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae23acf3_1b299068",
@@ -243,6 +261,24 @@
       "side": 1,
       "message": "hm, I was thinking of the old stat struct where both are stored in the same long int in memory, but for statx it is split in two u32... So I guess it makes sense to keep these separate in db as well, I\u0027m not sure how big the overhead is tbh, it\u0027s more of an \"it was stored as a single field before, why two now?\" kind of remark.\n\nNo strong feeling either way.",
       "parentUuid": "e4734443_b55e83bb",
+      "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9953edb9_d3bd0e7c",
+        "filename": "src/backends/mongo/options.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-30T20:29:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cc17230b_a93b053e",
       "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }

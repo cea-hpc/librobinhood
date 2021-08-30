@@ -16,6 +16,24 @@
       "message": "btw I forgot to say: thanks for this work! I\u0027m feeling a bit guilty :D",
       "revId": "d4185e3b39fb2974af5e58cf8faabc97bc22e647",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66fab8f8_acfbc0db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-30T20:29:24Z",
+      "side": 1,
+      "message": "No worries, the change was needed. 👍",
+      "parentUuid": "bccd7d21_20121938",
+      "revId": "d4185e3b39fb2974af5e58cf8faabc97bc22e647",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
