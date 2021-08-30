@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8db08b9a_9c298252",
+        "filename": "include/robinhood/filter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-08-30T07:19:07Z",
+      "side": 1,
+      "message": "question: I imagine \\p statx can contain several STATX_ or RBH_STATX_ macro \"ored\" together? If so \u0027a\u0027 is misleading, I would suggest something like \u0027a combination\u0027 or something like that.",
+      "range": {
+        "startLine": 154,
+        "startChar": 43,
+        "endLine": 154,
+        "endChar": 73
+      },
+      "revId": "ea6de4ba6125d2e2371e9ac82bc624eb173fa3c4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9ee292a_8036cb5f",
+        "filename": "tests/unit/check_filter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-08-30T07:19:07Z",
+      "side": 1,
+      "message": "question: why did you add RBH_ ?",
+      "range": {
+        "startLine": 125,
+        "startChar": 16,
+        "endLine": 125,
+        "endChar": 20
+      },
+      "revId": "ea6de4ba6125d2e2371e9ac82bc624eb173fa3c4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
