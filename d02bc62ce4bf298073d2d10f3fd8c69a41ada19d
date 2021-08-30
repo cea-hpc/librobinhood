@@ -16,6 +16,24 @@
       "message": "hmm, hopefully we won\u0027t ever need partial statx-compat (e.g. statx is set but not the new attributes)...",
       "revId": "d02bc62ce4bf298073d2d10f3fd8c69a41ada19d",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48fb8738_64fc6f77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-30T20:25:44Z",
+      "side": 1,
+      "message": "That might be a problem on Centos8 I believe, remains to be seen. Worst case scenario, we add #ifndefs around each newer constants.",
+      "parentUuid": "acab93bf_41e68dc3",
+      "revId": "d02bc62ce4bf298073d2d10f3fd8c69a41ada19d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
