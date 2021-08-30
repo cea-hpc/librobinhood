@@ -45,6 +45,29 @@
       },
       "revId": "ea6de4ba6125d2e2371e9ac82bc624eb173fa3c4",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20da7ad5_1763e151",
+        "filename": "tests/unit/check_filter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-08-30T13:05:09Z",
+      "side": 1,
+      "message": "suggest: I think using a macro for all of these would be nice. They\u0027re all identical except for the statx name and type.value of the highlighted one here",
+      "range": {
+        "startLine": 518,
+        "startChar": 4,
+        "endLine": 530,
+        "endChar": 6
+      },
+      "revId": "ea6de4ba6125d2e2371e9ac82bc624eb173fa3c4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
