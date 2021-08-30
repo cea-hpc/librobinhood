@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2adad212_204971ba",
+        "filename": "src/backends/mongo/bson.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-08-30T23:29:56Z",
+      "side": 1,
+      "message": "Yes I was going to reply that to the other comment (where I mentioned  an extra macro requesting both. That was a bad idea)\n\nSTATX_xTIME should definitely mean both as that is what the original statx flag means, then we need extra flags that specifies only sec or nsec?\n\nTo be honest this is like dev/rdev, I do not see the need to split it.\nFrom a stat/statx point of view either the filesystem supports nsec or not, but the stat call will not know that.\nFrom a query point of view we can make queries slightly faster if we know we only care about either one, but frankly that doesn\u0027t strike me as overly useful... Some backend could store the time as a single u64 with just nsec for example; that\u0027s big enough to cover for the forseeable future (63 bits covers ~292 years, I\u0027m not optimistic enough to think rbh v4 will still be around then :-D)\n\nI don\u0027t have strong feelings about splitting or not, but the statx flag should definitely mean both are set, so if you want to keep it split checks can look like `stx_mask \u0026 (STATX_xTIME | RBH_STATX_xTIME_N?SEC)` meaning it works if either are set.",
+      "parentUuid": "432825b8_9f9520a5",
+      "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe553a22_5d128a3f",
         "filename": "src/backends/mongo/fields.c",
         "patchSetId": 2
