@@ -69,6 +69,24 @@
       "parentUuid": "64cfc912_29992c4a",
       "revId": "1d0b0aba72d8be7f9d08df185282b3c3fde4c724",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c936b9a_f6daf2e0",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-08-30T23:22:24Z",
+      "side": 1,
+      "message": "agreed it\u0027s useful for fsentries/queries - let\u0027s keep it.",
+      "parentUuid": "2d70b455_5bf27ab6",
+      "revId": "1d0b0aba72d8be7f9d08df185282b3c3fde4c724",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
