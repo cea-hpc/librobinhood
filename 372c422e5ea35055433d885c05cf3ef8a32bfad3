@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37a516aa_2e76ee24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-01T22:08:12Z",
+      "side": 1,
+      "message": "https://review.gerrithub.io/c/cea-hpc/librobinhood/+/523048/comment/5304af2b_2f100dee/",
+      "revId": "372c422e5ea35055433d885c05cf3ef8a32bfad3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53708a0c_3333d68e",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-01T22:08:12Z",
+      "side": 1,
+      "message": "(defect) should not be setting the RBH_STATX_xTIME_NSEC flags unconditionally.\n\nref: https://review.gerrithub.io/c/cea-hpc/librobinhood/+/523048/comment/5304af2b_2f100dee/",
+      "range": {
+        "startLine": 139,
+        "startChar": 23,
+        "endLine": 139,
+        "endChar": 40
+      },
+      "revId": "372c422e5ea35055433d885c05cf3ef8a32bfad3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
