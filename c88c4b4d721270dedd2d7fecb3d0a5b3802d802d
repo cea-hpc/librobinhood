@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9edc9d3c_61ee84a4",
+        "filename": "src/backends/mongo/bson.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-01T20:52:05Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t like that STATX_xTIME !\u003d (RBH_STATX_xTIME_SEC | RBH_STATX_xTIME_NSEC)\n\nYes, my suggestion would mean three different flags (or keeping a single one if we don\u0027t split fields -- I finally understood what you meant by \"need separate flags for queries\" for rdev/dev, it\u0027s about the comparison ops? isn\u0027t that going to be a lot of fun to make a comparison that includes nsecs... (sec \u003c x || sec \u003d\u003d x \u0026\u0026 nsec \u003c x)... well ok I guess that\u0027s going to be the same no matter how we dice this unless the db format undertsands what timestamps are...)\n\n\u003e We are already breaking compatibility with the regular `struct statx` anyway, do we get something by maintaining compatibility on that point?\n\nhm, fair point, but I feel less strongly for mandatory fields -- it\u0027s simpler to say \"this comes from statx, so always set these fields\" vs. \"ok is STATX_xTIME set? then set RBH_STATX_xTIME_NSEC too\" for all xTIMEs from a complexity point of view.\n(ultimately, checking two bits everytime vs. checking once when we set it both bring complexity, which is why I prefer not splitting in the first place... ok fair -- but src/backends/posix/posix.c has been patched to set RBH_STATX_ALL \u0026 ~RBH_STATX_ATTRIBUTES inconditionally and I didn\u0027t realize at the time but now we\u0027re having this discussion that doesn\u0027t look correct wrt current xTIME_NSEC fields always being set... If that is fixed I can reluctantly accept that patch as it is, but I\u0027d feel happier with 3/1 flags than this current middle-ground)\n\n\u003e Right now, querying: [STATX_ATIME] targets `stx_atime.tv_sec`. There is no way to have a better precision than that. [*]\n\nErr, which right now? current main branch (pre-patch) targets both, doesn\u0027t it? ah, it is just simplified to seconds for comparison, and it only targets both for storage/lookup?\nI guess in practice that\u0027s good enough and we can keep that behaviour with either my suggestions (3flags: STATX_ATIME would act like both other flags set for storage/lookup and sec for comparison; 1flag: keep same behaviour as we have) -- it\u0027s not perfect but sub-second queries look only like troubles to me unless we can use a single subsecond field (cram it all in a u64/u128)",
+      "parentUuid": "9091066e_44232a24",
+      "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe553a22_5d128a3f",
         "filename": "src/backends/mongo/fields.c",
         "patchSetId": 2
