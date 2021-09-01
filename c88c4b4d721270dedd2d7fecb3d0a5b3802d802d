@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9091066e_44232a24",
+        "filename": "src/backends/mongo/bson.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-01T18:15:19Z",
+      "side": 1,
+      "message": "\u003e STATX_xTIME should definitely mean both as that is what the original statx flag means, then we need extra flags that specifies only sec or nsec?\n\nI don\u0027t like that:\n     STATX_xTIME !\u003d (RBH_STATX_xTIME_SEC | RBH_STATX_xTIME_NSEC)\n\nWe are already breaking compatibility with the regular `struct statx` anyway, do we get something by maintaining compatibility on that point?\n\n\u003e From a query point of view we can make queries slightly faster\n\nIf it was only about speed, I\u0027d be all for it, but it\u0027s mostly about having the ability to query timestamps at a sub-second resolution.\n\nRight now, querying:\n\n    struct rbh_filter_field atime \u003d {\n        .fsentry \u003d RBH_FP_STATX,\n        .statx \u003d STATX_ATIME,\n    };\n\ntargets `stx_atime.tv_sec`. There is no way to have a better precision than that. [*]\n\nThis is also part of the reason why I\u0027d like to have STATX_ATIME mean only the \"seconds\" field, because then it would mean the same thing in a struct rbh_filter_field and in a struct rbh_fsentry.\n\nNote that we _could_ define the extra flag and just disallow queries on STATX_ATIME: my argument is definitely subjective.",
+      "parentUuid": "2adad212_204971ba",
+      "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe553a22_5d128a3f",
         "filename": "src/backends/mongo/fields.c",
         "patchSetId": 2
