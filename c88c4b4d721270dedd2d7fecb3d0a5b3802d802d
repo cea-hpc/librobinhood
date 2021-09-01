@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "55b52654_ffa62df7",
+        "filename": "src/backends/mongo/bson.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-01T22:07:00Z",
+      "side": 1,
+      "message": "\u003e I finally understood what you meant by \"need separate flags for queries\" for rdev/dev, it\u0027s about the comparison ops?\n\nYes, without the flags, we can only filter on STATX_* fields, which is not everything (and of course, there is the issue of sub-structures like with timestamps).\n\n\u003e src/backends/posix/posix.c has been patched to set RBH_STATX_ALL \u0026 ~RBH_STATX_ATTRIBUTES inconditionally and (...) that doesn\u0027t look correct\n\nTrue, needs fixing.\n\n\u003e I\u0027d feel happier with 3/1 flags than this current middle-ground\n\nI was about to suggest adding an RBH_STATX_xTIME_ALL flag that includes both, but how about we throw hardcore-portability out the window altogether and redefine _every_ statx flag with an \"RBH_\" prefix? That way, we can have:\n- RBH_STATX_xTIME_SEC (\u003d\u003d STATX_xTIME)\n- RBH_STATX_xTIME_NSEC (\u003d\u003d what it is right now)\n- RBH_STATX_xTIME \u003d\u003d RBH_STATX_xTIME_SEC | RBH_STATX_xTIME_NSEC.\n\nAnd we can provide a utility function to convert a \"regular\" statx structure into a rbh-compatible one so people don\u0027t have to scratch their head too much.\n\n\u003e \u003e Right now, querying: [STATX_ATIME] targets `stx_atime.tv_sec`. There is no way to have a better precision than that.\n\n\u003e Err, which right now? current main branch (pre-patch) targets both, doesn\u0027t it? ah, it is just simplified to seconds for comparison, and it only targets both for storage/lookup?\n\nYep, you got it: right now \u003d\u003d current main branch (pre-patch).\n\n\u003e it\u0027s not perfect but sub-second queries look only like troubles to me unless we can use a single subsecond field\n\nUtility functions can help with that, someone just needs to get that stuff right once.",
+      "parentUuid": "9edc9d3c_61ee84a4",
+      "revId": "c88c4b4d721270dedd2d7fecb3d0a5b3802d802d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe553a22_5d128a3f",
         "filename": "src/backends/mongo/fields.c",
         "patchSetId": 2
