@@ -21,8 +21,8 @@
 
 #include "robinhood/filter.h"
 
-#include "value.h"
 #include "utils.h"
+#include "value.h"
 
 static ssize_t
 filter_field_data_size(const struct rbh_filter_field *field)
