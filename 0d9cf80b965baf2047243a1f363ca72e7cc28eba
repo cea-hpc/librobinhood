@@ -63,6 +63,23 @@
       },
       "revId": "0d9cf80b965baf2047243a1f363ca72e7cc28eba",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c251e523_8f2fbf91",
+        "filename": "include/robinhood/statx.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-03T22:46:49Z",
+      "side": 1,
+      "message": "I\u0027m not sure: would it be easier to read if these were expressed as a huge list of or\u0027d attributes (STATX_ALL reusing BASIC_STATS)?\n\nFWIW STATX_ALL doesn\u0027t do this and plainly defines the 0x123, but it\u0027s 0x0fffU so we\u0027re missing 0x800 here... (BTIME) this kind of mistakes would perhaps be easier to see?",
+      "revId": "0d9cf80b965baf2047243a1f363ca72e7cc28eba",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
