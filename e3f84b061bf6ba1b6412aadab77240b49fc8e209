@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47c220c1_f0401b04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-03T23:00:37Z",
+      "side": 1,
+      "message": "fwiw I had access to refs/meta/config, so pushed a commit to keep code review on rebase (hopefully)\n\nfor some reason it tried to do it with copyCondition I had never seen and doesn\u0027t show up on gerrithub\u0027s help, so I changed it to the old copyAllScoresOnTrivialRebase",
+      "revId": "e3f84b061bf6ba1b6412aadab77240b49fc8e209",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
