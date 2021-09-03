@@ -16,6 +16,24 @@
       "message": "fwiw I had access to refs/meta/config, so pushed a commit to keep code review on rebase (hopefully)\n\nfor some reason it tried to do it with copyCondition I had never seen and doesn\u0027t show up on gerrithub\u0027s help, so I changed it to the old copyAllScoresOnTrivialRebase",
       "revId": "e3f84b061bf6ba1b6412aadab77240b49fc8e209",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e29a94c6_b8f69ff2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-03T23:35:06Z",
+      "side": 1,
+      "message": "That would be my last attempt. I got the idea from here: https://gerrit-review.googlesource.com/Documentation/config-labels.html#label_copyCondition\n\nThey give an example at the end of the section:\n\n\u003e copyCondition \u003d is:MIN OR -change-kind:REWORK OR uploaderin:dead...beef\n\nMight be that gerrithub\u0027s version of gerrit is not up-to-date enough, or I made a mistake somewhere... Or the feature is broken.\n\nThanks for looking into it 👍",
+      "parentUuid": "47c220c1_f0401b04",
+      "revId": "e3f84b061bf6ba1b6412aadab77240b49fc8e209",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
