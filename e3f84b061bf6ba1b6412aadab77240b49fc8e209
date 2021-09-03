@@ -52,6 +52,24 @@
       "parentUuid": "e29a94c6_b8f69ff2",
       "revId": "e3f84b061bf6ba1b6412aadab77240b49fc8e209",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8ca3fcd_983354bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-03T23:41:58Z",
+      "side": 1,
+      "message": "\u003e They give an example at the end of the section:\n\nThat\u0027s gerrit-review.google\u0027s doc, not gerrithub\u0027s -- so yeah, probably some version incompatibility or a plugin? (gerrithub is 3.4.0 vs. google\u0027s 3.4.1 so version isn\u0027t that far off...)\n\nwell, at least it works :) thanks for the rework!",
+      "parentUuid": "47048875_00a19b77",
+      "revId": "e3f84b061bf6ba1b6412aadab77240b49fc8e209",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
