@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ecf6211_9e5c3f14",
+        "filename": "include/robinhood/statx.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-09-03T08:52:37Z",
+      "side": 1,
+      "message": "question: it seems that you only used BLKSIZE and ATIME here since ATIME_NSEC and BTIME_NSEC are not used and \u0027a\u0027 adds up to 8 + 2. Isn\u0027t it supposed to have BTIME as well? So this would be \u0027b\u0027 instead? And is ATTRIBUTES counted as a basic stat?",
+      "range": {
+        "startLine": 40,
+        "startChar": 34,
+        "endLine": 40,
+        "endChar": 35
+      },
+      "revId": "0d9cf80b965baf2047243a1f363ca72e7cc28eba",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
