@@ -70,6 +70,24 @@
       "parentUuid": "47048875_00a19b77",
       "revId": "e3f84b061bf6ba1b6412aadab77240b49fc8e209",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eac510c6_132397b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-03T23:54:03Z",
+      "side": 1,
+      "message": "It\u0027s pretty recent, indeed: https://github.com/GerritCodeReview/gerrit/commit/c429ff33d944272b1f4da9f84f904f6403919ea3\n\nNot even in 3.4.1 apparently.\n\nThanks for the review 😊",
+      "parentUuid": "b8ca3fcd_983354bc",
+      "revId": "e3f84b061bf6ba1b6412aadab77240b49fc8e209",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
