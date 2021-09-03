@@ -53,6 +53,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cda9974_194546ec",
+        "filename": "include/robinhood/statx.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-03T23:35:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc8e52f6_2eda3d74",
+      "revId": "0d9cf80b965baf2047243a1f363ca72e7cc28eba",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ecf6211_9e5c3f14",
@@ -131,6 +149,24 @@
       "side": 1,
       "message": "It\u0027s a one-time thing. I\u0027ll add a test for it.",
       "parentUuid": "c251e523_8f2fbf91",
+      "revId": "0d9cf80b965baf2047243a1f363ca72e7cc28eba",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c9736bf_5638a84f",
+        "filename": "include/robinhood/statx.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-03T23:35:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fba9819_07b2095c",
       "revId": "0d9cf80b965baf2047243a1f363ca72e7cc28eba",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
