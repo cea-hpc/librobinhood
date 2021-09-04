@@ -3,6 +3,46 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "76b64f59_aaef3093",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-04T12:17:04Z",
+      "side": 1,
+      "message": "Also, STATX_ALL seems to have been deprecated and a new flag has recently been added STATX_MNT_ID. I won\u0027t act on the STATX_ALL deprecation, because I\u0027m not sure what the motivation exactly is, but I\u0027ll push a few patches to handle STATX_MNT_ID.",
+      "revId": "6a911a2f4cb367a14af244c02fd7a4071366d834",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "569337bd_cef7d2f7",
+        "filename": "include/robinhood/statx.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-04T12:17:04Z",
+      "side": 1,
+      "message": "The kernel seems to have reserved the leftmost bit for statx extensions:\n\n\u003e  /* Reserved for future struct statx expansion */\n\u003e  #define STATX__RESERVED  0x80000000U\n\nref: https://elixir.bootlin.com/linux/latest/source/include/uapi/linux/stat.h#L156",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 1
+      },
+      "revId": "6a911a2f4cb367a14af244c02fd7a4071366d834",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4edb4ee7_b70b3800",
         "filename": "tests/unit/check_statx.c",
         "patchSetId": 5
