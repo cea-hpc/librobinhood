@@ -16,6 +16,24 @@
       "message": "hmm if mnt id is the same mnt id that\u0027s used for handle ops (open_by_handle_at/name_to_handle_at) then I\u0027m pretty sure it\u0027s not constant across mounts (so different clients will have different values, this is obvious when mounting the same lustre fs twice for example)\n\nin that case I don\u0027t think it makes sense for robinhood to store that field.",
       "revId": "b88cc3187a2c7e4ff0003c52df5b46a8e71c9650",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb5f3eb1_a1fe0d1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-04T13:41:16Z",
+      "side": 1,
+      "message": "Is there harm in just supporting it?\n\nIt would be up to end users to interpret the field as they see fit.\n\nBy supporting it, we open the door to creative uses. I\u0027m sure people could come up with useful ones.\n\nFor example, assuming we have multiple clients mounted on the same host, we might be able to distinguish where the data in the DB came from by examining the field. After a remount, assuming the id changes, we would also be able to see which inodes have been updated in the DB.\n\nUltimately, if the field was added to `struct statx`, it must serve some kind of purpose and I don\u0027t want to assume that no one will ever want to use it in creative ways with robinhood.",
+      "parentUuid": "86e6491d_b46a9f9c",
+      "revId": "b88cc3187a2c7e4ff0003c52df5b46a8e71c9650",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
