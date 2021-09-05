@@ -52,6 +52,24 @@
       "parentUuid": "bb5f3eb1_a1fe0d1f",
       "revId": "b88cc3187a2c7e4ff0003c52df5b46a8e71c9650",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "258893e0_13fe9342",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-05T00:43:34Z",
+      "side": 1,
+      "message": "\u003e \u003e Is there harm in just supporting it?\n\n\u003e size of db?\n\nSupport in the backend doesn\u0027t mean one _has_ to upload the data.\n\nWe can write rbh-fsevents that way, or more likely, we can add a toggle to rbh-fsevent to allow/prevent the data from being collected and uploaded.\n\nWe could even imagine putting a filter after rbh-fsevents to clean the mnt_id from the generated fsevents:\n\n rbh-fsevents \u003csource\u003e - | clean-mount-id | rbh-fsevents - rbh:mongo:scratch\n\n\n\u003e \u003e After a remount, assuming the id changes, we would also be able to see which inodes have been updated in the DB.\n\n\u003e But there\u0027s no guarantee it won\u0027t be the same again?\n\nIf you umount the original mountpoint, no, for sure, but if it\u0027s still mounted, I think the id is guaranteed to be unique.\n\n\u003e In a fleet of identical machine I\u0027d also assume it\u0027ll be identical on quite a few of these\n\nI agree, but librobinhood is meant to be used for more than just distributed filesystems. I can imagine someone building a very specific application for local filesystems that makes use of the mount id in some way.\n\n\u003e Anyway, I don\u0027t mind allowing this somehow (compile or runtime option), but I don\u0027t like storing useless info in db just because we can get it.\n\nThen we are good. \u003d]",
+      "parentUuid": "cf290255_9ae22589",
+      "revId": "b88cc3187a2c7e4ff0003c52df5b46a8e71c9650",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
