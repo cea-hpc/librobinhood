@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "546d62d0_60346282",
+        "filename": "src/backends/mongo/fsentry.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-09-07T14:27:12Z",
+      "side": 1,
+      "message": "nit: using an strcmp for one letter seems a bit overkill",
+      "range": {
+        "startLine": 568,
+        "startChar": 20,
+        "endLine": 568,
+        "endChar": 36
+      },
+      "revId": "4186dd58ee071a174b7e1228433a85b37f355780",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
