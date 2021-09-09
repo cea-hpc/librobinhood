@@ -106,6 +106,24 @@
       "parentUuid": "5fec67a7_b7154dbc",
       "revId": "b88cc3187a2c7e4ff0003c52df5b46a8e71c9650",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c93fda82_59fb8af1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-09T21:54:14Z",
+      "side": 1,
+      "message": "Fair enough. I\u0027ll try to add an option to rbh-sync that controls which fields are to be synced and which are not, making the default \"everything but mnt_id\".\n\nFrom there, it\u0027s only a matter of adding a --{,no-}mount-id option to rbh-fsevents (making --no-mount-id the default).\n\nThis patch can wait until the rest is up for review.\nThen again, if you trust me to implement it, a +1 right now is also appreciated 😊",
+      "parentUuid": "02b99912_c3340845",
+      "revId": "b88cc3187a2c7e4ff0003c52df5b46a8e71c9650",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
