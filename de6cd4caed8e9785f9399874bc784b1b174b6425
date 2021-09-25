@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91aa67e2_c43d7ffc",
+        "filename": "src/value.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-25T21:23:28Z",
+      "side": 1,
+      "message": "(nitpick) I have no idea what your ordering logic is for this struct :D  (boolean, ints, string, binary..)",
+      "revId": "de6cd4caed8e9785f9399874bc784b1b174b6425",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
