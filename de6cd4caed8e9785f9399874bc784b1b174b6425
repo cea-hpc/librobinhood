@@ -16,6 +16,24 @@
       "message": "(nitpick) I have no idea what your ordering logic is for this struct :D  (boolean, ints, string, binary..)",
       "revId": "de6cd4caed8e9785f9399874bc784b1b174b6425",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3315bbfc_efa70a48",
+        "filename": "src/value.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-26T21:40:29Z",
+      "side": 1,
+      "message": "simplest \u003c most complex, where the complexity is completely arbitrary but sort of depends on the size of the type. 😄",
+      "parentUuid": "91aa67e2_c43d7ffc",
+      "revId": "de6cd4caed8e9785f9399874bc784b1b174b6425",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
