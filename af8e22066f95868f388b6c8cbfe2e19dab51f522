@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "909630fc_08db328a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-15T23:39:00Z",
+      "side": 1,
+      "message": "Thanks for bringing this up.\n\nI don\u0027t think using the version of the Linux kernel is the right way to go. The symbols we use are those exported by glibc.\n\nConsidering we already redefine a bunch of STATX_ constants as RBH_STATX_, I wonder if it wouldn\u0027t be simplest to also wrap STATX_ATTR_ constants. Then we don\u0027t even have to care about whether STATX_ATTR_ symbols are defined, we just use the RBH_STATX_ATTR_ versions everywhere.\n\nI like how easy it would make my life to be honest. 😊",
+      "revId": "af8e22066f95868f388b6c8cbfe2e19dab51f522",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfd41734_927c80cb",
+        "filename": "src/backends/mongo/bson.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-15T23:39:00Z",
+      "side": 1,
+      "message": "The kernel might support the attribute since version 5.5.0, but it\u0027s the glibc\u0027s version that I think we are most interested in.",
+      "revId": "af8e22066f95868f388b6c8cbfe2e19dab51f522",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b56ce6e_98a79b1c",
+        "filename": "src/backends/mongo/bson.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-15T23:39:00Z",
+      "side": 1,
+      "message": "(minor) From statx(2)\u0027s man page, DAX appeared in Linux 5.8",
+      "revId": "af8e22066f95868f388b6c8cbfe2e19dab51f522",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
