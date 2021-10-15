@@ -10,6 +10,7 @@
 #endif
 
 #include <assert.h>
+#include <linux/version.h>
 #include <sys/stat.h>
 
 #include "robinhood/fsentry.h"
@@ -340,6 +341,7 @@ bson_iter_statx_attributes(bson_iter_t *iter, uint64_t *mask,
                 *attributes &= ~STATX_ATTR_AUTOMOUNT;
             *mask |= STATX_ATTR_AUTOMOUNT;
             break;
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5,5,0)
         case SAT_MOUNT_ROOT:
             if (!BSON_ITER_HOLDS_BOOL(iter))
                 goto out_einval;
@@ -367,10 +369,20 @@ bson_iter_statx_attributes(bson_iter_t *iter, uint64_t *mask,
                 *attributes &= ~STATX_ATTR_DAX;
             *mask |= STATX_ATTR_DAX;
             break;
+#else
+        case SAT_MOUNT_ROOT:
+        case SAT_VERITY:
+        case SAT_DAX:
+            goto out_enotsup;
+#endif
         }
     }
 
     return true;
+
+out_enotsup:
+    errno = ENOTSUP;
+    return false;
 
 out_einval:
     errno = EINVAL;
@@ -751,15 +763,23 @@ bson_iter_statx(bson_iter_t *iter, struct statx *statxbuf)
                 return false;
             break;
         case ST_MNT_ID:
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5,8,0)
             if (!BSON_ITER_HOLDS_INT64(iter))
                 goto out_einval;
             statxbuf->stx_mnt_id = bson_iter_int64(iter);
             statxbuf->stx_mask |= RBH_STATX_MNT_ID;
             break;
+#else
+            goto out_enotsup;
+#endif
         }
     }
 
     return true;
+
+out_enotsup:
+    errno = ENOTSUP;
+    return false;
 
 out_einval:
     errno = EINVAL;

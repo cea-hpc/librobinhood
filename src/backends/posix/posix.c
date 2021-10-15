@@ -18,6 +18,7 @@
 #include <string.h>
 #include <unistd.h>
 
+#include <linux/version.h>
 #include <sys/stat.h>
 
 #include "robinhood/backends/posix.h"
@@ -261,8 +262,13 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len)
         goto out_close;
     }
 
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5,8,0)
     if (_statx(fd, "", statx_flags | statx_sync_type,
                STATX_BASIC_STATS | STATX_BTIME | STATX_MNT_ID, &statxbuf)) {
+#else
+    if (_statx(fd, "", statx_flags | statx_sync_type,
+               STATX_BASIC_STATS | STATX_BTIME, &statxbuf)) {
+#endif
         save_errno = errno;
         goto out_free_id;
     }

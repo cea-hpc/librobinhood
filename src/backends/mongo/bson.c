@@ -9,6 +9,7 @@
 # include "config.h"
 #endif
 
+#include <linux/version.h>
 #include <sys/stat.h>
 
 #include "robinhood/value.h"
@@ -44,6 +45,7 @@ bson_append_statx_attributes(bson_t *bson, const char *key, size_t key_length,
         && (mask & STATX_ATTR_AUTOMOUNT ?
                 BSON_APPEND_BOOL(&document, MFF_STATX_AUTOMOUNT,
                                  attributes & STATX_ATTR_AUTOMOUNT) : true)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5,5,0)
         && (mask & STATX_ATTR_MOUNT_ROOT ?
                 BSON_APPEND_BOOL(&document, MFF_STATX_MOUNT_ROOT,
                                  attributes & STATX_ATTR_MOUNT_ROOT) : true)
@@ -53,6 +55,7 @@ bson_append_statx_attributes(bson_t *bson, const char *key, size_t key_length,
         && (mask & STATX_ATTR_DAX ?
                 BSON_APPEND_BOOL(&document, MFF_STATX_DAX,
                                  attributes & STATX_ATTR_DAX) : true)
+#endif
         && bson_append_document_end(bson, &document);
 }
 
@@ -159,9 +162,11 @@ bson_append_statx(bson_t *bson, const char *key, size_t key_length,
                                        statxbuf->stx_dev_minor) : true)
              && bson_append_document_end(&document, &subdoc)
               : true)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5,8,0)
         && (statxbuf->stx_mask & RBH_STATX_MNT_ID ?
                 BSON_APPEND_INT64(&document, MFF_STATX_MNT_ID,
                                   statxbuf->stx_mnt_id) : true)
+#endif
         && bson_append_document_end(bson, &document);
 }
 
