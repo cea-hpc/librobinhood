@@ -261,8 +261,13 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len)
         goto out_close;
     }
 
+#if CHECK_GLIBC_VERSION(2, 33)
     if (_statx(fd, "", statx_flags | statx_sync_type,
                STATX_BASIC_STATS | STATX_BTIME | STATX_MNT_ID, &statxbuf)) {
+#else
+    if (_statx(fd, "", statx_flags | statx_sync_type,
+               STATX_BASIC_STATS | STATX_BTIME, &statxbuf)) {
+#endif
         save_errno = errno;
         goto out_free_id;
     }

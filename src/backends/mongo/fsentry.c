@@ -340,6 +340,21 @@ bson_iter_statx_attributes(bson_iter_t *iter, uint64_t *mask,
                 *attributes &= ~STATX_ATTR_AUTOMOUNT;
             *mask |= STATX_ATTR_AUTOMOUNT;
             break;
+        case SAT_VERITY:
+#if CHECK_GLIBC_VERSION(2, 32)
+            if (!BSON_ITER_HOLDS_BOOL(iter))
+                goto out_einval;
+            if (bson_iter_bool(iter))
+                *attributes |= STATX_ATTR_VERITY;
+            else
+                *attributes &= ~STATX_ATTR_VERITY;
+            *mask |= STATX_ATTR_VERITY;
+            break;
+#else
+            errno = ENOTSUP;
+            return false;
+#endif
+#if CHECK_GLIBC_VERSION(2, 33)
         case SAT_MOUNT_ROOT:
             if (!BSON_ITER_HOLDS_BOOL(iter))
                 goto out_einval;
@@ -348,15 +363,6 @@ bson_iter_statx_attributes(bson_iter_t *iter, uint64_t *mask,
             else
                 *attributes &= ~STATX_ATTR_MOUNT_ROOT;
             *mask |= STATX_ATTR_MOUNT_ROOT;
-            break;
-        case SAT_VERITY:
-            if (!BSON_ITER_HOLDS_BOOL(iter))
-                goto out_einval;
-            if (bson_iter_bool(iter))
-                *attributes |= STATX_ATTR_VERITY;
-            else
-                *attributes &= ~STATX_ATTR_VERITY;
-            *mask |= STATX_ATTR_VERITY;
             break;
         case SAT_DAX:
             if (!BSON_ITER_HOLDS_BOOL(iter))
@@ -367,6 +373,12 @@ bson_iter_statx_attributes(bson_iter_t *iter, uint64_t *mask,
                 *attributes &= ~STATX_ATTR_DAX;
             *mask |= STATX_ATTR_DAX;
             break;
+#else
+        case SAT_MOUNT_ROOT:
+        case SAT_DAX:
+            errno = ENOTSUP;
+            return false;
+#endif
         }
     }
 
@@ -751,11 +763,16 @@ bson_iter_statx(bson_iter_t *iter, struct statx *statxbuf)
                 return false;
             break;
         case ST_MNT_ID:
+#if CHECK_GLIBC_VERSION(2, 33)
             if (!BSON_ITER_HOLDS_INT64(iter))
                 goto out_einval;
             statxbuf->stx_mnt_id = bson_iter_int64(iter);
             statxbuf->stx_mask |= RBH_STATX_MNT_ID;
             break;
+#else
+            errno = ENOTSUP;
+            return false;
+#endif
         }
     }
 

@@ -7,6 +7,9 @@
  * Definition of robinhood-specific extensions for statx
  */
 
+#define CHECK_GLIBC_VERSION(_major, _minor) \
+    (__GLIBC__ >= _major && __GLIBC_MINOR__ >= _minor)
+
 #define RBH_STATX_TYPE          0x00000001U
 #define RBH_STATX_MODE          0x00000002U
 #define RBH_STATX_NLINK         0x00000004U

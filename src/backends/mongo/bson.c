@@ -44,15 +44,19 @@ bson_append_statx_attributes(bson_t *bson, const char *key, size_t key_length,
         && (mask & STATX_ATTR_AUTOMOUNT ?
                 BSON_APPEND_BOOL(&document, MFF_STATX_AUTOMOUNT,
                                  attributes & STATX_ATTR_AUTOMOUNT) : true)
-        && (mask & STATX_ATTR_MOUNT_ROOT ?
-                BSON_APPEND_BOOL(&document, MFF_STATX_MOUNT_ROOT,
-                                 attributes & STATX_ATTR_MOUNT_ROOT) : true)
+#if CHECK_GLIBC_VERSION(2, 32)
         && (mask & STATX_ATTR_VERITY ?
                 BSON_APPEND_BOOL(&document, MFF_STATX_VERITY,
                                  attributes & STATX_ATTR_VERITY) : true)
+# if CHECK_GLIBC_VERSION(2, 33)
+        && (mask & STATX_ATTR_MOUNT_ROOT ?
+                BSON_APPEND_BOOL(&document, MFF_STATX_MOUNT_ROOT,
+                                 attributes & STATX_ATTR_MOUNT_ROOT) : true)
         && (mask & STATX_ATTR_DAX ?
                 BSON_APPEND_BOOL(&document, MFF_STATX_DAX,
                                  attributes & STATX_ATTR_DAX) : true)
+# endif
+#endif
         && bson_append_document_end(bson, &document);
 }
 
@@ -159,9 +163,11 @@ bson_append_statx(bson_t *bson, const char *key, size_t key_length,
                                        statxbuf->stx_dev_minor) : true)
              && bson_append_document_end(&document, &subdoc)
               : true)
+#if CHECK_GLIBC_VERSION(2, 33)
         && (statxbuf->stx_mask & RBH_STATX_MNT_ID ?
                 BSON_APPEND_INT64(&document, MFF_STATX_MNT_ID,
                                   statxbuf->stx_mnt_id) : true)
+#endif
         && bson_append_document_end(bson, &document);
 }
 
