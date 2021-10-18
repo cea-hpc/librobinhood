@@ -36,6 +36,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7df37162_c7f8b7c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-10-18T11:08:45Z",
+      "side": 1,
+      "message": "I think Quentin meant defining new RBH_STATX_ATTR_xyz with the same values as STATX_ATTR_xyz, like we do for mask.\nWith that there is no need to consider what version has what etc; the values are always valid -- if the kernel doesn\u0027t support it bits just won\u0027t be set.\nThe only thing to be careful about is if a caller of statx() would set the flags in stx_attributes_mask to request e.g. dax status -- do we do that anywhere? What does kernel say in this case? It could very well EINVAL, that needs testing.\n\n\nAlternatively, on my system these are #defines, so you could just have #ifdef STATX_ATTR_VERITY... Or the other way around:\n\n #ifndef STATX_ATTR_VERITY\n #define STATX_ATTR_VERITY 0x100000\n #endif\n\nBut I find it easier to understand if we use RBH_STATX_ATTR_VERITY, and use that for rbh core/non-posix backends, and only care for \"real\" STATX_ATTR_xyz for the posix backend and users for statx.",
+      "parentUuid": "eda082f3_0f6483cb",
+      "revId": "af8e22066f95868f388b6c8cbfe2e19dab51f522",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfd41734_927c80cb",
