@@ -18,6 +18,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eda082f3_0f6483cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-10-18T09:49:22Z",
+      "side": 1,
+      "message": "Thanks for the answer.\n\nRegarding the glibc version, I am OK with that.\n\nHowever, for the structure modification, it\u0027s not such a simple modification. Since STATX_ATTR_MOUNT_ROOT and STATX_ATTR_VERITY are defined (still talking about kernel version) from 5.5 and onward, and DAX/mnt_id are defined after 5.8, there are a total of 4 cases to consider :\n\n- kernel version \u003c 4.11 -\u003e no statx\n- 4.11 \u003c\u003d kernel version \u003c 5.5 -\u003e statx without mount_root and verity\n- 5.5 \u003c\u003d kernel version \u003c 5.8 -\u003e statx without dax and mnt_id\n- 5.8 \u003c\u003d kernel version -\u003e whole statx\n\nFor these 4 cases, the behavior varies drastically:\n\n- kernel version \u003c 4.11 -\u003e include the robinhood/statx-compat file to define the statx struct\n- 4.11 \u003c\u003d kernel version \u003c 5.5 -\u003e include sys/stat and robinhood/statx-compat since the latter doesn\u0027t have all the necessary fields -\u003e statx defined twice -\u003e CONFLICT\n- 5.5 \u003c\u003d kernel version \u003c 5.8 -\u003e same as before, the conflict is still there\n- 5.8 \u003c\u003d kernel version -\u003e only include sys/stat, no conflict\n\nDepending on the version, conflicts will emerge, and we don\u0027t have any way to keep on the use of both sys/stat and robinhood/statx-compat at the same time.\n\nAfter some thinking, the \"easiest\" solution we came up with is the following:\n\n- Add check in meson.build to define 2 additional macros: HAVE_STATX_5_5 and HAVE_STATX_5_8. Also, we change the current HAVE_STATX macro to HAVE_STATX_4_11. These macro will be defined using the meson \"has_header_symbol\" function by searching the macros in sys/stat.\n- Always include robinhood/statx-compat (and rename it)\n- Change the name of struct defined in this file, for instance to \"rbh_statx\"\n- Define in this struct all the statx fields\n- In the file, define the necessary macros (the same ones as currently defined), but there are special cases here regarding the values:\n  - for all macros define up until 5.5, use the same values as those defined in sys/stat (#define statx_macro sys_stat_macro).\n  - For STATX_ATTR_MOUNT_ROOT, STATX_ATTR_VERITY, STATX_ATTR_DAX, stx_mnt_id, we check the HAVE_STATX_5_5 and HAVE_STATX_5_8 values. If defined, use the sys/stat macros as values. If not, use the values defined in sys/stat currently (#define statx_macro 0x0123456789)\n- Rename every use of struct statx in the code to struct rbh_statx (one big sed should do the trick)\n- Modify the function where we retrieve the statx info from the file to add a \"conversion\" to a rbh_statx struct.\n\nThis ensure we don\u0027t have any conflict, but it\u0027s a somewhat \"big\" change, and I want your opinions before starting anything.",
+      "parentUuid": "909630fc_08db328a",
+      "revId": "af8e22066f95868f388b6c8cbfe2e19dab51f522",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfd41734_927c80cb",
