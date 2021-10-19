@@ -19,6 +19,7 @@
 #include <unistd.h>
 
 #include <sys/stat.h>
+#include <sys/xattr.h>
 
 #include "robinhood/backends/posix.h"
 #include "robinhood/statx.h"
@@ -222,6 +223,103 @@ get_page_size(void)
     page_size = sysconf(_SC_PAGESIZE);
 }
 
+static int
+get_xattrs(char *path, struct rbh_value_pair **pairs)
+{
+    ssize_t len_check, xattrs_len, xattr_key_len, xattr_val_len;
+    char *xattrs, *xattr_key, *xattr_val;
+    int count = 0;
+    ssize_t i;
+
+    xattrs_len = listxattr(path, NULL, 0);
+    if (xattrs_len == -1)
+        return -1;
+    else if (xattrs_len == 0)
+        return 0;
+
+    xattrs = malloc(xattrs_len);
+    if (xattrs == NULL)
+        return -1;
+
+    len_check = listxattr(path, xattrs, xattrs_len);
+    if (len_check != xattrs_len)
+        goto out_xattrs;
+
+    for (i = 0; i < xattrs_len; ++i)
+        if (xattrs[i] == 0)
+            count++;
+    i = 0;
+
+    *pairs = malloc(sizeof(**pairs) * count);
+    if (*pairs == NULL)
+        goto out_xattrs;
+
+    xattr_key = xattrs;
+    xattr_val = malloc(XATTR_VALUE_MAX_LEN);
+    if (xattr_val == NULL)
+        goto out_pairs;
+
+    while (xattrs_len > 0) {
+        struct rbh_value *value = NULL;
+
+        xattr_val_len = getxattr(path, xattr_key, xattr_val,
+                                 XATTR_VALUE_MAX_LEN);
+        if (xattr_val_len == -1)
+            goto out_values;
+
+        if (xattr_val_len > 0) {
+            value = malloc(sizeof(*value));
+            if (value == NULL)
+                goto out_values;
+
+            value->type = RBH_VT_STRING;
+            value->string = strndup(xattr_val, xattr_val_len);
+            if (value->string == NULL) {
+                free(value);
+                goto out_values;
+            }
+        }
+
+        (*pairs)[i].key = strndup(xattr_key, strlen(xattr_key));
+        if ((*pairs)[i].key == NULL) {
+            if (value != NULL) {
+                free((char *) value->string);
+                free(value);
+            }
+            goto out_values;
+        }
+        (*pairs)[i].value = value;
+        i++;
+
+        xattr_key_len = strlen(xattr_key) + 1;
+        xattrs_len -= xattr_key_len;
+        xattr_key += xattr_key_len;
+    }
+
+    free(xattrs);
+    free(xattr_val);
+
+    return count;
+
+out_values:
+    for(--i; i >= 0; --i) {
+        if (pairs != NULL && *pairs != NULL) {
+            if ((*pairs)[i].value != NULL) {
+                free((char *) (*pairs)[i].value->string);
+                free((char *) (*pairs)[i].value);
+            }
+            free((char *) (*pairs)[i].key);
+        }
+    }
+    free(xattr_val);
+out_pairs:
+    free(*pairs);
+out_xattrs:
+    free(xattrs);
+
+    return -1;
+}
+
 static struct rbh_fsentry *
 fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len)
 {
@@ -236,14 +334,17 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len)
         .key = "path",
         .value = &PATH,
     };
-    const struct rbh_value_map XATTRS = {
+    struct rbh_value_map inode_xattrs = { 0 };
+    const struct rbh_value_map NS_XATTRS = {
         .pairs = &PAIR,
         .count = 1,
     };
+    struct rbh_value_pair *pairs = NULL;
     struct rbh_fsentry *fsentry;
     struct statx statxbuf;
-    struct rbh_id *id;
     char *symlink = NULL;
+    int inode_xattrs_len;
+    struct rbh_id *id;
     int save_errno;
     int fd;
 
@@ -261,6 +362,15 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len)
         goto out_close;
     }
 
+    inode_xattrs_len = get_xattrs(ftsent->fts_accpath, &pairs);
+    if (inode_xattrs_len < 0) {
+        save_errno = errno;
+        goto out_free_id;
+    } else if (inode_xattrs_len > 0) {
+        inode_xattrs.pairs = pairs;
+        inode_xattrs.count = inode_xattrs_len;
+    }
+
 #if CHECK_GLIBC_VERSION(2, 33)
     if (_statx(fd, "", statx_flags | statx_sync_type,
                STATX_BASIC_STATS | STATX_BTIME | STATX_MNT_ID, &statxbuf)) {
@@ -269,7 +379,7 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len)
                STATX_BASIC_STATS | STATX_BTIME, &statxbuf)) {
 #endif
         save_errno = errno;
-        goto out_free_id;
+        goto out_free_xattrs;
     }
 
     /* We want the actual type of the file we opened, not the one fts saw */
@@ -283,17 +393,25 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len)
 
         if (symlink == NULL) {
             save_errno = errno;
-            goto out_free_id;
+            goto out_free_xattrs;
         }
     }
 
     fsentry = rbh_fsentry_new(id, ftsent->fts_parent->fts_pointer,
-                              ftsent->fts_name, &statxbuf, &XATTRS, NULL,
+                              ftsent->fts_name, &statxbuf, &NS_XATTRS,
+                              inode_xattrs_len > 0 ? &inode_xattrs : NULL,
                               symlink);
     if (fsentry == NULL) {
         save_errno = errno;
         goto out_free_symlink;
     }
+
+    for (--inode_xattrs_len; inode_xattrs_len >= 0; --inode_xattrs_len) {
+        free((char *) pairs[inode_xattrs_len].value->string);
+        free((char *) pairs[inode_xattrs_len].key);
+        free((char *) pairs[inode_xattrs_len].value);
+    }
+    free(pairs);
 
     free(symlink);
     /* Ignore errors on close */
@@ -312,6 +430,17 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len)
 
 out_free_symlink:
     free(symlink);
+out_free_xattrs:
+    for (--inode_xattrs_len; inode_xattrs_len >= 0; --inode_xattrs_len) {
+        if (pairs != NULL) {
+            if (pairs[inode_xattrs_len].value != NULL) {
+                free((char *) pairs[inode_xattrs_len].value->string);
+                free((char *) pairs[inode_xattrs_len].value);
+            }
+            free((char *) pairs[inode_xattrs_len].key);
+        }
+    }
+    free(pairs);
 out_free_id:
     free(id);
 out_close:
