@@ -72,6 +72,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "544b9035_36e3f78c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-10-19T10:43:09Z",
+      "side": 1,
+      "message": "hm, we can actually also define our own struct as it is defined with spare space/guaranteed stable as it part of the kernel abi.\n\nso we\u0027d need to use struct rbh_statx everywhere that cares about these.. a tad intrusive.\n\nAt this rate I\u0027d rather just protect statx-\u003estx_mnt_id accesses by #ifdef STATX_MNT_ID; we can\u0027t store the info in the struct anyway... bson_iter_statx in mongo fsentry.c already ignores attributes it doesn\u0027t know about so I think it\u0027s fine to keep it that way.\nLet\u0027s see what Quentin thinks :)",
+      "parentUuid": "7c383896_57367d5a",
+      "revId": "af8e22066f95868f388b6c8cbfe2e19dab51f522",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfd41734_927c80cb",
