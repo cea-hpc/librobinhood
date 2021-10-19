@@ -90,6 +90,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d90effc_c01be0bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-19T21:15:08Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e I think Quentin meant defining new RBH_STATX_ATTR_xyz with the same values as STATX_ATTR_xyz, like we do for mask.\n\nIndeed.\n\n\u003e \u003e \u003e The only thing to be careful about is if a caller of statx() would set the flags in stx_attributes_mask to request e.g. dax status\n\nI don\u0027t think this is how it works. AFAICT stx_attributes_mask is set unconditionally by statx(2) without any regard for its content prior to the call. What could be problematic would be requesting STATX_MNT_ID on a kernel that doesn\u0027t support it, but I would hope that the kernel just ignores it. After all, the point of stx_mask is both to let statx(2) know which fields to set, but also for statx(2) to let us know which field it _actually_ set (where the result can be more, but also less fields, eg. STATX_BTIME on FS that don\u0027t support it).\n\nCould use some testing...\n\n\u003e we can actually also define our own struct as it is defined with spare space/guaranteed stable as it part of the kernel abi.\n\nI don\u0027t really like the idea... But it makes sense. We already overload the semantics of the structure with our custom extra RBH_STATX_{ATTRIBUTES,BLKSIZE,...} flags.\n\n\u003e I\u0027d rather just protect statx-\u003estx_mnt_id accesses by #ifdef STATX_MNT_ID\n\nThat\u0027s what I first thought about when I was reading this thread, but that struct rbh_statx idea is growing on me. I didn\u0027t want to consider it because I thought it would cost us... Something... But I\u0027m struggling to find any reason not to go for it.\n\nWhat are the risks associated with redefining our own version of `struct statx`?\n\nThe structure gets new fields, and we don\u0027t support them out of the box? We already don\u0027t support new fields out of the box...\n\nThe kernel\u003c-\u003euserspace ABI being supposed stable...\n\nNo, really, I don\u0027t see any reason not to do it. That\u0027ll rid us of \u003crobinhood/statx-compat.h\u003e... No need to check for the existence of statx(2) except for the posix backend... Good stuff.\n\nWe will need to be careful about adding spare space _just like the kernel does_ (unlike in \u003crobinhood/statx-compat.h\u003e).\n\n----------\n\nThat being said, I\u0027m really short on time, and this isn\u0027t a priority for me, so I won\u0027t be working on it myself. Happy to review patches though. Basically, I\u0027m expecting something along the lines of:\n- delete \u003crobinhood/statx-compat.h\u003e\n- remove all the `#ifdef HAVE_STATX` except for the posix backend, where it makes sense;\n- define a struct rbh_statx that is a bit-for-bit equivalent of struct statx (let\u0027s not change the name of the fields by the way);\n- define the RBH_STATX_ATTR_xyz equivalents of STATX_ATTR_xyz;\n- run something like `find -type f -name \u0027*.[ch] -exec sed -i \u0027s/struct statx/struct rbh_statx\u0027/g {} \\+`, undo some of the changes in the posix backend, and deal with line-wrapping/alignment.",
+      "parentUuid": "544b9035_36e3f78c",
+      "revId": "af8e22066f95868f388b6c8cbfe2e19dab51f522",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfd41734_927c80cb",
