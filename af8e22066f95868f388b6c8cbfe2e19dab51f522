@@ -108,6 +108,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa0922f0_06736436",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-10-20T14:22:04Z",
+      "side": 1,
+      "message": "Understood.\nI will do a first new patchset to change the kernel version check to glibc version check, but I won\u0027t do the new rbh_statx struct modifications now, I\u0027ll do them later if nobody did them already.",
+      "parentUuid": "8d90effc_c01be0bf",
+      "revId": "af8e22066f95868f388b6c8cbfe2e19dab51f522",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfd41734_927c80cb",
@@ -125,6 +143,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f6e75bf_a616cfd0",
+        "filename": "src/backends/mongo/bson.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-10-20T14:22:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfd41734_927c80cb",
+      "revId": "af8e22066f95868f388b6c8cbfe2e19dab51f522",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b56ce6e_98a79b1c",
@@ -138,6 +174,24 @@
       "writtenOn": "2021-10-15T23:39:00Z",
       "side": 1,
       "message": "(minor) From statx(2)\u0027s man page, DAX appeared in Linux 5.8",
+      "revId": "af8e22066f95868f388b6c8cbfe2e19dab51f522",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84501ecb_77dee108",
+        "filename": "src/backends/mongo/bson.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-10-20T14:22:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7b56ce6e_98a79b1c",
       "revId": "af8e22066f95868f388b6c8cbfe2e19dab51f522",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
