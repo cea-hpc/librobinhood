@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fad17be6_7f678e3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-22T20:21:51Z",
+      "side": 1,
+      "message": "I ended up writing the patch I said I wouldn\u0027t write: https://review.gerrithub.io/c/cea-hpc/librobinhood/+/526111\n\nPlease have a look at it and consider rebasing this patch series on top of it.",
+      "revId": "808ae3cbed4d25909ae20907ab69ddeecb74d47d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b5cd496_668af976",
+        "filename": "include/robinhood/statx.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-22T20:21:51Z",
+      "side": 1,
+      "message": "(defect) This won\u0027t work if `__GLIBC__ \u003e _major` but `__GLIBC_MINOR__ \u003c _minor`.\n\nFor example:\n\n#define __GLIBC__ \u003d 4\n#define __GLIBC_MINOR \u003d 1\n\n#if CHECK_GLIBC_VERSION(3, 2)  // false\n#endif",
+      "revId": "808ae3cbed4d25909ae20907ab69ddeecb74d47d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
