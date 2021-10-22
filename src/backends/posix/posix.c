@@ -19,8 +19,10 @@
 #include <unistd.h>
 
 #include <sys/stat.h>
+#include <sys/xattr.h>
 
 #include "robinhood/backends/posix.h"
+#include "robinhood/sstack.h"
 #include "robinhood/statx.h"
 #ifndef HAVE_STATX
 # include "robinhood/statx-compat.h"
@@ -222,33 +224,207 @@ get_page_size(void)
     page_size = sysconf(_SC_PAGESIZE);
 }
 
+static size_t __attribute__((pure))
+ceil2(size_t number)
+{
+    uint8_t shift;
+
+    if (__builtin_popcountll(number) <= 1)
+        return number;
+
+    shift = __builtin_clzll(number) + 1;
+    return shift >= sizeof(number) ? number : 1 << shift;
+}
+
+static ssize_t
+flistxattrs(int fd, char **buffer, size_t *size)
+{
+    size_t buflen = *size;
+    char *keys = *buffer;
+    size_t count = 0;
+    ssize_t length;
+
+retry:
+    length = flistxattr(fd, keys, buflen);
+    if (length == -1) {
+        void *tmp;
+
+        switch (errno) {
+        case E2BIG:
+        case ENOTSUP:
+            /* Not much we can do */
+            return 0;
+        case ERANGE:
+            length = flistxattr(fd, NULL, 0);
+            if (length == -1) {
+                switch (errno) {
+                case E2BIG:
+                    /* Not much we can do */
+                    return 0;
+                default:
+                    return -1;
+                }
+            }
+
+            if (length <= buflen)
+                /* The list of xattrs must have shrunk in between both calls */
+                goto retry;
+
+            tmp = realloc(keys, ceil2(length));
+            if (tmp == NULL)
+                return -1;
+            *buffer = keys = tmp;
+            *size = buflen = ceil2(length);
+
+            goto retry;
+        default:
+            return -1;
+        }
+    }
+
+    for (const char *key = keys; key < keys + length; key += strlen(key) + 1)
+         count++;
+
+    return count;
+}
+
+/* The Linux VFS does not allow values of more than 64KiB */
+static const size_t XATTR_VALUE_MAX_LENGTH = 1 << 16;
+
+static __thread size_t names_length = 1 << 12;
+static __thread char *names;
+
+static ssize_t
+getxattrs(int fd, struct rbh_value_pair **pairs, size_t *_count,
+          struct rbh_sstack *values, struct rbh_sstack *xattrs)
+{
+    size_t skipped = 0;
+    ssize_t count;
+    char *name;
+
+    if (names == NULL) {
+        names = malloc(names_length);
+        if (names == NULL)
+            return -1;
+    }
+
+    count = flistxattrs(fd, &names, &names_length);
+    if (count == -1)
+        return -1;
+
+    name = names;
+    for (size_t i = 0; i < count; i++, name += strlen(name) + 1) {
+        struct rbh_value_pair *pair = pairs[i - skipped];
+        char buffer[XATTR_VALUE_MAX_LENGTH];
+        struct rbh_value value = {
+            .type = RBH_VT_STRING,
+        };
+        ssize_t length;
+
+        pair->key = name;
+        length = fgetxattr(fd, name, &buffer, sizeof(buffer));
+        if (length == -1) {
+            switch (errno) {
+            case E2BIG:
+            case ENODATA:
+                skipped++;
+                continue;
+            default:
+                /* The Linux VFS does not allow values of more than 64KiB */
+                assert(errno != ERANGE);
+                /* We should not be able to reach this point if the filesystem
+                 * does not support extended attributes.
+                 */
+                assert(errno != ENOTSUP);
+                return -1;
+            }
+        }
+
+        assert(length <= sizeof(buffer));
+        value.string = rbh_sstack_push(xattrs, buffer, length);
+        if (value.string == NULL)
+            return -1;
+
+        pair->value = rbh_sstack_push(values, &value, sizeof(value));
+        if (pair->value == NULL)
+            return -1;
+    }
+
+    return count - skipped;
+}
+
+static void
+sstack_clear(struct rbh_sstack *sstack)
+{
+    size_t readable;
+
+    while (true) {
+        int rc;
+
+        rbh_sstack_peek(sstack, &readable);
+        if (readable == 0)
+            break;
+
+        rc = rbh_sstack_pop(sstack, readable);
+        assert(rc == 0);
+    }
+}
+
+static __thread struct rbh_value_pair *pairs;
+static __thread size_t pairs_count = 1 << 7;
+static __thread struct rbh_sstack *values;
+static __thread struct rbh_sstack *xattrs;
+
 static struct rbh_fsentry *
 fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len)
 {
     const int statx_flags =
         AT_EMPTY_PATH | AT_SYMLINK_NOFOLLOW | AT_NO_AUTOMOUNT;
-    const struct rbh_value PATH = {
+    const struct rbh_value path = {
         .type = RBH_VT_STRING,
         .string = ftsent->fts_pathlen == prefix_len ?
             "/" : ftsent->fts_path + prefix_len,
     };
-    const struct rbh_value_pair PAIR = {
+    const struct rbh_value_pair pair = {
         .key = "path",
-        .value = &PATH,
+        .value = &path,
     };
-    const struct rbh_value_map XATTRS = {
-        .pairs = &PAIR,
+    const struct rbh_value_map ns_xattrs = {
+        .pairs = &pair,
         .count = 1,
     };
+    struct rbh_value_map inode_xattrs;
     struct rbh_fsentry *fsentry;
     struct statx statxbuf;
     struct rbh_id *id;
     char *symlink = NULL;
     int save_errno;
+    ssize_t count;
     int fd;
 
+    if (pairs == NULL) {
+        /* Per-thread initialization of `pairs' */
+        pairs = reallocarray(NULL, pairs_count, sizeof(*pairs));
+        if (pairs == NULL)
+            return NULL;
+    }
+
+    if (values == NULL) {
+        /* Per-thread initialization of `xattrs' */
+        values = rbh_sstack_new(sizeof(struct rbh_value) * pairs_count);
+        if (values == NULL)
+            return NULL;
+    }
+
+    if (xattrs == NULL) {
+        /* Per-thread initialization of `values' */
+        xattrs = rbh_sstack_new(XATTR_VALUE_MAX_LENGTH);
+        if (xattrs == NULL)
+            return NULL;
+    }
+
     fd = openat(AT_FDCWD, ftsent->fts_accpath,
-                O_RDONLY | O_CLOEXEC | O_NOFOLLOW | O_PATH);
+                O_RDONLY | O_CLOEXEC | O_NOFOLLOW);
     if (fd < 0)
         return NULL;
 
@@ -282,14 +458,25 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len)
         }
     }
 
-    fsentry = rbh_fsentry_new(id, ftsent->fts_parent->fts_pointer,
-                              ftsent->fts_name, &statxbuf, &XATTRS, NULL,
-                              symlink);
-    if (fsentry == NULL) {
+    count = getxattrs(fd, &pairs, &pairs_count, values, xattrs);
+    if (count == -1) {
         save_errno = errno;
-        goto out_free_symlink;
+        goto out_clear_sstacks;
     }
 
+    inode_xattrs.pairs = pairs;
+    inode_xattrs.count = count;
+
+    fsentry = rbh_fsentry_new(id, ftsent->fts_parent->fts_pointer,
+                              ftsent->fts_name, &statxbuf, &ns_xattrs,
+                              &inode_xattrs, symlink);
+    if (fsentry == NULL) {
+        save_errno = errno;
+        goto out_clear_sstacks;
+    }
+
+    sstack_clear(values);
+    sstack_clear(xattrs);
     free(symlink);
     /* Ignore errors on close */
     close(fd);
@@ -305,7 +492,10 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len)
 
     return fsentry;
 
-out_free_symlink:
+out_clear_sstacks:
+    sstack_clear(values);
+    sstack_clear(xattrs);
+
     free(symlink);
 out_free_id:
     free(id);
