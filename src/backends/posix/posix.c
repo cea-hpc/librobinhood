@@ -22,9 +22,6 @@
 
 #include "robinhood/backends/posix.h"
 #include "robinhood/statx.h"
-#ifndef HAVE_STATX
-# include "robinhood/statx-compat.h"
-#endif
 
 /*----------------------------------------------------------------------------*
  |                               posix_iterator                               |
@@ -82,7 +79,7 @@ retry:
 
 #ifndef HAVE_STATX
 static int
-statx_timestamp_from_timespec(struct statx_timestamp *timestamp,
+statx_timestamp_from_timespec(struct rbh_statx_timestamp *timestamp,
                               struct timespec *timespec)
 {
     if (timespec->tv_sec > INT64_MAX) {
@@ -96,7 +93,7 @@ statx_timestamp_from_timespec(struct statx_timestamp *timestamp,
 }
 
 static void
-statx_from_stat(struct statx *statxbuf, struct stat *stat)
+statx_from_stat(struct rbh_statx *statxbuf, struct stat *stat)
 {
     statxbuf->stx_mask = RBH_STATX_BASIC_STATS;
     statxbuf->stx_blksize = stat->st_blksize;
@@ -149,12 +146,12 @@ statx2rbh_statx_mask(uint32_t mask)
  */
 static int
 _statx(int dirfd, const char *pathname, int flags, unsigned int mask,
-       struct statx *statxbuf)
+       struct rbh_statx *statxbuf)
 {
 #ifdef HAVE_STATX
     int rc;
 
-    rc = statx(dirfd, pathname, flags, mask, statxbuf);
+    rc = statx(dirfd, pathname, flags, mask, (struct statx *)statxbuf);
     statxbuf->stx_mask = statx2rbh_statx_mask(statxbuf->stx_mask);
     return rc;
 #else
@@ -241,7 +238,7 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len)
         .count = 1,
     };
     struct rbh_fsentry *fsentry;
-    struct statx statxbuf;
+    struct rbh_statx statxbuf;
     struct rbh_id *id;
     char *symlink = NULL;
     int save_errno;
