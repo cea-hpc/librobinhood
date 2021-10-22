@@ -282,6 +282,8 @@ static bool
 bson_iter_statx_attributes(bson_iter_t *iter, uint64_t *mask,
                            uint64_t *attributes)
 {
+    *attributes = 0;
+
     while (bson_iter_next(iter)) {
         switch (statx_attributes_tokenizer(bson_iter_key(iter))) {
         case SAT_UNKNOWN:
