@@ -10,9 +10,6 @@
 #include <sys/stat.h>
 
 #include "robinhood/statx.h"
-#ifndef HAVE_STATX
-# include "robinhood/statx.h"
-#endif
 
 #include "check-compat.h"
 
@@ -160,15 +157,120 @@ START_TEST(rbh_all)
 }
 END_TEST
 
+START_TEST(rbh_statx_size)
+{
+    static_assert(sizeof(struct rbh_statx) == sizeof(struct rbh_statx), "");
+}
+END_TEST
+
+START_TEST(rbh_statx_fields)
+{
+    static_assert(offsetof(struct rbh_statx, stx_mask)
+               == offsetof(struct rbh_statx, stx_mask), "");
+    static_assert(offsetof(struct rbh_statx, stx_blksize)
+               == offsetof(struct rbh_statx, stx_blksize), "");
+    static_assert(offsetof(struct rbh_statx, stx_attributes)
+               == offsetof(struct rbh_statx, stx_attributes), "");
+    static_assert(offsetof(struct rbh_statx, stx_nlink)
+               == offsetof(struct rbh_statx, stx_nlink), "");
+    static_assert(offsetof(struct rbh_statx, stx_uid)
+               == offsetof(struct rbh_statx, stx_uid), "");
+    static_assert(offsetof(struct rbh_statx, stx_gid)
+               == offsetof(struct rbh_statx, stx_gid), "");
+    static_assert(offsetof(struct rbh_statx, stx_mode)
+               == offsetof(struct rbh_statx, stx_mode), "");
+    static_assert(offsetof(struct rbh_statx, stx_ino)
+               == offsetof(struct rbh_statx, stx_ino), "");
+    static_assert(offsetof(struct rbh_statx, stx_size)
+               == offsetof(struct rbh_statx, stx_size), "");
+    static_assert(offsetof(struct rbh_statx, stx_blocks)
+               == offsetof(struct rbh_statx, stx_blocks), "");
+    static_assert(offsetof(struct rbh_statx, stx_attributes_mask)
+               == offsetof(struct rbh_statx, stx_attributes_mask), "");
+    static_assert(offsetof(struct rbh_statx, stx_atime)
+               == offsetof(struct rbh_statx, stx_atime), "");
+    static_assert(offsetof(struct rbh_statx, stx_btime)
+               == offsetof(struct rbh_statx, stx_btime), "");
+    static_assert(offsetof(struct rbh_statx, stx_ctime)
+               == offsetof(struct rbh_statx, stx_ctime), "");
+    static_assert(offsetof(struct rbh_statx, stx_mtime)
+               == offsetof(struct rbh_statx, stx_mtime), "");
+    static_assert(offsetof(struct rbh_statx, stx_rdev_major)
+               == offsetof(struct rbh_statx, stx_rdev_major), "");
+    static_assert(offsetof(struct rbh_statx, stx_rdev_minor)
+               == offsetof(struct rbh_statx, stx_rdev_minor), "");
+    static_assert(offsetof(struct rbh_statx, stx_dev_major)
+               == offsetof(struct rbh_statx, stx_dev_major), "");
+    static_assert(offsetof(struct rbh_statx, stx_dev_minor)
+               == offsetof(struct rbh_statx, stx_dev_minor), "");
+    static_assert(offsetof(struct rbh_statx, stx_mnt_id)
+               == offsetof(struct rbh_statx, stx_mnt_id), "");
+}
+END_TEST
+
+START_TEST(rbh_statx_attr_compressed)
+{
+    static_assert(RBH_STATX_ATTR_COMPRESSED == RBH_STATX_ATTR_COMPRESSED, "");
+}
+END_TEST
+
+START_TEST(rbh_statx_attr_immutable)
+{
+    static_assert(RBH_STATX_ATTR_IMMUTABLE == RBH_STATX_ATTR_IMMUTABLE, "");
+}
+END_TEST
+
+START_TEST(rbh_statx_attr_append)
+{
+    static_assert(RBH_STATX_ATTR_APPEND == RBH_STATX_ATTR_APPEND, "");
+}
+END_TEST
+
+START_TEST(rbh_statx_attr_nodump)
+{
+    static_assert(RBH_STATX_ATTR_NODUMP == RBH_STATX_ATTR_NODUMP, "");
+}
+END_TEST
+
+START_TEST(rbh_statx_attr_encrypted)
+{
+    static_assert(RBH_STATX_ATTR_ENCRYPTED == RBH_STATX_ATTR_ENCRYPTED, "");
+}
+END_TEST
+
+START_TEST(rbh_statx_attr_automount)
+{
+    static_assert(RBH_STATX_ATTR_AUTOMOUNT == RBH_STATX_ATTR_AUTOMOUNT, "");
+}
+END_TEST
+
+START_TEST(rbh_statx_attr_mount_root)
+{
+    static_assert(RBH_STATX_ATTR_MOUNT_ROOT == RBH_STATX_ATTR_MOUNT_ROOT, "");
+}
+END_TEST
+
+START_TEST(rbh_statx_attr_verity)
+{
+    static_assert(RBH_STATX_ATTR_VERITY == RBH_STATX_ATTR_VERITY, "");
+}
+END_TEST
+
+START_TEST(rbh_statx_attr_dax)
+{
+    static_assert(RBH_STATX_ATTR_DAX == RBH_STATX_ATTR_DAX, "");
+}
+END_TEST
+
 static Suite *
 unit_suite(void)
 {
     Suite *suite;
     TCase *tests;
 
-    suite = suite_create("statx");
+    suite = suite_create("statx linux compatibility");
 
-    tests = tcase_create("linux compatibility");
+    tests = tcase_create("statx flags");
     tcase_add_test(tests, type);
     tcase_add_test(tests, mode);
     tcase_add_test(tests, nlink);
@@ -189,6 +291,25 @@ unit_suite(void)
     tcase_add_test(tests, rbh_dev);
     tcase_add_test(tests, rbh_basic_stats);
     tcase_add_test(tests, rbh_all);
+
+    suite_add_tcase(suite, tests);
+
+    tests = tcase_create("struct rbh_statx");
+    tcase_add_test(tests, rbh_statx_size);
+    tcase_add_test(tests, rbh_statx_fields);
+
+    suite_add_tcase(suite, tests);
+
+    tests = tcase_create("statx_xattr flags");
+    tcase_add_test(tests, rbh_statx_attr_compressed);
+    tcase_add_test(tests, rbh_statx_attr_immutable);
+    tcase_add_test(tests, rbh_statx_attr_append);
+    tcase_add_test(tests, rbh_statx_attr_nodump);
+    tcase_add_test(tests, rbh_statx_attr_encrypted);
+    tcase_add_test(tests, rbh_statx_attr_automount);
+    tcase_add_test(tests, rbh_statx_attr_mount_root);
+    tcase_add_test(tests, rbh_statx_attr_verity);
+    tcase_add_test(tests, rbh_statx_attr_dax);
 
     suite_add_tcase(suite, tests);
 
