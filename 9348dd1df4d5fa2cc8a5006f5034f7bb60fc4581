@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9fabb62_4e5465c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T09:55:31Z",
+      "side": 1,
+      "message": "I didn\u0027t test this patch very extensively, but it did work at least once on an entry that had one user xattr.",
+      "revId": "9348dd1df4d5fa2cc8a5006f5034f7bb60fc4581",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
