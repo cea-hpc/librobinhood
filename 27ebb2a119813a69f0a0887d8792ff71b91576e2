@@ -1,0 +1,255 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "470425a7_dc3bfbb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T09:53:32Z",
+      "side": 1,
+      "message": "I wrote and pushed an alternative patch: https://review.gerrithub.io/c/cea-hpc/librobinhood/+/526118",
+      "revId": "27ebb2a119813a69f0a0887d8792ff71b91576e2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3317063_7e8eb106",
+        "filename": "include/robinhood/statx.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T09:53:32Z",
+      "side": 1,
+      "message": "(major) The man page for xattrs says the VFS limits values to 64KB, I would rather not constrain the value more than that.\n\nAlso, I don\u0027t really see the point of exposing this macro here. Do you want to make it part of robinhood\u0027s public API?",
+      "range": {
+        "startLine": 13,
+        "startChar": 8,
+        "endLine": 13,
+        "endChar": 27
+      },
+      "revId": "27ebb2a119813a69f0a0887d8792ff71b91576e2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d12bb7ef_3542b814",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T09:53:32Z",
+      "side": 1,
+      "message": "(minor) Performance-wise, it would be better to try to get the list out with a reasonably large buffer and fallback to checking out what the size actually is if/when that fails.",
+      "revId": "27ebb2a119813a69f0a0887d8792ff71b91576e2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25ff624b_8490bbba",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T09:53:32Z",
+      "side": 1,
+      "message": "(defect) There are more than one reason listxattr() can fail, some of these are not \"fatal\" errors (eg. ENOTSUP, arguably E2BIG as well).",
+      "revId": "27ebb2a119813a69f0a0887d8792ff71b91576e2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e41fa231_e1cdacf8",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T09:53:32Z",
+      "side": 1,
+      "message": "(style) \"if\" is enough here",
+      "range": {
+        "startLine": 237,
+        "startChar": 4,
+        "endLine": 237,
+        "endChar": 8
+      },
+      "revId": "27ebb2a119813a69f0a0887d8792ff71b91576e2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17fcd610_91050153",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T09:53:32Z",
+      "side": 1,
+      "message": "(defect) Like the man pages says:\n\n\u003e bear in mind that there is a possibility that the set of extended attributes may change between the two calls, so that it is still necessary to check the return status from the second call.",
+      "revId": "27ebb2a119813a69f0a0887d8792ff71b91576e2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cb6528f_98ac9baa",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T09:53:32Z",
+      "side": 1,
+      "message": "(defect) ...",
+      "revId": "27ebb2a119813a69f0a0887d8792ff71b91576e2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b95acbdc_952a542b",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T09:53:32Z",
+      "side": 1,
+      "message": "(major) Maybe the compiler can optimize this, but maybe we can help it a little bit:\n\n #define _GNU_SOURCE\n\n #include \u003cerrno.h\u003e\n #include \u003cerror.h\u003e\n #include \u003cstdio.h\u003e\n #include \u003cstdlib.h\u003e\n #include \u003cstring.h\u003e\n\n #include \u003csys/random.h\u003e\n\n #define BUFSIZE (1 \u003c\u003c 22)\n #define REPEAT (1 \u003c\u003c 10)\n\n static size_t __attribute__((unused))\n byte_by_byte(const char *buffer, size_t length)\n {\n     size_t count \u003d 0;\n\n     for (size_t i \u003d 0; i \u003c length; i++) {\n         if (buffer[i] \u003d\u003d 0)\n             count++;\n     }\n     return count;\n }\n\n static size_t __attribute__((unused))\n with_strlen(const char *buffer, size_t length)\n {\n     size_t count \u003d 0;\n\n     for (const char *key \u003d buffer; key \u003c buffer + length; key +\u003d strlen(key) + 1)\n         count++;\n     return count;\n }\n\n static size_t __attribute__((unused))\n with_rawmemchr(const char *buffer, size_t length)\n {\n     size_t count \u003d 0;\n\n     for (const char *key \u003d buffer; key \u003c buffer + length; key \u003d rawmemchr(key, 0) + 1)\n         count++;\n     return count;\n }\n\n int\n main()\n {\n     ssize_t count \u003d 0;\n     char *buffer;\n\n     buffer \u003d malloc(BUFSIZE);\n     if (buffer \u003d\u003d NULL)\n         error(EXIT_FAILURE, errno, \"malloc\");\n\n     do {\n         ssize_t read;\n\n         read \u003d getrandom(buffer + count, BUFSIZE - count, 0);\n         if (read \u003d\u003d -1)\n             error(EXIT_FAILURE, errno, \"getrandom\");\n         count +\u003d read;\n     } while (count \u003c BUFSIZE);\n\n     for (size_t i \u003d 0; i \u003c REPEAT; i++)\n         count +\u003d byte_by_byte(buffer, BUFSIZE);\n\n     printf(\"%zu\\n\", count);\n     return EXIT_SUCCESS;\n }\n\n $ make main \u0026\u0026 time ./main  # byte_by_byte\n cc     main.c   -o main\n 21255168\n\n real\t0m16.708s\n user\t0m16.546s\n sys\t0m0.080s\n $ make main \u0026\u0026 time ./main  # with_strlen\n cc     main.c   -o main\n 20780032\n\n real\t0m1.339s\n user\t0m1.236s\n sys\t0m0.083s\n $ make main \u0026\u0026 time ./main  # with_rawmemchr\n cc     main.c   -o main\n 21036032\n\n real\t0m1.478s\n user\t0m1.372s\n sys\t0m0.081s\n\nInteresting to note that the implementation that uses strlen() consistently outperforms rawmemchr().",
+      "revId": "27ebb2a119813a69f0a0887d8792ff71b91576e2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f30a01af_217db8f6",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T09:53:32Z",
+      "side": 1,
+      "message": "(defect) Same as with listxattr, this function can fail for reasons that should not IMO propagate:\n\n- E2BIG: not like we can do much about it;\n- ENODATA: the xattr was removed between the call to listxattr.",
+      "revId": "27ebb2a119813a69f0a0887d8792ff71b91576e2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f3c5a66_c751a5ae",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T09:53:32Z",
+      "side": 1,
+      "message": "(minor) why duplicate the string when it\u0027s already on the heap?",
+      "revId": "27ebb2a119813a69f0a0887d8792ff71b91576e2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14c042c2_7e7a7b1f",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T09:53:32Z",
+      "side": 1,
+      "message": "(style) {} is a gnu extension to express \"initialize to 0\" which we use pervasively throughout the project.",
+      "range": {
+        "startLine": 337,
+        "startChar": 40,
+        "endLine": 337,
+        "endChar": 45
+      },
+      "revId": "27ebb2a119813a69f0a0887d8792ff71b91576e2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "606d442d_ce6aa51d",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T09:53:32Z",
+      "side": 1,
+      "message": "(minor) ssize_t is a more appropriate return type for values that are mostly size_t but can also be -1.",
+      "range": {
+        "startLine": 346,
+        "startChar": 4,
+        "endLine": 346,
+        "endChar": 7
+      },
+      "revId": "27ebb2a119813a69f0a0887d8792ff71b91576e2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "838d1d4b_aeb37fcf",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-23T09:53:32Z",
+      "side": 1,
+      "message": "(defect) There is no guarantee the entry you are looking at is the same that was opened at the beginning of the function.",
+      "range": {
+        "startLine": 365,
+        "startChar": 34,
+        "endLine": 365,
+        "endChar": 53
+      },
+      "revId": "27ebb2a119813a69f0a0887d8792ff71b91576e2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
