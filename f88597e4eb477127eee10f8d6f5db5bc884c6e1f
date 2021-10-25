@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa62b851_c5c72804",
+        "filename": "tests/unit/check_statx.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-10-25T09:33:52Z",
+      "side": 1,
+      "message": "question: I don\u0027t understand the necessity of this test, they seem obviously equal to me, so I guess there\u0027s something I\u0027m missing ?",
+      "range": {
+        "startLine": 162,
+        "startChar": 18,
+        "endLine": 162,
+        "endChar": 70
+      },
+      "revId": "f88597e4eb477127eee10f8d6f5db5bc884c6e1f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9dc3c12_be3b5338",
+        "filename": "tests/unit/check_statx.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-10-25T09:33:52Z",
+      "side": 1,
+      "message": "question: idem for this one and the following",
+      "range": {
+        "startLine": 168,
+        "startChar": 18,
+        "endLine": 169,
+        "endChar": 54
+      },
+      "revId": "f88597e4eb477127eee10f8d6f5db5bc884c6e1f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
