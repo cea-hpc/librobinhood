@@ -16,6 +16,47 @@
       "message": "I didn\u0027t test this patch very extensively, but it did work at least once on an entry that had one user xattr.",
       "revId": "9348dd1df4d5fa2cc8a5006f5034f7bb60fc4581",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cfb807f_52107099",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-10-25T13:01:59Z",
+      "side": 1,
+      "message": "This patch indeed does not work for multiple xattrs :\n\n[valeriy@vm0 ~]$ mkdir test\n[valeriy@vm0 ~]$ touch test/a\n[valeriy@vm0 ~]$ setfattr -n user.a -v b test/a \n[valeriy@vm0 ~]$ setfattr -n user.b -v c test/a \n[valeriy@vm0 ~]$ setfattr -n user.c -v d test/a \n[valeriy@vm0 ~]$ rbh-sync rbh:posix:test/ rbh:mongo:test\nSegmentation fault (core dumped)\n\nI haven\u0027t checked yet why or how it crashes unfortunately.",
+      "parentUuid": "f9fabb62_4e5465c1",
+      "revId": "9348dd1df4d5fa2cc8a5006f5034f7bb60fc4581",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2592dc98_9bbb6505",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-10-25T13:01:59Z",
+      "side": 1,
+      "message": "defect: I\u0027m testing this patch and there is an issue on the result in the case of a singular xattrs.\n\n[valeriy@vm0 ~]$ mkdir test\n[valeriy@vm0 ~]$ touch test/a\n[valeriy@vm0 ~]$ setfattr -n user.a -v b test/a \n[valeriy@vm0 ~]$ rbh-sync rbh:posix:test/ rbh:mongo:test\n\n\u003e use test\nswitched to db test\n\u003e db.entries.find()\n{ \"_id\" : BinData(0,\"gQAAAKoXDgAAAAAAvVl2xg\u003d\u003d\"), \"statx\" : { \"blksize\" : 4096, \"nlink\" : 2, \"uid\" : 1005, \"gid\" : 1005, \"type\" : 16384, \"mode\" : 509, \"ino\" : NumberLong(923562), \"size\" : NumberLong(15), \"blocks\" : NumberLong(0), \"attributes\" : { \"immutable\" : false, \"append\" : false, \"nodump\" : false }, \"atime\" : { \"sec\" : NumberLong(1635166316), \"nsec\" : 708838795 }, \"btime\" : { \"sec\" : NumberLong(1635166301), \"nsec\" : 718838795 }, \"ctime\" : { \"sec\" : NumberLong(1635166304), \"nsec\" : 422838795 }, \"mtime\" : { \"sec\" : NumberLong(1635166304), \"nsec\" : 422838795 }, \"rdev\" : { \"major\" : 0, \"minor\" : 0 }, \"dev\" : { \"major\" : 252, \"minor\" : 1 } }, \"ns\" : [ { \"parent\" : BinData(0,\"\"), \"name\" : \"\", \"xattrs\" : {  } } ] }\n{ \"_id\" : BinData(0,\"gQAAAKsXDgAAAAAAAbG91w\u003d\u003d\"), \"statx\" : { \"blksize\" : 4096, \"nlink\" : 1, \"uid\" : 1005, \"gid\" : 1005, \"type\" : 32768, \"mode\" : 436, \"ino\" : NumberLong(923563), \"size\" : NumberLong(0), \"blocks\" : NumberLong(0), \"attributes\" : { \"immutable\" : false, \"append\" : false, \"nodump\" : false }, \"atime\" : { \"sec\" : NumberLong(1635166304), \"nsec\" : 422838795 }, \"btime\" : { \"sec\" : NumberLong(1635166304), \"nsec\" : 422838795 }, \"ctime\" : { \"sec\" : NumberLong(1635166317), \"nsec\" : 253838795 }, \"mtime\" : { \"sec\" : NumberLong(1635166304), \"nsec\" : 422838795 }, \"rdev\" : { \"major\" : 0, \"minor\" : 0 }, \"dev\" : { \"major\" : 252, \"minor\" : 1 } }, \"xattrs\" : { \"user\" : { \"a\" : \"b\" } }, \"ns\" : [ { \"parent\" : BinData(0,\"gQAAAKoXDgAAAAAAvVl2xg\u003d\u003d\"), \"name\" : \"a\", \"xattrs\" : { \"user.a\" : \"b\" } } ] }\n\nAs you can see, in the mongo output of the database, the inode XATTRS are duplicated, both in the \u0027inode\u0027 field (simply called \u0027xattrs\u0027), and in the \u0027ns\u0027 field.",
+      "range": {
+        "startLine": 470,
+        "startChar": 4,
+        "endLine": 472,
+        "endChar": 54
+      },
+      "revId": "9348dd1df4d5fa2cc8a5006f5034f7bb60fc4581",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
