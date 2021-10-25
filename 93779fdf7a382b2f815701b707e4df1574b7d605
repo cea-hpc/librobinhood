@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ef2edf1_8b89401b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-25T19:53:38Z",
+      "side": 1,
+      "message": "The linkage of tests/unit/check_plugin.c is still not quite right (looks at /usr/lib/librbh-posix.so instead of builddir/src/backends/posix/librbh-posix.so). Will need to figure this out at some point.",
+      "revId": "93779fdf7a382b2f815701b707e4df1574b7d605",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
