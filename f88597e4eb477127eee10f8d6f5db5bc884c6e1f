@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae0bc2e8_d9783858",
+        "filename": "tests/unit/check_statx.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-25T19:12:05Z",
+      "side": 1,
+      "message": "Even if mnt_id is not defined, the structure was always sized for it, so I don\u0027t expect any issues on that side. You raise a valid point though, that `stx_mnt_id` may not be defined on every platform and failing the tests for this is counterproductive.",
+      "parentUuid": "5d2b87f7_558c66c8",
+      "range": {
+        "startLine": 162,
+        "startChar": 18,
+        "endLine": 162,
+        "endChar": 70
+      },
+      "revId": "f88597e4eb477127eee10f8d6f5db5bc884c6e1f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b9dc3c12_be3b5338",
         "filename": "tests/unit/check_statx.c",
         "patchSetId": 4
