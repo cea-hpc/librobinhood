@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "615288e7_869e6a01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-10-25T11:22:38Z",
+      "side": 1,
+      "message": "Waiting for an answer on the previous patch before putting +1",
+      "revId": "3e1dbb9f08d0be1c2ae372ef49cc5c34395c7368",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
