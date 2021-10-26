@@ -16,6 +16,29 @@
       "message": "The linkage of tests/unit/check_plugin.c is still not quite right (looks at /usr/lib/librbh-posix.so instead of builddir/src/backends/posix/librbh-posix.so). Will need to figure this out at some point.",
       "revId": "93779fdf7a382b2f815701b707e4df1574b7d605",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16981daf_5921399a",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-10-26T10:34:35Z",
+      "side": 1,
+      "message": "defect: \u0027value.binary.data \u003d\u003d NULL\u0027",
+      "range": {
+        "startLine": 345,
+        "startChar": 8,
+        "endLine": 346,
+        "endChar": 22
+      },
+      "revId": "93779fdf7a382b2f815701b707e4df1574b7d605",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }

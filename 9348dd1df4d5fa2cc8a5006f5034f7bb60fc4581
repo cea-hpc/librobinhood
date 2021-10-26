@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b7ff48c_5de6c717",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-10-26T10:34:35Z",
+      "side": 1,
+      "message": "This unfortunately still does not fix the segfault when a file has multiple xattrs.\nThe issue seems to be linked with the value sstack, most likely an overflow at some point, but I can\u0027t determine the root of the problem...",
+      "parentUuid": "f7c32c2a_af051aad",
+      "revId": "9348dd1df4d5fa2cc8a5006f5034f7bb60fc4581",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2592dc98_9bbb6505",
         "filename": "src/backends/posix/posix.c",
         "patchSetId": 2
@@ -91,6 +109,30 @@
       "side": 1,
       "message": "This isn\u0027t this patch\u0027s fault. That\u0027s a bug in rbh-sync.",
       "parentUuid": "2592dc98_9bbb6505",
+      "range": {
+        "startLine": 470,
+        "startChar": 4,
+        "endLine": 472,
+        "endChar": 54
+      },
+      "revId": "9348dd1df4d5fa2cc8a5006f5034f7bb60fc4581",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62cbe99b_cd0e5078",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-10-26T10:34:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4d42e343_2f4dacfb",
       "range": {
         "startLine": 470,
         "startChar": 4,
