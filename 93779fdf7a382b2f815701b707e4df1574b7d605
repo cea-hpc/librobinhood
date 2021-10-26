@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e365097a_56e3b1f4",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-10-26T10:45:42Z",
+      "side": 1,
+      "message": "defect: I tested this sub function, and the behavior does not seem to be correct\n\n static size_t __attribute__((pure))\n ceil2_sug(size_t number)\n {\n     uint8_t shift;\n     size_t res \u003d 1;\n\n     if (__builtin_popcountll(number) \u003c\u003d 1)\n         return number;\n\n     shift \u003d sizeof(number) * 8 - __builtin_clzll(number);\n     return shift \u003e\u003d sizeof(number) * 8 ? number : res \u003c\u003c shift;\n }\n\n static size_t __attribute__((pure))\n ceil2_org(size_t number)\n {\n     uint8_t shift;\n\n     if (__builtin_popcountll(number) \u003c\u003d 1)\n         return number;\n\n     shift \u003d __builtin_clzll(number) + 1;\n     return shift \u003e\u003d sizeof(number) ? number : 1 \u003c\u003c shift;\n }\n\n int main(void)\n {\n     printf(\"%\"PRIu64\" -\u003e %\"PRIu64\" vs %\"PRIu64\"\\n\",\n            10, ceil2_org(10), ceil2_sug(10));\n     printf(\"%\"PRIu64\" -\u003e %\"PRIu64\" vs %\"PRIu64\"\\n\",\n            1023, ceil2_org(1023), ceil2_sug(1023));\n     printf(\"%\"PRIu64\" -\u003e %\"PRIu64\" vs %\"PRIu64\"\\n\",\n            1024, ceil2_org(1024), ceil2_sug(1024));\n     printf(\"%\"PRIu64\" -\u003e %\"PRIu64\" vs %\"PRIu64\"\\n\",\n            UINT_MAX - 3, ceil2_org(UINT_MAX - 3), ceil2_sug(UINT_MAX - 3));\n     printf(\"%\"PRIu64\" -\u003e %\"PRIu64\" vs %\"PRIu64\"\\n\",\n            UINT64_MAX/4 - 3, ceil2_org(UINT64_MAX/4 - 3), ceil2_sug(UINT64_MAX/4 - 3));\n     printf(\"%\"PRIu64\" -\u003e %\"PRIu64\" vs %\"PRIu64\"\\n\",\n            UINT64_MAX - 3, ceil2_org(UINT64_MAX - 3), ceil2_sug(UINT64_MAX - 3));\n\n     return 0;\n }\n\n------------\n\n $ ./a.out                                                                                                                     \n 10 -\u003e 10 vs 16\n 1023 -\u003e 1023 vs 1024\n 1024 -\u003e 1024 vs 1024\n 4294967292 -\u003e 4294967292 vs 4294967296\n 4611686018427387900 -\u003e 8 vs 4611686018427387904\n 18446744073709551612 -\u003e 2 vs 18446744073709551612",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 1
+      },
+      "revId": "93779fdf7a382b2f815701b707e4df1574b7d605",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16981daf_5921399a",
         "filename": "src/backends/posix/posix.c",
         "patchSetId": 3
