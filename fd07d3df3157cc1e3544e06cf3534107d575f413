@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "357427d3_4fe864a8",
+        "filename": "src/statx.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-10-27T08:23:37Z",
+      "side": 1,
+      "message": "question: I see that `AT_STATX_SYNC_AS_STAT` and `AT_STATX_DONT_SYNC` also exist.  Is it harmless to let them in flags ? I would presume based on their names that they are only read if `AT_STATX_SYNC_TYPE` is contained in `flags`. But wouldn\u0027t this still be an issue for stat ?",
+      "range": {
+        "startLine": 97,
+        "startChar": 14,
+        "endLine": 97,
+        "endChar": 36
+      },
+      "revId": "fd07d3df3157cc1e3544e06cf3534107d575f413",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
