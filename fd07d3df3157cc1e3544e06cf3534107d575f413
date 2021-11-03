@@ -22,6 +22,30 @@
       },
       "revId": "fd07d3df3157cc1e3544e06cf3534107d575f413",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbd653f9_85a6f33b",
+        "filename": "src/statx.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-11-03T21:07:37Z",
+      "side": 1,
+      "message": "It would, but it isn\u0027t really. This flag is defined in \u003cfcntl.h\u003e, and IIUC, this is not an issue for the distros you want to compile this on at CEA.\n\nWe could wrap it in an RBH_... specific macro, but I\u0027d rather we make sure we need to first.",
+      "parentUuid": "357427d3_4fe864a8",
+      "range": {
+        "startLine": 97,
+        "startChar": 14,
+        "endLine": 97,
+        "endChar": 36
+      },
+      "revId": "fd07d3df3157cc1e3544e06cf3534107d575f413",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
