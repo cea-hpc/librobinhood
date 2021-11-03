@@ -41,6 +41,53 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f41f893_a62ca788",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-11-03T22:58:33Z",
+      "side": 1,
+      "message": "Good catch, thanks.",
+      "parentUuid": "e365097a_56e3b1f4",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 1
+      },
+      "revId": "93779fdf7a382b2f815701b707e4df1574b7d605",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9fa93ae_8edb1d54",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-11-03T22:58:33Z",
+      "side": 1,
+      "message": "(defect) Not dereferencing the right pointer here.\n\nAlso, I\u0027m missing a check on whether \"i - skipped \u003e *_count\", but the pointer dereference is the reason we get a segfault for two attributes.\n\nFixed",
+      "range": {
+        "startLine": 317,
+        "startChar": 38,
+        "endLine": 317,
+        "endChar": 56
+      },
+      "revId": "93779fdf7a382b2f815701b707e4df1574b7d605",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16981daf_5921399a",
@@ -54,6 +101,30 @@
       "writtenOn": "2021-10-26T10:34:35Z",
       "side": 1,
       "message": "defect: \u0027value.binary.data \u003d\u003d NULL\u0027",
+      "range": {
+        "startLine": 345,
+        "startChar": 8,
+        "endLine": 346,
+        "endChar": 22
+      },
+      "revId": "93779fdf7a382b2f815701b707e4df1574b7d605",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f892df62_521c8656",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-11-03T22:58:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16981daf_5921399a",
       "range": {
         "startLine": 345,
         "startChar": 8,
