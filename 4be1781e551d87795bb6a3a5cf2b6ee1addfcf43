@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fbf740f_6bbdeebc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-11-04T09:16:04Z",
+      "side": 1,
+      "message": "Yep, problem fixed for 2 or more xattrs!\nThanks for the patch 😊",
+      "revId": "4be1781e551d87795bb6a3a5cf2b6ee1addfcf43",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
