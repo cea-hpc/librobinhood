@@ -16,6 +16,29 @@
       "message": "Yep, problem fixed for 2 or more xattrs!\nThanks for the patch 😊",
       "revId": "4be1781e551d87795bb6a3a5cf2b6ee1addfcf43",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99da73e0_74bbf8f7",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-11-04T09:32:27Z",
+      "side": 1,
+      "message": "question: why use a sstack here for values and xattrs ?",
+      "range": {
+        "startLine": 25,
+        "startChar": 20,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "4be1781e551d87795bb6a3a5cf2b6ee1addfcf43",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
