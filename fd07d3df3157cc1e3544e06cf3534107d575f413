@@ -46,6 +46,30 @@
       },
       "revId": "fd07d3df3157cc1e3544e06cf3534107d575f413",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dee3ee4_336726f7",
+        "filename": "src/statx.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-11-04T22:23:50Z",
+      "side": 1,
+      "message": "Wow, oh boy did I read (and answer) that wrong, really sorry.\n\n\u003e I see that `AT_STATX_SYNC_AS_STAT` and `AT_STATX_DONT_SYNC` also exist.  Is it harmless to let them in flags ?\n\nBut we are not leaving them in `flags`, that\u0027s the point:\n\n #define AT_RBH_STATX_SYNC_AS_STAT   0x0000\n #define AT_RBH_STATX_FORCE_SYNC     0x2000\n #define AT_RBH_STATX_DONT_SYNC      0x4000\n #define AT_RBH_STATX_SYNC_TYPE      0x6000\n\nAT_RBH_STATX_SYNC_TYPE \u003d AT_RBH_FORCE_SYNC | AT_RBH_STATX_DONT_SYNC\n\nAT_RBH_STATX_SYNC_AS_STAT is harmless since it is defined as 0.\n\nHope this is a more satisfying answer.",
+      "parentUuid": "dbd653f9_85a6f33b",
+      "range": {
+        "startLine": 97,
+        "startChar": 14,
+        "endLine": 97,
+        "endChar": 36
+      },
+      "revId": "fd07d3df3157cc1e3544e06cf3534107d575f413",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
