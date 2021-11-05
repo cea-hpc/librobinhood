@@ -70,6 +70,30 @@
       },
       "revId": "fd07d3df3157cc1e3544e06cf3534107d575f413",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c1c8d53_590765ab",
+        "filename": "src/statx.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-11-05T15:29:45Z",
+      "side": 1,
+      "message": "Yep, makes sense. Thanks.",
+      "parentUuid": "9dee3ee4_336726f7",
+      "range": {
+        "startLine": 97,
+        "startChar": 14,
+        "endLine": 97,
+        "endChar": 36
+      },
+      "revId": "fd07d3df3157cc1e3544e06cf3534107d575f413",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
