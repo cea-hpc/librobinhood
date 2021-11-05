@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c77947e3_4a658a3c",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-11-05T07:39:42Z",
+      "side": 1,
+      "message": "It was the second question, wanted to understand why you chose a structure like this, and not another one, and you answer it perfectly, thanks 😊",
+      "parentUuid": "18b2014d_996d2a69",
+      "range": {
+        "startLine": 25,
+        "startChar": 20,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "4be1781e551d87795bb6a3a5cf2b6ee1addfcf43",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "27a2151a_0cdf6484",
         "filename": "src/backends/posix/posix.c",
         "patchSetId": 5
