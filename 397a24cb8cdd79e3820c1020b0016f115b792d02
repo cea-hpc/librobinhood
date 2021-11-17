@@ -16,6 +16,24 @@
       "message": "Tests please",
       "revId": "397a24cb8cdd79e3820c1020b0016f115b792d02",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c80da0cb_10cc98bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-11-17T22:05:23Z",
+      "side": 1,
+      "message": "Realizing this might be misinterpreted... I did this because me posting a message will trigger my CI.",
+      "parentUuid": "5e6a63a2_d2b33b38",
+      "revId": "397a24cb8cdd79e3820c1020b0016f115b792d02",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
