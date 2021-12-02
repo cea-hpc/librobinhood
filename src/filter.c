@@ -172,6 +172,8 @@ filter_data_size(const struct rbh_filter *filter)
         return 0;
 
     switch (filter->op) {
+    case RBH_FOP_EXISTS:
+        __attribute__((fallthrough));
     case RBH_FOP_COMPARISON_MIN ... RBH_FOP_COMPARISON_MAX:
         size = filter_field_data_size(&filter->compare.field);
         return size + value_data_size(&filter->compare.value, size);
@@ -233,6 +235,10 @@ op_matches_value(enum rbh_filter_operator op, const struct rbh_value *value)
         break;
     case RBH_FOP_REGEX:
         if (value->type != RBH_VT_REGEX)
+            return false;
+        break;
+    case RBH_FOP_EXISTS:
+        if (value->type != RBH_VT_BOOLEAN)
             return false;
         break;
     case RBH_FOP_BITS_ANY_SET:
@@ -458,6 +464,17 @@ rbh_filter_not_new(const struct rbh_filter *filter)
     return filter_logical_new(RBH_FOP_NOT, &filter, 1);
 }
 
+struct rbh_filter *
+rbh_filter_exists_new(const struct rbh_filter_field *field)
+{
+    const struct rbh_value boolean_ = {
+        .type = RBH_VT_BOOLEAN,
+        .boolean = true,
+    };
+
+    return rbh_filter_compare_new(RBH_FOP_EXISTS, field, &boolean_);
+}
+
 static int
 filter_field_validate(const struct rbh_filter_field *field)
 {
@@ -539,6 +556,8 @@ rbh_filter_validate(const struct rbh_filter *filter)
         return 0;
 
     switch (filter->op) {
+    case RBH_FOP_EXISTS:
+        __attribute__((fallthrough));
     case RBH_FOP_COMPARISON_MIN ... RBH_FOP_COMPARISON_MAX:
         return comparison_filter_validate(filter);
     case RBH_FOP_NOT:

@@ -58,6 +58,8 @@ filter_operator2str(enum rbh_filter_operator op)
         return "RBH_FOP_OR";
     case RBH_FOP_NOT:
         return "RBH_FOP_NOT";
+    case RBH_FOP_EXISTS:
+        return "RBH_FOP_EXISTS";
     default:
         return "unknown";
     }

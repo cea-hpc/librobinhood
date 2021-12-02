@@ -111,6 +111,9 @@ enum rbh_filter_operator {
     RBH_FOP_OR,
     RBH_FOP_NOT,
 
+    /* Special */
+    RBH_FOP_EXISTS,
+
     /* Aliases (used to distinguish comparison filters from logical ones) */
     RBH_FOP_COMPARISON_MIN = RBH_FOP_EQUAL,
     RBH_FOP_COMPARISON_MAX = RBH_FOP_BITS_ALL_CLEAR,
@@ -412,6 +415,19 @@ rbh_filter_or_new(const struct rbh_filter * const filters[], size_t count);
  */
 struct rbh_filter *
 rbh_filter_not_new(const struct rbh_filter *filter);
+
+/**
+ * Create a filter that checks a field exists
+ *
+ * @param field     the field whose existence to check
+ *
+ * @return          a pointer to a newly allocated struct rbh_filter on success,
+ *                  NULL on error and errno is set appropriately
+ *
+ * @error ENOMEM    there was not enough memory available
+ */
+struct rbh_filter *
+rbh_filter_exists_new(const struct rbh_filter_field *field);
 
 /**
  * Validate a filter
