@@ -101,6 +101,7 @@ enum rbh_filter_operator {
     RBH_FOP_GREATER_OR_EQUAL,
     RBH_FOP_REGEX,
     RBH_FOP_IN,
+    RBH_FOP_EXISTS,
     RBH_FOP_BITS_ANY_SET,
     RBH_FOP_BITS_ALL_SET,
     RBH_FOP_BITS_ANY_CLEAR,
@@ -353,6 +354,23 @@ struct rbh_filter *
 rbh_filter_compare_map_new(enum rbh_filter_operator op,
                            const struct rbh_filter_field *field,
                            const struct rbh_value_pair pairs[], size_t count);
+
+/**
+ * Create a filter that checks a field exists
+ *
+ * @param op        the type of comparison to use
+ * @param field     the field to compare
+ *
+ * @return          a pointer to a newly allocated struct rbh_filter on success,
+ *                  NULL on error and errno is set appropriately
+ *
+ * @error EINVAL    \p op is not valid for a map comparison or one of the
+ *                  elements of \p pairs points at an invalid struct rbh_value
+ * @error ENOMEM    there was not enough memory available
+ */
+struct rbh_filter *
+rbh_filter_compare_exists_new(enum rbh_filter_operator op,
+                              const struct rbh_filter_field *field);
 
 /**
  * Create a comparison filter

@@ -42,6 +42,8 @@ filter_operator2str(enum rbh_filter_operator op)
         return "RBH_FOP_GREATER_OR_EQUAL";
     case RBH_FOP_IN:
         return "RBH_FOP_IN";
+    case RBH_FOP_EXISTS:
+        return "RBH_FOP_EXISTS";
     case RBH_FOP_REGEX:
         return "RBH_FOP_REGEX";
     case RBH_FOP_BITS_ANY_SET:
@@ -373,6 +375,19 @@ static const struct rbh_filter COMPARISONS[] = {
                     .values = NULL,
                     .count = 0,
                 },
+            },
+        },
+    },
+    {
+        .op = RBH_FOP_EXISTS,
+        .compare = {
+            .field = {
+                .fsentry = RBH_FP_INODE_XATTRS,
+                .xattr = "abcdefg",
+            },
+            .value = {
+                .type = RBH_VT_BOOLEAN,
+                .boolean = true,
             },
         },
     },
