@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc21f47a_86bc3248",
+        "filename": "include/robinhood/filter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-05T21:33:58Z",
+      "side": 1,
+      "message": "(defect) What does \"filter compare exists new\" mean?",
+      "range": {
+        "startLine": 372,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 29
+      },
+      "revId": "14d82693a0d0b48af3f44df77d04c2078fd930f1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e097982d_be6d8db6",
+        "filename": "include/robinhood/filter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-05T21:33:58Z",
+      "side": 1,
+      "message": "(defect) Why do you need an operator? Shouldn\u0027t it always be RBH_FOP_EXISTS?",
+      "range": {
+        "startLine": 372,
+        "startChar": 55,
+        "endLine": 372,
+        "endChar": 57
+      },
+      "revId": "14d82693a0d0b48af3f44df77d04c2078fd930f1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
