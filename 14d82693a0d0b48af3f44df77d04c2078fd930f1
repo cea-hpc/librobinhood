@@ -45,6 +45,54 @@
       },
       "revId": "14d82693a0d0b48af3f44df77d04c2078fd930f1",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a22e58d_e3e870d7",
+        "filename": "include/robinhood/filter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-06T08:46:32Z",
+      "side": 1,
+      "message": "I did not know where to put the \"exists\" operator: it\u0027s neither a comparison operator (unless we consider the field not existing to NULL, so we check a field is not NULL) nor a logical one, as it doesn\u0027t impact other filters. So I left it in the comparison category, and so to stick with the naming convention, I used \"filter compare exists new\".",
+      "parentUuid": "fc21f47a_86bc3248",
+      "range": {
+        "startLine": 372,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 29
+      },
+      "revId": "14d82693a0d0b48af3f44df77d04c2078fd930f1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b957cf7_bc3844bd",
+        "filename": "include/robinhood/filter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-06T08:46:32Z",
+      "side": 1,
+      "message": "True, I mixed up this operator here and the function itself, as in the future we\u0027ll want to compare actual values, but it will be done with other functions.",
+      "parentUuid": "e097982d_be6d8db6",
+      "range": {
+        "startLine": 372,
+        "startChar": 55,
+        "endLine": 372,
+        "endChar": 57
+      },
+      "revId": "14d82693a0d0b48af3f44df77d04c2078fd930f1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
