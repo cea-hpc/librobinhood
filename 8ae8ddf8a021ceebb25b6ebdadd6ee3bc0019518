@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70c61be2_c0ba039d",
+        "filename": "include/robinhood/filter.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-08T20:19:52Z",
+      "side": 1,
+      "message": "(suggest) whose existence to check",
+      "range": {
+        "startLine": 361,
+        "startChar": 30,
+        "endLine": 361,
+        "endChar": 39
+      },
+      "revId": "8ae8ddf8a021ceebb25b6ebdadd6ee3bc0019518",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
