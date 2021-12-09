@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b59b26a6_e95200e4",
+        "filename": "include/robinhood/filter.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-09T22:32:49Z",
+      "side": 1,
+      "message": "(minor) I\u0027m wondering if it doesn\u0027t make sense to special case the operator still, up until now I have taken inspiration from this mongodb documentation page: https://docs.mongodb.com/manual/reference/operator/query/#element\n\nI am not sure I like \"Element\" as the name of an operator category though.\n\nI am not particularly sure which way to lean towards. Can you explain why you decided not to special case it? What are the pros and cons of making it one or the other?\n\nI\u0027m asking because this is part of the public API, and it can\u0027t be changed lightly in the future, so I would rather we make the right choice on our first try.\n\n(nitpick++) Also, why place the operator at this position in the list?",
+      "range": {
+        "startLine": 104,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 19
+      },
+      "revId": "1fa44197b226a0728d41f64d525f76799b77ebc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e75999ca_be5f2a90",
+        "filename": "src/backends/mongo/filter.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-09T22:32:49Z",
+      "side": 1,
+      "message": "(style/nitpick) Let\u0027s just call it `tmp`.",
+      "range": {
+        "startLine": 255,
+        "startChar": 21,
+        "endLine": 255,
+        "endChar": 30
+      },
+      "revId": "1fa44197b226a0728d41f64d525f76799b77ebc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9945c137_8d6b2377",
+        "filename": "src/backends/mongo/filter.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-09T22:32:49Z",
+      "side": 1,
+      "message": "(suggest) a negation in mongo\u0027s list of operators, `{$not: {$exists: true}}` is simply `{$exists: false}`.",
+      "range": {
+        "startLine": 286,
+        "startChar": 44,
+        "endLine": 288,
+        "endChar": 26
+      },
+      "revId": "1fa44197b226a0728d41f64d525f76799b77ebc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
