@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d6ab3ea_6a591fed",
+        "filename": "include/robinhood/filter.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-10T11:14:57Z",
+      "side": 1,
+      "message": "I decided not to because the filter uses the same elements as a regular comparison filter: a field and a value to check.\nWe could also have defined a new \"type\" of filter indeed, with just the field to check for exists, but I figured the negation part of the filter would be way more complicated to do properly.\nSo by considering the EXISTS filter as a comparison one, it is way easier to implement and use, while not being nonsensical.\n\nFor the position in the list, EXISTS is kinda like the IN filter (as in \"check this value exists in this sequence\" and \"check this value is in the xattr map\"), so it made sense to me to put it there.",
+      "parentUuid": "b59b26a6_e95200e4",
+      "range": {
+        "startLine": 104,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 19
+      },
+      "revId": "1fa44197b226a0728d41f64d525f76799b77ebc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e75999ca_be5f2a90",
         "filename": "src/backends/mongo/filter.c",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-09T22:32:49Z",
       "side": 1,
       "message": "(style/nitpick) Let\u0027s just call it `tmp`.",
+      "range": {
+        "startLine": 255,
+        "startChar": 21,
+        "endLine": 255,
+        "endChar": 30
+      },
+      "revId": "1fa44197b226a0728d41f64d525f76799b77ebc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e374965a_46be7fbf",
+        "filename": "src/backends/mongo/filter.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-10T11:14:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e75999ca_be5f2a90",
       "range": {
         "startLine": 255,
         "startChar": 21,
@@ -60,6 +108,30 @@
       "writtenOn": "2021-12-09T22:32:49Z",
       "side": 1,
       "message": "(suggest) a negation in mongo\u0027s list of operators, `{$not: {$exists: true}}` is simply `{$exists: false}`.",
+      "range": {
+        "startLine": 286,
+        "startChar": 44,
+        "endLine": 288,
+        "endChar": 26
+      },
+      "revId": "1fa44197b226a0728d41f64d525f76799b77ebc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc1d0c72_f6ca16fc",
+        "filename": "src/backends/mongo/filter.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-10T11:14:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9945c137_8d6b2377",
       "range": {
         "startLine": 286,
         "startChar": 44,
