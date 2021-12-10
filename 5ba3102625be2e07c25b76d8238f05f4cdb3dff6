@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9617a7d8_cfe4321f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-10T14:44:12Z",
+      "side": 1,
+      "message": "typo: null",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "5ba3102625be2e07c25b76d8238f05f4cdb3dff6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35ebbee0_54b5e03a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-12-10T14:44:12Z",
+      "side": 1,
+      "message": "Seems so simple... Kinda sad I didn\u0027t find it alone, I was on something regarding the alignment, adding +1 here and there, but that was not the right place...\nThanks a lot 😊",
+      "revId": "5ba3102625be2e07c25b76d8238f05f4cdb3dff6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
