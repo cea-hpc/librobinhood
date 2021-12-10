@@ -48,6 +48,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4146208b_403a5a6b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-10T23:47:51Z",
+      "side": 1,
+      "message": "Looks like both are valid and NUL is an abbreviation.\n\nref: https://en.wikipedia.org/wiki/ASCII#Control_code_chart\nref: https://en.wikipedia.org/wiki/Null_character\n\nI grep-ed the posix man pages and found exactly as many occurence of NUL as of \"null byte\" (note that NUL was always in capital letters though).\n\nFeel free to use whichever, I don\u0027t have a preference.",
+      "parentUuid": "586861fa_6b597297",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "5ba3102625be2e07c25b76d8238f05f4cdb3dff6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "35ebbee0_54b5e03a",
@@ -79,6 +103,23 @@
       "side": 1,
       "message": "It\u0027s not because the patch is simple that it is obvious to find, it took me quite a bit of step by step checking size and matching offsets to see size decreased more than it should have when copying the key after I missed it quite a few times reading the code. Good ol\u0027 printf debugging would probably have been faster... :P\n\nNothing to feel bad about here :)",
       "parentUuid": "35ebbee0_54b5e03a",
+      "revId": "5ba3102625be2e07c25b76d8238f05f4cdb3dff6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2dbaeda_818e6593",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-10T23:47:51Z",
+      "side": 1,
+      "message": "Thanks for the patch!\n\nCan you add a test as well? I can take care of it otherwise.",
       "revId": "5ba3102625be2e07c25b76d8238f05f4cdb3dff6",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
