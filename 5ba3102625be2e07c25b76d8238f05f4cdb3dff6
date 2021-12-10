@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "586861fa_6b597297",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-12-10T22:28:27Z",
+      "side": 1,
+      "message": "The \\0 at the end of a string is often referred to at \"NUL byte\" -- I wanted to find some authoritative place that says this but I only found some hacker news thread and google rewrites my nul byte searchs as null... ugh. Well, I guess it\u0027ll just get out of use and I should start thinking of myself as old :-D\nhttps://news.ycombinator.com/item?id\u003d22283217\n\nAnyway, I\u0027m happy either way, letting Q decide :-)",
+      "parentUuid": "9617a7d8_cfe4321f",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "5ba3102625be2e07c25b76d8238f05f4cdb3dff6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "35ebbee0_54b5e03a",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-12-10T14:44:12Z",
       "side": 1,
       "message": "Seems so simple... Kinda sad I didn\u0027t find it alone, I was on something regarding the alignment, adding +1 here and there, but that was not the right place...\nThanks a lot 😊",
+      "revId": "5ba3102625be2e07c25b76d8238f05f4cdb3dff6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81475a9d_5e039d95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-12-10T22:28:27Z",
+      "side": 1,
+      "message": "It\u0027s not because the patch is simple that it is obvious to find, it took me quite a bit of step by step checking size and matching offsets to see size decreased more than it should have when copying the key after I missed it quite a few times reading the code. Good ol\u0027 printf debugging would probably have been faster... :P\n\nNothing to feel bad about here :)",
+      "parentUuid": "35ebbee0_54b5e03a",
       "revId": "5ba3102625be2e07c25b76d8238f05f4cdb3dff6",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
