@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "71a4754b_b8ee18d9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-12-11T00:16:18Z",
+      "side": 1,
+      "message": "I\u0027ve capitalized NUL",
+      "parentUuid": "4146208b_403a5a6b",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "5ba3102625be2e07c25b76d8238f05f4cdb3dff6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "35ebbee0_54b5e03a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -120,6 +144,24 @@
       "writtenOn": "2021-12-10T23:47:51Z",
       "side": 1,
       "message": "Thanks for the patch!\n\nCan you add a test as well? I can take care of it otherwise.",
+      "revId": "5ba3102625be2e07c25b76d8238f05f4cdb3dff6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f017cedd_c1479fb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-12-11T00:16:18Z",
+      "side": 1,
+      "message": "hmm, I added a test, but this is a bit weird meson seems to link against my installed librobinhood instead of the one in the source tree...\n - LD_LIBRARY_PATH set -\u003e uses /opt/rbh/lib64/librobinhood.so.0.0.0\n - LD_LIBRARY_PATH not set -\u003e uses the one in source tree properly (nothing in /usr/lib64), so build directory\u0027s lib is there as fallback but priority is wrong... And worse: plugin tests failed (plugin and posix) as rbh_posix_backend_new() failed, so that one doesn\u0027t even try to load librbh-posix/mongo from the source dir\n\nThat being said, I really don\u0027t believe such tests are very useful. This exact problem is unlikely to creep back in unless you plan on reworking fsentry allocation... Adding some spray testing that would have detected it amongst other things (e.g. randomize key/values and retry 100 times, printing a seed if tests failed to reproduce) would be more interesting but I didn\u0027t see if libcheck allows this kind of testing.\nAnyway, it all comes down to how long we\u0027re willing to allow tests to be and time to invest in the framework...",
+      "parentUuid": "e2dbaeda_818e6593",
       "revId": "5ba3102625be2e07c25b76d8238f05f4cdb3dff6",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
