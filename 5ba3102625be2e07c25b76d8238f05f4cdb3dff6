@@ -164,6 +164,24 @@
       "parentUuid": "e2dbaeda_818e6593",
       "revId": "5ba3102625be2e07c25b76d8238f05f4cdb3dff6",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "710c65c4_f5992c3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-12T13:06:26Z",
+      "side": 1,
+      "message": "\u003e meson seems to link against my installed librobinhood instead of the one in the source tree\n\nThis is disappointing...\n\n\u003e plugin tests failed (plugin and posix) as rbh_posix_backend_new() failed\n\nI knew about this one, and I think it has been reported to meson before. I\u0027m hoping it gets fixed with a random upgrade someday.\n\n\u003e I really don\u0027t believe such tests are very useful\n\nI agree the usefulness is questionable, but I would argue it has to be measured against the complexity of writing the test and the time it takes to run it. And in this case I favor having the test.\n\n\u003e Adding some spray testing / it all comes down to how long we\u0027re willing to allow tests to be and time to invest in the framework\n\nI remember spending some time with libfuzzer [0] and not getting very far. Maybe once we get a python binding we can use something like hyopthesis [1] and/or hypofuzz [1].\n\n[0] https://llvm.org/docs/LibFuzzer.html\n[1] https://github.com/HypothesisWorks/hypothesis\n[2] https://hypofuzz.com/\n\nPS: actually realizing hypofuzz is a commercial product, so maybe not.",
+      "parentUuid": "f017cedd_c1479fb3",
+      "revId": "5ba3102625be2e07c25b76d8238f05f4cdb3dff6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
