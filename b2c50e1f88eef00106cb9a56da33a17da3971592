@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed92b4a6_83b68ab0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-13T22:35:23Z",
+      "side": 1,
+      "message": "Can you sign-off the commit please? I would add it for you, but I think it\u0027s close to having a legal meaning, so I\u0027d rather you do it yourself.",
+      "revId": "b2c50e1f88eef00106cb9a56da33a17da3971592",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
