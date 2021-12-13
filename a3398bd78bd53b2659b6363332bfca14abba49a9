@@ -33,6 +33,59 @@
       "message": "ah, their \"solution\" seems to be https://github.com/mesonbuild/meson/pull/8393 ? but that requires defining a similar env variable and explicitly running tests through `meson devenv meson test` which looks worse to me... so I stand by this",
       "revId": "a3398bd78bd53b2659b6363332bfca14abba49a9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c4ca6bc_8ab7087b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-13T19:33:24Z",
+      "side": 1,
+      "message": "Yeah, the issue remains open, so I\u0027m guessing it\u0027s a nice workaround to have, but maybe not satisfying enough, even to the meson community.",
+      "parentUuid": "06fa656e_a78463d5",
+      "revId": "a3398bd78bd53b2659b6363332bfca14abba49a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f2a1e69_c6f1b874",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-13T19:33:24Z",
+      "side": 1,
+      "message": "Looks good to me.\n\nThanks for dealing with this Dominique! 👍 👍",
+      "revId": "a3398bd78bd53b2659b6363332bfca14abba49a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe1f67c4_3e856f56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-13T19:33:24Z",
+      "side": 1,
+      "message": "It\u0027s a bit disappointing the original issue dates back to 2017/2018 and we don\u0027t have a better fix yet.",
+      "parentUuid": "74c32d1d_0e4b7a9e",
+      "revId": "a3398bd78bd53b2659b6363332bfca14abba49a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
