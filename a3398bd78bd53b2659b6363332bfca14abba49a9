@@ -16,6 +16,23 @@
       "message": "It doesn\u0027t look like the meson issue will be resolved any time soon, so here\u0027s a workaround for now.\nI based it off https://github.com/GNOME/libsoup/commit/150cef0be29f54b6111dc0925ad5ea24042a87d5",
       "revId": "a3398bd78bd53b2659b6363332bfca14abba49a9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06fa656e_a78463d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-12-13T11:24:40Z",
+      "side": 1,
+      "message": "ah, their \"solution\" seems to be https://github.com/mesonbuild/meson/pull/8393 ? but that requires defining a similar env variable and explicitly running tests through `meson devenv meson test` which looks worse to me... so I stand by this",
+      "revId": "a3398bd78bd53b2659b6363332bfca14abba49a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
