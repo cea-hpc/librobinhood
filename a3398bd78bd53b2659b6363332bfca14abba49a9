@@ -86,6 +86,23 @@
       "parentUuid": "74c32d1d_0e4b7a9e",
       "revId": "a3398bd78bd53b2659b6363332bfca14abba49a9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c377f48_dccfb1b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-13T22:32:50Z",
+      "side": 1,
+      "message": "CI wasn\u0027t started. Triggering now...",
+      "revId": "a3398bd78bd53b2659b6363332bfca14abba49a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
