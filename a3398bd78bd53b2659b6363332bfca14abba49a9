@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "251c062a_5eb6df9d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-12-14T13:02:23Z",
+      "side": 1,
+      "message": "It is configured so through the UI, but that hasn\u0027t been working for a while now.\n\nThe configuration looks OK:\n\n $ git fetch authenticated-gerrit refs/meta/config\n $ git show FETCH_HEAD:project.config\n [access]\n         inheritFrom \u003d All-Projects\n [submit]\n         action \u003d rebase always\n [access \"refs/*\"]\n         owner \u003d group cea-hpc\n [access \"refs/heads/*\"]\n         create \u003d group cea-hpc\n         push \u003d +force group cea-hpc\n         pushMerge \u003d group cea-hpc\n [access \"refs/tags/*\"]\n         push \u003d +force group cea-hpc\n         createSignedTag \u003d group cea-hpc\n         createTag \u003d group cea-hpc\n [receive]\n         requireSignedOffBy \u003d true\n         requireChangeId \u003d true\n [plugin \"zuul-results-summary\"]\n         enabled \u003d false\n [plugin \"uploadvalidator\"]\n         blockedContentTypeWhitelist \u003d false\n         maxPathLength \u003d 0\n         rejectDuplicatePathnamesLocale \u003d en\n         rejectSubmodule \u003d false\n         rejectSymlink \u003d false\n         rejectWindowsLineEndings \u003d false\n [label \"Code-Review\"]\n         function \u003d MaxWithBlock\n         defaultValue \u003d 0\n         value \u003d -2 This shall not be merged\n         value \u003d -1 I would prefer this is not merged as is\n         value \u003d 0 No score\n         value \u003d +1 Looks good to me, but someone else must approve\n         value \u003d +2 Looks good to me, approved\n         copyAllScoresOnTrivialRebase \u003d true\n         copyAllScoresIfNoChange \u003d true\n         \nref: https://gerrit-review.googlesource.com/Documentation/config-project-config.html#receive-section\n\nThis might explain it: https://bugs.chromium.org/p/gerrit/issues/detail?id\u003d15229\u0026q\u003dsigned%20off%20by\u0026can\u003d2",
+      "parentUuid": "f20bb852_a6bb028e",
+      "revId": "a3398bd78bd53b2659b6363332bfca14abba49a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "74c32d1d_0e4b7a9e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
