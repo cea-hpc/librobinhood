@@ -9,6 +9,7 @@
 #include "robinhood/backends/lustre.h"
 
 static __thread struct rbh_sstack *_values;
+static __thread bool is_dir;
 
 static inline int
 fill_pair(struct rbh_value_pair *pair, const char *key, struct rbh_value *value)
@@ -27,6 +28,14 @@ fill_string_pair(char *str, struct rbh_value_pair *pair, const char *key)
     struct rbh_value *string_value = rbh_value_string_new(str);
 
     return fill_pair(pair, key, string_value);
+}
+
+static inline int
+fill_uint32_pair(uint32_t integer, struct rbh_value_pair *pair, const char *key)
+{
+    struct rbh_value *uint32_value = rbh_value_uint32_new(integer);
+
+    return fill_pair(pair, key, uint32_value);
 }
 
 static int
@@ -52,13 +61,45 @@ xattrs_get_fid(int fd, struct rbh_value_pair *pairs)
     return rc ? rc : subcount;
 }
 
+static int
+xattrs_get_hsm(int fd, struct rbh_value_pair *pairs)
+{
+    struct hsm_user_state hus;
+    int subcount = 0;
+    int rc;
+
+    rc = llapi_hsm_state_get_fd(fd, &hus);
+    if (rc) {
+        errno = -rc;
+        return -1;
+    }
+
+    rc = fill_uint32_pair(hus.hus_states, &pairs[subcount++], "hsm_state");
+    if (rc)
+        return -1;
+
+    rc = fill_uint32_pair(hus.hus_archive_id, &pairs[subcount++],
+                          "hsm_archive_id");
+    if (rc)
+        return -1;
+
+    return subcount;
+}
+
 static ssize_t
 lustre_ns_xattrs_callback(int fd, struct rbh_value_pair *pairs,
                           size_t *_ns_pairs_count, struct rbh_sstack *values)
 {
+    struct stat stats;
     int count = 0;
     int subcount;
+    int rc;
 
+    rc = fstat(fd, &stats);
+    if (rc)
+        return rc;
+
+    is_dir = S_ISDIR(stats.st_mode);
     _values = values;
 
     subcount = xattrs_get_fid(fd, &pairs[count]);
@@ -66,6 +107,14 @@ lustre_ns_xattrs_callback(int fd, struct rbh_value_pair *pairs,
         return -1;
 
     count += subcount;
+
+    if (!is_dir) {
+        subcount = xattrs_get_hsm(fd, &pairs[count]);
+        if (subcount == -1)
+            return -1;
+
+        count += subcount;
+    }
 
     return count;
 }
