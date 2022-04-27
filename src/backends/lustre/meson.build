@@ -4,6 +4,8 @@
 #
 # SPDX-License-Identifer: LGPL-3.0-or-later
 
+liblustre = dependency('lustre')
+
 librbh_lustre = library(
     'rbh-lustre',
     sources: [
@@ -12,6 +14,7 @@ librbh_lustre = library(
     ],
     version: librbh_lustre_version, # defined in include/robinhood/backends
     link_with: [librobinhood, librbh_posix],
+    dependencies: [liblustre],
     include_directories: rbh_include,
     install: true,
 )
