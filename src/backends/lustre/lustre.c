@@ -9,6 +9,7 @@
 #include "robinhood/backends/lustre.h"
 
 static __thread struct rbh_sstack *_values;
+static __thread bool is_dir;
 
 static inline int
 fill_pair(struct rbh_value_pair *pair, const char *key,
@@ -32,6 +33,17 @@ fill_string_pair(const char *str, const int len, struct rbh_value_pair *pair,
     };
 
     return fill_pair(pair, key, &string_value);
+}
+
+static inline int
+fill_uint32_pair(uint32_t integer, struct rbh_value_pair *pair, const char *key)
+{
+    const struct rbh_value uint32_value = {
+        .type = RBH_VT_UINT32,
+        .uint32 = integer,
+    };
+
+    return fill_pair(pair, key, &uint32_value);
 }
 
 /**
@@ -67,7 +79,43 @@ xattrs_get_fid(int fd, struct rbh_value_pair *pairs)
     return rc ? rc : subcount;
 }
 
-#define XATTRS_N_FUNC 1
+/**
+ * Record a file's hsm attributes (state and archive_id) in \p pairs
+ *
+ * @param fd        file descriptor to check
+ * @param pairs     list of pairs to fill
+ *
+ * @return          number of filled \p pairs
+ */
+static int
+xattrs_get_hsm(int fd, struct rbh_value_pair *pairs)
+{
+    struct hsm_user_state hus;
+    int subcount = 0;
+    int rc;
+
+    if (is_dir)
+        return 0;
+
+    rc = llapi_hsm_state_get_fd(fd, &hus);
+    if (rc) {
+        errno = -rc;
+        return -1;
+    }
+
+    rc = fill_uint32_pair(hus.hus_states, &pairs[subcount++], "hsm_state");
+    if (rc)
+        return -1;
+
+    rc = fill_uint32_pair(hus.hus_archive_id, &pairs[subcount++],
+                          "hsm_archive_id");
+    if (rc)
+        return -1;
+
+    return subcount;
+}
+
+#define XATTRS_N_FUNC 2
 
 static ssize_t
 lustre_ns_xattrs_callback(const int fd, const uint16_t mode,
@@ -75,11 +123,12 @@ lustre_ns_xattrs_callback(const int fd, const uint16_t mode,
                           struct rbh_sstack *values)
 {
     int (*xattrs_funcs[XATTRS_N_FUNC])(int, struct rbh_value_pair *) = {
-        xattrs_get_fid
+        xattrs_get_fid, xattrs_get_hsm
     };
     int count = 0;
     int subcount;
 
+    is_dir = S_ISDIR(mode);
     _values = values;
 
     for (int i = 0; i < XATTRS_N_FUNC; ++i, count += subcount) {
