@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a95926e_b1d7d310",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-04-28T10:20:37Z",
+      "side": 1,
+      "message": "Too bad we have to request the whole LOV to retrieve this information,\nas we already requested the layout before.\n\nIt seams the generation is already in the layout:\n layout-\u003ellot_gen\n \nThe magic can also be infered from the layout structure:\nif layout-\u003ellot_is_composite \u003d\u003e lmm_magic \u003d LOV_MAGIC_COMP_V1\nelse if strlen(pool_name) \u003e 0 \u003d\u003e lmm_magic \u003d LOV_MAGIC_V3\nelse lmm_magic \u003d LOV_MAGIC_V1\n\n(see liblustreapi_layout.c)\n\nBut actually, as this is not a raw information, it may not be useful to keep it in robinhood\u0027s DB.",
+      "range": {
+        "startLine": 103,
+        "startChar": 3,
+        "endLine": 103,
+        "endChar": 75
+      },
+      "revId": "6066ba8b454f8cf7fb548e37dac47adfd61d3cbb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "870adcc4_0c0e9163",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-04-28T10:20:37Z",
+      "side": 1,
+      "message": "Actually, this may be only for files, not for non-directories\n(i.e. not for symlinks, sockets...)",
+      "range": {
+        "startLine": 154,
+        "startChar": 4,
+        "endLine": 155,
+        "endChar": 60
+      },
+      "revId": "6066ba8b454f8cf7fb548e37dac47adfd61d3cbb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
