@@ -85,6 +85,29 @@
       },
       "revId": "58a180baa69e5236f863c7bc6fdf186c9f76d760",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a02f0ebc_56c52cee",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-04-28T12:22:16Z",
+      "side": 1,
+      "message": "question: why passing a pointer since you don\u0027t use the value after the call?",
+      "range": {
+        "startLine": 414,
+        "startChar": 38,
+        "endLine": 414,
+        "endChar": 53
+      },
+      "revId": "58a180baa69e5236f863c7bc6fdf186c9f76d760",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
