@@ -85,6 +85,115 @@
       },
       "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db035b99_c69bd1f3",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-04-28T11:32:33Z",
+      "side": 1,
+      "message": "Could data contain all information, so that we can do\n\n data \u003d calloc(length, sizeof(*data));\n\nand then fill information like this:\n\n data[i]-\u003emirror_count \u003d xxxx\n \nThis this would only require a single allocation.",
+      "range": {
+        "startLine": 227,
+        "startChar": 4,
+        "endLine": 227,
+        "endChar": 22
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbf322d2_778d7711",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-04-28T11:32:33Z",
+      "side": 1,
+      "message": "rather calloc(length, sizeof(xxx));",
+      "range": {
+        "startLine": 231,
+        "startChar": 25,
+        "endLine": 231,
+        "endChar": 70
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a7b0c23_598c7189",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-04-28T11:32:33Z",
+      "side": 1,
+      "message": "I find this function elegant :)",
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "389c3b98_dcbbd8e9",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-04-28T11:32:33Z",
+      "side": 1,
+      "message": "why is that? (comment)",
+      "range": {
+        "startLine": 347,
+        "startChar": 4,
+        "endLine": 347,
+        "endChar": 22
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "553e56e9_e619689e",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-04-28T11:32:33Z",
+      "side": 1,
+      "message": "this code is the same in the 2 cases, so it could be moved out of the if{}else{}",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 397,
+        "endChar": 21
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
