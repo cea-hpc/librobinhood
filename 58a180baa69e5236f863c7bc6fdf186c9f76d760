@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bbc135d_1bc80aef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-04-28T09:01:49Z",
+      "side": 1,
+      "message": "This is the first patch of Lustre backend stack, which implement a new backend for managing Lustre specific attributes.",
+      "revId": "58a180baa69e5236f863c7bc6fdf186c9f76d760",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
