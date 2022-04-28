@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80701696_f43a0d9e",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-04-28T10:08:55Z",
+      "side": 1,
+      "message": "why using a global variable as this is only used in the function lustre_ns_xattrs_callback()?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 28
+      },
+      "revId": "e7d04fef515651e7a3e16b528b6457efebdafcbb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d627591_89f01b26",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-04-28T10:08:55Z",
+      "side": 1,
+      "message": "I guess there is already a fstat or statx done somewhere else when scanning entries. This is performance critical as each filesystem operation here is multiplied by the number of entries in the filesystem, basically billions.\n\nIsn\u0027t it possible to avoid this duplicate stat()?",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 27
+      },
+      "revId": "e7d04fef515651e7a3e16b528b6457efebdafcbb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
