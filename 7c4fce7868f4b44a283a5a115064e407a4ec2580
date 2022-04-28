@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3379cda8_80a68cad",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-04-28T12:52:46Z",
+      "side": 1,
+      "message": "minor: I find value a better generic name for this.",
+      "range": {
+        "startLine": 126,
+        "startChar": 13,
+        "endLine": 126,
+        "endChar": 16
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5d7b3978_1c3a339b",
         "filename": "src/backends/lustre/lustre.c",
         "patchSetId": 1
@@ -59,6 +82,29 @@
         "startChar": 4,
         "endLine": 133,
         "endChar": 68
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "105a0d46_016b2fe0",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-04-28T12:52:46Z",
+      "side": 1,
+      "message": "defect: data-\u003eost is leaked when realloc fails",
+      "range": {
+        "startLine": 163,
+        "startChar": 28,
+        "endLine": 163,
+        "endChar": 37
       },
       "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
@@ -135,6 +181,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6c1d4368_7d29bbe9",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-04-28T12:52:46Z",
+      "side": 1,
+      "message": "question: is it intentional that data is passed by value? This probably works but the structure is not that small.",
+      "range": {
+        "startLine": 275,
+        "startChar": 40,
+        "endLine": 275,
+        "endChar": 44
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a7b0c23_598c7189",
         "filename": "src/backends/lustre/lustre.c",
         "patchSetId": 1
@@ -168,6 +237,52 @@
         "startChar": 4,
         "endLine": 347,
         "endChar": 22
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02aa9f62_dd7e4093",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-04-28T12:52:46Z",
+      "side": 1,
+      "message": "minor: instead of length, nb_comp is probably more explicit",
+      "range": {
+        "startLine": 379,
+        "startChar": 47,
+        "endLine": 379,
+        "endChar": 53
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aca16f1_3dbe661b",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-04-28T12:52:46Z",
+      "side": 1,
+      "message": "suggest: a small comment would be nice",
+      "range": {
+        "startLine": 387,
+        "startChar": 8,
+        "endLine": 387,
+        "endChar": 23
       },
       "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
