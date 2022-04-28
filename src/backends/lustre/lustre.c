@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <sys/ioctl.h>
 #include <sys/types.h>
 #include <sys/xattr.h>
 
@@ -54,6 +55,17 @@ fill_string_pair(const char *str, const int len, struct rbh_value_pair *pair,
     };
 
     return fill_pair(pair, key, &string_value);
+}
+
+static inline int
+fill_int32_pair(int32_t integer, struct rbh_value_pair *pair, const char *key)
+{
+    const struct rbh_value int32_value = {
+        .type = RBH_VT_INT32,
+        .int32 = integer,
+    };
+
+    return fill_pair(pair, key, &int32_value);
 }
 
 static inline int
@@ -537,7 +549,60 @@ err:
     return rc ? rc : subcount;
 }
 
-#define XATTRS_N_FUNC 3
+static int
+xattrs_get_mdt_info(int fd, struct rbh_value_pair *pairs)
+{
+    int subcount = 0;
+    int rc = 0;
+
+    if (is_dir) {
+        struct lmv_user_md lum = {
+            .lum_magic = LMV_USER_MAGIC,
+        };
+        struct rbh_value *mdt_idx;
+
+        rc = ioctl(fd, LL_IOC_LMV_GETSTRIPE, &lum);
+        if (rc != 0 && errno != ENODATA)
+            return rc;
+
+        mdt_idx = calloc(lum.lum_stripe_count, sizeof(*mdt_idx));
+        if (mdt_idx == NULL)
+            return -1;
+
+        for (int i = 0; i < lum.lum_stripe_count; i++)
+            mdt_idx[i] = create_uint32_value(lum.lum_objects[i].lum_mds);
+
+        rc = fill_sequence_pair(mdt_idx, lum.lum_stripe_count,
+                                &pairs[subcount++], "mdt_idx");
+        free(mdt_idx);
+        if (rc)
+            return -1;
+
+        rc = fill_uint32_pair(lum.lum_hash_type, &pairs[subcount++],
+                              "mdt_hash");
+        if (rc)
+            return -1;
+
+        rc = fill_uint32_pair(lum.lum_stripe_count, &pairs[subcount++],
+                              "mdt_count");
+        if (rc)
+            return -1;
+    } else {
+        int32_t mdt;
+
+        rc = llapi_file_fget_mdtidx(fd, &mdt);
+        if (rc)
+            return -1;
+
+        rc = fill_int32_pair(mdt, &pairs[subcount++], "mdt_index");
+        if (rc)
+            return -1;
+    }
+
+    return subcount;
+}
+
+#define XATTRS_N_FUNC 4
 
 static ssize_t
 lustre_ns_xattrs_callback(const int fd, const uint16_t mode,
@@ -545,7 +610,7 @@ lustre_ns_xattrs_callback(const int fd, const uint16_t mode,
                           struct rbh_sstack *values)
 {
     int (*xattrs_funcs[XATTRS_N_FUNC])(int, struct rbh_value_pair *) = {
-        xattrs_get_fid, xattrs_get_hsm, xattrs_get_layout
+        xattrs_get_fid, xattrs_get_hsm, xattrs_get_layout, xattrs_get_mdt_info
     };
     int count = 0;
     int subcount;
