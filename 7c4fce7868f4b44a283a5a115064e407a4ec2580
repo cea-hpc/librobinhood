@@ -41,6 +41,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c8cb894_d44b57e1",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:07Z",
+      "side": 1,
+      "message": "\"llapi_layout_is_composite\" requires a non-const layout, so I can\u0027t have this parameter as const.",
+      "parentUuid": "20d5d251_acc508c0",
+      "range": {
+        "startLine": 119,
+        "startChar": 19,
+        "endLine": 119,
+        "endChar": 47
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3379cda8_80a68cad",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-04-28T12:52:46Z",
       "side": 1,
       "message": "minor: I find value a better generic name for this.",
+      "range": {
+        "startLine": 126,
+        "startChar": 13,
+        "endLine": 126,
+        "endChar": 16
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33ef77f7_c281ef36",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3379cda8_80a68cad",
       "range": {
         "startLine": 126,
         "startChar": 13,
@@ -87,6 +135,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdfa82e2_ac0e5f75",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:07Z",
+      "side": 1,
+      "message": "Yep, this was a big problem, linked to our usage of rbh_value_uint64_new and the sstack. Done.",
+      "parentUuid": "5d7b3978_1c3a339b",
+      "range": {
+        "startLine": 133,
+        "startChar": 4,
+        "endLine": 133,
+        "endChar": 68
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "105a0d46_016b2fe0",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-04-28T12:52:46Z",
       "side": 1,
       "message": "defect: data-\u003eost is leaked when realloc fails",
+      "range": {
+        "startLine": 163,
+        "startChar": 28,
+        "endLine": 163,
+        "endChar": 37
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6faa21b_c3a161f0",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "105a0d46_016b2fe0",
       "range": {
         "startLine": 163,
         "startChar": 28,
@@ -133,6 +229,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b120ad99_02b0f717",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:07Z",
+      "side": 1,
+      "message": "This a iteration callback function with a defined prototype set by Lustre, so I cannot change it.",
+      "parentUuid": "54c448c8_e8a6a2eb",
+      "range": {
+        "startLine": 189,
+        "startChar": 23,
+        "endLine": 189,
+        "endChar": 50
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db035b99_c69bd1f3",
@@ -146,6 +266,30 @@
       "writtenOn": "2022-04-28T11:32:33Z",
       "side": 1,
       "message": "Could data contain all information, so that we can do\n\n data \u003d calloc(length, sizeof(*data));\n\nand then fill information like this:\n\n data[i]-\u003emirror_count \u003d xxxx\n \nThis this would only require a single allocation.",
+      "range": {
+        "startLine": 227,
+        "startChar": 4,
+        "endLine": 227,
+        "endChar": 22
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a2b3561_1a4e5bca",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:07Z",
+      "side": 1,
+      "message": "I partially did it, only kept the OST outside because its a list with a length potentially larger than length.",
+      "parentUuid": "db035b99_c69bd1f3",
       "range": {
         "startLine": 227,
         "startChar": 4,
@@ -179,6 +323,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3d2370a_56ac8ee9",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbf322d2_778d7711",
+      "range": {
+        "startLine": 231,
+        "startChar": 25,
+        "endLine": 231,
+        "endChar": 70
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c1d4368_7d29bbe9",
@@ -192,6 +360,30 @@
       "writtenOn": "2022-04-28T12:52:46Z",
       "side": 1,
       "message": "question: is it intentional that data is passed by value? This probably works but the structure is not that small.",
+      "range": {
+        "startLine": 275,
+        "startChar": 40,
+        "endLine": 275,
+        "endChar": 44
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92afec82_f7719a7d",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c1d4368_7d29bbe9",
       "range": {
         "startLine": 275,
         "startChar": 40,
@@ -219,6 +411,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c9a9520_47d1170e",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:07Z",
+      "side": 1,
+      "message": "Thanks :)",
+      "parentUuid": "9a7b0c23_598c7189",
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "389c3b98_dcbbd8e9",
@@ -232,6 +442,30 @@
       "writtenOn": "2022-04-28T11:32:33Z",
       "side": 1,
       "message": "why is that? (comment)",
+      "range": {
+        "startLine": 347,
+        "startChar": 4,
+        "endLine": 347,
+        "endChar": 22
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9782074d_bcedf799",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "389c3b98_dcbbd8e9",
       "range": {
         "startLine": 347,
         "startChar": 4,
@@ -265,6 +499,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a539b88e_e6907793",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02aa9f62_dd7e4093",
+      "range": {
+        "startLine": 379,
+        "startChar": 47,
+        "endLine": 379,
+        "endChar": 53
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2aca16f1_3dbe661b",
@@ -288,6 +546,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13054d80_a1c5056e",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2aca16f1_3dbe661b",
+      "range": {
+        "startLine": 387,
+        "startChar": 8,
+        "endLine": 387,
+        "endChar": 23
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "553e56e9_e619689e",
@@ -301,6 +583,30 @@
       "writtenOn": "2022-04-28T11:32:33Z",
       "side": 1,
       "message": "this code is the same in the 2 cases, so it could be moved out of the if{}else{}",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 397,
+        "endChar": 21
+      },
+      "revId": "7c4fce7868f4b44a283a5a115064e407a4ec2580",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56c98c23_6b08c5c8",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "553e56e9_e619689e",
       "range": {
         "startLine": 396,
         "startChar": 0,
