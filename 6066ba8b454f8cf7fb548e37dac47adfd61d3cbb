@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c20fdf4_6529231a",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:00Z",
+      "side": 1,
+      "message": "I do agree that we could infer the magic number based of layout information, but we still need to retrieve the layout gen. And the only way I know to do so is with the user_md structure in xattr. And since that structure also contains the number, it is way simpler to use it.",
+      "parentUuid": "6a95926e_b1d7d310",
+      "range": {
+        "startLine": 103,
+        "startChar": 3,
+        "endLine": 103,
+        "endChar": 75
+      },
+      "revId": "6066ba8b454f8cf7fb548e37dac47adfd61d3cbb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "870adcc4_0c0e9163",
         "filename": "src/backends/lustre/lustre.c",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2022-04-28T10:20:37Z",
       "side": 1,
       "message": "Actually, this may be only for files, not for non-directories\n(i.e. not for symlinks, sockets...)",
+      "range": {
+        "startLine": 154,
+        "startChar": 4,
+        "endLine": 155,
+        "endChar": 60
+      },
+      "revId": "6066ba8b454f8cf7fb548e37dac47adfd61d3cbb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63d14651_5f99d853",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "870adcc4_0c0e9163",
       "range": {
         "startLine": 154,
         "startChar": 4,
@@ -60,6 +108,30 @@
       "writtenOn": "2022-04-28T12:37:06Z",
       "side": 1,
       "message": "suggest: I don\u0027t know if robinhood\u0027s coding style prevents else after goto but you could remove the else statement and put it with `rc \u003d 0`.",
+      "range": {
+        "startLine": 158,
+        "startChar": 8,
+        "endLine": 159,
+        "endChar": 27
+      },
+      "revId": "6066ba8b454f8cf7fb548e37dac47adfd61d3cbb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d544372c_2a75e997",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-02T14:12:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b6669a7_dd1d0376",
       "range": {
         "startLine": 158,
         "startChar": 8,
