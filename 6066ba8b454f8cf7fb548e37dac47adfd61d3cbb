@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8534b28d_04208093",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:09:24Z",
+      "side": 1,
+      "message": "Actually, the LOV was already requested by the POSIX backend, so we could pass it to the Lustre backend instead.",
+      "parentUuid": "0c20fdf4_6529231a",
+      "range": {
+        "startLine": 103,
+        "startChar": 3,
+        "endLine": 103,
+        "endChar": 75
+      },
+      "revId": "6066ba8b454f8cf7fb548e37dac47adfd61d3cbb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "870adcc4_0c0e9163",
         "filename": "src/backends/lustre/lustre.c",
         "patchSetId": 1

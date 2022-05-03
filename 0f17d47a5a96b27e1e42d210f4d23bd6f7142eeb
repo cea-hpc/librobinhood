@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee145578_90f71898",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:09:24Z",
+      "side": 1,
+      "message": "typo: generation",
+      "range": {
+        "startLine": 124,
+        "startChar": 43,
+        "endLine": 124,
+        "endChar": 52
+      },
+      "revId": "0f17d47a5a96b27e1e42d210f4d23bd6f7142eeb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32478821_53895f73",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:09:24Z",
+      "side": 1,
+      "message": "comment: this is probably a minor detail but if the magic is not matched in the switch statement below, the layout gen will be set to 0 which is a valid generation number but isn\u0027t valid in this context...\n\nWhich makes me wonder if it would not be better to store the magic as a string (since no one will query the magic number directly and we can still make string comparisons if we really want to). So that we can write something like inval or unknown when the magic is not handled by the switch which in turns means that the layout gen is not meaningful.",
+      "range": {
+        "startLine": 138,
+        "startChar": 4,
+        "endLine": 138,
+        "endChar": 21
+      },
+      "revId": "0f17d47a5a96b27e1e42d210f4d23bd6f7142eeb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "781c78cb_2fdfd949",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:09:24Z",
+      "side": 1,
+      "message": "typo: not necessary",
+      "range": {
+        "startLine": 173,
+        "startChar": 50,
+        "endLine": 173,
+        "endChar": 53
+      },
+      "revId": "0f17d47a5a96b27e1e42d210f4d23bd6f7142eeb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40257b07_668c6407",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:09:24Z",
+      "side": 1,
+      "message": "minor: I don\u0027t think this is necessary. The compiler is smart enough to infer the number from the arguments. This should work:\n\nint (*xattrs_funcs[])(int, struct rbh_value_pair *) \u003d {\n    ...\n};",
+      "range": {
+        "startLine": 223,
+        "startChar": 23,
+        "endLine": 223,
+        "endChar": 36
+      },
+      "revId": "0f17d47a5a96b27e1e42d210f4d23bd6f7142eeb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
