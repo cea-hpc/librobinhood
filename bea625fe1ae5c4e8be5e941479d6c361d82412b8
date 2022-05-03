@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3e94a90_907f585f",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:55:48Z",
+      "side": 1,
+      "message": "question: is lum valid when errno is ENODATA? I think we should also return in this case but with a 0 return code.",
+      "range": {
+        "startLine": 565,
+        "startChar": 8,
+        "endLine": 566,
+        "endChar": 22
+      },
+      "revId": "bea625fe1ae5c4e8be5e941479d6c361d82412b8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
