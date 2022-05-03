@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56a5fcdd_de140a94",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:49:01Z",
+      "side": 1,
+      "message": "question: why using quotes?",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "68a422d63ef01cc7ec56bc96007039f2c63a5797",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "573d9459_b83f5671",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:49:01Z",
+      "side": 1,
+      "message": "suggest: comp_index would be more explicit",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 12
+      },
+      "revId": "68a422d63ef01cc7ec56bc96007039f2c63a5797",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a03ef4f_6193d0e0",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:49:01Z",
+      "side": 1,
+      "message": "major: you should check whether values is NULL or not",
+      "range": {
+        "startLine": 77,
+        "startChar": 22,
+        "endLine": 77,
+        "endChar": 37
+      },
+      "revId": "68a422d63ef01cc7ec56bc96007039f2c63a5797",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23f0ae73_00a076ed",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:49:01Z",
+      "side": 1,
+      "message": "minor: and errno is set",
+      "range": {
+        "startLine": 196,
+        "startChar": 20,
+        "endLine": 196,
+        "endChar": 47
+      },
+      "revId": "68a422d63ef01cc7ec56bc96007039f2c63a5797",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53254cfc_2173c7ac",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:49:01Z",
+      "side": 1,
+      "message": "suggest: this whole if statement could be wrapped in a function iter_data_ost_try_resize",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 51
+      },
+      "revId": "68a422d63ef01cc7ec56bc96007039f2c63a5797",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30dfda31_e101a106",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:49:01Z",
+      "side": 1,
+      "message": "minor: instead of having a weird safe variable you can simply do something like this:\n\n```\nvoid *tmp;\n\ntmp \u003d realloc(data-\u003eost, ...);\nif (!tmp)\n    return -1;\n```",
+      "range": {
+        "startLine": 249,
+        "startChar": 17,
+        "endLine": 249,
+        "endChar": 21
+      },
+      "revId": "68a422d63ef01cc7ec56bc96007039f2c63a5797",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c23edc9_e597b8b6",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:49:01Z",
+      "side": 1,
+      "message": "defect: double free",
+      "range": {
+        "startLine": 249,
+        "startChar": 12,
+        "endLine": 249,
+        "endChar": 23
+      },
+      "revId": "68a422d63ef01cc7ec56bc96007039f2c63a5797",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62a6b895_b0803af2",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:49:01Z",
+      "side": 1,
+      "message": "major: errno is undefined at this point",
+      "range": {
+        "startLine": 250,
+        "startChar": 12,
+        "endLine": 250,
+        "endChar": 22
+      },
+      "revId": "68a422d63ef01cc7ec56bc96007039f2c63a5797",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7c9d0be_111991b2",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:49:01Z",
+      "side": 1,
+      "message": "minor:\n\nuint32_t mirror_id;\nuint64_t begin;\nuint64_t end;",
+      "range": {
+        "startLine": 285,
+        "startChar": 4,
+        "endLine": 286,
+        "endChar": 21
+      },
+      "revId": "68a422d63ef01cc7ec56bc96007039f2c63a5797",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "581f062b_f75e093a",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:49:01Z",
+      "side": 1,
+      "message": "there is no such thing as a component header or component specific data. It\u0027s just that some information are not relevant for non composite layouts.",
+      "range": {
+        "startLine": 433,
+        "startChar": 18,
+        "endLine": 433,
+        "endChar": 24
+      },
+      "revId": "68a422d63ef01cc7ec56bc96007039f2c63a5797",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c48b4406_665ada6d",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:49:01Z",
+      "side": 1,
+      "message": "question: is this a typo?",
+      "range": {
+        "startLine": 444,
+        "startChar": 3,
+        "endLine": 444,
+        "endChar": 9
+      },
+      "revId": "68a422d63ef01cc7ec56bc96007039f2c63a5797",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6dd8646_21fae197",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:49:01Z",
+      "side": 1,
+      "message": "minor: put this in a function layout_get_nb_comp",
+      "range": {
+        "startLine": 496,
+        "startChar": 7,
+        "endLine": 506,
+        "endChar": 21
+      },
+      "revId": "68a422d63ef01cc7ec56bc96007039f2c63a5797",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d5140c5_61051770",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:49:01Z",
+      "side": 1,
+      "message": "minor: you can call llapi_layout_comp_iterate on a non composite layout, it will just do one iteration.",
+      "range": {
+        "startLine": 516,
+        "startChar": 4,
+        "endLine": 516,
+        "endChar": 42
+      },
+      "revId": "68a422d63ef01cc7ec56bc96007039f2c63a5797",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
