@@ -72,6 +72,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "608d9b52_bad86a21",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T11:14:32Z",
+      "side": 1,
+      "message": "/!\\ this is not thread safe. If we want to parallelize the backend, this will have to change.",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 21
+      },
+      "revId": "4d5173e0860e4f60e9caf466d633777ed808c26b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca71f8c6_ee20ec6a",
         "filename": "src/backends/lustre/lustre.c",
         "patchSetId": 2
