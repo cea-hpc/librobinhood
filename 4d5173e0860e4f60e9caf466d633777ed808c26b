@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cbb98ba_8e291623",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T09:54:13Z",
+      "side": 1,
+      "message": "minor: I would switch both arguments. I find fill_string_pair(..., \"key\", \"value\") more intuitive.",
+      "range": {
+        "startLine": 26,
+        "startChar": 49,
+        "endLine": 27,
+        "endChar": 32
+      },
+      "revId": "4d5173e0860e4f60e9caf466d633777ed808c26b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3a76828_62a6510a",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T09:54:13Z",
+      "side": 1,
+      "message": "minor: I would call it buf since this is not just a pointer",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 12
+      },
+      "revId": "4d5173e0860e4f60e9caf466d633777ed808c26b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21096155_20a4a94f",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T09:54:13Z",
+      "side": 1,
+      "message": "minor: the subcount local variable is not useful here. You can just write:\n\nfile_string_pair(... pairs, ...);\n\nreturn rc ? : 1;",
+      "range": {
+        "startLine": 65,
+        "startChar": 52,
+        "endLine": 65,
+        "endChar": 69
+      },
+      "revId": "4d5173e0860e4f60e9caf466d633777ed808c26b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca71f8c6_ee20ec6a",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-03T09:54:13Z",
+      "side": 1,
+      "message": "major: aren\u0027t you supposed to increase count by subcount on every iteration?",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 89,
+        "endChar": 5
+      },
+      "revId": "4d5173e0860e4f60e9caf466d633777ed808c26b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
