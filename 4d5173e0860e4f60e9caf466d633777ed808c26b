@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeab5c3f_9161deef",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-04T13:11:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cbb98ba_8e291623",
+      "range": {
+        "startLine": 26,
+        "startChar": 49,
+        "endLine": 27,
+        "endChar": 32
+      },
+      "revId": "4d5173e0860e4f60e9caf466d633777ed808c26b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3a76828_62a6510a",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-03T09:54:13Z",
       "side": 1,
       "message": "minor: I would call it buf since this is not just a pointer",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 12
+      },
+      "revId": "4d5173e0860e4f60e9caf466d633777ed808c26b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a78b0312_9a1a236a",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-04T13:11:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3a76828_62a6510a",
       "range": {
         "startLine": 48,
         "startChar": 9,
@@ -70,6 +118,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "174c47b5_f2b227b4",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-04T13:11:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21096155_20a4a94f",
+      "range": {
+        "startLine": 65,
+        "startChar": 52,
+        "endLine": 65,
+        "endChar": 69
+      },
+      "revId": "4d5173e0860e4f60e9caf466d633777ed808c26b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "608d9b52_bad86a21",
@@ -93,6 +165,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b0f0455_065ba288",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-04T13:11:04Z",
+      "side": 1,
+      "message": "Since the \"values\" parameter given here is a __thread variable in the posix backend, no, this is thread safe.",
+      "parentUuid": "608d9b52_bad86a21",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 21
+      },
+      "revId": "4d5173e0860e4f60e9caf466d633777ed808c26b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca71f8c6_ee20ec6a",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-05-03T09:54:13Z",
       "side": 1,
       "message": "major: aren\u0027t you supposed to increase count by subcount on every iteration?",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 89,
+        "endChar": 5
+      },
+      "revId": "4d5173e0860e4f60e9caf466d633777ed808c26b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0c486d6_7048d050",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-04T13:11:04Z",
+      "side": 1,
+      "message": "This is done the for loop increment section, but sure, I\u0027ll put it outside.",
+      "parentUuid": "ca71f8c6_ee20ec6a",
       "range": {
         "startLine": 85,
         "startChar": 4,
