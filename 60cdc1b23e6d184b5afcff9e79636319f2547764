@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b4c1099_af2bc777",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-04T14:41:55Z",
+      "side": 1,
+      "message": "minor: to remove",
+      "range": {
+        "startLine": 513,
+        "startChar": 3,
+        "endLine": 513,
+        "endChar": 19
+      },
+      "revId": "60cdc1b23e6d184b5afcff9e79636319f2547764",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
