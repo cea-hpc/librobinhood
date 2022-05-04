@@ -22,6 +22,30 @@
       },
       "revId": "bea625fe1ae5c4e8be5e941479d6c361d82412b8",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5613ca93_7d7ccd30",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-04T13:11:33Z",
+      "side": 1,
+      "message": "lum seems to be valid, with its fields set to 0. But this isn\u0027t very safe, so I modified it to return 0 if ENODATA is encountered.",
+      "parentUuid": "f3e94a90_907f585f",
+      "range": {
+        "startLine": 565,
+        "startChar": 8,
+        "endLine": 566,
+        "endChar": 22
+      },
+      "revId": "bea625fe1ae5c4e8be5e941479d6c361d82412b8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
