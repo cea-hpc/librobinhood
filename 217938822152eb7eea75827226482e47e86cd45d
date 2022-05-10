@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af7b1f60_1c39cefd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-10T09:39:03Z",
+      "side": 1,
+      "message": "I now know that the component index is not sequential. You can delete components from a composite layout and add some later. For exemple, the following actions will lead to a non sequencial ost index list:\n\nlfs setstripe -E 4M -c 1 -E 64M -c 4 -E -1 -c -1 /mnt/lustre/file1\nlfs setstripe --comp-del -I3 file1\nlfs setstripe --comp-add -E -1 -c -1 file1\n\nThis means that the function which reads the number of components by reading the index of the last component can return a number greater than the actual number of components. I think we should include a test with such a layout so that we make sure the code can handle it correctly (which it may already do).\n\nAlso, for the sake of completeness, since the mapping between component ids dans the position in the list of fields in the database is not so clear, we should probably include de component index as well.",
+      "revId": "217938822152eb7eea75827226482e47e86cd45d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "185c3e05_710fd16c",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-10T09:39:03Z",
+      "side": 1,
+      "message": "question: why do you check EINVAL?",
+      "range": {
+        "startLine": 286,
+        "startChar": 24,
+        "endLine": 286,
+        "endChar": 43
+      },
+      "revId": "217938822152eb7eea75827226482e47e86cd45d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
