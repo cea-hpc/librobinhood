@@ -36,6 +36,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4668a9fc_a7f6a50f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-12T09:40:05Z",
+      "side": 1,
+      "message": "Keeping the component id*",
+      "parentUuid": "e041f602_ff4f3254",
+      "revId": "217938822152eb7eea75827226482e47e86cd45d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "185c3e05_710fd16c",
