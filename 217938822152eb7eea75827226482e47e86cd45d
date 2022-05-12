@@ -18,6 +18,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e041f602_ff4f3254",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-12T09:38:58Z",
+      "side": 1,
+      "message": "If a component is deleted, Lustre correctly updates the components objects of each file, and since we go through each component with the Lustre iterator, it is correctly managed.\n\nSince the component id can be larger than its index, yes we can \"over-allocate\", but its just that.\n\nHowever, this highlighted an issue with my code, because I was assuming the actual length of each array was the same as the id of the last component, which is wrong. I just modified it to use the comp_index in iterator_data instead.\n\nAnd for keeping the component index, yes why not, we\u0027ll have to talk about it.",
+      "parentUuid": "af7b1f60_1c39cefd",
+      "revId": "217938822152eb7eea75827226482e47e86cd45d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "185c3e05_710fd16c",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-05-10T09:39:03Z",
       "side": 1,
       "message": "question: why do you check EINVAL?",
+      "range": {
+        "startLine": 286,
+        "startChar": 24,
+        "endLine": 286,
+        "endChar": 43
+      },
+      "revId": "217938822152eb7eea75827226482e47e86cd45d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6ccde1f_df9ff22f",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-12T09:38:58Z",
+      "side": 1,
+      "message": "Because a component can have a valid stripe count, but no OST used. So this will be returned as an error, but isn\u0027t one, and we have to ignore it.\n\nHowever, this was missing the management of actual errors.",
+      "parentUuid": "185c3e05_710fd16c",
       "range": {
         "startLine": 286,
         "startChar": 24,
