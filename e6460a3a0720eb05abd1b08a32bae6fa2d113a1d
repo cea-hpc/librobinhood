@@ -16,6 +16,24 @@
       "message": "comment: once the binding with llapi done, we may need to compile only if the dependencies are found",
       "revId": "e6460a3a0720eb05abd1b08a32bae6fa2d113a1d",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f7c652c_5684e516",
+        "filename": "src/backends/lustre/meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-16T14:32:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2830f60_8c1d97f3",
+      "revId": "e6460a3a0720eb05abd1b08a32bae6fa2d113a1d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
