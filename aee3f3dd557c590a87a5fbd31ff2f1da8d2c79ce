@@ -33,6 +33,24 @@
       "message": "(silly question, any point storing it as a string instead of its binary value? Fids aren\u0027t going to change from u64:u32:u32 so we could fit it in 128bits (16 bytes) instead of the 41 this is. Sorry if it was asked in an earlier version)",
       "revId": "aee3f3dd557c590a87a5fbd31ff2f1da8d2c79ce",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e56d468_9b433123",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-17T11:22:26Z",
+      "side": 1,
+      "message": "I think we could. It would change the way we query them but this is not a problem. We don\u0027t plan on making queries more complex than equality between FIDs.",
+      "parentUuid": "a59b5532_488f7006",
+      "revId": "aee3f3dd557c590a87a5fbd31ff2f1da8d2c79ce",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
