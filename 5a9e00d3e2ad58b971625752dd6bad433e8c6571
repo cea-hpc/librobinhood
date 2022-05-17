@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79226f45_ed54e693",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-05-17T11:41:07Z",
+      "side": 1,
+      "message": "if you free it here you need to set data-\u003eost \u003d NULL afterwards, otherwise you\u0027ll get double-free on free(data.ost) below (fill_iterator_data fail -\u003e goto free_data -\u003e free calls)\n\nIt\u0027s probably just as good to leave this alone and let the normal free pattern do its job.\n\n(EDIT: this made me check scan-build, and scan-build also found it.. but didn\u0027t find anything else. shame :P)",
+      "revId": "5a9e00d3e2ad58b971625752dd6bad433e8c6571",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59fcf177_08135e9b",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-05-17T11:41:07Z",
+      "side": 1,
+      "message": "(nitpick: I found that one confusing given we\u0027re freeing through stripe_count later)",
+      "revId": "5a9e00d3e2ad58b971625752dd6bad433e8c6571",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "328827f9_0350c7e0",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-05-17T11:41:07Z",
+      "side": 1,
+      "message": "(I hope there\u0027ll be tests for all of this!)",
+      "revId": "5a9e00d3e2ad58b971625752dd6bad433e8c6571",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
