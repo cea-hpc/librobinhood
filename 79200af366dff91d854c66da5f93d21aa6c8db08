@@ -33,6 +33,24 @@
       "message": "why is layout different from hsm state? Can a symlink or block device or socket be archived?...",
       "revId": "79200af366dff91d854c66da5f93d21aa6c8db08",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b5491ba_4dde2818",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-05-17T12:24:12Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand the question. Do you mean: why is the function xattr_get_hsm called on every type of file, not just regular files?\n\nIf so, I think you just raised a valid point. Lustre doesn\u0027t mind giving me the HSM state of a file through a symbolic link. But it is probably best not to store the HSM state with the file and all its symbolic links.\n\n\"lfs hsm_archive\" will only accept regular files while \"lfs hsm_archive -m \u003cmountpoint\u003e \u003cfid\u003e\" will accept any FID.\nBut archiving a symlink by FID will result in the request stuck in the coordinator\u0027s llog... I\u0027m not sure if this is a feature. This needs a bit more investigation.\n\nIt seems to be the copytool which doesn\u0027t allow symlinks: the FID is opened with O_NOFOLLOW in llapi_hsm_action_begin.\n\nAnyway, I think it\u0027s safe to say that a symlink cannot be archived. Archiving a socket results in an ENODEV error from llapi_hsm_action_begin.\n\nWe should definitly filter non regular files in xattr_get_hsm.",
+      "parentUuid": "5af597a7_324347d1",
+      "revId": "79200af366dff91d854c66da5f93d21aa6c8db08",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
