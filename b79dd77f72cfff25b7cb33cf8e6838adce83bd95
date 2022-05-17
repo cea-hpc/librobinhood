@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c35871de_eb9c408f",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-05-17T11:58:22Z",
+      "side": 0,
+      "message": "removing this O_PATH broke trying to open symlinks:\n \n $ strace rbh-find rbh:posix:.\n ...\n openat(AT_FDCWD, \"librbh-find.so.0\", O_RDONLY|O_NOFOLLOW|O_CLOEXEC) \u003d -1 ELOOP (Too many levels of symbolic links)\n /opt/rbh/bin/rbh-find:../src/core.c:109: rbh_mut_iter_next: Too many levels of symbolic links",
+      "revId": "b79dd77f72cfff25b7cb33cf8e6838adce83bd95",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}

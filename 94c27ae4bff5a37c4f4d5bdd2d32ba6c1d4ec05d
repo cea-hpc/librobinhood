@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54c731d1_dade14c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-05-17T11:58:22Z",
+      "side": 1,
+      "message": "@Yoann probably makes sense if you could look into it eventually, this also will affect lustre",
+      "revId": "94c27ae4bff5a37c4f4d5bdd2d32ba6c1d4ec05d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
