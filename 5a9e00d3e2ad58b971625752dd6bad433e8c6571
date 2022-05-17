@@ -71,6 +71,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b306391_af2d3ba7",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-05-17T13:00:42Z",
+      "side": 1,
+      "message": "Yes, 8 mallocs isn\u0027t better - I meant just using \u0027arr\u0027 here without \u0026[] or using just using data-\u003estripe_count as calloc destination e.g.\n\n  data-\u003estripe_count \u003d calloc(...)\n  data-\u003estripe_pattern \u003d data-\u003estripe_count + length;\n  data-\u003epattern \u003d data-\u003estripe_pattern + length;\n  ...\n\nhm, not sure that\u0027s really much better, but just `data-\u003estrip_count \u003d arr` would make it more obvious to see where to look for free.",
+      "parentUuid": "710fa489_48ea7242",
+      "revId": "5a9e00d3e2ad58b971625752dd6bad433e8c6571",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "328827f9_0350c7e0",
