@@ -18,6 +18,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ded126c_7ee3a1dd",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-17T12:34:46Z",
+      "side": 1,
+      "message": "Added to our todo-list :)",
+      "parentUuid": "e86aa638_4cf2a245",
+      "revId": "79200af366dff91d854c66da5f93d21aa6c8db08",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5af597a7_324347d1",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Yes, I was wondering why we needed is_dir for the other when you\u0027re having is_reg here... but then I saw you use is_dir later on for dir striping so it\u0027s not really a problem either.\n\nLet\u0027s just use is_reg for hsm state though :)",
       "parentUuid": "7b5491ba_4dde2818",
+      "revId": "79200af366dff91d854c66da5f93d21aa6c8db08",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8eab1bf_18584f6a",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-17T12:34:46Z",
+      "side": 1,
+      "message": "Added to our todo-list :)",
+      "parentUuid": "8856aa81_c03f34f6",
       "revId": "79200af366dff91d854c66da5f93d21aa6c8db08",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
