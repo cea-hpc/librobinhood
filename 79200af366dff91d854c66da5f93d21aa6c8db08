@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e86aa638_4cf2a245",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-05-17T11:25:30Z",
+      "side": 1,
+      "message": "For what it\u0027s worth with -O \u003e\u003d -O1 (rpmbuild builds with -O2), strlen(magic_str) will be computed at compile time if the string is assigned a constant, so in practice free.\nI\u0027d suggest using magic_str_len \u003d strlen(magic_str) here and below to avoid silly mistakes...",
+      "revId": "79200af366dff91d854c66da5f93d21aa6c8db08",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5af597a7_324347d1",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-05-17T11:25:30Z",
+      "side": 1,
+      "message": "why is layout different from hsm state? Can a symlink or block device or socket be archived?...",
+      "revId": "79200af366dff91d854c66da5f93d21aa6c8db08",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
