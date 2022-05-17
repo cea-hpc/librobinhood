@@ -18,6 +18,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0267c90c_c2279a34",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-17T12:44:15Z",
+      "side": 1,
+      "message": "Added to our todo-list :)",
+      "parentUuid": "79226f45_ed54e693",
+      "revId": "5a9e00d3e2ad58b971625752dd6bad433e8c6571",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59fcf177_08135e9b",
@@ -35,6 +53,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "710fa489_48ea7242",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-17T12:44:15Z",
+      "side": 1,
+      "message": "While I understand the issue, I prefer this over doing 8 mallocs.\nBut I could keep another reference to the initial array and free it, would you find that clearer ?",
+      "parentUuid": "59fcf177_08135e9b",
+      "revId": "5a9e00d3e2ad58b971625752dd6bad433e8c6571",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "328827f9_0350c7e0",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-05-17T11:41:07Z",
       "side": 1,
       "message": "(I hope there\u0027ll be tests for all of this!)",
+      "revId": "5a9e00d3e2ad58b971625752dd6bad433e8c6571",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab0735f1_2cfe6854",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-05-17T12:44:15Z",
+      "side": 1,
+      "message": "Already on our todo-list, the tests are partially done with our overload of rbh-find, but we plan of adding tests for the Lustre backend here yes",
+      "parentUuid": "328827f9_0350c7e0",
       "revId": "5a9e00d3e2ad58b971625752dd6bad433e8c6571",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
