@@ -449,7 +449,6 @@ xattrs_get_magic_and_gen(int fd, struct rbh_value_pair *pairs)
     char lov_buf[XATTR_SIZE_MAX];
     ssize_t xattr_size;
     uint32_t magic = 0;
-    int magic_str_len;
     int subcount = 0;
     uint32_t gen = 0;
     char *magic_str;
@@ -464,32 +463,26 @@ xattrs_get_magic_and_gen(int fd, struct rbh_value_pair *pairs)
     switch (magic) {
     case LOV_USER_MAGIC_V1:
         magic_str = "LOV_USER_MAGIC_V1";
-        magic_str_len = 18;
         gen = ((struct lov_user_md_v1 *) lov_buf)->lmm_layout_gen;
         break;
     case LOV_USER_MAGIC_COMP_V1:
         magic_str = "LOV_USER_MAGIC_COMP_V1";
-        magic_str_len = 23;
         gen = ((struct lov_comp_md_v1 *) lov_buf)->lcm_layout_gen;
         break;
     case LOV_USER_MAGIC_SEL:
         magic_str = "LOV_USER_MAGIC_SEL";
-        magic_str_len = 19;
         gen = ((struct lov_comp_md_v1 *) lov_buf)->lcm_layout_gen;
         break;
     case LOV_USER_MAGIC_V3:
         magic_str = "LOV_USER_MAGIC_V3";
-        magic_str_len = 18;
         gen = ((struct lov_user_md_v3 *) lov_buf)->lmm_layout_gen;
         break;
     case LOV_USER_MAGIC_SPECIFIC:
         magic_str = "LOV_USER_MAGIC_SPECIFIC";
-        magic_str_len = 24;
         gen = ((struct lov_user_md_v3 *) lov_buf)->lmm_layout_gen;
         break;
     case LOV_USER_MAGIC_FOREIGN:
         magic_str = "LOV_USER_MAGIC_FOREIGN";
-        magic_str_len = 23;
         gen = -1;
         break;
     default:
@@ -497,7 +490,7 @@ xattrs_get_magic_and_gen(int fd, struct rbh_value_pair *pairs)
         return -1;
     }
 
-    rc = fill_string_pair("magic", magic_str, magic_str_len,
+    rc = fill_string_pair("magic", magic_str, strlen(magic_str),
                           &pairs[subcount++]);
     if (rc)
         return -1;
