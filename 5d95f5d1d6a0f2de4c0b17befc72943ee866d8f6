@@ -16,6 +16,24 @@
       "message": "Might want to make that into a meson option? (and just add_parameter -DTMPDIR\u003d\"{}\" or something)\n\nThat wasn\u0027t really a problem for the posix tests but lustre is:\n1/ not going to be available anywhere (so say e.g. empty path \u003d no lustre tests?)\n2/ not always going to be in /mnt/lustre (since I have 5 mounts I\u0027ve changed my paths to be /mnt/lustre[0-4] for consistency, so can\u0027t run this without modifying the test code or remounting...)\n3/ not always going to have rw permissions at fs root (I run my tests as regular user, and all other tests pass without sudo)",
       "revId": "5d95f5d1d6a0f2de4c0b17befc72943ee866d8f6",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb530346_66d8c61b",
+        "filename": "tests/unit/check_lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-06-13T12:39:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a06d4480_b74058f4",
+      "revId": "5d95f5d1d6a0f2de4c0b17befc72943ee866d8f6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
