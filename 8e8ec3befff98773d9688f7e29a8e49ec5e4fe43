@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d764d2b7_7387096c",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-06-13T19:57:24Z",
+      "side": 1,
+      "message": "ah, strings don\u0027t include the length in the value itself?\nIf so https://review.gerrithub.io/c/cea-hpc/librobinhood/+/539743 was wrong before the strlen fix, and either this or the other need +1 here, or they won\u0027t include the NUL byte\n\n(while we are at unrelated fixes ;-D)",
+      "revId": "8e8ec3befff98773d9688f7e29a8e49ec5e4fe43",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dce92f07_0c5f15f3",
         "filename": "src/backends/lustre/lustre.c",
         "patchSetId": 1
