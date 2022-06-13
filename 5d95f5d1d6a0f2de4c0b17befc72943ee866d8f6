@@ -34,6 +34,24 @@
       "parentUuid": "a06d4480_b74058f4",
       "revId": "5d95f5d1d6a0f2de4c0b17befc72943ee866d8f6",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09e50ccb_7cb71480",
+        "filename": "tests/unit/check_lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-06-13T13:53:08Z",
+      "side": 1,
+      "message": "It has come to my attention that this is not exactly what you asked for: I decided to use an environment variable instead of a meson variable because it is easier to use and modify, and more generic than a meson parameter",
+      "parentUuid": "bb530346_66d8c61b",
+      "revId": "5d95f5d1d6a0f2de4c0b17befc72943ee866d8f6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
