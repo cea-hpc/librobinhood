@@ -52,6 +52,24 @@
       "parentUuid": "bb530346_66d8c61b",
       "revId": "5d95f5d1d6a0f2de4c0b17befc72943ee866d8f6",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ed881d4_eed546c0",
+        "filename": "tests/unit/check_lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-06-13T20:01:14Z",
+      "side": 1,
+      "message": "\u003e It has come to my attention that this is not exactly what you asked for: I decided to use an environment variable instead of a meson variable because it is easier to use and modify, and more generic than a meson parameter\n\nmeson variable has the advantage of being set-and-forget while this will need to be set aaaall the time... But that\u0027s what direnv(1) is for, so I guess I don\u0027t really mind ;)\n\nthanks!",
+      "parentUuid": "09e50ccb_7cb71480",
+      "revId": "5d95f5d1d6a0f2de4c0b17befc72943ee866d8f6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
