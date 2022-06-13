@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dce92f07_0c5f15f3",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-06-13T13:44:56Z",
+      "side": 1,
+      "message": "question: is this a fix? it does not seem to be related to this patch",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 18
+      },
+      "revId": "8e8ec3befff98773d9688f7e29a8e49ec5e4fe43",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
