@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "923405a4_a14ff34f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-06-14T11:49:18Z",
+      "side": 1,
+      "message": "(-1 to remember the remark that this needs +1 from the other commit, because this keeps getting more +1s :-D)",
+      "revId": "b73e47c1278620af2e7f8a68db97743d43018002",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
