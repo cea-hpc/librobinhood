@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8252578_4bf7f552",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-06-14T11:17:45Z",
+      "side": 1,
+      "message": "OK I see the problem yes, I\u0027ll modify the strlen patch to add a +1 there, so that I can be consistent with the other string rbh_value used in this file (the pool names)",
+      "parentUuid": "d764d2b7_7387096c",
+      "revId": "8e8ec3befff98773d9688f7e29a8e49ec5e4fe43",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dce92f07_0c5f15f3",
         "filename": "src/backends/lustre/lustre.c",
         "patchSetId": 1
@@ -31,6 +49,30 @@
       "writtenOn": "2022-06-13T13:44:56Z",
       "side": 1,
       "message": "question: is this a fix? it does not seem to be related to this patch",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 18
+      },
+      "revId": "8e8ec3befff98773d9688f7e29a8e49ec5e4fe43",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55a19398_c2006050",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-06-14T11:17:45Z",
+      "side": 1,
+      "message": "Yes, I just saw it, so I fixed it here, I could put it in the strlen patch or in another one, not that it matters much...",
+      "parentUuid": "dce92f07_0c5f15f3",
       "range": {
         "startLine": 75,
         "startChar": 0,
