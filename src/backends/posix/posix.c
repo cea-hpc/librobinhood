@@ -139,7 +139,7 @@ ceil2(size_t number)
 }
 
 static ssize_t
-flistxattrs(int fd, char **buffer, size_t *size)
+flistxattrs(char *proc_fd, char **buffer, size_t *size)
 {
     size_t buflen = *size;
     char *keys = *buffer;
@@ -147,7 +147,7 @@ flistxattrs(int fd, char **buffer, size_t *size)
     ssize_t length;
 
 retry:
-    length = flistxattr(fd, keys, buflen);
+    length = listxattr(proc_fd, keys, buflen);
     if (length == -1) {
         void *tmp;
 
@@ -157,7 +157,7 @@ retry:
             /* Not much we can do */
             return 0;
         case ERANGE:
-            length = flistxattr(fd, NULL, 0);
+            length = listxattr(proc_fd, NULL, 0);
             if (length == -1) {
                 switch (errno) {
                 case E2BIG:
@@ -204,6 +204,7 @@ getxattrs(int fd, struct rbh_value_pair **_pairs, size_t *_pairs_count,
     size_t pairs_count = *_pairs_count;
     size_t skipped = 0;
     ssize_t count;
+    char *proc_fd;
     char *name;
 
     if (names == NULL) {
@@ -212,7 +213,12 @@ getxattrs(int fd, struct rbh_value_pair **_pairs, size_t *_pairs_count,
             return -1;
     }
 
-    count = flistxattrs(fd, &names, &names_length);
+    if (asprintf(&proc_fd, "/proc/self/fd/%d", fd) == -1) {
+        errno = ENOMEM;
+        return -1;
+    }
+
+    count = flistxattrs(proc_fd, &names, &names_length);
     if (count == -1)
         return -1;
 
@@ -237,7 +243,7 @@ getxattrs(int fd, struct rbh_value_pair **_pairs, size_t *_pairs_count,
         assert(i - skipped < pairs_count);
 
         pair->key = name;
-        length = fgetxattr(fd, name, &buffer, sizeof(buffer));
+        length = getxattr(proc_fd, name, &buffer, sizeof(buffer));
         if (length == -1) {
             switch (errno) {
             case E2BIG:
@@ -355,7 +361,7 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len,
     }
 
     fd = openat(AT_FDCWD, ftsent->fts_accpath,
-                O_RDONLY | O_CLOEXEC | O_NOFOLLOW);
+                O_RDONLY | O_CLOEXEC | O_NOFOLLOW | O_PATH);
     if (fd < 0)
         return NULL;
 
