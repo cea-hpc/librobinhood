@@ -41,6 +41,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab049d86_ebbf8db9",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-06-24T12:45:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b66f7469_4205d85b",
+      "range": {
+        "startLine": 142,
+        "startChar": 18,
+        "endLine": 142,
+        "endChar": 25
+      },
+      "revId": "dad13ad77d53ef083187cb22b518fb7eba045456",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bcb21499_94106e4a",
@@ -54,6 +78,24 @@
       "writtenOn": "2022-06-21T10:16:31Z",
       "side": 1,
       "message": "asprintf-allocated values must be freed, but here we know fd \u003c INT_MAX so it\u0027s probably better to allocate a string on the stack (char proc_fd[40] or whatever makes gcc happy, giving it a short size should tell).",
+      "revId": "dad13ad77d53ef083187cb22b518fb7eba045456",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5f4c30b_f47948bb",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-06-24T12:45:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcb21499_94106e4a",
       "revId": "dad13ad77d53ef083187cb22b518fb7eba045456",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
