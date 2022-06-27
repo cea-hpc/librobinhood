@@ -51,6 +51,24 @@
       "parentUuid": "a5f552fc_821c5f32",
       "revId": "f5a8f452053ecc5876d9e2162262e7c8aeaa13b9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18d9ad81_cdc4fa45",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-06-27T08:19:45Z",
+      "side": 1,
+      "message": "eh, I was a bit confused with the is_symlink from the other file, but we have the info right here in (ftsent-\u003efts_info \u0026 FTS_SL).\n\nNot tested but this is code path for fts, and getdents give the info, and fts uses it so I sure hope it\u0027s filled in...",
+      "parentUuid": "4531368f_d27b2e36",
+      "revId": "f5a8f452053ecc5876d9e2162262e7c8aeaa13b9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
