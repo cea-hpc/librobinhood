@@ -33,6 +33,24 @@
       "message": "since you have the is_symlink info, base the decision on that instead?\nafaik ELOOP will always happen on symlinks open with O_NOFOLLOW and should never happen on anything else.",
       "revId": "f5a8f452053ecc5876d9e2162262e7c8aeaa13b9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4531368f_d27b2e36",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-06-27T07:43:43Z",
+      "side": 1,
+      "message": "What do you mean by \"is_symlink info\" ? This is the first open, so we don\u0027t know what the file yet ?\nYes a symlink opened with NOFOLLOW will always fail with ELOOP, that\u0027s the goal of this check",
+      "parentUuid": "a5f552fc_821c5f32",
+      "revId": "f5a8f452053ecc5876d9e2162262e7c8aeaa13b9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
