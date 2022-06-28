@@ -105,6 +105,24 @@
       "parentUuid": "3e6a3597_32ca6601",
       "revId": "f5a8f452053ecc5876d9e2162262e7c8aeaa13b9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "540b48d0_e3e14c06",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-06-28T11:32:54Z",
+      "side": 1,
+      "message": "I don\u0027t think we\u0027ll deal with that many symlinks, so hindering the whole process just to remove one call to open is useless IMO.",
+      "parentUuid": "85239ad5_1fa6dd62",
+      "revId": "f5a8f452053ecc5876d9e2162262e7c8aeaa13b9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
