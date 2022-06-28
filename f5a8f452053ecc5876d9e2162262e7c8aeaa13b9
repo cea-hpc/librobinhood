@@ -87,6 +87,24 @@
       "parentUuid": "18d9ad81_cdc4fa45",
       "revId": "f5a8f452053ecc5876d9e2162262e7c8aeaa13b9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85239ad5_1fa6dd62",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-06-28T11:15:39Z",
+      "side": 1,
+      "message": "Looking at the fts code that is because we call fts_open with FTS_NOSTAT. Sorry I didn\u0027t notice.\n\nDespite the name removing the flag doesn\u0027t make fts do an actual stat syscall, but it makes a slightly bigger allocation for each ftsent: given we don\u0027t expect so many symlinks I\u0027m not sure it\u0027ll make a huge difference either way  -- leaving this decision to you (it\u0027d definitely be faster if we have a significant number of symlinks though)",
+      "parentUuid": "3e6a3597_32ca6601",
+      "revId": "f5a8f452053ecc5876d9e2162262e7c8aeaa13b9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
