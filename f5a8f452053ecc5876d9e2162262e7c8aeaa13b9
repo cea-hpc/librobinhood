@@ -69,6 +69,24 @@
       "parentUuid": "4531368f_d27b2e36",
       "revId": "f5a8f452053ecc5876d9e2162262e7c8aeaa13b9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e6a3597_32ca6601",
+        "filename": "src/backends/posix/posix.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-06-28T10:51:34Z",
+      "side": 1,
+      "message": "I tried it, but it does not work, and after adding a print of the info just before the open, I get the following:\n\n```\nmkdir tmp\ntouch tmp/a\nln -s /mnt/lustre/tmp/a tmp/b\nln -s blob tmp/c\n\n[valeriy@vm0 lustre]$ sudo rbh-sync rbh:lustre:tmp/ rbh:mongo:test666\n../src/backends/posix/posix.c, 359\n../src/backends/posix/posix.c, 361, file \u003d tmp\n../src/backends/posix/posix.c, 363, info \u003d 1\n../src/backends/posix/posix.c, 359\n../src/backends/posix/posix.c, 361, file \u003d tmp\n../src/backends/posix/posix.c, 363, info \u003d 1\n../src/backends/posix/posix.c, 359\n../src/backends/posix/posix.c, 361, file \u003d c\n../src/backends/posix/posix.c, 363, info \u003d 11\n../src/backends/posix/posix.c, 359\n../src/backends/posix/posix.c, 361, file \u003d a\n../src/backends/posix/posix.c, 363, info \u003d 11\n../src/backends/posix/posix.c, 359\n../src/backends/posix/posix.c, 361, file \u003d b\n../src/backends/posix/posix.c, 363, info \u003d 11\n\n```\n\nAnd after checking, I don\u0027t see a modification of this fts_info, so neither a valid symbolic link or an invalid one are marked as such after a fts_read on the posix iterator...",
+      "parentUuid": "18d9ad81_cdc4fa45",
+      "revId": "f5a8f452053ecc5876d9e2162262e7c8aeaa13b9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
