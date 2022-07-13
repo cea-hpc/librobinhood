@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9f4f3d4_eadcc6ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-07-13T14:48:59Z",
+      "side": 1,
+      "message": "(typo) later",
+      "range": {
+        "startLine": 10,
+        "startChar": 5,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "4cc3e01af652bc099360e98e389d6fbc28c91f1a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8688feaa_5bcc5c8b",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-07-13T14:48:59Z",
+      "side": 1,
+      "message": "(nit) when there will be a 2nd xattr to manage relative retentions, how will you name the macro?\nAlso why is there an \u0027s\u0027 to xattr?\n\n(suggest) XATTR_CCC_EXPIRES_AT",
+      "range": {
+        "startLine": 705,
+        "startChar": 8,
+        "endLine": 705,
+        "endChar": 28
+      },
+      "revId": "4cc3e01af652bc099360e98e389d6fbc28c91f1a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4bbcd9e_2be789e5",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-07-13T14:48:59Z",
+      "side": 1,
+      "message": "This algorithm can scan all xattrs for each entry, which might be expensive if there are many xattrs.\nWhen implementing a more generic way to handle xattrs, it will be a good occasion to think about something for efficient.",
+      "range": {
+        "startLine": 715,
+        "startChar": 4,
+        "endLine": 715,
+        "endChar": 52
+      },
+      "revId": "4cc3e01af652bc099360e98e389d6fbc28c91f1a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8307720a_08812694",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-07-13T14:48:59Z",
+      "side": 1,
+      "message": "(nit) you can reduce the overall indentation level by doing:\n\n if (strcmp(...XATTR_CCC_RETENTION) !\u003d 0)\n   continue;\n tmp \u003d ...",
+      "range": {
+        "startLine": 716,
+        "startChar": 8,
+        "endLine": 716,
+        "endChar": 66
+      },
+      "revId": "4cc3e01af652bc099360e98e389d6fbc28c91f1a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
