@@ -102,6 +102,17 @@ fill_uint32_pair(const char *key, uint32_t integer, struct rbh_value_pair *pair)
 }
 
 static inline int
+fill_uint64_pair(const char *key, uint64_t integer, struct rbh_value_pair *pair)
+{
+    const struct rbh_value uint64_value = {
+        .type = RBH_VT_UINT64,
+        .uint64 = integer,
+    };
+
+    return fill_pair(key, &uint64_value, pair);
+}
+
+static inline int
 fill_sequence_pair(const char *key, struct rbh_value *values, uint64_t length,
                    struct rbh_value_pair *pair)
 {
@@ -691,6 +702,39 @@ xattrs_get_mdt_info(int fd, struct rbh_value_pair *pairs)
     return subcount;
 }
 
+#define XATTR_CCC_EXPIRES_AT "user.ccc_expires_at"
+
+static void
+xattrs_get_retention()
+{
+    struct rbh_value_pair new_pair;
+    char *tmp = NULL;
+    uint64_t result;
+    char *end;
+
+    for (int i = 0; i < *_inode_xattrs_count; ++i) {
+        if (strcmp(_inode_xattrs[i].key, XATTR_CCC_EXPIRES_AT))
+            continue;
+
+        tmp = malloc(_inode_xattrs[i].value->binary.size + 1);
+
+        memcpy(tmp, _inode_xattrs[i].value->binary.data,
+                _inode_xattrs[i].value->binary.size);
+        tmp[_inode_xattrs[i].value->binary.size] = 0;
+
+        result = strtoul(tmp, &end, 10);
+        if (errno || (!result && tmp == end) || *end != '\0')
+            break;
+
+        fill_uint64_pair(_inode_xattrs[i].key, result, &new_pair);
+        _inode_xattrs[i] = new_pair;
+        break;
+    }
+
+    free(tmp);
+}
+
+
 static ssize_t
 lustre_ns_xattrs_callback(const int fd, const uint16_t mode,
                           struct rbh_value_pair *inode_xattrs,
@@ -718,6 +762,8 @@ lustre_ns_xattrs_callback(const int fd, const uint16_t mode,
 
         count += subcount;
     }
+
+    xattrs_get_retention();
 
     return count;
 }
