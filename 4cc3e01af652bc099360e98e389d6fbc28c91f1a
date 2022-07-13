@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "800fc1bd_0a6843b9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-07-13T14:57:56Z",
+      "side": 1,
+      "message": "typo: dictionary",
+      "range": {
+        "startLine": 10,
+        "startChar": 33,
+        "endLine": 10,
+        "endChar": 44
+      },
+      "revId": "4cc3e01af652bc099360e98e389d6fbc28c91f1a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8688feaa_5bcc5c8b",
         "filename": "src/backends/lustre/lustre.c",
         "patchSetId": 1
@@ -60,6 +83,30 @@
       "writtenOn": "2022-07-13T14:48:59Z",
       "side": 1,
       "message": "This algorithm can scan all xattrs for each entry, which might be expensive if there are many xattrs.\nWhen implementing a more generic way to handle xattrs, it will be a good occasion to think about something for efficient.",
+      "range": {
+        "startLine": 715,
+        "startChar": 4,
+        "endLine": 715,
+        "endChar": 52
+      },
+      "revId": "4cc3e01af652bc099360e98e389d6fbc28c91f1a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0471980_d4253a47",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-07-13T14:57:56Z",
+      "side": 1,
+      "message": "Like getting a hash table for each attribute?\n\nThere may be a way to directly interact with xattrs parser, and \"mark\" those which will be reinterpret.",
+      "parentUuid": "d4bbcd9e_2be789e5",
       "range": {
         "startLine": 715,
         "startChar": 4,
