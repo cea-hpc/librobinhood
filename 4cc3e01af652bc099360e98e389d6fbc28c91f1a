@@ -215,6 +215,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0ea46c2_0d03bb35",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-07-19T13:19:53Z",
+      "side": 1,
+      "message": "I\u0027d say that can come later: any number of strcmp will probably be negligible compared to actual getxattr calls we have just done.\nIf that turns out to be expensive on profiling a problem a hash table or just a sorted tree can be done later, but it\u0027s probably not worth the complexity at this point -- actually building such a structure is likely going to cost more than a few extra passes...\n\n(well, if there\u0027s going to be many such attributes I guess it could make sense, leaving that to you)",
+      "parentUuid": "c9769033_68cbaf72",
+      "range": {
+        "startLine": 715,
+        "startChar": 4,
+        "endLine": 715,
+        "endChar": 52
+      },
+      "revId": "4cc3e01af652bc099360e98e389d6fbc28c91f1a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8307720a_08812694",
         "filename": "src/backends/lustre/lustre.c",
         "patchSetId": 1
