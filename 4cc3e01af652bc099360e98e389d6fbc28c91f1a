@@ -239,6 +239,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c59c1b0f_e4f86f0e",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-07-19T14:39:08Z",
+      "side": 1,
+      "message": "We do plan to have many more attributes, and while strcmp do work, it\u0027s not very portable or easy to use.\nThe hash-table would be constructed beforehand by one of the frontends and given to the backend so that it constructed only once, the backend \"just\" has to hash the key to get the value and can directly interpret it, no need for backend specific things or further allocations on that side.",
+      "parentUuid": "d0ea46c2_0d03bb35",
+      "range": {
+        "startLine": 715,
+        "startChar": 4,
+        "endLine": 715,
+        "endChar": 52
+      },
+      "revId": "4cc3e01af652bc099360e98e389d6fbc28c91f1a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8307720a_08812694",
         "filename": "src/backends/lustre/lustre.c",
         "patchSetId": 1
