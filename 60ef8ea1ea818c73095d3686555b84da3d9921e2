@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "617feeed_e91f6eba",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-07-19T13:01:17Z",
+      "side": 1,
+      "message": "style: alignement",
+      "range": {
+        "startLine": 722,
+        "startChar": 15,
+        "endLine": 722,
+        "endChar": 16
+      },
+      "revId": "60ef8ea1ea818c73095d3686555b84da3d9921e2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
