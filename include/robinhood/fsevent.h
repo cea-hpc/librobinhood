@@ -24,6 +24,10 @@ enum rbh_fsevent_type {
      */
     RBH_FET_UPSERT,
     /**
+     * Create/Update an inode in the backend and override existing attributes.
+     */
+    RBH_FET_OVERRIDE,
+    /**
      * Associate a couple (parent, name) to an inode
      *
      * This association is called a link.

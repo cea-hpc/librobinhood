@@ -21,13 +21,17 @@
 
 static bson_t *
 bson_from_upsert(const struct rbh_value_map *xattrs,
-                 const struct rbh_statx *statxbuf, const char *symlink)
+                 const struct rbh_statx *statxbuf, const char *symlink,
+                 bool override)
 {
     bson_t *bson = bson_new();
     int save_errno = ENOBUFS;
     bson_t set, unset;
 
     bson_init(&set);
+    if (!bson_append_document_begin(bson, "$set", strlen("$set"), &set))
+        goto out_destroy_set;
+
     if (statxbuf) {
         if (!BSON_APPEND_STATX(&set, MFF_STATX, statxbuf))
             goto out_destroy_set;
@@ -43,6 +47,9 @@ bson_from_upsert(const struct rbh_value_map *xattrs,
         goto out_destroy_set;
     }
 
+    if (!bson_append_document_end(bson, &set))
+        goto out_destroy_set;
+
     bson_init(&unset);
     if (!bson_append_unsetxattrs(&unset, MFF_XATTRS, xattrs)) {
         save_errno = errno;
@@ -50,10 +57,8 @@ bson_from_upsert(const struct rbh_value_map *xattrs,
     }
 
     /* Empty $set or $unset documents are not allowed */
-    if (!bson_empty(&set)) {
-        if (!BSON_APPEND_DOCUMENT(bson, "$set", &set))
-            goto out_destroy_unset;
-    }
+    if (bson_empty(&set))
+        goto out_destroy_unset;
 
     if (!bson_empty(&unset)) {
         if (BSON_APPEND_DOCUMENT(bson, "$unset", &unset))
@@ -174,9 +179,12 @@ bson_t *
 bson_update_from_fsevent(const struct rbh_fsevent *fsevent)
 {
     switch (fsevent->type) {
+    case RBH_FET_OVERRIDE:
+        return bson_from_upsert(&fsevent->xattrs, fsevent->upsert.statx,
+                                fsevent->upsert.symlink, true);
     case RBH_FET_UPSERT:
         return bson_from_upsert(&fsevent->xattrs, fsevent->upsert.statx,
-                                fsevent->upsert.symlink);
+                                fsevent->upsert.symlink, false);
     case RBH_FET_LINK:
         return bson_from_link(&fsevent->xattrs, fsevent->link.parent_id,
                               fsevent->link.name);
