@@ -371,6 +371,7 @@ mongo_bulk_append_fsevent(mongoc_bulk_operation_t *bulk,
         if (!success)
             break;
         __attribute__((fallthrough));
+    case RBH_FET_OVERRIDE:
     case RBH_FET_UPSERT:
         upsert = true;
         __attribute__((fallthrough));

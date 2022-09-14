@@ -45,6 +45,7 @@ fsevent_copy(struct rbh_fsevent *dest, const struct rbh_fsevent *src,
     assert(rc == 0);
 
     switch (src->type) {
+    case RBH_FET_OVERRIDE:
     case RBH_FET_UPSERT: /* dest->upsert */
         /* dest->upsert.statx */
         if (src->upsert.statx) {
@@ -119,6 +120,7 @@ fsevent_data_size(const struct rbh_fsevent *fsevent)
 
     /* fsevent->{upsert,link,ns} */
     switch (fsevent->type) {
+    case RBH_FET_OVERRIDE:
     case RBH_FET_UPSERT: /* fsevent->upsert */
         if (fsevent->upsert.statx) {
             size = sizealign(size, alignof(*fsevent->upsert.statx));
