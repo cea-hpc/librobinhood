@@ -149,7 +149,7 @@ fsevent_data_size(const struct rbh_fsevent *fsevent)
 }
 
 static struct rbh_fsevent *
-fsevent_clone(const struct rbh_fsevent *fsevent)
+fsevent_clone(const struct rbh_fsevent *fsevent, struct rbh_sstack *sstack)
 {
     struct rbh_fsevent *clone;
     size_t size;
@@ -157,9 +157,15 @@ fsevent_clone(const struct rbh_fsevent *fsevent)
     int rc;
 
     size = fsevent_data_size(fsevent);
-    clone = malloc(sizeof(*clone) + size);
+    if (sstack) {
+	size += 8;
+        clone = rbh_sstack_push(sstack, NULL, sizeof(*clone) + size);
+    } else
+        clone = malloc(sizeof(*clone) + size);
+
     if (clone == NULL)
         return NULL;
+
     data = (char *)clone + sizeof(*clone);
 
     rc = fsevent_copy(clone, fsevent, &data, &size);
@@ -168,10 +174,11 @@ fsevent_clone(const struct rbh_fsevent *fsevent)
     return clone;
 }
 
-struct rbh_fsevent *
-rbh_fsevent_upsert_new(const struct rbh_id *id,
-                       const struct rbh_value_map *xattrs,
-                       const struct rbh_statx *statxbuf, const char *symlink)
+static struct rbh_fsevent *
+_rbh_fsevent_upsert_new(const struct rbh_id *id,
+                        const struct rbh_value_map *xattrs,
+                        const struct rbh_statx *statxbuf, const char *symlink,
+                        struct rbh_sstack *sstack)
 {
     const struct rbh_fsevent upsert = {
         .type = RBH_FET_UPSERT,
@@ -194,7 +201,25 @@ rbh_fsevent_upsert_new(const struct rbh_id *id,
         return NULL;
     }
 
-    return fsevent_clone(&upsert);
+    return fsevent_clone(&upsert, sstack);
+}
+
+struct rbh_fsevent *
+rbh_fsevent_upsert_new(const struct rbh_id *id,
+                       const struct rbh_value_map *xattrs,
+                       const struct rbh_statx *statxbuf, const char *symlink)
+{
+    return _rbh_fsevent_upsert_new(id, xattrs, statxbuf, symlink, NULL);
+}
+
+struct rbh_fsevent *
+rbh_fsevent_upsert_new_stack(const struct rbh_id *id,
+                             const struct rbh_value_map *xattrs,
+                             const struct rbh_statx *statxbuf,
+                             const char *symlink,
+                             struct rbh_sstack *sstack)
+{
+    return _rbh_fsevent_upsert_new(id, xattrs, statxbuf, symlink, sstack);
 }
 
 struct rbh_fsevent *
@@ -223,7 +248,7 @@ rbh_fsevent_link_new(const struct rbh_id *id,
         return NULL;
     }
 
-    return fsevent_clone(&link);
+    return fsevent_clone(&link, NULL);
 }
 
 struct rbh_fsevent *
@@ -248,7 +273,7 @@ rbh_fsevent_unlink_new(const struct rbh_id *id, const struct rbh_id *parent_id,
         return NULL;
     }
 
-    return fsevent_clone(&unlink);
+    return fsevent_clone(&unlink, NULL);
 }
 
 struct rbh_fsevent *
@@ -263,7 +288,7 @@ rbh_fsevent_delete_new(const struct rbh_id *id)
         .xattrs.count = 0,
     };
 
-    return fsevent_clone(&delete);
+    return fsevent_clone(&delete, NULL);
 }
 
 struct rbh_fsevent *
@@ -286,7 +311,7 @@ rbh_fsevent_xattr_new(const struct rbh_id *id,
         },
     };
 
-    return fsevent_clone(&xattr);
+    return fsevent_clone(&xattr, NULL);
 }
 
 struct rbh_fsevent *
@@ -315,5 +340,5 @@ rbh_fsevent_ns_xattr_new(const struct rbh_id *id,
         return NULL;
     }
 
-    return fsevent_clone(&ns_xattr);
+    return fsevent_clone(&ns_xattr, NULL);
 }

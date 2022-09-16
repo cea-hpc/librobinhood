@@ -9,6 +9,7 @@
 #define ROBINHOOD_FSEVENT_H
 
 #include "robinhood/fsentry.h"
+#include "robinhood/sstack.h"
 
 /**
  * Types of fsevent
@@ -112,6 +113,31 @@ struct rbh_fsevent *
 rbh_fsevent_upsert_new(const struct rbh_id *id,
                        const struct rbh_value_map *xattrs,
                        const struct rbh_statx *statxbuf, const char *symlink);
+
+/**
+ * Create an upsert fsevent using a sstack for allocation.
+ *
+ * @param id        the ID of the fsentry to upsert
+ * @param xattrs    the xattrs associated with the fsentry to upsert
+ * @param statxbuf  the inode attributes of the fsentry to upsert
+ * @param symlink   the content of the symlink (only if \p ID refers to a
+ *                  symlink)
+ * @param sstack    the sstack the upsert fsevent to return should be allocated
+ *                  on
+ *
+ * @return          a pointer to a newly allocated upsert fsevent on success,
+ *                  NULL on error and errno is set appropriately
+ *
+ * @error EINVAL    \p statxbuf says \p ID is not a symlink, but \p symlink is
+ *                  not NULL
+ * @error ENOMEM    there was not enough memory available
+ */
+struct rbh_fsevent *
+rbh_fsevent_upsert_new_stack(const struct rbh_id *id,
+                             const struct rbh_value_map *xattrs,
+                             const struct rbh_statx *statxbuf,
+                             const char *symlink,
+                             struct rbh_sstack *sstack);
 
 /**
  * Create a link fsevent
