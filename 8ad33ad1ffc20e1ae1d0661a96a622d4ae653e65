@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afe86dbf_a08e8c08",
+        "filename": "src/fsevent.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-17T13:00:23Z",
+      "side": 1,
+      "message": "I think Quentin\u0027s reply is spot on, this should be computed to align the clone.\nThat being said, at an higher level this is a bit weird/silly: you\u0027re still duplicating all the values on the stack as this will allocate space for all the values that already are on the stack, so this really does not help.\nIf you want to use the stack all the way, you should make it so that this allocation is just for the fsevent struct and keep all the pointers as is without copy as you can guarantee they all are in the stack.\n\n... But really at this point I think this is overoptimizing, if you have fragmentation problems with glibc malloc try using jemalloc first which should behave much better.",
+      "revId": "8ad33ad1ffc20e1ae1d0661a96a622d4ae653e65",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b3ef095_b72ee734",
+        "filename": "src/fsevent.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-17T13:00:23Z",
+      "side": 1,
+      "message": "(style) kernel style requires braces to be balanced (e.g. if one side of the if has them, the other should too)\n\nI\u0027m not sure what style rbh v4 follows, but a quick grep shows all \u0027else\u0027s either have 0 or 2 braces, so let\u0027s keep it that way :)",
+      "revId": "8ad33ad1ffc20e1ae1d0661a96a622d4ae653e65",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
