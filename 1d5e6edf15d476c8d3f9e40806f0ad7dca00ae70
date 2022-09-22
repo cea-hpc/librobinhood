@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac5c5032_d280e93e",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-22T21:46:20Z",
+      "side": 1,
+      "message": "The former: statx.dev.major is a field, thus fits here as it did previously.\nstatx.dev is a subdocument, and shouldn\u0027t be handled the same way as we can\u0027t manipulate it the same way.",
+      "parentUuid": "3174095a_6804fb00",
+      "revId": "1d5e6edf15d476c8d3f9e40806f0ad7dca00ae70",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "342fbb2b_9a749224",
         "filename": "src/backends/mongo/fsevent.c",
         "patchSetId": 4
