@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7a22745_ee9aa68d",
+        "filename": "src/backends/mongo/bson.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-23T09:18:35Z",
+      "side": 1,
+      "message": "Sorry I wasn\u0027t clear -- my comment wasn\u0027t about adding a function that\u0027s not used but about these document begin/end for xTIME/DEV/RDEV: removing these \"grouping\" means it\u0027d be possible to only update part of the field if half is omitted, and that doesn\u0027t make sense.\n\nIt\u0027s possible such events are just considered invalid and would error somewhere but I don\u0027t recall any such check; hence pointing out these made sense and can\u0027t just be removed without justification.",
+      "revId": "1d5e6edf15d476c8d3f9e40806f0ad7dca00ae70",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4b8f0990_a5ab8a41",
         "filename": "src/backends/mongo/fields.c",
         "patchSetId": 4
@@ -121,6 +138,24 @@
       "side": 1,
       "message": "I\u0027ve added a \"subdoc2str\", hope that\u0027s what you wanted ?",
       "parentUuid": "022929cb_a4c25461",
+      "revId": "1d5e6edf15d476c8d3f9e40806f0ad7dca00ae70",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61d7773d_dcea9c69",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-23T09:18:35Z",
+      "side": 1,
+      "message": "(marking resolved and continuing in other location)",
+      "parentUuid": "82440bb6_1399b7b9",
       "revId": "1d5e6edf15d476c8d3f9e40806f0ad7dca00ae70",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
