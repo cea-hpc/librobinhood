@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "022929cb_a4c25461",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-23T08:17:18Z",
+      "side": 1,
+      "message": "Hmm, we want to make sure we don\u0027t e.g. update only second part without clearing nsec.\n\niirc lustre still has only full second timestamps? so that might not really be an immediate problem, but in a more general case we might get an enricher that only produces xTIME_SEC and we want to make sure we clean NSEC; and having that subdoc ensures that.\n\nAt least I think that\u0027s why they were grouped until now :)",
+      "parentUuid": "bc15874c_825a2429",
+      "revId": "1d5e6edf15d476c8d3f9e40806f0ad7dca00ae70",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "342fbb2b_9a749224",
         "filename": "src/backends/mongo/fsevent.c",
         "patchSetId": 4
