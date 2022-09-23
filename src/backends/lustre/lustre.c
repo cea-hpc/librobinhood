@@ -703,6 +703,8 @@ xattrs_get_mdt_info(int fd, struct rbh_value_pair *pairs)
 }
 
 #define XATTR_CCC_EXPIRES_AT "user.ccc_expires_at"
+#define XATTR_CCC_EXPIRES_AT_ABS "user.ccc_expires_at_abs"
+#define XATTR_CCC_EXPIRES_AT_REL "user.ccc_expires_at_rel"
 #define UINT64_MAX_STR_LEN 22
 
 static void
@@ -723,11 +725,13 @@ xattrs_get_retention()
                _inode_xattrs[i].value->binary.size);
         tmp[_inode_xattrs[i].value->binary.size] = 0;
 
-        result = strtoul(tmp, &end, 10);
+        result = strtoul(*tmp == '+' ? tmp + 1 : tmp, &end, 10);
         if (errno || (!result && tmp == end) || *end != '\0')
             break;
 
-        fill_uint64_pair(_inode_xattrs[i].key, result, &new_pair);
+        fill_uint64_pair(*tmp == '+' ? XATTR_CCC_EXPIRES_AT_REL :
+                                       XATTR_CCC_EXPIRES_AT_ABS,
+                         result, &new_pair);
         _inode_xattrs[i] = new_pair;
         break;
     }
