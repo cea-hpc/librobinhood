@@ -71,6 +71,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc15874c_825a2429",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-09-23T07:22:07Z",
+      "side": 1,
+      "message": "Actually I didn\u0027t have any reason to keep using the subdoc and add its values in it, so I just removed that part from the bson.c file, and I removed the DEV/RDEV/xTIME subdocuments from here.",
+      "parentUuid": "ac5c5032_d280e93e",
+      "revId": "1d5e6edf15d476c8d3f9e40806f0ad7dca00ae70",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "342fbb2b_9a749224",
