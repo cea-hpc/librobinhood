@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "845e04de_a71e3ffd",
+        "filename": "src/backends/mongo/bson.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-09-26T12:00:16Z",
+      "side": 1,
+      "message": "Ok I understand now, reverted back to the behaviour in patchset 4 + keeping the \"subdoc\" function. Hope that\u0027s good now ?",
+      "parentUuid": "f7a22745_ee9aa68d",
+      "revId": "1d5e6edf15d476c8d3f9e40806f0ad7dca00ae70",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4b8f0990_a5ab8a41",
         "filename": "src/backends/mongo/fields.c",
         "patchSetId": 4
