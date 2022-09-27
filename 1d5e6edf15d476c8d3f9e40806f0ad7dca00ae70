@@ -53,6 +53,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "377291b8_54462ba5",
+        "filename": "src/backends/mongo/bson.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-27T11:53:31Z",
+      "side": 1,
+      "message": "It looks good, thanks!",
+      "parentUuid": "845e04de_a71e3ffd",
+      "revId": "1d5e6edf15d476c8d3f9e40806f0ad7dca00ae70",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b8f0990_a5ab8a41",
