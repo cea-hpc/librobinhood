@@ -156,8 +156,89 @@ const char *field2str(const struct rbh_filter_field *field, char **buffer,
         if (asprintf(buffer, "%s.%s", MFF_XATTRS, field->xattr) < 0)
             return NULL;
         return *buffer;
+    case RBH_FP_ADD:
+        return NULL;
     }
 
     errno = ENOTSUP;
     return NULL;
+}
+
+static const char *
+property2str(enum rbh_fsentry_property property)
+{
+    switch (property) {
+    case RBH_FP_ADD:
+        return "$add";
+    default:
+        errno = ENOTSUP;
+        return NULL;
+    }
+}
+
+#define FIELD_BUFFER_SIZE 64
+#define FIELD_STRING_SIZE 64
+
+bool
+bson_append_compute_field(bson_t *bson, const char *key, size_t key_length,
+                          const struct rbh_filter_field *field)
+{
+    char fieldA_onstack[FIELD_BUFFER_SIZE];
+    char fieldB_onstack[FIELD_BUFFER_SIZE];
+    char *fieldA_buffer = fieldA_onstack;
+    char *fieldB_buffer = fieldB_onstack;
+    char fieldA_str[FIELD_STRING_SIZE];
+    char fieldB_str[FIELD_STRING_SIZE];
+    char second_idx[12];
+    char first_idx[12];
+    bson_t document;
+    bson_t array;
+    bool rc;
+
+    if (snprintf(fieldA_str, sizeof(fieldA_str), "$%s",
+                 field2str(field->compute.fieldA, &fieldA_buffer,
+                           FIELD_BUFFER_SIZE)) < 0) {
+        rc = false;
+        goto end;
+    }
+
+    if (snprintf(fieldB_str, sizeof(fieldB_str), "$%s",
+                 field2str(field->compute.fieldB, &fieldB_buffer,
+                           FIELD_BUFFER_SIZE)) < 0) {
+        rc = false;
+        goto end;
+    }
+
+    if (!(bson_append_document_begin(bson, key, key_length, &document) &&
+          BSON_APPEND_ARRAY_BEGIN(&document, property2str(field->fsentry),
+                                  &array))) {
+        rc = false;
+        goto end;
+    }
+
+    key_length = bson_uint32_to_string(0, &key, first_idx, sizeof(first_idx));
+    if (!bson_append_utf8(&array, key, key_length, fieldA_str,
+                          strlen(fieldA_str))) {
+        rc = false;
+        goto end;
+    }
+
+    key_length = bson_uint32_to_string(1, &key, second_idx, sizeof(second_idx));
+    if (!bson_append_utf8(&array, key, key_length, fieldB_str,
+                          strlen(fieldB_str))) {
+        rc = false;
+        goto end;
+    }
+
+    rc = bson_append_array_end(&document, &array) &&
+         bson_append_document_end(bson, &document);
+
+end:
+    if (fieldA_buffer != fieldA_onstack)
+        free(fieldA_buffer);
+
+    if (fieldB_buffer != fieldB_onstack)
+        free(fieldB_buffer);
+
+    return rc;
 }

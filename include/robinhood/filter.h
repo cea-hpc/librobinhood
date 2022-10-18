@@ -159,6 +159,13 @@ struct rbh_filter_field {
          * If NULL, the filter will be applied on the \c fsentry field itself.
          */
         const char *xattr;
+        /** If \c fsentry is RBH_FP_ADD: two valid rbh_filter_fields that
+         * shouldn't also be RBH_FP_ADD fields.
+         */
+        struct {
+            struct rbh_filter_field *fieldA;
+            struct rbh_filter_field *fieldB;
+        } compute;
     };
 };
 

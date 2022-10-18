@@ -33,6 +33,11 @@ filter_field_data_size(const struct rbh_filter_field *field)
     case RBH_FP_NAMESPACE_XATTRS:
     case RBH_FP_INODE_XATTRS:
         return field->xattr ? strlen(field->xattr) + 1 : 0;
+    case RBH_FP_ADD:
+        return sizeof(*field->compute.fieldA) +
+            filter_field_data_size(field->compute.fieldA) +
+            sizeof(*field->compute.fieldB) +
+            filter_field_data_size(field->compute.fieldB);
     default:
         errno = EINVAL;
         return -1;
@@ -73,6 +78,17 @@ filter_field_copy(struct rbh_filter_field *dest,
         data = mempcpy(data, src->xattr, strlen(src->xattr) + 1);
         size -= strlen(src->xattr) + 1;
         break;
+    case RBH_FP_ADD:
+        dest->compute.fieldA = (struct rbh_filter_field *)data;
+        size -= sizeof(*dest->compute.fieldA);
+        data += sizeof(*dest->compute.fieldA);
+        dest->compute.fieldB = (struct rbh_filter_field *)data;
+        size -= sizeof(*dest->compute.fieldB);
+        data += sizeof(*dest->compute.fieldB);
+        filter_field_copy(dest->compute.fieldA, src->compute.fieldA, &data,
+                          &size);
+        filter_field_copy(dest->compute.fieldB, src->compute.fieldB, &data,
+                          &size);
     }
 
     *buffer = data;
@@ -511,6 +527,11 @@ filter_field_validate(const struct rbh_filter_field *field)
             return 0;
         }
         break;
+    case RBH_FP_ADD:
+        return field->compute.fieldA != NULL &&
+               filter_field_validate(field->compute.fieldA) &&
+               field->compute.fieldB != NULL &&
+               filter_field_validate(field->compute.fieldB);
     }
 
     errno = EINVAL;
