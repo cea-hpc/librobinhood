@@ -156,8 +156,53 @@ const char *field2str(const struct rbh_filter_field *field, char **buffer,
         if (asprintf(buffer, "%s.%s", MFF_XATTRS, field->xattr) < 0)
             return NULL;
         return *buffer;
+    case RBH_FP_ADD:
+        return NULL;
     }
 
     errno = ENOTSUP;
     return NULL;
+}
+
+#define FIELD_BUFFER_SIZE 64
+
+bool
+bson_append_rbh_field(bson_t *bson, const char *key, size_t key_length,
+                      const struct rbh_filter_field *field)
+{
+    char *fieldA_buffer = malloc(FIELD_BUFFER_SIZE);
+    char *fieldB_buffer = malloc(FIELD_BUFFER_SIZE);
+    char fieldA_str[32];
+    char fieldB_str[32];
+    char second_idx[4];
+    char first_idx[4];
+    bson_t document;
+    bson_t array;
+
+    snprintf(fieldA_str, sizeof(fieldA_str), "$%s",
+             field2str(field->compute.fieldA, (char **)&fieldA_buffer,
+                       FIELD_BUFFER_SIZE));
+    snprintf(fieldB_str, sizeof(fieldB_str), "$%s",
+             field2str(field->compute.fieldB, (char **)&fieldB_buffer,
+                       FIELD_BUFFER_SIZE));
+
+    if (!(bson_append_document_begin(bson, key, key_length, &document) &&
+          bson_append_array_begin(&document, "$add", strlen("$add"), &array)))
+        return false;
+
+    key_length = bson_uint32_to_string(0, &key, first_idx, sizeof(first_idx));
+    if (!bson_append_utf8(&array, key, key_length, fieldA_str,
+                          strlen(fieldA_str)))
+        return false;
+
+    key_length = bson_uint32_to_string(1, &key, second_idx, sizeof(second_idx));
+    if (!bson_append_utf8(&array, key, key_length, fieldB_str,
+                          strlen(fieldB_str)))
+        return false;
+
+    free(fieldA_buffer);
+    free(fieldB_buffer);
+
+    return bson_append_array_end(&document, &array) &&
+        bson_append_document_end(bson, &document);
 }

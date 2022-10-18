@@ -159,6 +159,11 @@ struct rbh_filter_field {
          * If NULL, the filter will be applied on the \c fsentry field itself.
          */
         const char *xattr;
+
+        struct {
+            struct rbh_filter_field *fieldA;
+            struct rbh_filter_field *fieldB;
+        } compute;
     };
 };
 

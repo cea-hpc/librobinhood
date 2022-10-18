@@ -64,7 +64,7 @@ fop2str(enum rbh_filter_operator op, bool negate)
 
 static bool
 _bson_append_rbh_filter(bson_t *bson, const struct rbh_filter *filter,
-                        bool negate);
+                        bool negate, bool in_expr);
 
 /* MongoDB does not handle _unsigned_ integers natively, their support has to
  * be emulated.
@@ -99,7 +99,7 @@ _bson_append_rbh_filter(bson_t *bson, const struct rbh_filter *filter,
 static bool
 bson_append_uint32_lower(bson_t *bson, enum rbh_filter_operator op,
                          const struct rbh_filter_field *field, uint32_t u32,
-                         bool negate)
+                         bool negate, bool in_expr)
 {
     const struct rbh_filter LOWER = {
         .op = op,
@@ -131,13 +131,13 @@ bson_append_uint32_lower(bson_t *bson, enum rbh_filter_operator op,
     };
 
     assert(op == RBH_FOP_STRICTLY_LOWER || op == RBH_FOP_LOWER_OR_EQUAL);
-    return _bson_append_rbh_filter(bson, &FILTER, negate);
+    return _bson_append_rbh_filter(bson, &FILTER, negate, in_expr);
 }
 
 static bool
 bson_append_uint32_greater(bson_t *bson, enum rbh_filter_operator op,
                            const struct rbh_filter_field *field, uint32_t u32,
-                           bool negate)
+                           bool negate, bool in_expr)
 {
     const struct rbh_filter GREATER = {
         .op = op,
@@ -169,13 +169,13 @@ bson_append_uint32_greater(bson_t *bson, enum rbh_filter_operator op,
     };
 
     assert(op == RBH_FOP_STRICTLY_GREATER || op == RBH_FOP_GREATER_OR_EQUAL);
-    return _bson_append_rbh_filter(bson, &FILTER, negate);
+    return _bson_append_rbh_filter(bson, &FILTER, negate, in_expr);
 }
 
 static bool
 bson_append_uint64_lower(bson_t *bson, enum rbh_filter_operator op,
                          const struct rbh_filter_field *field, uint64_t u64,
-                         bool negate)
+                         bool negate, bool in_expr)
 {
     const struct rbh_filter LOWER = {
         .op = op,
@@ -207,12 +207,12 @@ bson_append_uint64_lower(bson_t *bson, enum rbh_filter_operator op,
     };
 
     assert(op == RBH_FOP_STRICTLY_LOWER || op == RBH_FOP_LOWER_OR_EQUAL);
-    return _bson_append_rbh_filter(bson, &FILTER, negate);
+    return _bson_append_rbh_filter(bson, &FILTER, negate, in_expr);
 }
 static bool
 bson_append_uint64_greater(bson_t *bson, enum rbh_filter_operator op,
                            const struct rbh_filter_field *field, uint64_t u64,
-                           bool negate)
+                           bool negate, bool in_expr)
 {
     const struct rbh_filter GREATER = {
         .op = op,
@@ -244,16 +244,21 @@ bson_append_uint64_greater(bson_t *bson, enum rbh_filter_operator op,
     };
 
     assert(op == RBH_FOP_STRICTLY_GREATER || op == RBH_FOP_GREATER_OR_EQUAL);
-    return _bson_append_rbh_filter(bson, &FILTER, negate);
+    return _bson_append_rbh_filter(bson, &FILTER, negate, in_expr);
 }
 
 static bool
 bson_append_comparison(bson_t *bson, const char *key, size_t key_length,
                        enum rbh_filter_operator op,
-                       const struct rbh_value *value, bool negate)
+                       const struct rbh_filter_field *field,
+                       const struct rbh_value *value, bool negate, bool in_expr)
 {
     struct rbh_value tmp;
+    const char *subkey;
     bson_t document;
+    size_t length;
+    bson_t array;
+    char str[16];
 
     switch (op) {
     case RBH_FOP_REGEX:
@@ -295,19 +300,35 @@ bson_append_comparison(bson_t *bson, const char *key, size_t key_length,
         break;
     }
 
+    if (in_expr) {
+        if (!BSON_APPEND_ARRAY_BEGIN(bson, fop2str(op, negate), &array))
+            return false;
+
+        length = bson_uint32_to_string(0, &subkey, str, sizeof(str));
+        if (!bson_append_rbh_field(&array, subkey, length, field))
+            return false;
+
+        length = bson_uint32_to_string(1, &subkey, str, sizeof(str));
+        if (!bson_append_rbh_value(&array, subkey, length, value))
+            return false;
+
+        return bson_append_array_end(bson, &array);
+    }
+
     return bson_append_document_begin(bson, key, key_length, &document)
         && BSON_APPEND_RBH_VALUE(&document, fop2str(op, negate), value)
         && bson_append_document_end(bson, &document);
 }
 
-#define BSON_APPEND_COMPARISON(bson, key, op, value, negate) \
-    bson_append_comparison(bson, key, strlen(key), op, value, negate)
+#define BSON_APPEND_COMPARISON(bson, key, op, field, value, negate, in_expr) \
+    bson_append_comparison(bson, key, key ? strlen(key) : 0, op, field, value, \
+                           negate, in_expr)
 
 #define XATTR_ONSTACK_LENGTH 128
 
 static bool
 bson_append_comparison_filter(bson_t *bson, const struct rbh_filter *filter,
-                              bool negate)
+                              bool negate, bool in_expr)
 {
     const struct rbh_filter_field *field = &filter->compare.field;
     const struct rbh_value *value = &filter->compare.value;
@@ -316,6 +337,13 @@ bson_append_comparison_filter(bson_t *bson, const struct rbh_filter *filter,
     char *buffer = onstack;
     const char *key;
     bool success;
+    bson_t expr;
+
+    if (field->fsentry == RBH_FP_ADD && !in_expr) {
+        return bson_append_document_begin(bson, "$expr", strlen("$expr"), &expr)
+            && bson_append_comparison_filter(&expr, filter, negate, true)
+            && bson_append_document_end(bson, &expr);
+    }
 
     /* Mongo does not support unsigned integers, but we can emulate it */
     switch (op) {
@@ -324,10 +352,10 @@ bson_append_comparison_filter(bson_t *bson, const struct rbh_filter *filter,
         switch (value->type) {
         case RBH_VT_UINT32:
             return bson_append_uint32_lower(bson, op, field, value->uint32,
-                                            negate);
+                                            negate, in_expr);
         case RBH_VT_UINT64:
             return bson_append_uint64_lower(bson, op, field, value->uint64,
-                                            negate);
+                                            negate, in_expr);
         default:
             break;
         }
@@ -337,10 +365,10 @@ bson_append_comparison_filter(bson_t *bson, const struct rbh_filter *filter,
         switch (value->type) {
         case RBH_VT_UINT32:
             return bson_append_uint32_greater(bson, op, field, value->uint32,
-                                              negate);
+                                              negate, in_expr);
         case RBH_VT_UINT64:
             return bson_append_uint64_greater(bson, op, field, value->uint64,
-                                              negate);
+                                              negate, in_expr);
         default:
             break;
         }
@@ -349,11 +377,16 @@ bson_append_comparison_filter(bson_t *bson, const struct rbh_filter *filter,
         break;
     }
 
-    key = field2str(field, &buffer, sizeof(onstack));
-    if (key == NULL)
-        return false;
+    if (in_expr) {
+        key = NULL;
+    } else {
+        key = field2str(field, &buffer, sizeof(onstack));
+        if (key == NULL)
+            return false;
+    }
 
-    success = BSON_APPEND_COMPARISON(bson, key, op, value, negate);
+    success = BSON_APPEND_COMPARISON(bson, key, op, field, value, negate,
+                                     in_expr);
     if (buffer != onstack)
         free(buffer);
     return success;
@@ -361,13 +394,13 @@ bson_append_comparison_filter(bson_t *bson, const struct rbh_filter *filter,
 
 static bool
 bson_append_logical_filter(bson_t *bson, const struct rbh_filter *filter,
-                           bool negate)
+                           bool negate, bool in_expr)
 {
     bson_t array;
 
     if (filter->op == RBH_FOP_NOT)
         return _bson_append_rbh_filter(bson, filter->logical.filters[0],
-                                       !negate);
+                                       !negate, in_expr);
 
     if (!BSON_APPEND_ARRAY_BEGIN(bson, fop2str(filter->op, negate), &array))
         return false;
@@ -379,7 +412,8 @@ bson_append_logical_filter(bson_t *bson, const struct rbh_filter *filter,
 
         length = bson_uint32_to_string(i, &key, str, sizeof(str));
         if (!bson_append_rbh_filter(&array, key, length,
-                                    filter->logical.filters[i], negate))
+                                    filter->logical.filters[i], negate,
+                                    in_expr))
             return false;
     }
 
@@ -401,23 +435,24 @@ bson_append_null_filter(bson_t *bson, bool negate)
 
 static bool
 _bson_append_rbh_filter(bson_t *bson, const struct rbh_filter *filter,
-                        bool negate)
+                        bool negate, bool in_expr)
 {
     if (filter == NULL)
         return bson_append_null_filter(bson, negate);
 
     if (rbh_is_comparison_operator(filter->op))
-        return bson_append_comparison_filter(bson, filter, negate);
-    return bson_append_logical_filter(bson, filter, negate);
+        return bson_append_comparison_filter(bson, filter, negate, in_expr);
+    return bson_append_logical_filter(bson, filter, negate, in_expr);
 }
 
 bool
 bson_append_rbh_filter(bson_t *bson, const char *key, size_t key_length,
-                       const struct rbh_filter *filter, bool negate)
+                       const struct rbh_filter *filter, bool negate,
+                       bool in_expr)
 {
     bson_t document;
 
     return bson_append_document_begin(bson, key, key_length, &document)
-        && _bson_append_rbh_filter(&document, filter, negate)
+        && _bson_append_rbh_filter(&document, filter, negate, in_expr)
         && bson_append_document_end(bson, &document);
 }
