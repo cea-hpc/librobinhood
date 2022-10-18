@@ -218,10 +218,11 @@ fsentry_from_bson(const bson_t *bson);
 /* Should only be used on a valid filter */
 bool
 bson_append_rbh_filter(bson_t *bson, const char *key, size_t key_length,
-                       const struct rbh_filter *filter, bool negate);
+                       const struct rbh_filter *filter, bool negate,
+                       bool in_expr);
 
 #define BSON_APPEND_RBH_FILTER(bson, key, filter) \
-    bson_append_rbh_filter(bson, key, strlen(key), filter, false)
+    bson_append_rbh_filter(bson, key, strlen(key), filter, false, false)
 
     /*--------------------------------------------------------------------*
      |                            filter_sort                             |
@@ -253,6 +254,14 @@ bson_append_rbh_filter_projection(
 
 bson_t *
 bson_update_from_fsevent(const struct rbh_fsevent *fsevent);
+
+    /*--------------------------------------------------------------------*
+     |                               field                                |
+     *--------------------------------------------------------------------*/
+
+bool
+bson_append_rbh_field(bson_t *bson, const char *key, size_t key_length,
+                      const struct rbh_filter_field *field);
 
     /*--------------------------------------------------------------------*
      |                               value                                |

@@ -90,6 +90,8 @@ fsentry_property2str(enum rbh_fsentry_property property)
         return "RBH_FP_NAMESPACE_XATTRS";
     case RBH_FP_INODE_XATTRS:
         return "RBH_FP_INODE_XATTRS";
+    case RBH_FP_ADD:
+        return "RBH_FP_ADD";
     }
     return "unknown";
 }
@@ -156,6 +158,10 @@ statx_field2str(unsigned int field)
                   #X, statx_field2str(X), \
                   #Y, statx_field2str(Y))
 
+static void
+ck_assert_filter_field_compute_eq(const struct rbh_filter_field *X,
+                                  const struct rbh_filter_field *Y);
+
 #define ck_assert_filter_field_eq(X, Y) do { \
     _ck_assert_fsentry_property((X)->fsentry, ==, (Y)->fsentry); \
     switch ((X)->fsentry) { \
@@ -171,8 +177,19 @@ statx_field2str(unsigned int field)
     case RBH_FP_INODE_XATTRS: \
         ck_assert_pstr_eq((X)->xattr, (Y)->xattr); \
         break; \
+    case RBH_FP_ADD: \
+        ck_assert_filter_field_compute_eq((X), (Y)); \
+        break; \
     } \
 } while (0)
+
+static void
+ck_assert_filter_field_compute_eq(const struct rbh_filter_field *X,
+                                  const struct rbh_filter_field *Y)
+{
+    ck_assert_filter_field_eq(X->compute.fieldA, Y->compute.fieldA);
+    ck_assert_filter_field_eq(X->compute.fieldB, Y->compute.fieldB);
+}
 
 #define ck_assert_comparison_filter_eq(X, Y) do { \
     ck_assert_filter_field_eq(&(X)->compare.field, &(Y)->compare.field); \
