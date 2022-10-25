@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b71f2ff8_71144035",
+        "filename": "include/robinhood/filter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-10-25T14:26:15Z",
+      "side": 1,
+      "message": "Tried something, tell me if it\u0027s enough",
+      "parentUuid": "d86dab11_53b9cae4",
+      "revId": "4ecb2403519dc7caef5c1d190c24bbc04aa35154",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "15b9524f_17fe988a",
         "filename": "src/backends/mongo/fields.c",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2022-10-25T12:53:29Z",
       "side": 1,
       "message": "this hardcodes \"$add\" below so it\u0027s not just concatenating two fields from field; this should probably just be named bson_append_rbh_add_fields or something",
+      "revId": "4ecb2403519dc7caef5c1d190c24bbc04aa35154",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07a8eb94_1faea4f6",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-10-25T14:26:15Z",
+      "side": 1,
+      "message": "Added a \"property2str\" function to make it a bit more generic instead, since the behaviour will be the same for other types of combination.",
+      "parentUuid": "15b9524f_17fe988a",
       "revId": "4ecb2403519dc7caef5c1d190c24bbc04aa35154",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -75,6 +111,48 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a7309a9_44308618",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-10-25T14:26:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa73ab94_8b4c4c90",
+      "revId": "4ecb2403519dc7caef5c1d190c24bbc04aa35154",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "303960a5_9844cd64",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-10-25T14:26:15Z",
+      "side": 1,
+      "message": "It isn\u0027t, just a remnant of removed code.\nDone.",
+      "parentUuid": "5faeb5e8_4263acab",
+      "range": {
+        "startLine": 183,
+        "startChar": 46,
+        "endLine": 183,
+        "endChar": 55
+      },
+      "revId": "4ecb2403519dc7caef5c1d190c24bbc04aa35154",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4776dae7_ef2aacdd",
@@ -88,6 +166,30 @@
       "writtenOn": "2022-10-25T12:53:29Z",
       "side": 1,
       "message": "this has length.. 4? max uint32 length is 12 iirc (including \\0), not sure where key comes from but if you assume it\u0027s \u003c 1000 you should check that.",
+      "range": {
+        "startLine": 193,
+        "startChar": 48,
+        "endLine": 193,
+        "endChar": 57
+      },
+      "revId": "4ecb2403519dc7caef5c1d190c24bbc04aa35154",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1559bf93_ee8938b5",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-10-25T14:26:15Z",
+      "side": 1,
+      "message": "Went with an array of length 12.",
+      "parentUuid": "4776dae7_ef2aacdd",
       "range": {
         "startLine": 193,
         "startChar": 48,
@@ -115,6 +217,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee61ddcc_e4f78bc6",
+        "filename": "src/backends/mongo/filter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-10-25T14:26:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3a9a261_3421ad34",
+      "revId": "4ecb2403519dc7caef5c1d190c24bbc04aa35154",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c04c5f70_1b1f8d47",
@@ -128,6 +248,24 @@
       "writtenOn": "2022-10-25T12:53:29Z",
       "side": 1,
       "message": "(open question)\nMy first impression on this is that it took me way too long to understand what in_expr was (grmbl no actual example or test code using it), and it\u0027s quite ugly to add a new argument everywhere...\nBut I guess that\u0027s as good as it\u0027d get for using $expr.\n\nI\u0027m not too familiar with mongo though, what\u0027s the advantage of $expr over e.g. $let?\nhttps://www.mongodb.com/docs/manual/reference/operator/aggregation/let/#mongodb-expression-exp.-let\n```\n  $let: {\n    vars: {\n      total: { $add: [ \u0027$price\u0027, \u0027$tax\u0027 ] },\n      discounted: { $cond: { if: \u0027$applyDiscount\u0027, then: 0.9, else: 1 } }\n    },\n    in: { $multiply: [ \"$$total\", \"$$discounted\" ] }\n  }\n```\n\ncould be constructed as\n```\nbegin($let)\nbegin(vars)\n  begin(sums)\n    $add: val1, val2\n  end(sums)\nend(vars)\nbegin(in)\n  normal comparison without any modification, using \u0027$$sums\u0027 as value\nend(in)\nend($let)\n```\nand would avoid the extra bool argument just for comparison that was different in $expr block.",
+      "revId": "4ecb2403519dc7caef5c1d190c24bbc04aa35154",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f5db74e_bdcc1ad9",
+        "filename": "src/backends/mongo/filter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-10-25T14:26:15Z",
+      "side": 1,
+      "message": "While I understand the problem with propagating a bool variable everywhere, it is the exact same for the negate bool, so I\u0027m not introducing something new, just sticking with the current method (maybe using the rbh_filter_options could be better, but it isn\u0027t the subject of this patch).\n\nFor an example, the first use and what we needed it for is at https://review.gerrithub.io/c/cea-hpc/rbh-find-lustre/+/545254\n\nI did not know that the $let could also do a sum, but from reading the doc and your comment, I don\u0027t think it is usable for finding specific values in a list of documents alone. You most likely also have to use $expr on top to allow the use of aggregation expressions like $let in queries (https://www.mongodb.com/docs/v4.4/reference/operator/query/expr/?_ga\u003d2.126304399.304827097.1666706549-1247174065.1638439305).\n\nSo I think it\u0027s more that you can\u0027t use one without the other, and they don\u0027t do the same thing, but I might be wrong, I\u0027m not a mongo expert either.\n\nThe main problem with the filtering in librobinhood for Mongo is that the fields as filled as such:\n```\nfind ({ \"document_key_to_check\" : { \"operator\" : value_to_check_against } })\n# for instance\nfind ({ \"statx.nlink\" : { $eq : 1 } })\n```\nBut we can only use the $add operator when aggregating values, so have (or so we think) to use the $expr on top of it. But since we use $expr, it also changes the way many operators work, like $eq, which now takes in two operators and checks the first against the second, so the above notation is invalid. So have to modify the whole process into:\n```\nfind ({ $expr : { \"operator\" : [ { $add : [ \"document_key_to_check_A\", \"document_key_to_check_B\" ] }, value ] } })\n# for instance\nfind ({ $expr : { $eq : [ { $add : [ \"$statx.nlink\", \"$stax.mode\" ] }, 1 ] } })\n```\n\nSo since the expr changes the logic of all operators in it, we have to modify the order in which the operators and keys are added, and to stay within RBH logic, we have to keep a boolean around.",
+      "parentUuid": "c04c5f70_1b1f8d47",
       "revId": "4ecb2403519dc7caef5c1d190c24bbc04aa35154",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
