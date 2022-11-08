@@ -73,6 +73,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "83998bb1_b1cddbe9",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-08T14:14:34Z",
+      "side": 1,
+      "message": "major: since you know the since at compile time and you seem to free this memory at the end of the function call, you could use a static buffer. 64 may be a bit too much?",
+      "range": {
+        "startLine": 173,
+        "startChar": 26,
+        "endLine": 173,
+        "endChar": 51
+      },
+      "revId": "4ecb2403519dc7caef5c1d190c24bbc04aa35154",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5faeb5e8_4263acab",
         "filename": "src/backends/mongo/fields.c",
         "patchSetId": 1

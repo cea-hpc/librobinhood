@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9518a16_8d4d94b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-08T14:14:34Z",
+      "side": 1,
+      "message": "typo: which adds?",
+      "range": {
+        "startLine": 9,
+        "startChar": 32,
+        "endLine": 9,
+        "endChar": 38
+      },
+      "revId": "e8f7b2d3ddb2d8414ffb816e291af184b908cd16",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "717ebaef_2596c7c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-08T14:14:34Z",
+      "side": 1,
+      "message": "typo: filters",
+      "range": {
+        "startLine": 13,
+        "startChar": 19,
+        "endLine": 13,
+        "endChar": 25
+      },
+      "revId": "e8f7b2d3ddb2d8414ffb816e291af184b908cd16",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7518a71a_a4cadf7b",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-08T14:14:34Z",
+      "side": 1,
+      "message": "suggest: bson_append_filter_compute_field",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 22
+      },
+      "revId": "e8f7b2d3ddb2d8414ffb816e291af184b908cd16",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4086d2e_ef93df6d",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-08T14:14:34Z",
+      "side": 1,
+      "message": "defect?: I don\u0027t know if that\u0027s intended or not but if you want at some point to have A + B + C, I assume this would be something like:\n\n```\nstruct rbh_filter_filed a_b \u003d {\n    .fsentry \u003d RBH_FP_ADD,\n    .compute \u003d {\n        .fieldA \u003d \u0026a,\n        .fieldB \u003d \u0026b,\n    },\n};\nstruct rbh_filter_field a_b_c \u003d {\n    .fsentry \u003d RBH_FP_ADD,\n    .compute \u003d {\n        .fieldA \u003d \u0026a_b,\n        .fieldB \u003d \u0026c,\n    },\n};\n```\n\nIn this case, field2str would be NULL and this would not work. If you don\u0027t intend to implement this right now, you should at least document that field must not be of type FP_ADD.",
+      "range": {
+        "startLine": 198,
+        "startChar": 17,
+        "endLine": 198,
+        "endChar": 26
+      },
+      "revId": "e8f7b2d3ddb2d8414ffb816e291af184b908cd16",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19ce2b09_0869d323",
+        "filename": "src/filter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-08T14:14:34Z",
+      "side": 1,
+      "message": "question: why stdio?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 7
+      },
+      "revId": "e8f7b2d3ddb2d8414ffb816e291af184b908cd16",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8688256a_ecba43a1",
+        "filename": "src/filter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-08T14:14:34Z",
+      "side": 1,
+      "message": "nit: no need for parens",
+      "range": {
+        "startLine": 84,
+        "startChar": 24,
+        "endLine": 84,
+        "endChar": 25
+      },
+      "revId": "e8f7b2d3ddb2d8414ffb816e291af184b908cd16",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
