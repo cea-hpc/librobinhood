@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b49683f_edebabc8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-09T12:50:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9518a16_8d4d94b3",
+      "range": {
+        "startLine": 9,
+        "startChar": 32,
+        "endLine": 9,
+        "endChar": 38
+      },
+      "revId": "e8f7b2d3ddb2d8414ffb816e291af184b908cd16",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "717ebaef_2596c7c2",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-08T14:14:34Z",
       "side": 1,
       "message": "typo: filters",
+      "range": {
+        "startLine": 13,
+        "startChar": 19,
+        "endLine": 13,
+        "endChar": 25
+      },
+      "revId": "e8f7b2d3ddb2d8414ffb816e291af184b908cd16",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "480ecce7_e0dfed24",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-09T12:50:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "717ebaef_2596c7c2",
       "range": {
         "startLine": 13,
         "startChar": 19,
@@ -70,6 +118,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9846f69_6ca8e294",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-09T12:50:58Z",
+      "side": 1,
+      "message": "Don\u0027t link the mention of \"filter\" here, so I went with \"bson_append_compute_field\", is that good for you ?",
+      "parentUuid": "7518a71a_a4cadf7b",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 22
+      },
+      "revId": "e8f7b2d3ddb2d8414ffb816e291af184b908cd16",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4086d2e_ef93df6d",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-08T14:14:34Z",
       "side": 1,
       "message": "defect?: I don\u0027t know if that\u0027s intended or not but if you want at some point to have A + B + C, I assume this would be something like:\n\n```\nstruct rbh_filter_filed a_b \u003d {\n    .fsentry \u003d RBH_FP_ADD,\n    .compute \u003d {\n        .fieldA \u003d \u0026a,\n        .fieldB \u003d \u0026b,\n    },\n};\nstruct rbh_filter_field a_b_c \u003d {\n    .fsentry \u003d RBH_FP_ADD,\n    .compute \u003d {\n        .fieldA \u003d \u0026a_b,\n        .fieldB \u003d \u0026c,\n    },\n};\n```\n\nIn this case, field2str would be NULL and this would not work. If you don\u0027t intend to implement this right now, you should at least document that field must not be of type FP_ADD.",
+      "range": {
+        "startLine": 198,
+        "startChar": 17,
+        "endLine": 198,
+        "endChar": 26
+      },
+      "revId": "e8f7b2d3ddb2d8414ffb816e291af184b908cd16",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64797ed3_72eed429",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-09T12:50:58Z",
+      "side": 1,
+      "message": "It is intended to not be able to have fieldA or fieldB be another FP_ADD. It will changed at a later point, I added documentation to the field in the header.",
+      "parentUuid": "a4086d2e_ef93df6d",
       "range": {
         "startLine": 198,
         "startChar": 17,
@@ -116,6 +212,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ddc9e48_146c6614",
+        "filename": "src/filter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-09T12:50:58Z",
+      "side": 1,
+      "message": "Oups, for debugging, removed.",
+      "parentUuid": "19ce2b09_0869d323",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 7
+      },
+      "revId": "e8f7b2d3ddb2d8414ffb816e291af184b908cd16",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8688256a_ecba43a1",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-11-08T14:14:34Z",
       "side": 1,
       "message": "nit: no need for parens",
+      "range": {
+        "startLine": 84,
+        "startChar": 24,
+        "endLine": 84,
+        "endChar": 25
+      },
+      "revId": "e8f7b2d3ddb2d8414ffb816e291af184b908cd16",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "168bf71f_cf6169e1",
+        "filename": "src/filter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-09T12:50:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8688256a_ecba43a1",
       "range": {
         "startLine": 84,
         "startChar": 24,
