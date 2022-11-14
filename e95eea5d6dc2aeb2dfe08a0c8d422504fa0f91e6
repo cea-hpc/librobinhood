@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30e74901_eb3733a9",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-11-14T08:36:45Z",
+      "side": 1,
+      "message": "defect? there is a way for the field string to be larger than 31, in this case there will be an issue with the constructed bson right?",
+      "range": {
+        "startLine": 197,
+        "startChar": 8,
+        "endLine": 199,
+        "endChar": 50
+      },
+      "revId": "e95eea5d6dc2aeb2dfe08a0c8d422504fa0f91e6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
