@@ -54,6 +54,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce7733e9_e38bfed3",
+        "filename": "include/robinhood/filter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-15T11:45:05Z",
+      "side": 1,
+      "message": "It\u0027s not possible simply because the code doesn\u0027t allow for it. I did not go all the way and made the feature completely generic because there is no need for that currently. Changing it won\u0027t be hard, I am willing to do it in another patch though, so I added a TODO.",
+      "parentUuid": "e6fafc83_285952d2",
+      "revId": "4ecb2403519dc7caef5c1d190c24bbc04aa35154",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15b9524f_17fe988a",
