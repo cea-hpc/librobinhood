@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "442a2ae0_31113967",
+        "filename": "include/robinhood/fsentry.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-18T15:44:46Z",
+      "side": 1,
+      "message": "question: why not 0x0080 ?",
+      "range": {
+        "startLine": 105,
+        "startChar": 30,
+        "endLine": 105,
+        "endChar": 36
+      },
+      "revId": "2539f12d55a0ce87c2a0f1a0ff16dbe7da5b8eda",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "078799f0_77d75fa5",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-18T15:44:46Z",
+      "side": 1,
+      "message": "suggest: as for rbh-fsevent an example of the JSON reprensentation would help understand this function. It seems to be generating this { \"key\": [ \"$A\", \"$B\" ] }",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 25
+      },
+      "revId": "2539f12d55a0ce87c2a0f1a0ff16dbe7da5b8eda",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d69c9a8a_1acc4961",
+        "filename": "src/backends/mongo/fields.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-18T15:44:46Z",
+      "side": 1,
+      "message": "question: does BSON_APPEND_ARRAY_BEGIN allow the second argument to be NULL?",
+      "range": {
+        "startLine": 213,
+        "startChar": 10,
+        "endLine": 213,
+        "endChar": 33
+      },
+      "revId": "2539f12d55a0ce87c2a0f1a0ff16dbe7da5b8eda",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86f9b120_94a2cfb1",
+        "filename": "src/backends/mongo/filter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-18T15:44:46Z",
+      "side": 1,
+      "message": "suggest:\n\n```\nkey \u003d field2str();\nif (!key \u0026\u0026 !in_expr)\n    return false;\n```",
+      "range": {
+        "startLine": 381,
+        "startChar": 4,
+        "endLine": 387,
+        "endChar": 5
+      },
+      "revId": "2539f12d55a0ce87c2a0f1a0ff16dbe7da5b8eda",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eddb1f78_5de7256c",
+        "filename": "src/filter.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-18T15:44:46Z",
+      "side": 1,
+      "message": "suggest: if data points to a buffer with enough space to hold a struct rbh_filter_field, you could do something like this:\n\nstruct rbh_filter_field *cpy \u003d (struct rbh_filter_field *)data;\n\ndest-\u003ecompute.fieldA \u003d cpy-\u003ecompute.fieldA;\n...\nsize -\u003d ...\n...\nfilter_field_copy...\n...",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 87,
+        "endChar": 46
+      },
+      "revId": "2539f12d55a0ce87c2a0f1a0ff16dbe7da5b8eda",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
