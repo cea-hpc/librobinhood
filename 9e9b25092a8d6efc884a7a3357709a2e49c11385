@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76fcab4d_1e97b727",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-30T10:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bcfa40c_b483094e",
+      "range": {
+        "startLine": 717,
+        "startChar": 3,
+        "endLine": 717,
+        "endChar": 19
+      },
+      "revId": "9e9b25092a8d6efc884a7a3357709a2e49c11385",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16042496_12be333b",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-30T10:24:22Z",
       "side": 1,
       "message": "the function max exists",
+      "range": {
+        "startLine": 736,
+        "startChar": 21,
+        "endLine": 737,
+        "endChar": 70
+      },
+      "revId": "9e9b25092a8d6efc884a7a3357709a2e49c11385",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ea98d8a_ac001a41",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-30T10:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16042496_12be333b",
       "range": {
         "startLine": 736,
         "startChar": 21,
