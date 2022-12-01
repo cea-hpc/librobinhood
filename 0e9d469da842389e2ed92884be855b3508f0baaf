@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b11fa2a3_089ec7ee",
+        "filename": "include/robinhood/backends/hestia.h.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-12-01T13:24:41Z",
+      "side": 1,
+      "message": "question: is it valid here? I do not think there is a root fsentry",
+      "range": {
+        "startLine": 25,
+        "startChar": 20,
+        "endLine": 25,
+        "endChar": 46
+      },
+      "revId": "0e9d469da842389e2ed92884be855b3508f0baaf",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "296a9e21_c6b68ae4",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-12-01T13:24:41Z",
+      "side": 1,
+      "message": "question: do we need to set the other operations to NULL?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 2
+      },
+      "revId": "0e9d469da842389e2ed92884be855b3508f0baaf",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
