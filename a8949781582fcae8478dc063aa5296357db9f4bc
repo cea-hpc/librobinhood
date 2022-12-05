@@ -72,6 +72,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f7ec35f_a1437508",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-05T16:18:09Z",
+      "side": 1,
+      "message": "I see you mean, my bad, removed.",
+      "parentUuid": "41650615_3227518b",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 23
+      },
+      "revId": "a8949781582fcae8478dc063aa5296357db9f4bc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19568275_cc15dadf",
