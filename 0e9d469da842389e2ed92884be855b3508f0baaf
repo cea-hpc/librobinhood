@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47830680_aa711573",
+        "filename": "include/robinhood/backends/hestia.h.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-05T09:11:47Z",
+      "side": 1,
+      "message": "No it\u0027s not valid, but it is required by the API on backends, they expect a path\nAdded a \"unused\" here and a \"attribute unused\" for more clarity",
+      "parentUuid": "b11fa2a3_089ec7ee",
+      "range": {
+        "startLine": 25,
+        "startChar": 20,
+        "endLine": 25,
+        "endChar": 46
+      },
+      "revId": "0e9d469da842389e2ed92884be855b3508f0baaf",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c185eaa_dad50291",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-02T15:52:04Z",
       "side": 1,
       "message": "minor: as long as we don\u0027t have any temporary C++ glue code, I would not put this here",
+      "range": {
+        "startLine": 9,
+        "startChar": 8,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "0e9d469da842389e2ed92884be855b3508f0baaf",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd6e12d0_cce3998f",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-05T09:11:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c185eaa_dad50291",
       "range": {
         "startLine": 9,
         "startChar": 8,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67da5ee2_8b9aeb83",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-05T09:11:47Z",
+      "side": 1,
+      "message": "They are set to NULL because it\u0027s a static variable, I don\u0027t understand the question",
+      "parentUuid": "296a9e21_c6b68ae4",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 2
+      },
+      "revId": "0e9d469da842389e2ed92884be855b3508f0baaf",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "74704523_52bbbd73",
         "filename": "src/backends/hestia/meson.build",
         "patchSetId": 1
@@ -83,6 +155,30 @@
       "writtenOn": "2022-12-02T15:52:04Z",
       "side": 1,
       "message": "minor: this is not used in this patch, no need to introduce C++ specific stuff.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 16
+      },
+      "revId": "0e9d469da842389e2ed92884be855b3508f0baaf",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9548ceb1_f48c579c",
+        "filename": "src/backends/hestia/meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-05T09:11:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74704523_52bbbd73",
       "range": {
         "startLine": 8,
         "startChar": 0,
@@ -106,6 +202,30 @@
       "writtenOn": "2022-12-02T15:52:04Z",
       "side": 1,
       "message": "major: this shouldn\u0027t be linked with C files",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 28
+      },
+      "revId": "0e9d469da842389e2ed92884be855b3508f0baaf",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d9a58b8_4f949f93",
+        "filename": "src/backends/hestia/meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-05T09:11:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b91de038_fa73c6e1",
       "range": {
         "startLine": 18,
         "startChar": 19,
