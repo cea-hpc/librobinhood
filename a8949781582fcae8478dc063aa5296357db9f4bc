@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a37d24c0_94e06e54",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-05T14:10:01Z",
+      "side": 1,
+      "message": "Yes it is, we will still have at least the access and modification time during the sync, and for the fsevents, we will most likely have all other statx aswell.",
+      "parentUuid": "91e90189_93e4a033",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 23
+      },
+      "revId": "a8949781582fcae8478dc063aa5296357db9f4bc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19568275_cc15dadf",
         "filename": "src/backends/hestia/plugin.c",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-05T13:15:47Z",
       "side": 1,
       "message": "minor: it seems a bit strange to define this in a different file. rbh_hestia_backend_new is define in hestia.c. But I guess the other backends work like this as well.",
+      "range": {
+        "startLine": 17,
+        "startChar": 50,
+        "endLine": 17,
+        "endChar": 75
+      },
+      "revId": "a8949781582fcae8478dc063aa5296357db9f4bc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fbbbf7f_9ecdd8e0",
+        "filename": "src/backends/hestia/plugin.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-05T14:10:01Z",
+      "side": 1,
+      "message": "Yes they all work like that.",
+      "parentUuid": "19568275_cc15dadf",
       "range": {
         "startLine": 17,
         "startChar": 50,
