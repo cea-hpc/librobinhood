@@ -166,6 +166,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef6c25b0_15554338",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-07T15:01:30Z",
+      "side": 1,
+      "message": "No, since the variable is static, it is set to 0, so there is no need to explicitly set all fields of the structure to NULL.",
+      "parentUuid": "71a435bb_a4c28922",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 2
+      },
+      "revId": "0e9d469da842389e2ed92884be855b3508f0baaf",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74704523_52bbbd73",
