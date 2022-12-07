@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faed8c4d_706141e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-12-07T15:34:56Z",
+      "side": 1,
+      "message": "typo: patch",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ad3fff8_c4fa8ab5",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-12-07T15:34:56Z",
+      "side": 1,
+      "message": "suggest: you should add a comment or use a more explicit name (or both).",
+      "range": {
+        "startLine": 22,
+        "startChar": 11,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eb31ea5_32487828",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-12-07T15:34:56Z",
+      "side": 1,
+      "message": "defect: double free at goto err line 77",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 8
+      },
+      "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aba3dac_190dc305",
+        "filename": "src/backends/hestia/hestia_glue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-12-07T15:34:56Z",
+      "side": 1,
+      "message": "suggest: use static_cast\u003cstruct hestia_id *\u003e(tmp)",
+      "range": {
+        "startLine": 41,
+        "startChar": 15,
+        "endLine": 41,
+        "endChar": 39
+      },
+      "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86372e22_e18eda8c",
+        "filename": "src/backends/hestia/hestia_glue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-12-07T15:34:56Z",
+      "side": 1,
+      "message": "suggest:\n\n```\nids_iter \u003d *ids + *ids_len;\n\nfor (auto obj_iter \u003d hestia_objects.begin(); obj_iter !\u003d hestia_objects.end(); obj_iter++) {\n    ids_iter-\u003ehigher \u003d obj_iter-\u003ehigher;\n    ids_iter-\u003elower \u003d obj_iter-\u003elower;\n    ids_iter++;\n}\n```",
+      "range": {
+        "startLine": 44,
+        "startChar": 12,
+        "endLine": 44,
+        "endChar": 67
+      },
+      "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
