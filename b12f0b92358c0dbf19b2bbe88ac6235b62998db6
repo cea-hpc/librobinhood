@@ -72,6 +72,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b59cf10b_f89b3304",
+        "filename": "src/backends/hestia/hestia_glue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-12-08T08:52:35Z",
+      "side": 1,
+      "message": "comment: we donnot have any C++ guidelines, but precising `struct` here is not mandatory in C++",
+      "range": {
+        "startLine": 25,
+        "startChar": 20,
+        "endLine": 25,
+        "endChar": 26
+      },
+      "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2aba3dac_190dc305",
         "filename": "src/backends/hestia/hestia_glue.cpp",
         "patchSetId": 1
@@ -111,6 +134,53 @@
         "startChar": 12,
         "endLine": 44,
         "endChar": 67
+      },
+      "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f37ae5c9_e5d32c49",
+        "filename": "src/backends/hestia/hestia_glue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-12-08T08:52:35Z",
+      "side": 1,
+      "message": "I may suggest this one:\n\n for (auto hestia_elt: hestia_objects) {\n     ids_iter-\u003ehigher \u003d hestia_elt.higher;\n     ids_iter-\u003elower \u003d hestia_elt.lower;\n     ids_iter++;\n }\n\nor maybe this one, but not sure about this:\n\n for (auto hestia_elt: hestia_objects)\n     *ids_iter++ \u003d elt;\n\nBut this may be a little complicated to read :p.",
+      "parentUuid": "86372e22_e18eda8c",
+      "range": {
+        "startLine": 44,
+        "startChar": 12,
+        "endLine": 44,
+        "endChar": 67
+      },
+      "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df2172b0_e86ca1aa",
+        "filename": "src/backends/hestia/hestia_glue.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-12-08T08:52:35Z",
+      "side": 1,
+      "message": "comment: I think we miss an include here (`cstdint`)\n\nAlso, I fall on this thread in SO, and maybe we need to use `std::uint64_t` instad of `uint64_t`.\n\nhttps://stackoverflow.com/questions/44667971/proper-use-includes-for-uint64-t-in-c",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 12
       },
       "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
