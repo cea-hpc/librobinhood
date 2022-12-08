@@ -93,6 +93,30 @@
       },
       "revId": "aa6fc8ada0f0a0489aae986d9c7b4bfbe538da70",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb3fc58c_e5f9b2c5",
+        "filename": "src/backends/hestia/hestia_glue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-12-08T12:52:40Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you have included stdio.h instead?",
+      "parentUuid": "5922fcbc_0a3d4630",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 18
+      },
+      "revId": "aa6fc8ada0f0a0489aae986d9c7b4bfbe538da70",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
