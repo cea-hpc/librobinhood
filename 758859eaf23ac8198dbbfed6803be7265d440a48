@@ -22,6 +22,30 @@
       },
       "revId": "758859eaf23ac8198dbbfed6803be7265d440a48",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21097dc0_a3880805",
+        "filename": "src/backends/hestia/hestia_glue.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-08T14:09:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f5b85fd_8acc7272",
+      "range": {
+        "startLine": 26,
+        "startChar": 8,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "758859eaf23ac8198dbbfed6803be7265d440a48",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
