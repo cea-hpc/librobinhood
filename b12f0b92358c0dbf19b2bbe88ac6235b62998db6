@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bca986a_bc7c3122",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-08T12:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "faed8c4d_706141e6",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ad3fff8_c4fa8ab5",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-07T15:34:56Z",
       "side": 1,
       "message": "suggest: you should add a comment or use a more explicit name (or both).",
+      "range": {
+        "startLine": 22,
+        "startChar": 11,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4aaf233c_b214db33",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-08T12:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ad3fff8_c4fa8ab5",
       "range": {
         "startLine": 22,
         "startChar": 11,
@@ -70,6 +118,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c23425eb_04a5587c",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-08T12:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6eb31ea5_32487828",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 8
+      },
+      "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b59cf10b_f89b3304",
@@ -93,6 +165,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfac0d52_7ea1280c",
+        "filename": "src/backends/hestia/hestia_glue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-08T12:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b59cf10b_f89b3304",
+      "range": {
+        "startLine": 25,
+        "startChar": 20,
+        "endLine": 25,
+        "endChar": 26
+      },
+      "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2aba3dac_190dc305",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-12-07T15:34:56Z",
       "side": 1,
       "message": "suggest: use static_cast\u003cstruct hestia_id *\u003e(tmp)",
+      "range": {
+        "startLine": 41,
+        "startChar": 15,
+        "endLine": 41,
+        "endChar": 39
+      },
+      "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c796b7e4_a0002445",
+        "filename": "src/backends/hestia/hestia_glue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-08T12:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2aba3dac_190dc305",
       "range": {
         "startLine": 41,
         "startChar": 15,
@@ -163,6 +283,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80503c29_1018ee6c",
+        "filename": "src/backends/hestia/hestia_glue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-08T12:49:49Z",
+      "side": 1,
+      "message": "Done for the second suggestion, the third one cannot be done since hestia_id and hsm_uint are different types.",
+      "parentUuid": "f37ae5c9_e5d32c49",
+      "range": {
+        "startLine": 44,
+        "startChar": 12,
+        "endLine": 44,
+        "endChar": 67
+      },
+      "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df2172b0_e86ca1aa",
@@ -176,6 +320,30 @@
       "writtenOn": "2022-12-08T08:52:35Z",
       "side": 1,
       "message": "comment: I think we miss an include here (`cstdint`)\n\nAlso, I fall on this thread in SO, and maybe we need to use `std::uint64_t` instad of `uint64_t`.\n\nhttps://stackoverflow.com/questions/44667971/proper-use-includes-for-uint64-t-in-c",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "b12f0b92358c0dbf19b2bbe88ac6235b62998db6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48eabddf_6e4dfe12",
+        "filename": "src/backends/hestia/hestia_glue.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-08T12:49:49Z",
+      "side": 1,
+      "message": "Since this code is included by the C file, I cannot use the std namespace and include cstdint, so instead I added stdint.h.",
+      "parentUuid": "df2172b0_e86ca1aa",
       "range": {
         "startLine": 9,
         "startChar": 4,
