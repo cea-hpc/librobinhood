@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f89f824e_ff930207",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-12-08T13:16:10Z",
+      "side": 1,
+      "message": "suggest: I think you should add a FIXME which indicates that this is temporary until either hestia provides a simpler API or you use a library to parse JSON.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 9
+      },
+      "revId": "e3b85a89b8e510938ff399a3013e45601c908a2d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a8f96d5_e400c980",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-12-08T13:16:10Z",
+      "side": 1,
+      "message": "minor: this is not very robust. It allows \"-1\", \"123abcd\" and even abcd. You should check that the end of the parsed integer points to the corresponding \u0027\"\u0027 and also that the first character is not \u0027-\u0027. Also, according to the man page, ERANGE is not the only error that can be returned. Some implementation may return EINVAL.\n\nYou should check whether errno is 0 or not. I don\u0027t think the check for overflow is necessary here. As long as errno is 0 and the end of the parsed string is \u0027\"\u0027, the integer should be valid.",
+      "range": {
+        "startLine": 55,
+        "startChar": 8,
+        "endLine": 55,
+        "endChar": 37
+      },
+      "revId": "e3b85a89b8e510938ff399a3013e45601c908a2d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
