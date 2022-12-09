@@ -22,6 +22,30 @@
       },
       "revId": "5c45156a144ecf6f73d49dc0fd5b54282972141d",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "246cd4a8_be5c585a",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-09T11:03:43Z",
+      "side": 1,
+      "message": "I didn\u0027t consider this indeed, it would better to check that found - 1 is a quote, and found + 1 is also a quote, else we strstr again...",
+      "parentUuid": "d2437ec1_b06f56ad",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "5c45156a144ecf6f73d49dc0fd5b54282972141d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
