@@ -22,6 +22,30 @@
       },
       "revId": "421f61b56692747d2904729e57bf9a348276279c",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "818e936e_fe4d351c",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-09T13:12:04Z",
+      "side": 1,
+      "message": "Well yes, that\u0027s a given, I\u0027ve also assumed that for the position of the value compared to the key (the +2 below for the `\":`), the value which is an unsigned integer, the end of each value which is a `,` or `}`. There are a lot of assumptions here, and will be mitigated by a proper json library.",
+      "parentUuid": "c8732a1a_553a29ac",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 62
+      },
+      "revId": "421f61b56692747d2904729e57bf9a348276279c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
