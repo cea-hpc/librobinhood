@@ -46,6 +46,30 @@
       },
       "revId": "421f61b56692747d2904729e57bf9a348276279c",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78378af6_4bab4dcf",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-12-09T15:04:12Z",
+      "side": 1,
+      "message": "defect: found - 1 is an invalid pointer if found \u003d\u003d json_attrs. Also, if attr is at the end of the string, found + strlen(attr) is invalid.",
+      "parentUuid": "818e936e_fe4d351c",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 62
+      },
+      "revId": "421f61b56692747d2904729e57bf9a348276279c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
