@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2437ec1_b06f56ad",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-12-09T11:00:45Z",
+      "side": 1,
+      "message": "question: don\u0027t we need to verify the following characters are in fact a quote and a colon?\n\nIn case we search for the attr `blob` and we get the keys `bliblob` or `bloblib`. It seems that all the combinations are considered valid.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "5c45156a144ecf6f73d49dc0fd5b54282972141d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
