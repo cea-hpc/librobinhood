@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8732a1a_553a29ac",
+        "filename": "src/backends/hestia/hestia.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-12-09T12:23:46Z",
+      "side": 1,
+      "message": "comment: ok, we know this function will only be used temporarily, and only to check the hestia string here that mandatory starts with a `{\"` so I will not block on this one. But for any string, we need to check if `found` is not equal to `json_attrs` or it is not valid.",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 62
+      },
+      "revId": "421f61b56692747d2904729e57bf9a348276279c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
