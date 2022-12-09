@@ -22,6 +22,30 @@
       },
       "revId": "c76c8c4ecbcdc69c4836a4123caca16af5d05739",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "439cbc92_d40e6424",
+        "filename": "include/robinhood/id.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-09T13:14:00Z",
+      "side": 1,
+      "message": "True, I did not think about that, but in that case, wouldn\u0027t it be better to have two separate functions ? `rbh_mut_lu_fid_from_id` which returns a copy of the fid which can be modified, and `rbh_const_lu_fid_from_id` which is the current version and return a `const struct lu_fid` as you suggested ?",
+      "parentUuid": "0f03358c_cc55ada3",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 15
+      },
+      "revId": "c76c8c4ecbcdc69c4836a4123caca16af5d05739",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
