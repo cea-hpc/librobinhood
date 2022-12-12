@@ -16,6 +16,24 @@
       "message": "Of course I didn\u0027t understand everything for this first review inside the \"RBH4 project\" ... But, my main comment is about the json parsing : why not using a C lib json parsing as jansson for example (https://jansson.readthedocs.io/en/latest/) ?",
       "revId": "27f1a72d6c25cba2c22c392afd71554162cd9e0f",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f21468c_f32a2ee8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-12T10:26:11Z",
+      "side": 1,
+      "message": "This is already planned for a later upgrade, currently we wanted something workable fast, which I did with this patch. But the next patch for this backend will be the use of Jansson yes.",
+      "parentUuid": "d5a32c2f_653b5ded",
+      "revId": "27f1a72d6c25cba2c22c392afd71554162cd9e0f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
