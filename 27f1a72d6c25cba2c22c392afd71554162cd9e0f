@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5a32c2f_653b5ded",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1008040
+      },
+      "writtenOn": "2022-12-12T08:54:25Z",
+      "side": 1,
+      "message": "Of course I didn\u0027t understand everything for this first review inside the \"RBH4 project\" ... But, my main comment is about the json parsing : why not using a C lib json parsing as jansson for example (https://jansson.readthedocs.io/en/latest/) ?",
+      "revId": "27f1a72d6c25cba2c22c392afd71554162cd9e0f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
