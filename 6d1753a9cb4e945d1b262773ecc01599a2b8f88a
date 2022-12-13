@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16e2386b_1c683b85",
+        "filename": "include/robinhood/backends/hestia.h.in",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-12-13T22:34:52Z",
+      "side": 1,
+      "message": "nit: unused attribute doesn\u0027t really make sense in the header; that\u0027ll be two places to change if it becomes used in the future",
+      "revId": "6d1753a9cb4e945d1b262773ecc01599a2b8f88a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "883a03f6_04fb2361",
+        "filename": "include/robinhood/backends/meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-12-13T22:34:52Z",
+      "side": 1,
+      "message": "(for later) perhaps might be worth making each backend optional at some point if we keep adding backends (through e.g. meson feature options); but since we\u0027re not doing that with any other backend afaik and hestia doesn\u0027t seem to have any dependency(? first time I heard about it, can\u0027t find any info...) it doesn\u0027t have to be now.",
+      "revId": "6d1753a9cb4e945d1b262773ecc01599a2b8f88a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
