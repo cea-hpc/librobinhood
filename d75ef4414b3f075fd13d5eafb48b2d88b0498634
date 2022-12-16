@@ -45,6 +45,30 @@
       },
       "revId": "d75ef4414b3f075fd13d5eafb48b2d88b0498634",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fec2191_3dc9a266",
+        "filename": "doc/internals.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-16T08:52:07Z",
+      "side": 1,
+      "message": "Mostly because when built it, we thought it was to be used only on Lustre filesystems, and solely for Lustre files, but the need shifted, and now it should be usable for POSIX filesystems too.",
+      "parentUuid": "9fcf8ecf_bbe32843",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 35
+      },
+      "revId": "d75ef4414b3f075fd13d5eafb48b2d88b0498634",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
