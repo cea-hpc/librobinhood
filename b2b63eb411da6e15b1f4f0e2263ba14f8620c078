@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "836fb12a_f497a61e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-16T08:53:25Z",
+      "side": 1,
+      "message": "This patch should not be reviewed, it also only here because of how I managed the patch with regard to branches and rebase, but it will not be merged in this branch.\nThe patch in the main branch is the correct one.",
+      "revId": "b2b63eb411da6e15b1f4f0e2263ba14f8620c078",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
