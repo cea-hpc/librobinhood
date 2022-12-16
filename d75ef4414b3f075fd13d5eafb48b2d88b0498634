@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9c42fd6_11de01c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1008040
+      },
+      "writtenOn": "2022-12-16T08:49:21Z",
+      "side": 1,
+      "message": "minor: on ?",
+      "range": {
+        "startLine": 10,
+        "startChar": 16,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "d75ef4414b3f075fd13d5eafb48b2d88b0498634",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fcf8ecf_bbe32843",
+        "filename": "doc/internals.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1008040
+      },
+      "writtenOn": "2022-12-16T08:49:21Z",
+      "side": 1,
+      "message": "question: why retention are only on Lustre backend ? It seems to use only xattrs mecanism which is also available on a POSIX FS. Because Lustre backend is already an extension of the POSIX backend and xattrs are available on a POSIX FS, why this feature is not available on POSIX backend ?",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 35
+      },
+      "revId": "d75ef4414b3f075fd13d5eafb48b2d88b0498634",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
