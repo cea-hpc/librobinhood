@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c300c22e_db9db54b",
+        "filename": "doc/internals.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-12-16T10:00:41Z",
+      "side": 1,
+      "message": "typo: POSIX backend, provides the same features and fill the same goals.",
+      "range": {
+        "startLine": 148,
+        "startChar": 60,
+        "endLine": 148,
+        "endChar": 64
+      },
+      "revId": "0799e5c35d1a8f7155f3114140f25b5a56b48b3f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c49d5f8f_4ba92724",
+        "filename": "doc/internals.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-12-16T10:00:41Z",
+      "side": 1,
+      "message": "suggest: I prefer it in caps -\u003e ID",
+      "range": {
+        "startLine": 153,
+        "startChar": 25,
+        "endLine": 153,
+        "endChar": 27
+      },
+      "revId": "0799e5c35d1a8f7155f3114140f25b5a56b48b3f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
