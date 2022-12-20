@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "404d9741_207517f0",
+        "filename": "doc/internals.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-20T14:26:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c300c22e_db9db54b",
+      "range": {
+        "startLine": 148,
+        "startChar": 60,
+        "endLine": 148,
+        "endChar": 64
+      },
+      "revId": "0799e5c35d1a8f7155f3114140f25b5a56b48b3f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c49d5f8f_4ba92724",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-16T10:00:41Z",
       "side": 1,
       "message": "suggest: I prefer it in caps -\u003e ID",
+      "range": {
+        "startLine": 153,
+        "startChar": 25,
+        "endLine": 153,
+        "endChar": 27
+      },
+      "revId": "0799e5c35d1a8f7155f3114140f25b5a56b48b3f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b5fc0a4_48b45c01",
+        "filename": "doc/internals.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-20T14:26:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c49d5f8f_4ba92724",
       "range": {
         "startLine": 153,
         "startChar": 25,
