@@ -50,6 +50,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fcf3174b_e1e2c4f7",
+        "filename": "doc/internals.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-01-03T08:39:49Z",
+      "side": 1,
+      "message": "minor: instead of current epoch, it\u0027s the queried_epoch given to as a parameter to rbh-find.",
+      "range": {
+        "startLine": 180,
+        "startChar": 57,
+        "endLine": 180,
+        "endChar": 70
+      },
+      "revId": "d75ef4414b3f075fd13d5eafb48b2d88b0498634",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9fcf8ecf_bbe32843",
         "filename": "doc/internals.rst",
         "patchSetId": 1
