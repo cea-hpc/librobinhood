@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf5dede6_08543d56",
+        "filename": "doc/internals.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-01-11T15:02:40Z",
+      "side": 1,
+      "message": "question: is this really the case? we do prefer having the retention as a configurable attribute for every backend, right?",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 35
+      },
+      "revId": "74f08745572577b9ffba69f23d320c7ab2d5ae1f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
