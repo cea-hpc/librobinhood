@@ -22,6 +22,30 @@
       },
       "revId": "74f08745572577b9ffba69f23d320c7ab2d5ae1f",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "679f63df_c22dc56f",
+        "filename": "doc/internals.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-02T10:52:26Z",
+      "side": 1,
+      "message": "After some more talk, yes the retention will be implemented a general option later down the line, using a configuration file.\n\nAlso this patch will be abandoned because 547506 is the correct one (on the correct branch, I really f-ed up with these 4 patches...)",
+      "parentUuid": "cf5dede6_08543d56",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 35
+      },
+      "revId": "74f08745572577b9ffba69f23d320c7ab2d5ae1f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
