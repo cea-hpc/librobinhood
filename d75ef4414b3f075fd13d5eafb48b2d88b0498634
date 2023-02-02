@@ -71,6 +71,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "234d842d_42a97e72",
+        "filename": "doc/internals.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-02T10:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcf3174b_e1e2c4f7",
+      "range": {
+        "startLine": 180,
+        "startChar": 57,
+        "endLine": 180,
+        "endChar": 70
+      },
+      "revId": "d75ef4414b3f075fd13d5eafb48b2d88b0498634",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fcf8ecf_bbe32843",
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "Mostly because when built it, we thought it was to be used only on Lustre filesystems, and solely for Lustre files, but the need shifted, and now it should be usable for POSIX filesystems too.",
       "parentUuid": "9fcf8ecf_bbe32843",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 35
+      },
+      "revId": "d75ef4414b3f075fd13d5eafb48b2d88b0498634",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee6a8481_47ceebb7",
+        "filename": "doc/internals.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-02T10:54:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3fec2191_3dc9a266",
       "range": {
         "startLine": 184,
         "startChar": 0,
