@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8580cd34_6d77e85c",
+        "filename": "README.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T14:22:59Z",
+      "side": 1,
+      "message": "minor: you\u0027re missing rbh-lfind",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 1
+      },
+      "revId": "5d00c5d5c83a9f9ef64dc71a94aca8b02bfad330",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd5b0ce9_1b6f84a0",
+        "filename": "doc/internals.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T14:22:59Z",
+      "side": 1,
+      "message": "minor: I find this sentence a bit strange. I would simply say: using changelog events from the backend storage system.",
+      "range": {
+        "startLine": 432,
+        "startChar": 62,
+        "endLine": 433,
+        "endChar": 29
+      },
+      "revId": "5d00c5d5c83a9f9ef64dc71a94aca8b02bfad330",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a99f1397_97ec51b6",
+        "filename": "doc/internals.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T14:22:59Z",
+      "side": 1,
+      "message": "suggest: scan with",
+      "range": {
+        "startLine": 437,
+        "startChar": 62,
+        "endLine": 437,
+        "endChar": 77
+      },
+      "revId": "5d00c5d5c83a9f9ef64dc71a94aca8b02bfad330",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
