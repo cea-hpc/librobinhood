@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/ioctl.h>
+#include <sys/types.h>
+#include <sys/xattr.h>
 
 #include <lustre/lustreapi.h>
 
@@ -450,28 +452,16 @@ xattrs_fill_layout(struct iterator_data *data, int nb_xattrs,
     return subcount;
 }
 
-/**
- * Record a file's magic number and layout generation in \p pairs
- *
- * @param fd        file descriptor to check
- * @param pairs     list of pairs to fill
- *
- * @return          number of filled \p pairs
- */
 static int
-xattrs_get_magic_and_gen(int fd, struct rbh_value_pair *pairs)
+_xattrs_get_magic_and_gen(int fd, const char *lov_buf,
+                          struct rbh_value_pair *pairs)
 {
-    const char *lov_buf;
     uint32_t magic = 0;
     int magic_str_len;
     int subcount = 0;
     uint32_t gen = 0;
     char *magic_str;
     int rc;
-
-    for (int i = 0; i < *_inode_xattrs_count; ++i)
-        if (!strcmp(_inode_xattrs[i].key, XATTR_LUSTRE_LOV))
-            lov_buf = _inode_xattrs[i].value->binary.data;
 
     magic = ((struct lov_user_md *) lov_buf)->lmm_magic;
 
@@ -521,6 +511,60 @@ xattrs_get_magic_and_gen(int fd, struct rbh_value_pair *pairs)
         return -1;
 
     return subcount;
+}
+
+/**
+ * Record a file's magic number and layout generation in \p pairs
+ *
+ * @param fd        file descriptor to check
+ * @param pairs     list of pairs to fill
+ *
+ * @return          number of filled \p pairs
+ */
+static int
+xattrs_get_magic_and_gen(int fd, struct rbh_value_pair *pairs)
+{
+    const char *lov_buf;
+    char *buffer = NULL;
+    ssize_t length;
+    int save_errno;
+    int rc;
+
+    if (_inode_xattrs != NULL) {
+        for (int i = 0; i < *_inode_xattrs_count; ++i)
+            if (!strcmp(_inode_xattrs[i].key, XATTR_LUSTRE_LOV)) {
+                lov_buf = _inode_xattrs[i].value->binary.data;
+                break;
+            }
+    } else {
+    /* TODO: when the attribute will be retrieved using the changelog,
+     * change the xattr retrieval by seeking the one already retrieved.
+     */
+        length = fgetxattr(fd, XATTR_LUSTRE_LOV, buffer, 0);
+        if (length == -1)
+            return -1;
+
+        buffer = malloc(length * sizeof(buffer));
+        if (buffer == NULL)
+            return -1;
+
+        length = fgetxattr(fd, XATTR_LUSTRE_LOV, buffer, length);
+        if (length == -1) {
+            save_errno = errno;
+            free(buffer);
+            errno = save_errno;
+            return -1;
+        }
+
+        lov_buf = buffer;
+    }
+
+    rc = _xattrs_get_magic_and_gen(fd, lov_buf, pairs);
+    save_errno = errno;
+    free(buffer);
+    errno = save_errno;
+
+    return rc;
 }
 
 /**
@@ -692,15 +736,14 @@ xattrs_get_mdt_info(int fd, struct rbh_value_pair *pairs)
 }
 
 static ssize_t
-lustre_ns_xattrs_callback(const int fd, const uint16_t mode,
-                          struct rbh_value_pair *inode_xattrs,
-                          ssize_t *inode_xattrs_count,
-                          struct rbh_value_pair *pairs,
-                          struct rbh_sstack *values)
+_get_attrs(const int fd, const uint16_t mode,
+           int (*attrs_funcs[])(int, struct rbh_value_pair *),
+           int nb_attrs_funcs,
+           struct rbh_value_pair *inode_xattrs,
+           ssize_t *inode_xattrs_count,
+           struct rbh_value_pair *pairs,
+           struct rbh_sstack *values)
 {
-    int (*xattrs_funcs[])(int, struct rbh_value_pair *) = {
-        xattrs_get_fid, xattrs_get_hsm, xattrs_get_layout, xattrs_get_mdt_info
-    };
     int count = 0;
     int subcount;
 
@@ -711,8 +754,8 @@ lustre_ns_xattrs_callback(const int fd, const uint16_t mode,
     is_reg = S_ISREG(mode);
     _values = values;
 
-    for (int i = 0; i < sizeof(xattrs_funcs) / sizeof(xattrs_funcs[0]); ++i) {
-        subcount = xattrs_funcs[i](fd, &pairs[count]);
+    for (int i = 0; i < nb_attrs_funcs; ++i) {
+        subcount = attrs_funcs[i](fd, &pairs[count]);
         if (subcount == -1)
             return -1;
 
@@ -720,6 +763,36 @@ lustre_ns_xattrs_callback(const int fd, const uint16_t mode,
     }
 
     return count;
+}
+
+ssize_t
+lustre_get_attrs(const int fd, const uint16_t mode,
+                 struct rbh_value_pair *pairs,
+                 struct rbh_sstack *values)
+{
+    int (*xattrs_funcs[])(int, struct rbh_value_pair *) = {
+        xattrs_get_hsm, xattrs_get_layout, xattrs_get_mdt_info
+    };
+
+    return _get_attrs(fd, mode, xattrs_funcs,
+                      sizeof(xattrs_funcs) / sizeof(xattrs_funcs[0]),
+                      NULL, NULL, pairs, values);
+}
+
+static ssize_t
+lustre_ns_xattrs_callback(const int fd, const uint16_t mode,
+                          struct rbh_value_pair *inode_xattrs,
+                          ssize_t *inode_xattrs_count,
+                          struct rbh_value_pair *pairs,
+                          struct rbh_sstack *values)
+{
+    int (*xattrs_funcs[])(int, struct rbh_value_pair *) = {
+        xattrs_get_fid, xattrs_get_hsm, xattrs_get_layout, xattrs_get_mdt_info
+    };
+
+    return _get_attrs(fd, mode, xattrs_funcs,
+                      sizeof(xattrs_funcs) / sizeof(xattrs_funcs[0]),
+                      inode_xattrs, inode_xattrs_count, pairs, values);
 }
 
 struct posix_iterator *

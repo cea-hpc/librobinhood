@@ -18,3 +18,13 @@ librbh_lustre = library(
     include_directories: rbh_include,
     install: true,
 )
+
+# Build a .pc file
+pkg_mod = import('pkgconfig')
+pkg_mod.generate(
+    libraries: librbh_lustre,
+    version: meson.project_version(),
+    name: 'librbh-lustre',
+    filebase: 'rbh-lustre',
+    description: 'Internals of robinhood lustre backend'
+)

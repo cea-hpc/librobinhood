@@ -59,7 +59,7 @@ librbh_lustre_version = '@0@.@1@.@2@'.format(
 librbh_lustre_h = configure_file(input: 'lustre.h.in', output: 'lustre.h',
                                  configuration: librbh_lustre_conf)
 
-install_headers(librbh_lustre_h, subdir: 'robinhood/backends')
+install_headers(librbh_lustre_h, 'lustre_attrs.h', subdir: 'robinhood/backends')
 
 # Hestia backend
 
