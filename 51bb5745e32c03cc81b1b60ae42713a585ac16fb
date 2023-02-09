@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e1667b5_1f33bcbf",
+        "filename": "include/robinhood/backends/lustre_attrs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T10:41:34Z",
+      "side": 1,
+      "message": "typo: 2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "51bb5745e32c03cc81b1b60ae42713a585ac16fb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "530e6493_cd320dce",
+        "filename": "include/robinhood/backends/lustre_attrs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T10:41:34Z",
+      "side": 1,
+      "message": "suggest: attributes",
+      "range": {
+        "startLine": 14,
+        "startChar": 53,
+        "endLine": 14,
+        "endChar": 64
+      },
+      "revId": "51bb5745e32c03cc81b1b60ae42713a585ac16fb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21e175a1_1b82e624",
+        "filename": "include/robinhood/backends/lustre_attrs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T10:41:34Z",
+      "side": 1,
+      "message": "suggest: attrs",
+      "range": {
+        "startLine": 20,
+        "startChar": 41,
+        "endLine": 20,
+        "endChar": 45
+      },
+      "revId": "51bb5745e32c03cc81b1b60ae42713a585ac16fb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0e8e5bf_3569e883",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T10:41:34Z",
+      "side": 1,
+      "message": "suggest: use a static array of length equal to the value defined in the posix backend, ligne 193. That would prevent this call and the malloc",
+      "range": {
+        "startLine": 543,
+        "startChar": 9,
+        "endLine": 543,
+        "endChar": 60
+      },
+      "revId": "51bb5745e32c03cc81b1b60ae42713a585ac16fb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "845a3349_ee96a468",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T10:41:34Z",
+      "side": 1,
+      "message": "suggest: I think what [@Guillaume Courrier] proposed was to have this function and the other one use an enum as parameter, which would indicate the attribute to retrieve from the backend. For instance, `lust_get_attrs(fd, ..., RBH_LUSTRE_HSM_STATE)` would retrieve the HSM state for the given fd and put that in the pairs given. For a general sync, it would be something like `RBH_LUSTRE_ALL`, but since we will need some specific values at certain times in rbh-fsevents, this behaviour seems easier to use. This can be done in a following patch of course",
+      "range": {
+        "startLine": 769,
+        "startChar": 0,
+        "endLine": 769,
+        "endChar": 16
+      },
+      "revId": "51bb5745e32c03cc81b1b60ae42713a585ac16fb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
