@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74dfb8af_92d7de5c",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-16T09:20:39Z",
+      "side": 1,
+      "message": "defect: -ENODATA",
+      "range": {
+        "startLine": 167,
+        "startChar": 20,
+        "endLine": 167,
+        "endChar": 27
+      },
+      "revId": "0230dc77d0276b9b364ca5360798e6f27d4fc679",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
