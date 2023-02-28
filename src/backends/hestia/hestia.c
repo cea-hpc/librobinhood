@@ -73,7 +73,7 @@ fill_xattrs(json_t *value, struct rbh_value *_value,
         rc = asprintf(&val_str, "%s", json_string_value(value));
         break;
     case JSON_INTEGER:
-        rc = asprintf(&val_str, "%"PRId64, json_integer_value(value));
+        rc = asprintf(&val_str, "%llu", json_integer_value(value));
         break;
     case JSON_REAL:
         rc = asprintf(&val_str, "%f", json_real_value(value));
