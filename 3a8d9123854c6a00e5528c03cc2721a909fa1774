@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28c0602f_6e4c98bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-03T10:11:13Z",
+      "side": 1,
+      "message": "Just one small issue with the use of buffer in xattr_get_magic_and_gen.",
+      "revId": "3a8d9123854c6a00e5528c03cc2721a909fa1774",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "002a36ec_f2d4c95d",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-03T10:11:13Z",
+      "side": 1,
+      "message": "major: I\u0027m not sure this is legal C code. An automatic variable is bound to its scope so technicaly, I don\u0027t think you should extend the use of `buffer` outside of the else statement by storing a pointer to it in `lov_buf`. You should move the declaration of `buffer` outside of the else statement I think. Otherwise, the call to `_xattrs_get_magic_and_gen` and the local variable it uses may overwrite the content of `buffer`.",
+      "range": {
+        "startLine": 556,
+        "startChar": 8,
+        "endLine": 556,
+        "endChar": 25
+      },
+      "revId": "3a8d9123854c6a00e5528c03cc2721a909fa1774",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}

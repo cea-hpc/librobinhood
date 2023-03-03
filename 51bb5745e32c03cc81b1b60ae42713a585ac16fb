@@ -258,6 +258,30 @@
       },
       "revId": "51bb5745e32c03cc81b1b60ae42713a585ac16fb",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baf8868d_30589f7f",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-03T10:11:13Z",
+      "side": 1,
+      "message": "I think we could also make it more generic and add it as a backend callback in the futur. We might also consider adding the statx stuff to it as well since this is posix/lustre specific but cannot be applied to hestia for example. We will run into some issues, I think, when we will try to implement an enricher for Hestia in rbh-fsevents.\n\nAnd for optimizations purposes, the enum argument should probably be a bit field so that we can query several related arguments if necessary. Some backends may be able to do some optimizations based on which fields are queried. But these are just futur improvement ideas. The current state of the patch is probably good enough for the current Lustre specific needs.",
+      "parentUuid": "12b609e8_c2380c30",
+      "range": {
+        "startLine": 769,
+        "startChar": 0,
+        "endLine": 769,
+        "endChar": 16
+      },
+      "revId": "51bb5745e32c03cc81b1b60ae42713a585ac16fb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
