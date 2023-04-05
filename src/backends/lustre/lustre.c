@@ -7,6 +7,7 @@
 #include <sys/ioctl.h>
 
 #include <lustre/lustreapi.h>
+#include <linux/lustre/lustre_idl.h>
 
 #include "robinhood/backends/posix.h"
 #include "robinhood/backends/posix_internal.h"
@@ -640,6 +641,7 @@ static int
 xattrs_get_mdt_info(int fd, struct rbh_value_pair *pairs)
 {
     int subcount = 0;
+    int32_t mdt;
     int rc = 0;
 
     if (is_dir) {
@@ -679,9 +681,9 @@ xattrs_get_mdt_info(int fd, struct rbh_value_pair *pairs)
                               &pairs[subcount++]);
         if (rc)
             return -1;
-    } else if (!is_symlink) {
-        int32_t mdt;
+    }
 
+    if (!is_symlink) {
         rc = llapi_file_fget_mdtidx(fd, &mdt);
         if (rc)
             return -1;
