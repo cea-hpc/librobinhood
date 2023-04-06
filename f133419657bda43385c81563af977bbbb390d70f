@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df93116e_f3e76314",
+        "filename": "include/robinhood/backends/lustre_attrs.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-06T14:51:49Z",
+      "side": 1,
+      "message": "Well, the function is not public anymore.",
+      "parentUuid": "534b3707_4799b844",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "f133419657bda43385c81563af977bbbb390d70f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48c5cf2f_9118f732",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-05T08:55:56Z",
       "side": 1,
       "message": "minor: I think I suggested somewhere that this library\u0027s name should contain backend to make it more clear that this is backend specific stuff. Something like librbh-backend-lustre.\n\nAlso, I think it would make sense to expose this as part of the backend\u0027s API with a function like rbh_backend_get_attribute but I think this was postponed to later? This would remove the need for exporting this library.",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 24
+      },
+      "revId": "f133419657bda43385c81563af977bbbb390d70f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2ccbcb0_385643a4",
+        "filename": "src/backends/lustre/meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-06T14:51:49Z",
+      "side": 1,
+      "message": "Ok for the rbh_backend_get_attribute (see the previous patch on the stack).\n\nThe libraries will be renamed in a further patch.",
+      "parentUuid": "48c5cf2f_9118f732",
       "range": {
         "startLine": 27,
         "startChar": 11,
