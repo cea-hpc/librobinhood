@@ -4,7 +4,8 @@
 #
 # SPDX-License-Identifer: LGPL-3.0-or-later
 
-liblustre = dependency('lustre', disabler: true, required: false)
+cc = meson.get_compiler('c')
+liblustre = cc.find_library('lustreapi', disabler: true, required: false)
 
 librbh_lustre = library(
     'rbh-lustre',
