@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec10974a_aaafb6aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-02T12:50:04Z",
+      "side": 1,
+      "message": "This was introduced by 0cd27809545d4e786864c59958f7520ab0315bfb\n\nThis patch is a quickfix, it would be better to only allocate these structures once the first time and reuse them between calls to posix_iter_next. After looking quickly at the code, I don\u0027t see why the global variables where made local. But in case there is a reason, I left them local for now.",
+      "revId": "53c5ba94e24947e8294952dc7cbfcac2c4ecf529",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
