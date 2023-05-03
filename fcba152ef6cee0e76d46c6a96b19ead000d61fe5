@@ -16,6 +16,24 @@
       "message": "That doesn\u0027t really make sense though, does it? It\u0027s just slowing down exit, and not actually helping with debug: valgrind and friends will consider global variables as \"still reachable\" and not report these as leaks on exit.\nIn the leak you described above, pointers would previously become unreachable again and would be reported. I don\u0027t understand how this helps.\n\nIt doesn\u0027t really matter either way (the destructors don\u0027t actively hurt), but it should be separate patches in my opinion.",
       "revId": "fcba152ef6cee0e76d46c6a96b19ead000d61fe5",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99adbd0d_a8a1ea22",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-03T08:26:56Z",
+      "side": 1,
+      "message": "I have the habit of running valgrind with --show-leak-kinds\u003dall which displays every leak but I can see your point. If you really don\u0027t want the destructors, I can remove them. I can make it a seperate patch if you don\u0027t mind keeping it or simply remove it. I can also land this in one patch if you are fine with the current version since the patch is already there.",
+      "parentUuid": "80a1cdb2_c14f0772",
+      "revId": "fcba152ef6cee0e76d46c6a96b19ead000d61fe5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
