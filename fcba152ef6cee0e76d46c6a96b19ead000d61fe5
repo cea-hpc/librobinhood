@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80a1cdb2_c14f0772",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2023-05-03T08:02:09Z",
+      "side": 1,
+      "message": "That doesn\u0027t really make sense though, does it? It\u0027s just slowing down exit, and not actually helping with debug: valgrind and friends will consider global variables as \"still reachable\" and not report these as leaks on exit.\nIn the leak you described above, pointers would previously become unreachable again and would be reported. I don\u0027t understand how this helps.\n\nIt doesn\u0027t really matter either way (the destructors don\u0027t actively hurt), but it should be separate patches in my opinion.",
+      "revId": "fcba152ef6cee0e76d46c6a96b19ead000d61fe5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
