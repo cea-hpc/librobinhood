@@ -2,6 +2,7 @@
 # include "config.h"
 #endif
 
+#include <fcntl.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/ioctl.h>
@@ -9,6 +10,7 @@
 #include <sys/xattr.h>
 
 #include <lustre/lustreapi.h>
+#include <lustre/lustre_user.h>
 
 #include "robinhood/backends/posix.h"
 #include "robinhood/backends/posix_internal.h"
@@ -133,16 +135,41 @@ fill_sequence_pair(const char *key, struct rbh_value *values, uint64_t length,
 static int
 xattrs_get_fid(int fd, struct rbh_value_pair *pairs)
 {
-    struct lu_fid fid;
+    size_t handle_size = sizeof(struct lustre_file_handle);
+    static struct file_handle *handle;
+    int mount_id;
     int rc;
 
-    rc = llapi_fd2fid(fd, &fid);
-    if (rc) {
-        errno = -rc;
-        return -1;
+    if (handle == NULL) {
+        /* Per-thread initialization of `handle' */
+        handle = malloc(sizeof(*handle) + handle_size);
+        if (handle == NULL)
+            return -1;
+        handle->handle_bytes = handle_size;
     }
 
-    rc = fill_binary_pair("fid", &fid, sizeof(fid), pairs);
+retry:
+    handle->handle_bytes = handle_size;
+    if (name_to_handle_at(fd, "", handle, &mount_id, AT_EMPTY_PATH)) {
+        struct file_handle *tmp;
+
+        if (errno != EOVERFLOW || handle->handle_bytes <= handle_size)
+            return -1;
+
+        tmp = malloc(sizeof(*tmp) + handle->handle_bytes);
+        if (tmp == NULL)
+            return -1;
+
+        handle_size = handle->handle_bytes;
+        free(handle);
+        handle = tmp;
+        goto retry;
+    }
+
+    rc = fill_binary_pair(
+        "fid", &((struct lustre_file_handle *)handle->f_handle)->lfh_child,
+        sizeof(struct lu_fid), pairs
+    );
 
     return rc ? : 1;
 }
