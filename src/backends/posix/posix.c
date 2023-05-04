@@ -364,8 +364,15 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len,
         fd = openat(AT_FDCWD, ftsent->fts_accpath,
                     O_CLOEXEC | O_NOFOLLOW | O_PATH);
 
-    if (fd < 0)
+    if (fd < 0) {
+        fprintf(stderr, "Failed to open '%s': %s (%d)\n",
+                path.string, strerror(errno), errno);
+        /* Set errno to ESTALE to not stop the iterator for a single failed
+         * entry.
+         */
+        errno = ESTALE;
         return NULL;
+    }
 
     if (sprintf(proc_fd_path, "/proc/self/fd/%d", fd) == -1) {
         errno = ENOMEM;
@@ -384,6 +391,12 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len,
     if (rbh_statx(fd, "", statx_flags | statx_sync_type,
                   RBH_STATX_BASIC_STATS | RBH_STATX_BTIME | RBH_STATX_MNT_ID,
                   &statxbuf)) {
+        fprintf(stderr, "Failed to stat '%s': %s (%d)\n",
+                path.string, strerror(errno), errno);
+        /* Set errno to ESTALE to not stop the iterator for a single failed
+         * entry.
+         */
+        errno = ESTALE;
         save_errno = errno;
         goto out_free_id;
     }
@@ -398,6 +411,12 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len,
         symlink = freadlink(fd, (size_t *)&statxbuf.stx_size);
 
         if (symlink == NULL) {
+            fprintf(stderr, "Failed to readlink '%s': %s (%d)\n",
+                    path.string, strerror(errno), errno);
+            /* Set errno to ESTALE to not stop the iterator for a single failed
+             * entry.
+             */
+            errno = ESTALE;
             save_errno = errno;
             goto out_free_id;
         }
@@ -405,6 +424,14 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len,
 
     count = getxattrs(proc_fd_path, &pairs, &pairs_count, values, xattrs);
     if (count == -1) {
+        if (errno != ENOMEM) {
+            fprintf(stderr, "Failed to get xattrs of '%s': %s (%d)\n",
+                    path.string, strerror(errno), errno);
+            /* Set errno to ESTALE to not stop the iterator for a single failed
+            * entry.
+            */
+            errno = ESTALE;
+        }
         save_errno = errno;
         goto out_clear_sstacks;
     }
@@ -423,6 +450,15 @@ fsentry_from_ftsent(FTSENT *ftsent, int statx_sync_type, size_t prefix_len,
         ns_count = ns_xattrs_callback(fd, statxbuf.stx_mode, pairs, &count,
                                       &ns_pairs[ns_xattrs.count], ns_values);
         if (ns_count == -1) {
+            if (errno != ENOMEM) {
+                fprintf(stderr,
+                        "Failed to get namespace xattrs of '%s': %s (%d)\n",
+                        path.string, strerror(errno), errno);
+                /* Set errno to ESTALE to not stop the iterator for a single
+                 * failed entry.
+                 */
+                errno = ESTALE;
+            }
             save_errno = errno;
             goto out_clear_sstacks;
         }
