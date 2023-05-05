@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5270b584_85801650",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-05T08:27:35Z",
+      "side": 1,
+      "message": "Missing modifications for the retrieval of liblustreapi in the lustre backend, as \"dependency\" does not work for lustre 2.12",
+      "revId": "0e9c3d9ef5a68966e42850697c8dd9add4b43027",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
