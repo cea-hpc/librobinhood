@@ -22,6 +22,29 @@
       },
       "revId": "b62961aa02ef4e92beb1d0afcc38bdeb04da0182",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88ce32f8_a3890590",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-05-09T08:04:21Z",
+      "side": 1,
+      "message": "nit: moving the variable is not mandatory, it can stay in the condition block",
+      "range": {
+        "startLine": 644,
+        "startChar": 4,
+        "endLine": 644,
+        "endChar": 16
+      },
+      "revId": "b62961aa02ef4e92beb1d0afcc38bdeb04da0182",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
