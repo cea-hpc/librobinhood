@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42a89a9d_29c64d06",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-10T08:42:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1eb364bd_04883263",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "b62961aa02ef4e92beb1d0afcc38bdeb04da0182",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88ce32f8_a3890590",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-09T08:04:21Z",
       "side": 1,
       "message": "nit: moving the variable is not mandatory, it can stay in the condition block",
+      "range": {
+        "startLine": 644,
+        "startChar": 4,
+        "endLine": 644,
+        "endChar": 16
+      },
+      "revId": "b62961aa02ef4e92beb1d0afcc38bdeb04da0182",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72804cef_97c5ab61",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-10T08:42:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88ce32f8_a3890590",
       "range": {
         "startLine": 644,
         "startChar": 4,
