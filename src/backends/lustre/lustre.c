@@ -2,18 +2,33 @@
 # include "config.h"
 #endif
 
+#include <fcntl.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <sys/ioctl.h>
 #include <sys/param.h>
+#include <sys/types.h>
+#include <sys/xattr.h>
 
 #include <lustre/lustreapi.h>
+#include <lustre/lustre_user.h>
+#include <linux/lustre/lustre_idl.h>
 
 #include "robinhood/backends/posix.h"
 #include "robinhood/backends/posix_internal.h"
 #include "robinhood/backends/lustre.h"
 #include "robinhood/statx.h"
+
+#ifndef HAVE_LUSTRE_FILE_HANDLE
+/* This structure is not defined before 2.15, so we define it to retrieve the
+ * fid of a file
+ */
+struct lustre_file_handle {
+    struct lu_fid lfh_child;
+    struct lu_fid lfh_parent;
+};
+#endif
 
 struct iterator_data {
     struct rbh_value *stripe_count;
@@ -145,16 +160,41 @@ fill_sequence_pair(const char *key, struct rbh_value *values, uint64_t length,
 static int
 xattrs_get_fid(int fd, struct rbh_value_pair *pairs)
 {
-    struct lu_fid fid;
+    size_t handle_size = sizeof(struct lustre_file_handle);
+    static struct file_handle *handle;
+    int mount_id;
     int rc;
 
-    rc = llapi_fd2fid(fd, &fid);
-    if (rc) {
-        errno = -rc;
-        return -1;
+    if (handle == NULL) {
+        /* Per-thread initialization of `handle' */
+        handle = malloc(sizeof(*handle) + handle_size);
+        if (handle == NULL)
+            return -1;
+        handle->handle_bytes = handle_size;
     }
 
-    rc = fill_binary_pair("fid", &fid, sizeof(fid), pairs);
+retry:
+    handle->handle_bytes = handle_size;
+    if (name_to_handle_at(fd, "", handle, &mount_id, AT_EMPTY_PATH)) {
+        struct file_handle *tmp;
+
+        if (errno != EOVERFLOW || handle->handle_bytes <= handle_size)
+            return -1;
+
+        tmp = malloc(sizeof(*tmp) + handle->handle_bytes);
+        if (tmp == NULL)
+            return -1;
+
+        handle_size = handle->handle_bytes;
+        free(handle);
+        handle = tmp;
+        goto retry;
+    }
+
+    rc = fill_binary_pair(
+        "fid", &((struct lustre_file_handle *)handle->f_handle)->lfh_child,
+        sizeof(struct lu_fid), pairs
+    );
 
     return rc ? : 1;
 }
@@ -178,10 +218,13 @@ xattrs_get_hsm(int fd, struct rbh_value_pair *pairs)
         return 0;
 
     rc = llapi_hsm_state_get_fd(fd, &hus);
-    if (rc) {
+    if (rc && rc != -ENODATA) {
         errno = -rc;
         return -1;
     }
+
+    if (rc == -ENODATA || hus.hus_archive_id == 0)
+        return 0;
 
     rc = fill_uint32_pair("hsm_state", hus.hus_states, &pairs[subcount++]);
     if (rc)
@@ -464,28 +507,16 @@ xattrs_fill_layout(struct iterator_data *data, int nb_xattrs,
     return subcount;
 }
 
-/**
- * Record a file's magic number and layout generation in \p pairs
- *
- * @param fd        file descriptor to check
- * @param pairs     list of pairs to fill
- *
- * @return          number of filled \p pairs
- */
 static int
-xattrs_get_magic_and_gen(int fd, struct rbh_value_pair *pairs)
+_xattrs_get_magic_and_gen(int fd, const char *lov_buf,
+                          struct rbh_value_pair *pairs)
 {
-    const char *lov_buf;
     uint32_t magic = 0;
     int magic_str_len;
     int subcount = 0;
     uint32_t gen = 0;
     char *magic_str;
     int rc;
-
-    for (int i = 0; i < *_inode_xattrs_count; ++i)
-        if (!strcmp(_inode_xattrs[i].key, XATTR_LUSTRE_LOV))
-            lov_buf = _inode_xattrs[i].value->binary.data;
 
     magic = ((struct lov_user_md *) lov_buf)->lmm_magic;
 
@@ -500,11 +531,13 @@ xattrs_get_magic_and_gen(int fd, struct rbh_value_pair *pairs)
         magic_str_len = strlen(magic_str);
         gen = ((struct lov_comp_md_v1 *) lov_buf)->lcm_layout_gen;
         break;
+#ifdef HAVE_LOV_USER_MAGIC_SEL
     case LOV_USER_MAGIC_SEL:
         magic_str = "LOV_USER_MAGIC_SEL";
         magic_str_len = strlen(magic_str);
         gen = ((struct lov_comp_md_v1 *) lov_buf)->lcm_layout_gen;
         break;
+#endif
     case LOV_USER_MAGIC_V3:
         magic_str = "LOV_USER_MAGIC_V3";
         magic_str_len = strlen(magic_str);
@@ -515,11 +548,13 @@ xattrs_get_magic_and_gen(int fd, struct rbh_value_pair *pairs)
         magic_str_len = strlen(magic_str);
         gen = ((struct lov_user_md_v3 *) lov_buf)->lmm_layout_gen;
         break;
+#ifdef HAVE_LOV_USER_MAGIC_FOREIGN
     case LOV_USER_MAGIC_FOREIGN:
         magic_str = "LOV_USER_MAGIC_FOREIGN";
         magic_str_len = strlen(magic_str);
         gen = -1;
         break;
+#endif
     default:
         errno = EINVAL;
         return -1;
@@ -535,6 +570,50 @@ xattrs_get_magic_and_gen(int fd, struct rbh_value_pair *pairs)
         return -1;
 
     return subcount;
+}
+
+/* The Linux VFS does not allow values of more than 64KiB */
+static const size_t XATTR_VALUE_MAX_VFS_SIZE = 1 << 16;
+
+/**
+ * Record a file's magic number and layout generation in \p pairs
+ *
+ * @param fd        file descriptor to check
+ * @param pairs     list of pairs to fill
+ *
+ * @return          number of filled \p pairs
+ */
+static int
+xattrs_get_magic_and_gen(int fd, struct rbh_value_pair *pairs)
+{
+    char buffer[XATTR_VALUE_MAX_VFS_SIZE];
+    const char *lov_buf;
+    int save_errno;
+
+    if (_inode_xattrs != NULL) {
+        for (int i = 0; i < *_inode_xattrs_count; ++i)
+            if (!strcmp(_inode_xattrs[i].key, XATTR_LUSTRE_LOV)) {
+                lov_buf = _inode_xattrs[i].value->binary.data;
+                break;
+            }
+    } else {
+    /* TODO: when the attribute will be retrieved using the changelog,
+     * change the xattr retrieval by seeking the one already retrieved.
+     */
+        ssize_t length = XATTR_VALUE_MAX_VFS_SIZE;
+
+        length = fgetxattr(fd, XATTR_LUSTRE_LOV, buffer, length);
+        if (length == -1) {
+            save_errno = errno;
+            free(buffer);
+            errno = save_errno;
+            return -1;
+        }
+
+        lov_buf = buffer;
+    }
+
+    return _xattrs_get_magic_and_gen(fd, lov_buf, pairs);
 }
 
 /**
@@ -620,10 +699,12 @@ xattrs_get_layout(int fd, struct rbh_value_pair *pairs)
     if (rc)
         goto err;
 
-    if (llapi_layout_is_composite(layout))
+    if (llapi_layout_is_composite(layout)) {
         rc = llapi_layout_comp_iterate(layout, &xattrs_layout_iterator, &data);
-    else
+    } else {
         rc = fill_iterator_data(layout, &data, 0);
+        data.comp_index = 1;
+    }
 
     if (rc)
         goto free_data;
@@ -654,26 +735,45 @@ xattrs_get_mdt_info(int fd, struct rbh_value_pair *pairs)
     int rc = 0;
 
     if (is_dir) {
-        struct lmv_user_md lum = {
-            .lum_magic = LMV_USER_MAGIC,
-        };
+        struct lmv_user_mds_data *objects;
         struct rbh_value *mdt_idx;
+        struct lmv_user_md *lum;
+        int stripe_count = 256;
         int save_errno = 0;
 
-        rc = ioctl(fd, LL_IOC_LMV_GETSTRIPE, &lum);
+        /* This is how it is done in Lustre, initiate the lmv_user_md
+         * structure to the correct magic number and a default stripe_count of
+         * 256, do the ioctl which will fail because the stripe_count/size is
+         * invalid, update the stripe_count, reallocate the structure, and do
+         * the ioctl again.
+         */
+again:
+        lum = calloc(1,
+                     lmv_user_md_size(stripe_count, LMV_USER_MAGIC_SPECIFIC));
+        lum->lum_magic = LMV_MAGIC_V1;
+        lum->lum_stripe_count = stripe_count;
+
+        rc = ioctl(fd, LL_IOC_LMV_GETSTRIPE, lum);
         if (rc && errno == ENODATA)
             return 0;
-        else if (rc)
+        else if (rc && errno == E2BIG) {
+            stripe_count = lum->lum_stripe_count;
+            free(lum);
+            errno = 0;
+            goto again;
+        } else if (rc)
             return rc;
 
-        mdt_idx = calloc(lum.lum_stripe_count, sizeof(*mdt_idx));
+        mdt_idx = calloc(lum->lum_stripe_count, sizeof(*mdt_idx));
         if (mdt_idx == NULL)
             return -1;
 
-        for (int i = 0; i < lum.lum_stripe_count; i++)
-            mdt_idx[i] = create_uint32_value(lum.lum_objects[i].lum_mds);
+        objects = lum->lum_objects;
 
-        rc = fill_sequence_pair("mdt_idx", mdt_idx, lum.lum_stripe_count,
+        for (int i = 0; i < lum->lum_stripe_count; i++)
+            mdt_idx[i] = create_uint32_value(objects[i].lum_mds);
+
+        rc = fill_sequence_pair("child_mdt_idx", mdt_idx, lum->lum_stripe_count,
                                 &pairs[subcount++]);
         save_errno = errno;
         free(mdt_idx);
@@ -681,16 +781,29 @@ xattrs_get_mdt_info(int fd, struct rbh_value_pair *pairs)
         if (rc)
             return -1;
 
-        rc = fill_uint32_pair("mdt_hash", lum.lum_hash_type,
+        /* TODO: change this to "mdt_hash_type" when modifying the structure of
+         * the Lustre attributes (i.e. "xattrs.mdt : { child_mdt_idx, hash_type,
+         * hash_flags, count }")
+         */
+        rc = fill_uint32_pair("mdt_hash",
+                              lum->lum_hash_type & LMV_HASH_TYPE_MASK,
                               &pairs[subcount++]);
         if (rc)
             return -1;
 
-        rc = fill_uint32_pair("mdt_count", lum.lum_stripe_count,
+        rc = fill_uint32_pair("mdt_hash_flags",
+                              lum->lum_hash_type & ~LMV_HASH_TYPE_MASK,
                               &pairs[subcount++]);
         if (rc)
             return -1;
-    } else if (!is_symlink) {
+
+        rc = fill_uint32_pair("mdt_count", lum->lum_stripe_count,
+                              &pairs[subcount++]);
+        if (rc)
+            return -1;
+    }
+
+    if (!is_symlink) {
         int32_t mdt;
 
         rc = llapi_file_fget_mdtidx(fd, &mdt);
@@ -770,7 +883,51 @@ xattrs_get_retention(const struct rbh_statx *statx)
     }
 }
 
-static ssize_t
+static int
+_get_attrs(const int fd, const uint16_t mode,
+           int (*attrs_funcs[])(int, struct rbh_value_pair *),
+           int nb_attrs_funcs,
+           struct rbh_value_pair *inode_xattrs,
+           ssize_t *inode_xattrs_count,
+           struct rbh_value_pair *pairs,
+           struct rbh_sstack *values)
+{
+    int count = 0;
+    int subcount;
+
+    _inode_xattrs_count = inode_xattrs_count;
+    _inode_xattrs = inode_xattrs;
+    is_symlink = S_ISLNK(mode);
+    is_dir = S_ISDIR(mode);
+    is_reg = S_ISREG(mode);
+    _values = values;
+
+    for (int i = 0; i < nb_attrs_funcs; ++i) {
+        subcount = attrs_funcs[i](fd, &pairs[count]);
+        if (subcount == -1)
+            return -1;
+
+        count += subcount;
+    }
+
+    return count;
+}
+
+static int
+lustre_get_attrs(const int fd, const uint16_t mode,
+                 struct rbh_value_pair *pairs,
+                 struct rbh_sstack *values)
+{
+    int (*xattrs_funcs[])(int, struct rbh_value_pair *) = {
+        xattrs_get_hsm, xattrs_get_layout, xattrs_get_mdt_info
+    };
+
+    return _get_attrs(fd, mode, xattrs_funcs,
+                      sizeof(xattrs_funcs) / sizeof(xattrs_funcs[0]),
+                      NULL, NULL, pairs, values);
+}
+
+static int
 lustre_ns_xattrs_callback(const int fd, const struct rbh_statx *statx,
                           struct rbh_value_pair *inode_xattrs,
                           ssize_t *inode_xattrs_count,
@@ -780,27 +937,34 @@ lustre_ns_xattrs_callback(const int fd, const struct rbh_statx *statx,
     int (*xattrs_funcs[])(int, struct rbh_value_pair *) = {
         xattrs_get_fid, xattrs_get_hsm, xattrs_get_layout, xattrs_get_mdt_info
     };
-    int count = 0;
-    int subcount;
+    int count;
 
-    _inode_xattrs_count = inode_xattrs_count;
-    _inode_xattrs = inode_xattrs;
-    is_symlink = S_ISLNK(statx->stx_mode);
-    is_dir = S_ISDIR(statx->stx_mode);
-    is_reg = S_ISREG(statx->stx_mode);
-    _values = values;
-
-    for (int i = 0; i < sizeof(xattrs_funcs) / sizeof(xattrs_funcs[0]); ++i) {
-        subcount = xattrs_funcs[i](fd, &pairs[count]);
-        if (subcount == -1)
-            return -1;
-
-        count += subcount;
-    }
+    count = _get_attrs(fd, statx->stx_mode, xattrs_funcs,
+                       sizeof(xattrs_funcs) / sizeof(xattrs_funcs[0]),
+                       inode_xattrs, inode_xattrs_count, pairs, values);
 
     xattrs_get_retention(statx);
 
     return count;
+}
+
+static int
+lustre_backend_get_attribute(void *backend, const char *attr_name,
+                             void *_arg, struct rbh_value_pair *data)
+{
+    struct arg_t {
+        int fd;
+        uint16_t mode;
+        struct rbh_sstack *values;
+    };
+    struct arg_t *arg = (struct arg_t *)_arg;
+
+    (void)backend;
+
+    if (strcmp(attr_name, "lustre") != 0)
+        return -1;
+
+    return lustre_get_attrs(arg->fd, arg->mode, data, arg->values);
 }
 
 struct posix_iterator *
@@ -817,6 +981,16 @@ lustre_iterator_new(const char *root, const char *entry, int statx_sync_type)
     return lustre_iter;
 }
 
+static const struct rbh_backend_operations LUSTRE_BACKEND_OPS = {
+    .get_option = posix_backend_get_option,
+    .set_option = posix_backend_set_option,
+    .branch = posix_backend_branch,
+    .root = posix_root,
+    .filter = posix_backend_filter,
+    .get_attribute = lustre_backend_get_attribute,
+    .destroy = posix_backend_destroy,
+};
+
 struct rbh_backend *
 rbh_lustre_backend_new(const char *path)
 {
@@ -829,6 +1003,7 @@ rbh_lustre_backend_new(const char *path)
     lustre->iter_new = lustre_iterator_new;
     lustre->backend.id = RBH_BI_LUSTRE;
     lustre->backend.name = RBH_LUSTRE_BACKEND_NAME;
+    lustre->backend.ops = &LUSTRE_BACKEND_OPS;
 
     return &lustre->backend;
 }
