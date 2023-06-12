@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96e3eeaa_584974d7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-12T13:38:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0b19f6a_9884b06a",
+      "range": {
+        "startLine": 7,
+        "startChar": 39,
+        "endLine": 7,
+        "endChar": 45
+      },
+      "revId": "28afaaadb6dacfc50fb148be8d7f4e49002eaf7e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fef61d0b_c21f9f14",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-12T13:09:17Z",
       "side": 1,
       "message": "suggest: simply \"do not call llapi_file_fget_mdtidx\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 29,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "28afaaadb6dacfc50fb148be8d7f4e49002eaf7e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e047ed3_c251283c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-12T13:38:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fef61d0b_c21f9f14",
       "range": {
         "startLine": 9,
         "startChar": 29,
