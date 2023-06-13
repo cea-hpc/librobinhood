@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86d1e8df_61a28514",
+        "filename": "src/backends/lustre/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-13T09:11:59Z",
+      "side": 1,
+      "message": "defect: you still have a memory leak for each return that follow the switch statement. You probably just need to replace the return -1 by a goto free_lum",
+      "range": {
+        "startLine": 831,
+        "startChar": 12,
+        "endLine": 831,
+        "endChar": 22
+      },
+      "revId": "87e538c29297c87093377da8a189da4da159521d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
